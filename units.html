@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Explicit Units Style for Matlab</title>
+     
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+</head>
+<body>
+<h1>Explicit Units Style</h1>
+<h2>Matlab implementation</h2>
+<address>by Ryan Gray<br>
+<br>
+</address>
+This folder contains a library of small Matlab functions that implement my
+<a href="file://///ALB-NT01/Public/Staff/Gray/pub/UnitsStyle.html">Explicit
+Units Style</a> method. Currently, the units set is not complete, for example,
+liquid units are very lacking.<br>
+<br>
+Installation:<br>
+<br>
+Add the units folder to your Matlab path.<br>
+<br>
+Use:<br>
+<br>
+Each unit is implemented as a function of the same name or as several functions
+for various spellings like feet and foot, etc. Each function evaluates to
+a number that amounts to the multiplicative conversion factor from that unit
+into the base unit. The current implementation has base units of meters, kg,
+seconds, radians. The value of foot is thus 0.3047851. It is actually defined
+as <code>0.3047851 * meters</code> in foot.m, but meters is the base, and
+so the value of meters (and meter) is 1.0. It is called explicit because in
+foot.m, the expression x = <code>0.3047851 * meters </code>is explicit about
+what the quantity is. For more detail, see my paper describing this style.<br>
+<br>
+Basically, you declare a value to be in particular units by multiplying and
+dividing it by the unit function names just as you would write the value.
+For example: <code>9.81 * meters / second^2</code><br>
+Sure, meters and second have values of 1.0, but it <i>explicitly</i> states
+the units the number is in. Moreover, you could combine your code with a units
+function library that has different base units, and your code would work
+correctly. &nbsp;This is because in a foot-based unit library, the value of
+<code>meters</code> is not <code>1.0</code>, but <code>3.281</code>. Thus
+making the quantity have the correct value in that system.<br>
+<br>
+To print a value in a particular unit, simply divide by the unit or unit expression
+you wish to convert it to. For example, if <code>v</code> is velocity, and
+you want it in kilometers per second, you would use: <br>
+<blockquote><code>v / (km / second)</code><br>
+</blockquote>
+You might think you could get away with just <br>
+<blockquote><code>v / km</code><br>
+</blockquote>
+but that would break if the base units were hours or if someone thought they
+were hours, but mostly it's because using "km/second" reinforces that this
+is a speed quantity, and helps with readibility and error checking. Notice
+I did not use:<br>
+<blockquote><code>v / km * second</code><br>
+</blockquote>
+Since that is more obscure about the units, and grouping the units with parenthesis
+allows you to use one divide or conversion operation to clearly indicate a
+unit conversion.<br>
+<br>
+You could also use unit conversion in code if you needed a value in a particular
+unit for some reason. An example could be chopping up a time, <code>T</code>,
+into hours, minutes and seconds:<br>
+<blockquote><code>h = floor(T / hours);</code><br>
+  <code>m = floor((T - h*hours) / minutes);</code><br>
+  <code>s = T - h*hours - m*minutes;</code><br>
+  <code></code></blockquote>
+I've also used it when I have a subroutine that interfaces with other code
+to explicitly declare the units that the values passed in and out have. The
+added value is that it both documents what the units in the interface are
+and helps assure that my side of &nbsp;the interface passes the correct units.
+The units passed are declared in the interface control document, but if the
+code needs to be checked, you don't have to look further than the interface
+routine to figure out if the units of the variable is what the document says
+it should be.<br>
+<br>
+However, these are all very nice computer scientist thrills, but does it have
+a better everyday use? Having it in Matlab, it makes interactive mode calulations
+nice. &nbsp;Pull in some numbers from a file that are in feet without concern
+of what you are using:<br>
+<br>
+<blockquote><code>[t x y z] = textread('flyout_in_feet.txt');</code><br>
+  <code>t = t * seconds;</code><br>
+  <code>pos = [x' * feet; y' * feet; z' * feet];</code><br>
+  <code></code></blockquote>
+There are genereic unit prefixes defined, so you can compose units that aren't
+already there, such as a picometer by using the expression:<br>
+pico*meter<br>
+Just don't forget when converting to it to use:<br>
+<blockquote><code>x / (pico*meter)</code><br>
+</blockquote>
+to get the right answer. But you could always do this too:<br>
+<blockquote><code>pm = pico*meter;</code><br>
+  <code>x / pm;</code><br>
+  <code></code></blockquote>
+Unfortunately, this style does not support shift conversions such as &deg;C
+to &deg;F. However, it can do C&deg; to F&deg; with cdeg and fdeg (and kdeg
+as well). If you don't know what the difference is, then nevermind.<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
