@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into BTU by dividing value in internal units by it. 
 
-function x = unit 
+function btu = unit 
 
-x = 9.480547e-4 * joules; 
+btu = 1.055056E+03 * joule;
