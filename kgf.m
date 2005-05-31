@@ -5,7 +5,8 @@
 % kgf is the common usage of kilogram when speaking of weights, such as
 % the fruit "weighs" 1 kilogram, but that really means that at 1g, 
 % you have 1 kg mass of fruit that weighs 9.80665 Newtons.
+% See also: KG, LBM, SLUG, LBF, KGM
 
-function x = unit 
+function kgf = unit 
 
-x = kg * g0; % f=m*a, or f=mg (standard g = g0)
+kgf = kg * g0; % f=m*a, or f=mg (standard g = g0)

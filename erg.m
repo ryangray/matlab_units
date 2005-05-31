@@ -1,7 +1,7 @@
 % Unit erg
 % Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
+% Converts number into erg by dividing value in internal units by it. 
 
-function x = unit()
+function erg = unit()
 
-x = cm^2*gram/second^2;
+erg = cm^2 * gram / second^2;
