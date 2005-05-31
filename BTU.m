@@ -4,4 +4,4 @@
 
 function btu = unit 
 
-btu = 1.055056E+03 * joule;
+btu = 1055.05585262 * joule; % International Table calorie from The Fifth International Conference on the Properties of Steam (London, July 1956)
