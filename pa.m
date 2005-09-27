@@ -7,4 +7,4 @@
 
 function Pa = unit 
 
-Pa = Newton / meter^2;
+Pa = newton / meter^2;

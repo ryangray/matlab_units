@@ -4,8 +4,8 @@
 % The pound-mass is the mass that weighs 1 pound-force at 1g, and it
 % is numericlly the same amount as the pound-force. 1 lbf = 1 lbm * 1g
 % The proper english mass unit is the slug: 
-%    32.174 lbf = 1 slug * 32.174 ft/s/s
-% or      1 lbf = 1 slug *      1 ft/s/s
+%         1 lbf = 1 slug *      1 ft/s/s
+% or      1 lbf = 1 lbm  * 32.174 ft/s/s
 % This means that to get slugs from lbm, you have to multiply by the
 % magnitude of g0 (without units) since:
 %    1 lbf      = 1 slug * 1 ft/s/s

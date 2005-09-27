@@ -4,4 +4,4 @@
 
 function x = unit 
 
-x = 1024 * mibibyte; 
+x = 1024 * mebibyte; 
