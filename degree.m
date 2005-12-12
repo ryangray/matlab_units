@@ -4,4 +4,4 @@
 
 function x = unit 
 
-x = degrees; 
+x = deg; 

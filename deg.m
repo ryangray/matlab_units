@@ -4,4 +4,4 @@
 
 function x = unit 
 
-x = degree; 
+x = pi / 180 * radians; 
