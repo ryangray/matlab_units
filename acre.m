@@ -2,7 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into acre by dividing value in internal units by it. 
 
-function x = unit()
+function acre = unit()
 
-x = 4840 * yard^2;
-
+acre = 4840 * yard^2;
