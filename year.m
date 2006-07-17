@@ -4,4 +4,4 @@
 
 function x = unit 
 
-x = 365.25 * days; 
+x = 365.25 * day; 

@@ -1,10 +1,20 @@
 % Units
-% Prints the units system in use:  units
-% Other usage gives the base dimensions:
-%  units('length')
-%  units('time')
-%  units('mass')
-%  etc.
+% Usage: units              % Prints the units system in use
+%        units('length')    % Gives the base length name
+%          or: units length
+%        units('time')      % Gives the base time name
+%          or: units time
+%        units('mass')      % Gives the base mass name
+%          or: units mass
+%        units('list')      % Lists all the units m functions
+%          or: units list
+%        units('help') or 
+%            units('doc')   % Opens the help document for units
+%          or: units length
+%          or: units doc
+%        units(units_expression) % evaluates the units expression string
+%                                  ignoring local variables that might mask
+%                                  units functions as well as allowing 'sec'
 
 function x = units (varargin)
 
@@ -16,6 +26,28 @@ else
     
     switch lower(varargin{1})
         
+        case {'help','doc'}
+            
+            if ispc
+                
+                system(which('units.html'));
+                
+            elseif strcmp(computer, 'MAC')
+                
+                system(['open ' which('units.html')]);
+                
+            else
+                
+                units('list');
+                
+            end
+            
+        case {'list','ls'}
+            
+            [pathstr,name,ext,versn] = fileparts(which(mfilename));
+
+            ls(fullfile(pathstr,['*.m' versn]));
+            
         case 'length'
             
             x = 'meter';

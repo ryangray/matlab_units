@@ -1,4 +1,4 @@
-% hms
+% Time hms
 % Usage: hms(time)
 % Prints a time in hours, minutes, seconds as:
 %     hh:mm:ss.sss
