@@ -1,7 +1,8 @@
 % Unit nibble 
 % Converts number to internal units by multplying by it 
 % Converts number into nibble by dividing value in internal units by it. 
+% See also: BYTE, BIT
 
-function x = unit 
+function nibble = unit 
 
-x = 4 * bit; 
+nibble = 4 * bit; 

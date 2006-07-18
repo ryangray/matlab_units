@@ -1,7 +1,8 @@
 % Unit megabyte 
 % Converts number to internal units by multplying by it 
 % Converts number into megabyte by dividing value in internal units by it. 
+% See also: MEGA, BYTE, MEBIBYTE
 
-function x = unit 
+function megabyte = unit 
 
-x = 1000 * kilobyte; 
+megabyte = mega * byte; % 1000 * kilobyte

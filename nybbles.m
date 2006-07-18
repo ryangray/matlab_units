@@ -1,7 +1,8 @@
-% Unit nibbles 
+% Unit nybbles 
 % Converts number to internal units by multplying by it 
 % Converts number into nibbles by dividing value in internal units by it. 
+% See also: NIBBLE
 
-function x = unit 
+function nybbles = unit 
 
-x = nibble; 
+nybbles = nibble; 

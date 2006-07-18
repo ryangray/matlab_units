@@ -1,7 +1,8 @@
-% Unit KB = kibibyte (aka kilobyte)
+% Unit kb = kibibyte
 % Converts number to internal units by multplying by it 
 % Converts number into byte by dividing value in internal units by it. 
+% See also: KIBIBYTE, KILOBYTE
 
-function x = unit 
+function kb = unit 
 
-x = kibibyte; 
+kb = kibibyte; 

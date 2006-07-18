@@ -1,7 +1,8 @@
 % Unit gigabyte 
 % Converts number to internal units by multplying by it 
 % Converts number into gigabyte by dividing value in internal units by it. 
+% See also: GIGA, BYTE, GIBIBYTE
 
-function x = unit 
+function gigabyte = unit 
 
-x = 1000 * megabytes;
+gigabyte = giga * byte; % 1000 * megabytes;
