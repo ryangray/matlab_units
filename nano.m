@@ -1,7 +1,8 @@
-% Unit nano 
+% prefix nano 10^-9
 % Converts number to internal units by multplying by it 
-% Converts number into nano by dividing value in internal units by it. 
+% Converts number into pico by dividing value in internal units by it. 
+% See also: YOCTO, ZEPTO, ATTO, FEMTO, PICO, NANO, MICRO, MILLI, CENTI, DECI, DECA, HECTO, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA, YOTTA, KIBI
 
-function x = unit 
+function nano = prefix 
 
-x = 1.e-9; 
+nano = 1.e-9; 

@@ -1,8 +1,8 @@
-% prefix milli 10^-3
+% prefix exa 10^18
 % Converts number to internal units by multplying by it 
-% Converts number into milli by dividing value in internal units by it. 
+% Converts number into centi by dividing value in internal units by it. 
 % See also: YOCTO, ZEPTO, ATTO, FEMTO, PICO, NANO, MICRO, MILLI, CENTI, DECI, DECA, HECTO, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA, YOTTA, KIBI
 
-function milli = prefix 
+function exa = prefix 
 
-milli = 1.e-3; 
+exa = 1.e18; 

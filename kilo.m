@@ -1,7 +1,8 @@
-% Unit kilo 
+% prefix kilo 10^3
 % Converts number to internal units by multplying by it 
 % Converts number into kilo by dividing value in internal units by it. 
+% See also: YOCTO, ZEPTO, ATTO, FEMTO, PICO, NANO, MICRO, MILLI, CENTI, DECI, DECA, HECTO, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA, YOTTA, KIBI
 
-function x = unit 
+function kilo = prefix 
 
-x = 1.e+3; 
+kilo = 1.e+3; 

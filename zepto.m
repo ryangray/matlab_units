@@ -1,8 +1,8 @@
-% prefix milli 10^-3
+% prefix zepto 10^-21
 % Converts number to internal units by multplying by it 
-% Converts number into milli by dividing value in internal units by it. 
+% Converts number into pico by dividing value in internal units by it. 
 % See also: YOCTO, ZEPTO, ATTO, FEMTO, PICO, NANO, MICRO, MILLI, CENTI, DECI, DECA, HECTO, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA, YOTTA, KIBI
 
-function milli = prefix 
+function zepto = prefix 
 
-milli = 1.e-3; 
+zepto = 1.e-21; 

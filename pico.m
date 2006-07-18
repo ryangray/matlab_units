@@ -1,7 +1,8 @@
-% Unit pico 
+% prefix pico 10^-12
 % Converts number to internal units by multplying by it 
 % Converts number into pico by dividing value in internal units by it. 
+% See also: YOCTO, ZEPTO, ATTO, FEMTO, PICO, NANO, MICRO, MILLI, CENTI, DECI, DECA, HECTO, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA, YOTTA, KIBI
 
-function x = unit 
+function pico = prefix 
 
-x = 1.e-12; 
+pico  = 1.e-12; 
