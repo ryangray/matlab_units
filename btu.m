@@ -1,6 +1,7 @@
-% Unit BTU 
+% Unit btu
 % Converts number to internal units by multplying by it 
 % Converts number into BTU by dividing value in internal units by it. 
+% See also: JOULE
 
 function btu = unit 
 

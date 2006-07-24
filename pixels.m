@@ -1,7 +1,7 @@
-% Unit pixel
+% Unit pixels
 % Converts number to internal units by multplying by it 
 % Converts number into it by dividing value in internal units by it. 
 
-function x = unit 
+function pixels = unit 
 
-x = pixel; 
+pixels = pixel; 

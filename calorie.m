@@ -1,6 +1,7 @@
-% Unit Calorie
+% Unit calorie
 % Converts number to internal units by multplying by it 
 % Converts number into calorie by dividing value in internal units by it. 
+% See also: KCAL, JOULE
 
 function calorie = unit 
 

@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into nm by dividing value in internal units by it. 
 
-function x = unit 
+function nm = unit 
 
-x = nano * meter; 
+nm = nano * meter; 

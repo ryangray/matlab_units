@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into second by dividing value in internal units by it. 
 
-function x = unit 
+function second = unit 
 
-x = 1; 
+second = 1; 

@@ -1,7 +1,7 @@
-% Unit Newtons 
+% Unit newtons 
 % Converts number to internal units by multplying by it 
 % Converts number into Newtons by dividing value in internal units by it. 
 
-function x = unit 
+function newtons = unit 
 
-x = Newton; 
+newtons = newton; 

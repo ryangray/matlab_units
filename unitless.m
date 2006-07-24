@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into unitless by dividing value in internal units by it. 
 
-function x = unit 
+function unitless = unit 
 
-x = 1; 
+unitless = 1; 

@@ -1,10 +1,10 @@
-% Unit Pa (Pascal)
+% Unit pa (Pascal)
 % Converts number to internal units by multplying by it 
 % Converts number into Pa by dividing value in internal units by it. 
 % Note: There is no pascal.m in the units library because of the 
 % Matlab Pascal matric function.
 % See also: KPA
 
-function Pa = unit 
+function pa = unit 
 
-Pa = newton / meter^2;
+pa = newton / meter^2;

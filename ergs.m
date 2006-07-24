@@ -1,7 +1,8 @@
 % Unit ergs
 % Converts number to internal units by multplying by it 
 % Converts number into foot by dividing value in internal units by it. 
+% See also: ERG
 
-function x = unit()
+function ergs = unit
 
-x = erg;
+ergs = erg;

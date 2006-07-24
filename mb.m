@@ -1,7 +1,8 @@
-% Unit mebibyte
+% Unit mb = mebibyte
 % Converts number to internal units by multplying by it 
 % Converts number into this unit by dividing value in internal units by it. 
+% See also: MEBIBYTE
 
-function x = unit 
+function mb = unit 
 
-x = mebibyte; 
+mb = mebibyte; 

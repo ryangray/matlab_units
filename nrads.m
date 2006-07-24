@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into nrads by dividing value in internal units by it. 
 
-function x = unit 
+function nrads = unit 
 
-x = nano * radians; 
+nrads = nano * radian; 

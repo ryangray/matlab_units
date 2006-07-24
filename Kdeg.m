@@ -1,7 +1,8 @@
 % Unit Kdeg 
 % Converts number to internal units by multplying by it 
 % Converts number into Kdeg by dividing value in internal units by it. 
+% See also: CDEGREE, RDEGREE, KDEGREE, FDEGREE
 
-function x = unit 
+function Kdeg = unit 
 
-x = Kdegree; 
+Kdeg = Kdegree; 

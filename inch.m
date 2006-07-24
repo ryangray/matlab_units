@@ -1,7 +1,8 @@
 % Unit inch 
 % Converts number to internal units by multplying by it 
 % Converts number into inch by dividing value in internal units by it. 
+% See also: FOOT
 
-function x = unit 
+function inch = unit 
 
-x = foot / 12.0; 
+inch = foot / 12.0; 

@@ -3,6 +3,7 @@
 % Converts number into days by dividing value in internal units by it. 
 % Also, days(month) will give the number of days in the month.
 % Month is by an integer 1..12.
+% See also: DAY
 
 function x = days(varargin)
 

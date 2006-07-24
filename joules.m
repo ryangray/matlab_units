@@ -1,7 +1,8 @@
 % Unit joules 
 % Converts number to internal units by multplying by it 
 % Converts number into joules by dividing value in internal units by it. 
+% See also: JOULE
 
-function x = unit 
+function joules = unit 
 
-x = joule; 
+joules = joule; 

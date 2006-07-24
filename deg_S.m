@@ -5,8 +5,8 @@
 % and not have to use negative constants.
 % Converts number to internal units by multplying by it 
 % Converts number into deg by dividing value in internal units by it. 
-% See also: DEG_N, DEG_E, DEG_W
+% See also: DEG_N, DEG_E, DEG_W, DEG
 
-function x = unit 
+function deg_S = unit 
 
-x = -deg;
+deg_S = -deg;

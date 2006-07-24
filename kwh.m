@@ -1,7 +1,7 @@
-% Unit kWh (kilo Watt hour)
+% Unit kwh (kilo Watt hour)
 % Converts number to internal units by multplying by it 
 % Converts number into kWh by dividing value in internal units by it. 
 
-function kWh = unit
+function kwh = unit
 
-kWh =  kilo * watt * hour;
+kwh =  kilo * watt * hour;

@@ -1,7 +1,8 @@
 % Unit mile
 % Converts number to internal units by multplying by it 
 % Converts number into mile by dividing value in internal units by it. 
+% See also: FEET
 
-function x = unit 
+function mile = unit 
 
-x = 5280.0 * feet; 
+mile = 5280.0 * feet; 

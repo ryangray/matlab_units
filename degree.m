@@ -1,7 +1,8 @@
 % Unit degree 
 % Converts number to internal units by multplying by it 
 % Converts number into degree by dividing value in internal units by it. 
+% See also: DEG
 
-function x = unit 
+function degree = unit 
 
-x = deg; 
+degree = deg; 

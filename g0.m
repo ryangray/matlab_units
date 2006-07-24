@@ -1,4 +1,4 @@
-% g0
+% Const g0
 % Earth gravitational acceleration standard value
 % Ellipsoidal Earth at 45 degrees latitude
 % = 9.80665 m/s/s or 32.174 ft/s/s

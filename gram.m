@@ -1,7 +1,8 @@
 % Unit gram 
 % Converts number to internal units by multplying by it 
 % Converts number into gram by dividing value in internal units by it. 
+% See also: KILOGRAM
 
-function x = unit 
+function gram = unit 
 
-x = milli * kg;
+gram = milli * kg;

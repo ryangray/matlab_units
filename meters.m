@@ -1,7 +1,8 @@
 % Unit meters 
 % Converts number to internal units by multplying by it 
 % Converts number into meters by dividing value in internal units by it. 
+% See also: METER
 
-function x = unit 
+function meters = unit 
 
-x = meter; 
+meters = meter; 

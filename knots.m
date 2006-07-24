@@ -1,7 +1,7 @@
-% Unit knots 
+% Unit knots (there is no 'knot' unit as it conflicts with a Matlab demo)
 % Converts number to internal units by multplying by it 
 % Converts number into knots by dividing value in internal units by it. 
 
-function x = unit 
+function knots = unit 
 
-x = nmiles / hour;
+knots = nmiles / hour;

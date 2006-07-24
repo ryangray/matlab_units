@@ -1,7 +1,8 @@
 % Unit hz 
 % Converts number to internal units by multplying by it 
 % Converts number into hz by dividing value in internal units by it. 
+% See also: HERTZ
 
-function x = unit 
+function hz = unit 
 
-x = hertz; 
+hz = hertz; 

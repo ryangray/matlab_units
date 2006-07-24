@@ -2,6 +2,6 @@
 % Converts number to internal units by multplying by it 
 % Converts number into year by dividing value in internal units by it. 
 
-function x = unit 
+function year = unit 
 
-x = 365.25 * day; 
+year = 365.25 * day; 

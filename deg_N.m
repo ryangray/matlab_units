@@ -4,8 +4,8 @@
 %      a = lla2v(32*deg_N,60*deg_W);
 % Converts number to internal units by multplying by it 
 % Converts number into deg by dividing value in internal units by it. 
-% See also: DEG_S, DEG_E, DEG_W
+% See also: DEG_S, DEG_E, DEG_W, DEG
 
-function x = unit 
+function deg_N  = unit 
 
-x = deg;
+deg_N  = deg;

@@ -1,7 +1,8 @@
 % Unit ampere
 % Converts number to internal units by multplying by it 
 % Converts number into meter by dividing value in internal units by it. 
+% See also: AMPERE
 
-function x = unit 
+function ampere = unit 
 
-x = ampere; 
+ampere = ampere; 

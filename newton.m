@@ -1,7 +1,7 @@
-% Unit Newton 
+% Unit newton 
 % Converts number to internal units by multplying by it 
 % Converts number into Newton by dividing value in internal units by it. 
 
-function x = unit 
+function newton = unit 
 
-x = 1.0 * kg * meter / second^2;
+newton = 1.0 * kg * meter / second^2;
