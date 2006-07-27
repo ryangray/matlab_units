@@ -6,4 +6,4 @@
 
 function kg = unit 
 
-kg = 1; 
+kg = unit_MASS; 

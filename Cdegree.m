@@ -5,4 +5,4 @@
 
 function Cdegree = unit 
 
-Cdegree = 1; 
+Cdegree = Kdegree; 

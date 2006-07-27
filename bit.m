@@ -5,4 +5,4 @@
 
 function bit = unit 
 
-bit = 1; 
+bit = unit_INFORMATION; 

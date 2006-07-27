@@ -1,8 +1,8 @@
-% Unit nmiles = nautical_mile
+% Unit nmile = nautical_mile
 % Converts number to internal units by multplying by it 
 % Converts number into nmiles by dividing value in internal units by it. 
-% See also: NMILE
+% See also: NAUTICAL_MILE
 
-function nmiles = unit 
+function nmile = unit 
 
-nmiles = nmile;
+nmile = nautical_mile;

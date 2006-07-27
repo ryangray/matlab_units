@@ -4,4 +4,4 @@
 
 function coulomb = unit 
 
-coulomb = 1; 
+coulomb = ampere * second; 

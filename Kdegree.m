@@ -5,4 +5,4 @@
 
 function Kdegree = unit 
 
-Kdegree = Cdegree; 
+Kdegree = unit_TEMPERATURE;

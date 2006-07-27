@@ -4,4 +4,4 @@
 
 function second = unit 
 
-second = 1; 
+second = unit_TIME; 

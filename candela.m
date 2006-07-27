@@ -4,4 +4,4 @@
 
 function candela = unit 
 
-candela = 1; 
+candela = unit_LUMINANCE; 

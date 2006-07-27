@@ -5,4 +5,4 @@
 
 function ampere = unit 
 
-ampere = coulomb / second; 
+ampere = unit_CURRENT; 

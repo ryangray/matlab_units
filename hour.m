@@ -5,4 +5,4 @@
 
 function hour = unit 
 
-hours = 60.0 * minute;
+hour = 60.0 * minute;

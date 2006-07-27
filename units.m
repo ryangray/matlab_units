@@ -1,26 +1,37 @@
 % Units
-% Usage: units              % Prints the units system in use
-%        units('length')    % Gives the base length name
-%          or: units length
-%        units('time')      % Gives the base time name
-%          or: units time
-%        units('mass')      % Gives the base mass name
-%          or: units mass
+% Usage: units              % Prints the units system in use and the base values
 %        units('list')      % Lists all the units m functions
 %          or: units list
 %        units('help') or 
 %            units('doc')   % Opens the help document for units
-%          or: units length
 %          or: units doc
 %        units(units_expression) % evaluates the units expression string
 %                                  ignoring local variables that might mask
 %                                  units functions as well as allowing 'sec'
 
-function x = units (varargin)
+function varargout = units (varargin)
 
 if nargin == 0
-    
-    x = 'mks (si)';
+
+    if nargout == 0
+        
+        unit_SYSTEM
+
+        bases = {'unit_AMOUNT','unit_ANGLE_PLANE','unit_ANGLE_SOLID','unit_CURRENT', ...
+                 'unit_INFORMATION','unit_LENGTH','unit_LUMINANCE','unit_MASS', ...
+                 'unit_TEMPERATURE','unit_TIME'};
+
+        for i = 1:length(bases)
+
+            fprintf('%s = %f\n', bases{i}, str2num(bases{i}));
+
+        end
+       
+    else
+        
+        varargout{1} = unit_SYSTEM;
+        
+    end
     
 else
     
@@ -46,24 +57,13 @@ else
             
             [pathstr,name,ext,versn] = fileparts(which(mfilename));
 
-            ls(fullfile(pathstr,['*.m' versn]));
-            
-        case 'length'
-            
-            x = 'meter';
-            
-        case 'time'
-            
-            x = 'second';
-            
-        case 'mass'
-            
-            x = 'kilogram';
-       
-        case 'list'
-            
-            [p n e v] = fileparts(mfilename('fullpath'));
-            ls(p)
+            x = ls(fullfile(pathstr,['*.m' versn]));
+
+            if nargout > 0
+                
+                varargout = x;
+                
+            end
             
         otherwise
             
@@ -77,7 +77,7 @@ else
             ue = units_alias('m','meter', ue);
             ue = units_alias('w','watt', ue);
 
-            x = str2num(ue);
+            varargout = str2num(ue);
 
     end
     

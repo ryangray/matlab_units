@@ -1,7 +1,8 @@
-% Unit meter 
+% Unit farad
 % Converts number to internal units by multplying by it 
 % Converts number into meter by dividing value in internal units by it. 
+% See also: COULOMB, VOLT, JOULE
 
-function meter = unit 
+function farad = unit 
 
-meter = unit_LENGTH; 
+farad = coulomb / volt;

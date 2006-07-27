@@ -4,4 +4,4 @@
 
 function mole = unit 
 
-mole = mole; % SI base unit
+mole = unit_AMOUNT;

@@ -1,10 +1,10 @@
 % Unit gallons_us 
 % Converts number to internal units by multplying by it 
 % Converts number into gallons_us by dividing value in internal units by it. 
-% See also: QUART, GALLON
+% See also: QUART, GALLON, GALLON_IMPERIAL
 
-function gallons_us = unit 
+function gallon_us = unit 
 
-%gallons_us = 3.785411783 * liters;
+%gallon_us = 3.785411783 * liters;
 
-gallons_us = 4 * quart;
+gallon_us = 4 * quart;
