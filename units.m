@@ -5,6 +5,7 @@
 %        units('help') or 
 %            units('doc')   % Opens the help document for units
 %          or: units doc
+%        units('system', base_folder) % change units base system
 %        units(units_expression) % evaluates the units expression string
 %                                  ignoring local variables that might mask
 %                                  units functions as well as allowing 'sec'
@@ -62,6 +63,52 @@ else
             if nargout > 0
                 
                 varargout = x;
+                
+            end
+
+        case 'system'
+            
+            if length(varargin) > 1
+                
+                % Check if given system is just a name or a path
+
+                [pathstr,name,ext,versn] = fileparts(varargin{2});
+
+                if isempty(pathstr)
+
+                    % Assume is a subfolder of main units folder
+
+                    [pathstr,name,ext,versn] = fileparts(which('meter'));
+
+                    usePath = fullfile(pathstr,varargin{2});
+
+                else % anything else, user gives a path for it
+
+                    usePath = varargin{2};
+
+                end
+
+                % Verify it at least has an identifier
+
+                if ~exist(fullfile(usePath,'unit_SYSTEM.m'), 'file')
+
+                    warning('Units system folder %s does not apear to be valid.', usePath);
+
+                end
+
+                % Move specified base folder to the top of the path
+
+                path(usePath, path);
+
+            else % report current base system folder
+                
+                [pathstr,name,ext,versn] = fileparts(which('unit_SYSTEM'));
+
+                if nargout == 0
+                    fprintf('%s\n', pathstr);
+                else
+                    varargout{1} = pathstr;
+                end
                 
             end
             
