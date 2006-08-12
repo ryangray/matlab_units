@@ -62,7 +62,7 @@ else
 
             if nargout > 0
                 
-                varargout = x;
+                varargout{1} = x;
                 
             end
 
@@ -124,7 +124,7 @@ else
             ue = units_alias('m','meter', ue);
             ue = units_alias('w','watt', ue);
 
-            varargout = str2num(ue);
+            varargout{1} = str2num(ue);
 
     end
     
