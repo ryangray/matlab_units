@@ -1,8 +1,8 @@
-% Unit mmhg (millimeters of Mercury)
+% Unit torr = mmhg
 % Converts number to internal units by multplying by it 
 % Converts number into mmhg by dividing value in internal units by it. 
-% See also: KPA, PA, ATM
+% See also: MMHG
 
-function mmhg = unit 
+function torr = unit 
 
-mmhg =  101325/760 * pa; % 10th CGPM, 1954
+torr = mmhg; % 10th CGPM, 1954
