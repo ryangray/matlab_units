@@ -1,5 +1,6 @@
 % Units
-% Usage: units              % Prints the units system in use and the base values
+% Usage: units              % Prints the name of the units system in use
+%        units('base')      % Prints the base unit values in use
 %        units('list')      % Lists all the units m functions
 %          or: units list
 %        units('help') or 
@@ -22,16 +23,6 @@ if nargin == 0
         
         unit_SYSTEM
 
-        bases = {'unit_AMOUNT','unit_ANGLE_PLANE','unit_ANGLE_SOLID','unit_CURRENT', ...
-                 'unit_INFORMATION','unit_LENGTH','unit_LUMINANCE','unit_MASS', ...
-                 'unit_TEMPERATURE','unit_TIME'};
-
-        for i = 1:length(bases)
-
-            fprintf('%s = %f\n', bases{i}, str2num(bases{i}));
-
-        end
-       
     else
         
         varargout{1} = unit_SYSTEM;
@@ -126,6 +117,18 @@ else
                 
             end
             
+        case 'base'
+            
+            bases = {'unit_AMOUNT','unit_ANGLE_PLANE','unit_ANGLE_SOLID','unit_CURRENT', ...
+                     'unit_INFORMATION','unit_LENGTH','unit_LUMINANCE','unit_MASS', ...
+                     'unit_TEMPERATURE','unit_TIME'};
+
+            for i = 1:length(bases)
+
+                fprintf('%s = %f\n', bases{i}, str2num(bases{i}));
+
+            end
+       
         otherwise
             
             % Eval a units expression that may contain 'sec' for seconds
