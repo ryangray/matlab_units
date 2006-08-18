@@ -5,7 +5,11 @@
 %        units('help') or 
 %            units('doc')   % Opens the help document for units
 %          or: units doc
+%        units('system')              % return path to units base system folder
 %        units('system', base_folder) % change units base system
+%        oldsys = units('system', base_folder) % change units base system
+%                                              % and return the previous one 
+%                                              (for later restoration)
 %        units(units_expression) % evaluates the units expression string
 %                                  ignoring local variables that might mask
 %                                  units functions as well as allowing 'sec'
@@ -70,6 +74,10 @@ else
             
             if length(varargin) > 1
                 
+                % get old base path
+                
+                [oldpathstr,name,ext,versn] = fileparts(which('unit_SYSTEM'));
+
                 % Check if given system is just a name or a path
 
                 [pathstr,name,ext,versn] = fileparts(varargin{2});
@@ -99,6 +107,12 @@ else
                 % Move specified base folder to the top of the path
 
                 path(usePath, path);
+
+                % If output desired, we return the previous base system path
+                
+                if nargout > 0
+                    varargout{1} = oldpathstr;
+                end
 
             else % report current base system folder
                 
