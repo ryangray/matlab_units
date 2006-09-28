@@ -53,12 +53,14 @@ else
             
             [pathstr,name,ext,versn] = fileparts(which(mfilename));
 
-            x = ls(fullfile(pathstr,['*.m' versn]));
-
             if nargout > 0
                 
-                varargout{1} = x;
+                varargout{1} = ls(fullfile(pathstr,['*.m' versn]));
+
+            else
                 
+                ls(fullfile(pathstr,['*.m' versn]));
+
             end
 
         case 'system'
