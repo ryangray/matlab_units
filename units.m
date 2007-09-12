@@ -143,7 +143,9 @@ else
             ue = units_alias('m','meter', ue);
             ue = units_alias('w','watt', ue);
 
+            s = warning('off','MATLAB:dispatcher:InexactMatch');
             varargout{1} = str2num(ue);
+            warning(s);
 
     end
     
