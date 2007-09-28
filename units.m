@@ -17,7 +17,7 @@
 
 function varargout = units (varargin)
 
-if nargin == 0
+if isempty(varargin)
 
     if nargout == 0
         
@@ -69,17 +69,17 @@ else
                 
                 % get old base path
                 
-                [oldpathstr,name,ext,versn] = fileparts(which('unit_SYSTEM'));
+                oldpathstr = fileparts(which('unit_SYSTEM'));
 
                 % Check if given system is just a name or a path
 
-                [pathstr,name,ext,versn] = fileparts(varargin{2});
+                pathstr = fileparts(varargin{2});
 
                 if isempty(pathstr)
 
                     % Assume is a subfolder of main units folder
 
-                    [pathstr,name,ext,versn] = fileparts(which('meter'));
+                    pathstr = fileparts(which('meter'));
 
                     usePath = fullfile(pathstr,varargin{2});
 
@@ -109,7 +109,7 @@ else
 
             else % report current base system folder
                 
-                [pathstr,name,ext,versn] = fileparts(which('unit_SYSTEM'));
+                pathstr = fileparts(which('unit_SYSTEM'));
 
                 if nargout == 0
                     fprintf('%s\n', pathstr);
@@ -136,13 +136,15 @@ else
             % Eval a units expression that may contain 'sec' for seconds
             % since 'sec' would otherwise evaluate to the secant funtion.
             
-            ue = varargin{1};
+            ue = lower(varargin{1});
             
             ue = units_alias('s','second', ue);
             ue = units_alias('sec','second', ue);
             ue = units_alias('m','meter', ue);
             ue = units_alias('w','watt', ue);
-
+            ue = units_alias('min','minute',ue);
+            ue = units_alias('logical','unitless',ue);
+            ue = units_alias('int','unitless',ue);
             s = warning('off','MATLAB:dispatcher:InexactMatch');
             varargout{1} = str2num(ue);
             warning(s);
