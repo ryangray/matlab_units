@@ -1,0 +1,184 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+   
+  <meta name="Author" content="Ryan Gray">
+   
+  <meta name="GENERATOR"
+ content="Mozilla/4.78 [en] (WinNT; U) [Netscape]">
+  <title>Explicit Units Style</title>
+</head>
+<body>
+<font size="+4">Explicit Units Style</font><br>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%"
+ bgcolor="#000000">
+  <tbody>
+    <tr>
+      <td align="left" valign="baseline"><font color="#ffffff">Ryan Gray</font></td>
+      <td align="right" valign="baseline"><font color="#ffffff">28 March
+2000</font></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Abstract</h3>
+Reduce units errors in your code and have an application wide single unit
+system while being able to specify constants in different units and easily
+read and print them in different units. I don't claim to have invented
+this style, but haven't yet seen any other code using doing the same thing.
+<h3>Necessity spurs invention</h3>
+This evolved during my aerospace engineering under grad senior year back in
+1989. We were writing programs that used constants that were given in
+all kinds of different units and using equations that required certain numbers
+in specific units. In order to manage this chaos, I decided it would
+be nice to have the code just using one consistent set of units. However,
+the problem of having things that needed certain units made picking the right
+set as a base difficult. I began by picking a base units system, then
+I converted all the constants into this. Since these were now not easily
+recognizable, I put comments after each one showing the value and units that
+were familiar. For example:
+<pre>float g = 9.81; /* Earth gravity (32.17 ft/s/s) */</pre>
+Well, this wasn't perfect, so I changed it to:
+<pre>float g = 9.81; /* m/s/s - Earth gravity (32.17 ft/s/s) */</pre>
+I thought this was not as readable as I wanted, so I defined m and s to be
+unity, and I could get away with placing them in the code next to the number
+without changing its value:
+<pre>float g = 9.81 * m/s/s; /* Earth gravity (32.17 ft/s/s) */</pre>
+<h3>Eureka</h3>
+It was then clear that I could define ft/s/s so that I could just give the
+number in the "familiar" units and have it come out in the base units in
+the code:
+<pre>float m = 1, s = 1;<br>float ft = 0.3048 * m;<br>float g = 32.17 * ft/s/s; /* Earth gravity */</pre>
+Wow. Now that gave me what I was looking for:
+<ul>
+  <li>The base units are explicitly declared</li>
+  <li>The other units are defined in terms of the base units or other defined
+units</li>
+  <li>Values can be entered in familiar units with those units explicitly
+given</li>
+</ul>
+As I began using this system, I discovered some other benefits. When
+values were read in from the console or a file, the statements converting
+them into internal program units were also explicit even though no numerical
+constants were involved:
+<pre>input "Distance in km:", distance<br>distance = distance * km</pre>
+Also, when values needed to be printed, they often needed to be in something
+other than internal units, and this style made that easy too:
+<pre>print "Distance: "; distance / km; " km"</pre>
+When you need a value in a particular unit, just divide it by that unit.
+Using the units this way, it is clearer if you enclose the units in parenthesis
+for compound units such as:
+<pre>print "Speed: "; speed / (miles/hour); " mph"</pre>
+This way, when you have units that use '/', you don't have to invert them.
+Otherwise it would be:
+<pre>print "Speed: "; speed / miles * hour; " mph"</pre>
+and be less clear about what the units being printed were.
+<h3>Other uses</h3>
+Another reason to use unit conversions is to safeguard against future changes
+in the code in places other than the input and output of values. If
+you have a routine that is assuming the units of time is in seconds in order
+to break it down into days, hours, minutes and seconds, it would break if
+the time base unit was changed to milliseconds. A simple safeguard
+would be using "<tt>time / seconds</tt>" rather than just "<tt>time</tt>".
+Sure it's dividing by one, but it also documents what was otherwise an assumption.
+If you have real run-time concerns, you might just use a comment to at least
+remind yourself that it would need changing if the time base changed.
+However, if the base time unit were seconds, then the value of <tt>seconds</tt>
+is <tt>1.0</tt>, and if it is declared as a constant value, your compiler
+might just take that division by 1 out in the optimization pass. This
+same scheme of using the "divide by unity" conversions works well where you
+have code that interfaces with other code. The input and output parameters
+are just like numbers read or written to a file with respect to units.
+So using units on the incoming numbers when storing them in your data structures
+would be a very good use and explicitly document the units in the interface
+code. Likewise for any return parameters. The return variable
+should be loaded with an explicitly converted value for return, unless the
+routine does not care what units the values are in (say a routine that just
+scales a value). An example might be:<br>
+
+<blockquote><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function GroundDistance (PlanetRadius,
+CentralAngle)</tt>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; implicit none</tt></p>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; include "units.fi"</tt></p>
+  <p><tt>c&nbsp;&nbsp;&nbsp;&nbsp; Return:</tt></p>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real GroundDistance</tt></p>
+  <p><tt>c&nbsp;&nbsp;&nbsp;&nbsp; Inputs:</tt></p>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; real PlanetRadius, CentralAngle</tt>
+  </p>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GroundDistance = PlanetRadius * (CentralAngle
+/ radians)</tt></p>
+  <p><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return</tt><br>
+  <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end</tt></p>
+</blockquote>
+The expression requires the angle to be in radians, so the conversion (<tt>/
+radians</tt>) is given. However, the distance does not care, so the return
+units for distance don't have to be converted, and can be returned as given.
+<h3>Reality</h3>
+Of course, setting this system up takes a bit of work. You need to establish
+all of your base units and declare these to be unity, then declare all the
+other units you are going to use. However, once you do this, you can
+just use that file in all your other programs.
+<p>In C, it makes a nice units.h file. In most languages, you can just
+use an include statement. In Visual Basic, I believe you would just
+have a .bas file with the declarations included in the project. Some
+scripting languages should either have an include facility, or you might
+be able to call a script that declares the values. This does mean that
+you will have to implement it for each language you intend to use it with,
+but that is to be expected.</p>
+<p>There is the question of precision. It is true that:</p>
+<pre>float g = 9.81;</pre>
+and
+<pre>float m = 1, s = 1;<br>float ft = 0.3048 * m;<br>float g = 32.17 * ft/s/s;</pre>
+may not have the exact same values for g. This relies on having very
+accurate values for your conversions and using double precision if possible.
+Sometimes, you can express a conversion more accurately by other means:
+<pre>float rad = 1;<br>float pi, deg;<br>pi = acos(-1.0);<br>deg = rad * 180.0 / pi;</pre>
+rather than defining deg as:
+<pre>deg = rad * 57.295779513082320876798154814105;</pre>
+or typically something less precise. I've seen code where values were
+repeatedly converted back and forth from degrees to radians multiple times
+with different conversion constants.
+<h3>The Next Level</h3>
+<p>Just having some constants defined is pretty useful, but building on that
+can create some even more useful subroutines. I have created a few
+routines that help interface the units idea with the user and with input
+and output files. The first is a primitive that simply takes a string
+that contains the name of a unit and gives the numeric value for it.
+It is called UnitValue.<br>
+Of course, it's usefulness depends on what unit names it's taught to recognize.
+</p>
+<p>The next level that builds on UnitValue is UnitsValue. This takes
+a string that contains compound units expressed like: <tt>km/s</tt>or <tt>foot*lbs</tt>
+and resolves it to a single unit multiplier value. It can also parse
+a single number in front of the units and multiply that by the resultant
+units value. This gives you the number back in the base units.
+The units can be separated from the number by a space, but multiple units
+need to have a * or / between them. My current implementation doesn't
+support power notation for something like <tt>cm^2</tt>, but it would be
+easy to do by modifying the primitive UnitValue to recognize<tt>cm^2</tt>
+and returnthe value <tt>cm*cm</tt>. However, this means you have to
+define it for every unit and every power you want. Better to enhance
+UnitsValue to do it.</p>
+<p>UnitsConvert takes a number in base units and converts it to a number
+in the units given by a string.</p>
+<p>You could use this to let the user input a unit string so that you can
+output values in those units along with the string to label them. I used
+this to add units support to a program where the user gives the distance
+units on the command line to tell the program that the input is in "feet"
+(or whatever), and the program can convert the input.</p>
+<p></p>
+<h3>Summary</h3>
+The concept is not really hard, it's not really exciting, and it's full potential
+is not always immediately obvious - even to me. I only recently realized
+that such a system could possibly have prevented the Mars Climate Orbiter
+crash. Although that's unlikely since the problem was connecting two
+different subsystems rather than two different parts of the same code.<br>
+<br>
+Please check out my <a href="units.html">Matlab implementation
+of Explicit Units Style</a>.<br>
+<br>
+</body>
+</html>

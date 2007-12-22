@@ -1,4 +1,4 @@
-% Units
+% Evaluate units expression, show or switch units base, or show help.
 % Usage: units              % Prints the name of the units system in use
 %        units('base')      % Prints the base unit values in use
 %        units('list')      % Lists all the units m functions
@@ -77,9 +77,10 @@ else
 
                 if isempty(pathstr)
 
-                    % Assume is a subfolder of main units folder
+                    % Assume is a sibling folder of the old units base
+                    % folder
 
-                    pathstr = fileparts(which('meter'));
+                    pathstr = fileparts(oldpathstr);
 
                     usePath = fullfile(pathstr,varargin{2});
 
