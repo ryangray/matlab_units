@@ -1,4 +1,4 @@
-This folder is for uning the units library in the SI system.
+This folder is for using the units library in the SI system.
 
 The units library is esentially a set of definitions to a base of SI. 
 The base unit folder for SI just says those base values are all = 1.

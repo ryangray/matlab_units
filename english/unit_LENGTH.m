@@ -1,4 +1,4 @@
-% Units meter in terms of the base mass
+% Units meter in terms of the base length
 
 function meter = unit_LENGTH
 
