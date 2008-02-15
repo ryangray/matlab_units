@@ -2,7 +2,8 @@
 % Converts number to internal units by multplying by it 
 % Converts number into days by dividing value in internal units by it. 
 % Also, days(month) will give the number of days in the month.
-% Month is by an integer 1..12.
+% Month is by an integer 1..12. To get the right number of days for
+% February, you need to also provide the year: days(month,year)
 % See also: DAY
 
 function x = days(varargin)
@@ -17,7 +18,26 @@ elseif varargin{1} == 1
     
 elseif varargin{1} == 2
     
-    x = 28;
+    if nargin == 1
+        
+        x = 28;
+        
+    else
+        
+        year = varargin{2};
+        
+        if (mod(year,100) ~= 0 && mod(year,  4) == 0) || ...
+           (mod(year,100) == 0 && mod(year,400) == 0)
+       
+            x = 29;
+            
+        else
+            
+            x = 28;
+            
+        end
+        
+    end
     
 elseif varargin{1} == 3
     
