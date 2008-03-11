@@ -159,38 +159,17 @@ function ue = units_alias(alias, meaning, ue)
 if strcmpi(ue,alias) % only alias
     ue = meaning;
 else
+
+    % Find and replace all occurences of alias appearing as a 
+    % whole word with it meaning.
     
-    done = false;
+    [s e t] = regexpi(ue, ['\<(' alias ')\>']);
+
+    % Do this back to front so we don't have to recompute the
+    % remaining indices.
     
-    while ~done
-        
-        done = true;
-
-        % Alias at start followed by an operator /, * or ^
-    
-        [s e t] = regexpi(ue, ['^(' alias ')[/\*\^]']);
-        for i = length(t):-1:1
-            done = false;
-            ue = [ue(1:t{i}(1)-1) meaning ue(t{i}(2)+1:end)];
-        end
-
-        % Alias at end preceded by an operator / or *
-
-        [s e t] = regexpi(ue, ['[/\*](' alias ')$']);
-        for i = length(t):-1:1
-            done = false;
-            ue = [ue(1:t{i}(1)-1) meaning ue(t{i}(2)+1:end)];
-        end
-
-        % Alias in the middle preceded by an operator / or * and followed by an
-        % operator /, * or ^
-
-        [s e t] = regexpi(ue, ['[/\*](' alias ')[/\*\^]']);
-        for i = length(t):-1:1
-            done = false;
-            ue = [ue(1:t{i}(1)-1) meaning ue(t{i}(2)+1:end)];
-        end
-
+    for i = length(t):-1:1
+        ue = [ue(1:t{i}(1)-1) meaning ue(t{i}(2)+1:end)];
     end
-    
+
 end
