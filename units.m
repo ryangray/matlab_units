@@ -146,7 +146,8 @@ else
             ue = units_alias('min','minute',ue);
             ue = units_alias('logical','unitless',ue);
             ue = units_alias('int','unitless',ue);
-            s = warning('off','MATLAB:dispatcher:InexactMatch');
+            s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
+            warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
             varargout{1} = str2num(ue);
             warning(s);
 
