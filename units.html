@@ -18,7 +18,9 @@ Units Style</a> method. Currently, the units set is not complete, for
 example,
 liquid units are very lacking.<br>
 <h2>Installation:</h2>
-Add the 'units' and 'units/si' folders to your Matlab path. You can then use 'units system english' or 'units system cgs' to change to those systems for a session, or you can save your path after issuing one of those commands to always start up in a particular system. Currently, units/si needs to remain on the path - units/english and units/cgs just get moved above it as they use some things in units/si, which is the standard base. In any case, it is recommended that you put the command 'units' in your startup.m file to always remind yourself what units are in use, or you could opt to always assert them in your startup.m with 'units system si', for example just to prevent accidents. The unit systems are explained more later.<br>
+Add the 'units' and 'units/si' folders to your Matlab path. For convenience, you can change to the 
+units directory and give the command "units install", which should do this for you.
+You can then use 'units system english' or 'units system cgs' to change to those systems for a session, or you can save your path after issuing one of those commands to always start up in a particular system. Currently, units/si needs to remain on the path - units/english and units/cgs just get moved above it as they use some things in units/si, which is the standard base. In any case, it is recommended that you put the command 'units' in your startup.m file to always remind yourself what units are in use, or you could opt to always assert them in your startup.m with 'units system si', for example just to prevent accidents. The unit systems are explained more later.<br>
 <h2>Use:</h2>
 Each unit is implemented as a function of the same name or as several
 functions for various spellings like feet and foot, etc. Each function evaluates

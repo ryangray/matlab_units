@@ -37,7 +37,7 @@ else
             
             if ispc
                 
-                system(which('units.html'));
+                winopen(which('units.html'));
                 
             elseif strcmp(computer, 'MAC')
                 
@@ -48,6 +48,15 @@ else
                 units('list');
                 
             end
+            
+        case {'install'}
+            
+            base = fileparts(mfilename('fullpath'));
+            addpath(base,'-END')
+            addpath(fullfile(base,'si'),'-END')
+            fprintf('The pathtool should open with the units and units/si folders added at the end.\n');
+            fprintf('You should save the new path for future use.\n');
+            pathtool
             
         case {'list','ls'}
             
