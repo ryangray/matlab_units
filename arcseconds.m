@@ -1,7 +1,6 @@
-% Unit arcseconds
-% Converts number to internal units by multplying by it 
-% Converts number into deg by dividing value in internal units by it. 
-% See also: ARCSECOND
+%% Arcseconds = arcsecond (alias)
+%% Unit of angle
+% See also: arcsecond
 
 function arcseconds = unit 
 

@@ -1,7 +1,6 @@
-% Unit arcminutes
-% Converts number to internal units by multplying by it 
-% Converts number into deg by dividing value in internal units by it. 
-% See also: ARCMINUTE
+%% arcminutes = arcminute (alias)
+%% Unit of angle
+% See also: arcminute
 
 function arcminutes = unit 
 

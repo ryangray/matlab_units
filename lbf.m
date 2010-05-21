@@ -1,7 +1,7 @@
-% Unit lbf (pounds-force)
-% Converts number to internal units by multplying by it 
-% Converts number into lbf by dividing value in internal units by it. 
-% See also: LBM, SLUG, LBF, KGF, KGM
+%% lbf (pounds-force) =  0.45359237 * kgf
+%% Unit of force
+%% Reference: NIST
+% See also: lbm, slug, lbf, kgf, kgm
 
 function lbf = unit 
 

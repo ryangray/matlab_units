@@ -1,6 +1,5 @@
-% Unit lbm (pounds-mass)
-% Converts number to internal units by multplying by it 
-% Converts number into lbm by dividing value in internal units by it. 
+%% lbm (pound-mass) = lbf / g0
+%% Unit of mass
 % The pound-mass is the mass that weighs 1 pound-force at 1g, and it
 % is numericlly the same amount as the pound-force. 1 lbf = 1 lbm * 1g
 % The proper english mass unit is the slug: 
@@ -13,7 +12,8 @@
 %    1 slug     = 1 lbm  * 1g / (1 ft/s/s)
 %    1 slug     = 1 lbm  * (32.174 ft/s/s) / (1 ft/s/s)
 %    1 slug     = 1 lbm  * 32.174
-% See also: SLUG, KG, LBF, KGF, KGM
+%
+% See also: slug, kg, lbf, kgf, kgm
 
 % However, if we implemented it as "x = slug/32.174", we would have to
 % divide by the literal english magnitude of g0 (32.174...) to the

@@ -1,6 +1,7 @@
 % Evaluate units expression, show or switch units base, or show help.
 % Usage: units              % Prints the name of the units system in use
 %        units('base')      % Prints the base unit values in use
+%          or: units base
 %        units('list')      % Lists all the units m functions
 %          or: units list
 %        units('help') or 
@@ -11,6 +12,7 @@
 %        oldsys = units('system', base_folder) % change units base system
 %                                              % and return the previous one 
 %                                              (for later restoration)
+%        units install
 %        units(units_expression) % evaluates the units expression string
 %                                  ignoring local variables that might mask
 %                                  units functions as well as allowing 'sec'
@@ -34,21 +36,9 @@ else
     switch lower(varargin{1})
         
         case {'help','doc'}
-            
-            if ispc
-                
-                winopen(which('units.html'));
-                
-            elseif strcmp(computer, 'MAC')
-                
-                system(['open ' which('units.html')]);
-                
-            else
-                
-                units('list');
-                
-            end
-            
+
+            web(which('units.html'),'-helpbrowser')
+
         case {'install'}
             
             base = fileparts(mfilename('fullpath'));
@@ -56,8 +46,39 @@ else
             addpath(fullfile(base,'si'),'-END')
             fprintf('The pathtool should open with the units and units/si folders added at the end.\n');
             fprintf('You should save the new path for future use.\n');
+            fprintf('\nYou should now also click on the MATLAB Start button and choose:\n');
+            fprintf('  Desktop Tools -> View Start Button Configuration Files...\n');
+            fprintf('Then click "Refresh Start Button", then click "Close". This should add or\n');
+            fprintf('update the Units toolbox entry in the help browser. Right now, that just has the\n');
+            fprintf('help document and a list of the units.\n');
             pathtool
             
+            % Generate helptoc.xml
+
+            docPath = base;
+            tocfile = fullfile(docPath, 'helptoc.xml');
+
+            fid = fopen(tocfile,'wt');
+            fprintf(fid,'%s\n','<?xml version=''1.0'' encoding=''ISO-8859-1'' ?>');
+            fprintf(fid,'%s\n','<toc version="1.0">');
+            fprintf(fid,'%s\n','<tocitem target="units.html">Units Toolbox');
+
+            files = dir(fullfile(base,'*.m'));
+
+            for ii = 1:length(files)
+
+                % TODO: possibly make the text here from the first line of
+                % the file after changing to new header convention of:
+                %    %% unit_name = value
+                
+                [pathstr,name,ext,versn] = fileparts(files(ii).name);
+                fprintf(fid,'%s%s%s\n','  <tocitem>', name,'</tocitem>');
+
+            end
+
+            fprintf(fid,'%s\n','</tocitem></toc>');
+            fclose(fid);
+
         case {'list','ls'}
             
             [pathstr,name,ext,versn] = fileparts(which(mfilename));

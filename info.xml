@@ -1,0 +1,22 @@
+<productinfo
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="optional">
+<?xml-stylesheet type="text/xsl" href="optional"?>
+
+<matlabrelease>R2008b</matlabrelease>
+<name>Units</name>
+<type>toolbox</type>
+<icon>$docroot/techdoc/matlab_env/examples/specsimicon.gif</icon>
+<help_location>.</help_location>
+
+<list>
+
+<listitem>
+<label>General Documentation</label>
+<callback>web units.html</callback>
+<icon>$docroot/techdoc/matlab_env/examples/guiicon.gif</icon>
+</listitem>
+
+</list>
+
+</productinfo>
