@@ -37,7 +37,7 @@ else
         
         case {'help','doc'}
 
-            web(which('units.html'),'-helpbrowser')
+            web(which('units_product_page.html'),'-helpbrowser')
 
         case {'install'}
             
@@ -51,6 +51,8 @@ else
             fprintf('Then click "Refresh Start Button", then click "Close". This should add or\n');
             fprintf('update the Units toolbox entry in the help browser. Right now, that just has the\n');
             fprintf('help document and a list of the units.\n');
+            fprintf('Type: "units help" for the overview documentation.\n');
+            fprintf('Some unit functions have other info in their function help text. Try "help lbm".\n');
             pathtool
             
             % Generate helptoc.xml
@@ -61,7 +63,7 @@ else
             fid = fopen(tocfile,'wt');
             fprintf(fid,'%s\n','<?xml version=''1.0'' encoding=''ISO-8859-1'' ?>');
             fprintf(fid,'%s\n','<toc version="1.0">');
-            fprintf(fid,'%s\n','<tocitem target="units.html">Units Toolbox');
+            fprintf(fid,'%s\n','<tocitem target="units_product_page.html">Units Toolbox');
 
             files = dir(fullfile(base,'*.m'));
 
@@ -179,7 +181,7 @@ else
             ue = units_alias('string','',ue);
             s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
             warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-            varargout{1} = str2num(ue);
+            varargout{1} = str2num(ue); % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
             warning(s);
 
     end
