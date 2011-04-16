@@ -34,15 +34,15 @@ else
 
     % If more than one input, then first was just dd and the other were mm,ss
     
-    if length(varargin) > 0
+    if ~isempty(varargin)
 
-        angle = angle + varargin{1} / 60 * deg;
+        angle = angle + sign(d) * varargin{1} / 60 * deg;
 
     end
 
     if length(varargin) > 1
 
-        angle = angle + varargin{2} / 3600 * deg;
+        angle = angle + sign(d) * varargin{2} / 3600 * deg;
 
     end
 
