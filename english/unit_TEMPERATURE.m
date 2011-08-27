@@ -4,7 +4,7 @@ function kelvin = unit_TEMPERATURE (varargin)
 
 if nargin == 0
     
-    kelvin = 1; % Kelvin degree
+    kelvin = 9/5; % Rankine degrees
         
 elseif ischar(varargin{1}) 
     
@@ -12,13 +12,13 @@ elseif ischar(varargin{1})
         
         case 'name'
     
-            kelvin = 'Kelvin';
+            kelvin = 'Rankine';
     
         case {'0','absolutezero','zero'}
     
-            % Absolute zero in Kelvin
+            % Absolute zero in Rankine
     
-            kelvin = 0; % degK('absolutezero');
+            kelvin = 0; % degR('absolutezero')
 
     end
     

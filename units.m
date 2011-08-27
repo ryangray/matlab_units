@@ -31,7 +31,7 @@ if isempty(varargin)
         
     end
     
-else
+elseif ischar(varargin{1})
     
     switch lower(varargin{1})
         
@@ -163,7 +163,7 @@ else
                 fprintf('%s = %f\n', bases{i}, str2num(bases{i}));
 
             end
-       
+
         otherwise
             
             % Eval a units expression that may contain 'sec' for seconds
@@ -171,39 +171,24 @@ else
             
             ue = lower(varargin{1});
             
-            ue = units_alias('s','second', ue);
-            ue = units_alias('sec','second', ue);
-            ue = units_alias('m','meter', ue);
-            ue = units_alias('w','watt', ue);
-            ue = units_alias('min','minute',ue);
-            ue = units_alias('logical','unitless',ue);
-            ue = units_alias('int','unitless',ue);
-            ue = units_alias('string','',ue);
+            ue = units_aliases(ue);
             s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
             warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
             varargout{1} = str2num(ue); % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
             warning(s);
 
     end
-    
-end
-
-function ue = units_alias(alias, meaning, ue)
-
-if strcmpi(ue,alias) % only alias
-    ue = meaning;
-else
-
-    % Find and replace all occurences of alias appearing as a 
-    % whole word with it meaning.
-    
-    [s e t] = regexpi(ue, ['\<(' alias ')\>']);
-
-    % Do this back to front so we don't have to recompute the
-    % remaining indices.
-    
-    for i = length(t):-1:1
-        ue = [ue(1:t{i}(1)-1) meaning ue(t{i}(2)+1:end)];
-    end
 
 end
+
+function ue = units_aliases(ue)
+
+ue = lower(ue);
+ue = regexprep(ue,'\<s\>','second');
+ue = regexprep(ue,'\<sec\>','second');
+ue = regexprep(ue,'\<m\>','meter');
+ue = regexprep(ue,'\<w\>','watt');
+ue = regexprep(ue,'\<min\>','minute');
+ue = regexprep(ue,'\<logical\>','unitless');
+ue = regexprep(ue,'\<int\>','unitless');
+ue = regexprep(ue,'\<string\>','');
