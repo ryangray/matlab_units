@@ -192,3 +192,4 @@ ue = regexprep(ue,'\<min\>','minute');
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
 ue = regexprep(ue,'\<string\>','');
+ue = regexprep(ue,'\\mu','u'); % so you can use the TeX \mu in a units string for micro so it will print nice too.
