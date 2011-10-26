@@ -2,4 +2,4 @@ function d = double (u)
 
 % unitval class as double value.
 
-d = u.value;
+d = reshape([u.value], size(u));

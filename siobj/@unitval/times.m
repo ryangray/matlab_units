@@ -7,11 +7,51 @@ function r = times (p,q)
 
 if isa(p,'unitval') && isa(q,'unitval')
 
-    dims = {'length','time','mass','tempurature','amount','angle_plane', ...
-            'angle_solid','current','info','luminance'};
-    r = unitval(p.value * q.value);
-    for i = 1:length(dims)
-        r.(dims{i}) = p.(dims{i}) + q.(dims{i});
+    dims = unitval.dimensions;
+    N = length(dims);
+    
+    if numel(p) == 1
+    
+        r = q;
+        
+        for ii = 1:numel(q)
+            
+            r(ii).value = p.value .* q(ii).value;
+        
+            for jj = 1:N
+                r(ii).(dims{jj}) = p.(dims{jj}) + q(ii).(dims{jj});
+            end
+        end
+        
+    elseif numel(q) == 1
+        
+        r = p;
+        
+        for ii = 1:numel(p)
+            
+            r(ii).value = p(ii).value .* q.value;
+        
+            for jj = 1:N
+                r(ii).(dims{jj}) = p(ii).(dims{jj}) + q.(dims{jj});
+            end
+        end
+        
+    elseif numel(p) ~= numel(q)
+
+        error('Number of elements are different');
+        
+    else
+        
+        r = p;
+        
+        for ii = 1:numel(p)
+            
+            r(ii).value = p(ii).value .* q(ii).value;
+        
+            for jj = 1:N
+                r(ii).(dims{jj}) = p(ii).(dims{jj}) + q(ii).(dims{jj});
+            end
+        end
     end
     
 elseif isa(p,'unitval')
@@ -25,4 +65,3 @@ elseif isa(q,'unitval')
     r.value = r.value * p;
     
 end
-

@@ -3,10 +3,13 @@ function display (u)
 % unitval/display
 % displays unitval class.
 
-disp(' ');
-disp([inputname(1),' = '])
-disp(' ');
-%disp(['   ' char(u)])
+if numel(u) > 1
+    
+    disp(u);
+    return
+    
+end
+
 % Generate units dimensions string
 udim = '';
 if u.mass == 1
@@ -24,15 +27,25 @@ if u.time == 1
 elseif u.time ~= 0
     udim = [udim ' s^' num2str(u.time)];
 end
-if u.tempurature == 1
-    udim = [udim ' Kdeg'];
-elseif u.tempurature ~= 0
-    udim = [udim ' Kdeg^' num2str(u.tempurature)];
+if u.current == 1
+    udim = [udim ' amp'];
+elseif u.current ~= 0
+    udim = [udim ' amp^' num2str(u.current)];
+end
+if u.luminance == 1
+    udim = [udim ' cd'];
+elseif u.luminance ~= 0
+    udim = [udim ' cd^' num2str(u.luminance)];
 end
 if u.amount == 1
     udim = [udim ' mol'];
 elseif u.amount ~= 0
     udim = [udim ' mol^' num2str(u.amount)];
+end
+if u.tempurature == 1
+    udim = [udim ' Kdeg'];
+elseif u.tempurature ~= 0
+    udim = [udim ' Kdeg^' num2str(u.tempurature)];
 end
 if u.angle_plane == 1
     udim = [udim ' rad'];
@@ -44,25 +57,27 @@ if u.angle_solid == 1
 elseif u.angle_solid ~= 0
     udim = [udim ' srad^' num2str(u.angle_solid)];
 end
-if u.current == 1
-    udim = [udim ' amp'];
-elseif u.current ~= 0
-    udim = [udim ' amp^' num2str(u.current)];
-end
 if u.info == 1
     udim = [udim ' bit'];
 elseif u.info ~= 0
     udim = [udim ' bit^' num2str(u.info)];
-end
-if u.luminance == 1
-    udim = [udim ' cd'];
-elseif u.luminance ~= 0
-    udim = [udim ' cd^' num2str(u.luminance)];
 end
 if isempty(udim)
     udim = '(unitless';
 else
     udim(1) = '(';
 end
-disp([num2str(u.value) ' ' udim ')']);
+
+% Probably need some adjustments here for user prefs like loose/tight?
+disp(' ');
+disp([inputname(1),' = '])
+disp(' ');
+%disp(['   ' char(u)])
+
+if isempty(u.value)
+    disp(['     [] ' udim ')']);
+else
+    disp(['     ' num2str(u.value) ' ' udim ')']);
+end
+
 disp(' ');

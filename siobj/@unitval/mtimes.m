@@ -1,4 +1,4 @@
-function r = mtimes (p,q)
+function r = mtimes (p, q)
 
 % unitval/mtimes  Implement p * q for unitvals.
 % unitval * unitval = value fields multiply, unit fields add.
@@ -7,22 +7,25 @@ function r = mtimes (p,q)
 
 if isa(p,'unitval') && isa(q,'unitval')
 
-    dims = {'length','time','mass','tempurature','amount','angle_plane', ...
-            'angle_solid','current','info','luminance'};
-    r = unitval(p.value * q.value);
+    % Check that dimensions of all elements are the same
+    
+    dims = unitval.dimensions;
+    same = true;
     for i = 1:length(dims)
-        r.(dims{i}) = p.(dims{i}) + q.(dims{i});
+        same = same && all([p.(dims{i})] == [q.(dims{i})]);
     end
+
+    % Check matrix dimensions for multiply compatibility
     
-elseif isa(p,'unitval')
+    a = reshape([p.value], size(p));
+    b = reshape([q.value], size(q));
+    v = a * b;
+    r = repmat(p(1), size(v));
+    V = num2cell(v);
+    [r.value] = V{:};
     
-    r = p;
-    r.value = r.value * q;
+else
     
-elseif isa(q,'unitval')
-    
-    r = q;
-    r.value = r.value * p;
+    error('Both sides of * must be unitval objects');
     
 end
-
