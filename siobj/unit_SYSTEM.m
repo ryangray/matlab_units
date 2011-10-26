@@ -2,7 +2,7 @@
 
 function varargout = unit_SYSTEM
 
-name = 'SI (meter,kg,second)';
+name = 'SI (meter,kg,second) [Object version - ALPHA]';
 
 if nargout == 0
     

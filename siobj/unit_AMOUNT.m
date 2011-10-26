@@ -2,4 +2,4 @@
 
 function mole = unit_AMOUNT
 
-mole = 1; % mole
+mole = unitval(1,'amount',1); % mole

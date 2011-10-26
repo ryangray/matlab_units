@@ -4,4 +4,4 @@
 
 function bit = unit_INFORMATION
 
-bit = 1; % bit
+bit = unitval(1,'info',1); % bit

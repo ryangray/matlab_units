@@ -2,4 +2,4 @@
 
 function T = deg0
 
-T = 0 ; % degK('absolutezero');
+T = unitval(0,'temperature',1) ; % degK('absolutezero');
