@@ -5,4 +5,4 @@
 
 function centi = prefix 
 
-centi = 1.e-2; 
+centi = unit_PREFIX(1.e-2,'centi','c');

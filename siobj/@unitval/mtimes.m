@@ -23,9 +23,9 @@ if isa(p,'unitval') && isa(q,'unitval')
     r = repmat(p(1), size(v));
     V = num2cell(v);
     [r.value] = V{:};
-    
+
 else
     
-    error('Both sides of * must be unitval objects');
+    r = times(p,q);
     
 end

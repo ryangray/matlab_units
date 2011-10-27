@@ -1,6 +1,57 @@
+%% Units class
+%
+% Implemented as a base unit module for the existing units system. This
+% allows it to use all the existing unit definitions and to be switched in
+% and out.
+%
+%% Names:
+% Carrying name and symbol fields. We can define rules for when names are
+% set or removed and how they could combine. Ideally, prefixes would
+% combine as expected with simple units. However, we could limit such
+% things to the definition files. For example, in cm.m, you combine centi
+% and meter, which wipes out the name, but you then give the result a new
+% name and symbol.
+%
+%% Conversion
+%
+% Will make a method for conversion that will do the division, assert the
+% result is unitless and set the name to that given. A similar method for
+% converting to a string with given units for printing or display. 
+%
+%% Unitless/dimensionless
+% We could have a valid form where the unitval is dimensionless, but has a
+% name. This would support radians and steradians. With no name, such a
+% value would then be labeled 'unitless'.
+%
+%% Prefixes
+% Trying out a new base unit function 'unit_PREFIX' that the prefix
+% definitions will call. Non-object ones just return the value, but the
+% object base one will create a dimensionless unitval with the value given
+% and the names given. However, we might want to have an indicator of a
+% prefix as a flag for the name combining.
+%
+% TODO: implement more operator overloads: ldivide, mldivide, mpower, lt,
+% gt, le, gr, ne, eq, ctranspose, transpose, horzcat, vertcat, subsref,
+% subassign, subsindex. Add means to call up standard compound unit
+% objects, such as 'power' so you might assert a unitval qualifies as such
+% a quantity with sameDimensions(uval,unitval('power')).
+
 classdef unitval
 
     properties
+        
+        % If we put the dims into an array, it would be less clear, but
+        % certain operations would be easier. You could do ~any(dims) to
+        % check for dimensionless and do matrix operations when combining
+        % values rather than looping over each dim field. Since these will
+        % be private, the implementation should not matter. The constructor
+        % can simply use a switch to translate the dimensioni strings into
+        % the array positions.
+        
+        % Need to decide how arrays of unitvals should work. Right now,
+        % each member in an array can be different, but if they had to eb
+        % the same, we could store the array in the value field, but then
+        % MATLAB could still construct arrays of these?
         
         value = [];
         length = 0;
@@ -14,6 +65,7 @@ classdef unitval
         angle_solid = 0;
         info = 0;
         name = '';
+        symbol = '';
     
     end
 

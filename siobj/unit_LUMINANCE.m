@@ -2,4 +2,4 @@
 
 function candela = unit_LUMINANCE
 
-candela = unitval(1,'luminance',1); % candela
+candela = unitval(1,'luminance',1,'name','candela','symbol','Cd'); % candela

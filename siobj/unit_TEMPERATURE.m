@@ -4,7 +4,7 @@ function kelvin = unit_TEMPERATURE (varargin)
 
 if nargin == 0
     
-    kelvin = unitval(1,'temperature',1); % Kelvin degree
+    kelvin = unitval(1,'temperature',1,'name','Kelvin','symbol','K'); % Kelvin degree
         
 elseif ischar(varargin{1}) 
     
@@ -18,7 +18,7 @@ elseif ischar(varargin{1})
     
             % Absolute zero in Kelvin
     
-            kelvin = unitval(0,'temperature',1); % degK('absolutezero');
+            kelvin = unitval(0,'temperature',1,'name','Kelvin','symbol','K'); % degK('absolutezero');
 
     end
     
