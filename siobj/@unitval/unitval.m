@@ -1,8 +1,10 @@
 %% Units class
 %
-% Implemented as a base unit module for the existing units system. This
-% allows it to use all the existing unit definitions and to be switched in
-% and out.
+% This isn't designed to be used directly, but through the units system as
+% a base unit module for the existing units system. This allows it to use
+% all the existing unit definitions and to be switched in and out. It
+% subclasses the MATLAB double class, so ordinary functions will operate on
+% the base double class and return doubles.
 %
 %% Names:
 % Carrying name and symbol fields. We can define rules for when names are
@@ -31,12 +33,12 @@
 % prefix as a flag for the name combining.
 %
 % TODO: implement more operator overloads: ldivide, mldivide, mpower, lt,
-% gt, le, gr, ne, eq, ctranspose, transpose, horzcat, vertcat, subsref,
-% subassign, subsindex. Add means to call up standard compound unit
-% objects, such as 'power' so you might assert a unitval qualifies as such
-% a quantity with sameDimensions(uval,unitval('power')).
+% gt, le, gr, ne, eq, ctranspose, transpose, horzcat, vertcat, subassign,
+% subsindex. Add means to call up standard compound unit objects, such as
+% 'power' so you might assert a unitval qualifies as such a quantity with
+% sameDimensions(uval,unitval('power')).
 
-classdef unitval
+classdef unitval < double
 
     properties
         
@@ -53,7 +55,6 @@ classdef unitval
         % the same, we could store the array in the value field, but then
         % MATLAB could still construct arrays of these?
         
-        value = [];
         length = 0;
         mass = 0;
         time = 0;
@@ -83,12 +84,13 @@ classdef unitval
             %
             %   u = unitval(num) creates a unitval object from the number a with no units dimensions
             %   u = unitval      creates a unitval object with no units and an empty value
-            %   u = unitval(uv)  creates a unitval object as a copy of the uv unitval object
             %   u = unitval(num, dimension, power, dimension, power, ...)
             %                    creates a unitval object of the number
             %                    with the unit dimensions given.
             %   u = unitval(..., 'name', string)
-            %
+            %   u = unitval(num, uv) creates a unitval object with same
+            %                    dims as another unitval object |uv|, but a
+            %                    different numerical value.
             % Dimensions are:
             %
             % 'length','mass','time','current','luminance','amount',
@@ -97,39 +99,72 @@ classdef unitval
             % For example, 9.81 m/s^2, would be: 
             %  unitval(9.81,'length',1,'time',-2)
 
-            if nargin > 0
-
-                if isa(val, 'unitval') % copy object
-
-                    obj = val;
-
-                else
-
-                    % Set dimensions and name
-                    
-                    for ii = 1:2:length(varargin)
-
-                        obj.(lower(varargin{ii})) = varargin{ii+1};
-
-                    end
+            if nargin == 0
                 
-                    if numel(val) > 1
-                    
-                        % Copy for each value
-                        vals = num2cell(val);
-                        obj = repmat(obj,size(val));
-                        [obj.value] = vals{:};
-
-                    else
-
-                        obj.value = val;
-
-                    end
-                
-                end
+                val = [];
 
             end
+
+            obj = obj@double(val); % Store double val in superclass
+            
+            if isa(val, 'unitval') % copy object
+
+                obj = val;
+                return
+
+            end
+            
+            % Set dimensions and name
+
+            if length(varargin) == 1 && isa(varargin{1},'unitval') %#ok<CPROP,PROP>
+                
+                % Making a new unitval with same dimensions as an old one,
+                % but different value: 
+                %  new_unitval = unitval(new_val, old_unitval)
+                
+                old = varargin{1};
+                dims = unitval.dimensions;
+                for ii = 1:length(dims) %#ok<CPROP,PROP>
+
+                    obj.(dims{ii}) = old.(dims{ii});
+
+                end
+                
+            else % Normal constructor: new_unitval = unitval(val, dims, ...)
+                
+                for ii = 1:2:length(varargin) %#ok<CPROP,PROP>
+
+                    obj.(lower(varargin{ii})) = varargin{ii+1};
+
+                end
+                
+            end
+
+        end
+       
+        function disp (obj)
+            
+            disp(double(obj))
+            disp(obj.dimensionString)
+            
+        end
         
+        function sref = subsref(obj, s)
+            
+            % Paren indexed subscript reference
+        
+            switch s(1).type
+                
+                case '()'
+                    
+                    sf = double(obj);
+                    if ~isempty(s(1).subs)
+                        sf = subsref(sf,s(1:end));
+                    else
+                        error('Not a supported subscripted reference')
+                    end
+                    sref = unitval(sf, obj);
+            end
         end
         
     end

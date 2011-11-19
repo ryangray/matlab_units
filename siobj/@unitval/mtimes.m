@@ -7,25 +7,21 @@ function r = mtimes (p, q)
 
 if isa(p,'unitval') && isa(q,'unitval')
 
-    % Check that dimensions of all elements are the same
-    
     dims = unitval.dimensions;
-    same = true;
-    for i = 1:length(dims)
-        same = same && all([p.(dims{i})] == [q.(dims{i})]);
-    end
+    N = length(dims);
 
-    % Check matrix dimensions for multiply compatibility
+    r = unitval(double(p) * double(q));
     
-    a = reshape([p.value], size(p));
-    b = reshape([q.value], size(q));
-    v = a * b;
-    r = repmat(p(1), size(v));
-    V = num2cell(v);
-    [r.value] = V{:};
-
+    for jj = 1:N
+        r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
+    end
+    
+elseif isa(p,'unitval')
+    
+    r = unitval(double(p) * q, p);
+    
 else
     
-    r = times(p,q);
+    r = unitval(p * double(q), q);
     
 end

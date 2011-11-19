@@ -5,8 +5,7 @@ function r = plus (p,q)
 if isa(p,'unitval') && isa(q,'unitval')
 
     if sameDimensions(p,q)
-        r = p;
-        r.value = p.value + q.value;
+        r = unitval(double(p) + double(q), p);
     else
         error('Values do not have the same units dimensions.');
     end

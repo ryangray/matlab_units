@@ -9,59 +9,19 @@ if isa(p,'unitval') && isa(q,'unitval')
 
     dims = unitval.dimensions;
     N = length(dims);
-    
-    if numel(p) == 1
-    
-        r = q;
-        
-        for ii = 1:numel(q)
-            
-            r(ii).value = p.value .* q(ii).value;
-        
-            for jj = 1:N
-                r(ii).(dims{jj}) = p.(dims{jj}) + q(ii).(dims{jj});
-            end
-        end
-        
-    elseif numel(q) == 1
-        
-        r = p;
-        
-        for ii = 1:numel(p)
-            
-            r(ii).value = p(ii).value .* q.value;
-        
-            for jj = 1:N
-                r(ii).(dims{jj}) = p(ii).(dims{jj}) + q.(dims{jj});
-            end
-        end
-        
-    elseif numel(p) ~= numel(q)
 
-        error('Number of elements are different');
-        
-    else
-        
-        r = p;
-        
-        for ii = 1:numel(p)
-            
-            r(ii).value = p(ii).value .* q(ii).value;
-        
-            for jj = 1:N
-                r(ii).(dims{jj}) = p(ii).(dims{jj}) + q(ii).(dims{jj});
-            end
-        end
+    r = unitval(double(p) .* double(q));
+    
+    for jj = 1:N
+        r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
     end
     
 elseif isa(p,'unitval')
     
-    r = p;
-    r.value = r.value * q;
+    r = unitval(double(p) .* q, p);
     
 elseif isa(q,'unitval')
     
-    r = q;
-    r.value = r.value * p;
+    r = unitval(p .* double(q), q);
     
 end
