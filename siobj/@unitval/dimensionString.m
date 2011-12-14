@@ -1,59 +1,89 @@
-function udim = dimensions (u)
+function udim = dimensionString (u)
 
-% unitval/dimensions
-% Returns string of dimensions
+% unitval/dimensionString Returns string of dimensions
 
 % Generate units dimensions string
+
 udim = '';
+
+d = unit_MASS;
+sym = d.symbol;
 if u.mass == 1
-    udim = [udim ' kg'];
+    udim = [udim ' ' sym];
 elseif u.mass ~= 0
-    udim = [udim ' kg^' num2str(u.mass)];
+    udim = [udim ' ' sym '^' num2str(u.mass)];
 end
+
+d = unit_LENGTH;
+sym = d.symbol;
 if u.length == 1
-    udim = [udim ' m'];
+    udim = [udim ' ' sym];
 elseif u.length ~= 0
-    udim = [udim ' m^' num2str(u.length)];
+    udim = [udim ' ' sym '^' num2str(u.length)];
 end
+
+d = unit_TIME;
+sym = d.symbol;
 if u.time == 1
-    udim = [udim ' s'];
+    udim = [udim ' ' sym];
 elseif u.time ~= 0
-    udim = [udim ' s^' num2str(u.time)];
+    udim = [udim ' ' sym '^' num2str(u.time)];
 end
+
+d = unit_CURRENT;
+sym = d.symbol;
 if u.current == 1
-    udim = [udim ' amp'];
+    udim = [udim ' ' sym];
 elseif u.current ~= 0
-    udim = [udim ' amp^' num2str(u.current)];
+    udim = [udim ' ' sym '^' num2str(u.current)];
 end
+
+d = unit_LUMINANCE;
+sym = d.symbol;
 if u.luminance == 1
-    udim = [udim ' cd'];
+    udim = [udim ' ' sym];
 elseif u.luminance ~= 0
-    udim = [udim ' cd^' num2str(u.luminance)];
+    udim = [udim ' ' sym '^' num2str(u.luminance)];
 end
+
+d = unit_AMOUNT;
+sym = d.symbol;
 if u.amount == 1
-    udim = [udim ' mol'];
+    udim = [udim ' ' sym];
 elseif u.amount ~= 0
-    udim = [udim ' mol^' num2str(u.amount)];
+    udim = [udim ' ' sym '^' num2str(u.amount)];
 end
-if u.tempurature == 1
-    udim = [udim ' Kdeg'];
-elseif u.tempurature ~= 0
-    udim = [udim ' Kdeg^' num2str(u.tempurature)];
+
+d = unit_TEMPERATURE;
+sym = d.symbol;
+if u.temperature == 1
+    udim = [udim ' ' sym];
+elseif u.temperature ~= 0
+    udim = [udim ' ' sym '^' num2str(u.temperature)];
 end
+
+d = unit_ANGLE_PLANE;
+sym = d.symbol;
 if u.angle_plane == 1
-    udim = [udim ' rad'];
+    udim = [udim ' ' sym];
 elseif u.angle_plane ~= 0
-    udim = [udim ' rad^' num2str(u.angle_plane)];
+    udim = [udim ' ' sym '^' num2str(u.angle_plane)];
 end
+
+d = unit_ANGLE_SOLID;
+sym = d.symbol;
 if u.angle_solid == 1
-    udim = [udim ' srad'];
+    udim = [udim ' ' sym];
 elseif u.angle_solid ~= 0
-    udim = [udim ' srad^' num2str(u.angle_solid)];
+    udim = [udim ' ' sym '^' num2str(u.angle_solid)];
 end
+
+d = unit_INFORMATION;
+sym = d.symbol;
 if u.info == 1
-    udim = [udim ' bit'];
+    udim = [udim ' ' sym];
 elseif u.info ~= 0
-    udim = [udim ' bit^' num2str(u.info)];
+    udim = [udim ' ' sym '^' num2str(u.info)];
 end
 if isempty(udim)
     udim = '(unitless';

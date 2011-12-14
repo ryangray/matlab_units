@@ -1,7 +1,6 @@
 function display (u)
 
-% unitval/display
-% displays unitval class.
+% unitval/display Displays unitval class.
 
 % Probably need some adjustments here for user prefs like loose/tight?
 disp(' ');
