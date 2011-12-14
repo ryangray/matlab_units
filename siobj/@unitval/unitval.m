@@ -33,9 +33,9 @@
 % prefix as a flag for the name combining.
 %
 % TODO: implement more operator overloads: ldivide, mldivide, mpower, lt,
-% gt, le, gr, ne, eq, ctranspose, transpose, horzcat, vertcat, subassign,
-% subsindex. Add means to call up standard compound unit objects, such as
-% 'power' so you might assert a unitval qualifies as such a quantity with
+% gt, le, gr, ne, eq, ctranspose, transpose, subsindex. Add a way to call
+% up standard compound unit objects, such as 'power' so you might assert a
+% unitval qualifies as such a quantity with
 % sameDimensions(uval,unitval('power')).
 
 classdef unitval < double
@@ -55,39 +55,39 @@ classdef unitval < double
         % the same, we could store the array in the value field, but then
         % MATLAB could still construct arrays of these?
         
-        length = 0;
-        mass = 0;
-        time = 0;
-        current = 0;
-        luminance = 0;
-        amount = 0;
-        tempurature = 0;
-        angle_plane = 0;
-        angle_solid = 0;
-        info = 0;
-        name = '';
-        symbol = '';
+        length = 0; % Length (si = meter)
+        mass = 0; % Mass (si = kilogram)
+        time = 0; % Time (si = second)
+        current = 0; % Electric current (si = Ampere)
+        luminance = 0; % Luminance (si = Candela)
+        amount = 0; % Amount of a substance (si = Moles)
+        temperature = 0; % Temperature (si = Kelvin)
+        angle_plane = 0; % Plane angle (si = radian)
+        angle_solid = 0; % Solid angle (si = steradian)
+        info = 0; % Information (bit)
+        name = ''; % Unit name (if simple, given or auto-composed)
+        symbol = ''; % Unit symbol (for simple units)
     
     end
 
     properties (Constant = true)
         
         dimensions = {'length','mass','time','current','luminance','amount', ...
-                      'tempurature','angle_plane','angle_solid','info'};
+                      'temperature','angle_plane','angle_solid','info'};
     end
 
     methods
         
         function obj = unitval (val, varargin)
 
-            % unitval class constructor.
+            % unitval Class constructor
             %
             %   u = unitval(num) creates a unitval object from the number a with no units dimensions
             %   u = unitval      creates a unitval object with no units and an empty value
             %   u = unitval(num, dimension, power, dimension, power, ...)
             %                    creates a unitval object of the number
             %                    with the unit dimensions given.
-            %   u = unitval(..., 'name', string)
+            %   u = unitval(..., 'name', string, 'symbol', string)
             %   u = unitval(num, uv) creates a unitval object with same
             %                    dims as another unitval object |uv|, but a
             %                    different numerical value.
@@ -129,6 +129,9 @@ classdef unitval < double
                     obj.(dims{ii}) = old.(dims{ii});
 
                 end
+
+                obj.name = old.name;
+                obj.symbol = old.symbol;
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
@@ -144,18 +147,29 @@ classdef unitval < double
        
         function disp (obj)
             
-            disp(double(obj))
-            disp(obj.dimensionString)
+            % unitval/disp
+            
+            if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
+                
+                disp(obj.in(obj.symbol));
+                disp(['(' obj.symbol ')']);
+                
+            else
+                
+                disp(double(obj))
+                disp(obj.dimensionString)
+                
+            end
             
         end
         
         function sref = subsref(obj, s)
             
-            % Paren indexed subscript reference
+            % unitval/subsref Subscript reference
         
             switch s(1).type
                 
-                case '()'
+                case '()' % Paren indexed
                     
                     sf = double(obj);
                     if ~isempty(s(1).subs)
@@ -165,6 +179,108 @@ classdef unitval < double
                     end
                     sref = unitval(sf, obj);
             end
+        end
+        
+        function sref = subsasgn(obj, s, val)
+            
+            % unitval/subsasgn Subscript assignment
+        
+            if ~sameDimensions(obj, val)
+                error('Different unit dimensionality');
+            end
+            
+            switch s(1).type
+                
+                case '()' % Paren indexed
+                    
+                    sf = double(obj);
+                    if ~isempty(s(1).subs)
+                        sf = subsasgn(sf,s(1:end),double(val));
+                    else
+                        error('Not a supported subscripted reference')
+                    end
+                    sref = unitval(sf, obj);
+            end
+        end
+        
+        function newobj = horzcat(varargin)
+
+            % unitval/horzcat Horizontal concatenation
+        
+            % Check that all have same unit dimensionality
+            if ~sameDimensions(varargin{:})
+                error('Not all unitval objects have the same unit dimensionality');
+            end
+            % cellfun calls double on all object to get superclass part. 
+            d1 = cellfun(@double, varargin, 'UniformOutput',false);
+            data = horzcat(d1{:});
+            newobj = unitval(data, varargin{1}(1));
+        end
+      
+        function newobj = vertcat(varargin)
+            
+            % unitval/vertcat Vertical concatenation
+
+            % Check that all have same unit dimensionality
+            if ~sameDimensions(varargin{:})
+                error('Not all unitval objects have the same unit dimensionality');
+            end
+            % cellfun calls double on all object to get superclass part. 
+            d1 = cellfun(@double, varargin, 'UniformOutput',false);
+            data = vertcat(d1{:});
+            newobj = unitval(data, varargin{1}(1));
+        end
+      
+        function u = isunitless(p)
+
+            % Test if a unitval object is a unitless quantity
+
+            dims = unitval.dimensions;
+            u = true;
+
+            for ii = 1:length(dims)
+                u = u && (p.(dims{ii}) == 0);
+            end
+        
+        end
+        
+        function v = in(obj, unit)
+            
+            % Convert unitval to unitless value in units specified.
+            % If units not specified, it is converted based on the name.
+            
+            if nargin < 2
+                
+                if ~isempty(obj.symbol)
+                
+                    u = units(obj.symbol);
+                    
+                    if isempty(u)
+                        
+                        error('Unknown unit name: %s', obj.symbol);
+                        
+                    end
+                    
+                    v = obj / u;
+                    
+                else
+                    
+                    error('Unit to convert to not given and unitval has no name.');
+                
+                end
+                
+            else
+                
+                v = obj / units(unit);
+                
+            end
+            
+            if ~isunitless(v)
+                error('Attempt to convert a unitval to a unit of different dimensionality')
+            end
+            
+            v = double(v);
+            
         end
         
     end

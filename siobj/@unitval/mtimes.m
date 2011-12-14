@@ -16,6 +16,15 @@ if isa(p,'unitval') && isa(q,'unitval')
         r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
     end
     
+    if isunitless(p) && ~isempty(p.name)
+        
+        % Prefix
+    
+        r.name = [p.name q.name];
+        r.symbol = [p.symbol q.symbol];
+        
+    end
+    
 elseif isa(p,'unitval')
     
     r = unitval(double(p) * q, p);
