@@ -1,4 +1,4 @@
-% Units second in terms of base time 
+% Units prefix
 
 function prefix = unit_PREFIX(val, name, symbol)
 
