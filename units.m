@@ -39,6 +39,15 @@ elseif ischar(varargin{1})
 
             web(which('units_product_page.html'),'-helpbrowser')
 
+        case 'setpath'
+            
+            base = fileparts(mfilename('fullpath'));
+            addpath(base,'-END')
+            addpath(fullfile(base,'si'),'-END')
+            fprintf('The pathtool should open with the units and units/si folders added at the end.\n');
+            fprintf('You should save the new path for future use.\n');
+            pathtool
+            
         case {'install'}
             
             base = fileparts(mfilename('fullpath'));
@@ -126,13 +135,23 @@ elseif ischar(varargin{1})
 
                 if ~exist(fullfile(usePath,'unit_SYSTEM.m'), 'file')
 
-                    warning('Units system folder %s does not apear to be valid.', usePath);
+                    if ~exist(usePath,'dir')
+                        if isempty(which('unit_SYSTEM'))
+                            warning('The base unit folder doesn''t appear to be on the path. Run "units setpath" to restore to si first.');
+                        end
+                        error('Units system folder %s does not exist.', usePath);
+                    else
+                        error('Units system folder %s does not apear to be valid.', usePath);
+                    end
 
                 end
 
-                % Move specified base folder to the top of the path
-
-                path(usePath, path);
+                % Get si base bath
+                si = fullfile(fileparts(which(mfilename)), 'si');
+                
+                rmpath(oldpathstr);       % Remove the old one to avoid problems
+                addpath(usePath, '-END'); % Add the new one
+                addpath(si,'-END');       % Add the core si base after that.
 
                 % If output desired, we return the previous base system path
                 
@@ -160,21 +179,22 @@ elseif ischar(varargin{1})
 
             for i = 1:length(bases)
 
-                fprintf('%s = %f\n', bases{i}, str2num(bases{i}));
+                fprintf('%s = %f\n', bases{i}, str2num(bases{i})); %#ok<ST2NM>
 
             end
 
         otherwise
             
             % Eval a units expression that may contain 'sec' for seconds
-            % since 'sec' would otherwise evaluate to the secant funtion.
+            % (since 'sec' would otherwise evaluate to the secant funtion),
+            % or other special cases.
             
-            ue = lower(varargin{1});
+            ue = lower(varargin{1}); % In the future, we may not do this to have case-sensitive units.
             
             ue = units_aliases(ue);
             s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
             warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-            varargout{1} = str2num(ue); % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
+            varargout{1} = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
             warning(s);
 
     end
