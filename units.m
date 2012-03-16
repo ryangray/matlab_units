@@ -189,7 +189,8 @@ elseif ischar(varargin{1})
             % (since 'sec' would otherwise evaluate to the secant funtion),
             % or other special cases.
             
-            ue = lower(varargin{1}); % In the future, we may not do this to have case-sensitive units.
+            %ue = lower(varargin{1}); % In the future, we may not do this to have case-sensitive units.
+            ue = varargin{1};
             
             ue = units_aliases(ue);
             s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
@@ -203,8 +204,27 @@ end
 
 function ue = units_aliases(ue)
 
-ue = lower(ue);
 ue = regexprep(ue,'\\mu','micro*'); % so you can use the TeX \mu in a units string for micro so it will print nice too. Do this substitution before others that operate on whole words.
+ue = regexprep(ue,'\\Omega\>','ohms');
+ue = regexprep(ue,'C\\circ\>','Cdeg');
+ue = regexprep(ue,'F\\circ\>','Fdeg');
+ue = regexprep(ue,'R\\circ\>','Rdeg');
+ue = regexprep(ue,'K\>','Kdeg');
+
+% Alias uppercase things for now.
+% Should switch this to rename files to uppercase and alias lowercase names
+% to those.
+
+ue = regexprep(ue,'W\>','watts');
+ue = regexprep(ue,'Watts\>','watts');
+ue = regexprep(ue,'kJ\>','kj');
+ue = regexprep(ue,'J\>','joules');
+ue = regexprep(ue,'Joules\>','joules');
+ue = regexprep(ue,'Hz\>','hz');
+
+%ue = lower(ue);
+
+ue = regexprep(ue,'\\circ\>','deg');
 ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<m\>','meter');
