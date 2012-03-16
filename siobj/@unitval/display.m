@@ -1,6 +1,6 @@
-function display (u)
+% display  Display unitval object value with unit dimensions.
 
-% unitval/display Displays unitval class.
+function display (u)
 
 % Probably need some adjustments here for user prefs like loose/tight?
 disp(' ');

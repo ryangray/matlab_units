@@ -1,6 +1,6 @@
-function r = minus (p,q)
+% minus  Implement p - q for unitvals.
 
-% unitval/minus  Implement p - q for unitvals.
+function r = minus (p,q)
 
 if isa(p,'unitval') && isa(q,'unitval')
 

@@ -1,10 +1,11 @@
-%% unitval/sameDimensions Returns true if all unitval objects have the same physical dimensions.
+%% sameDimensions  Returns true if all unitval objects have the same physical dimensions.
 % Does not compare the values.
-%% Usage
+%
+% Usage
 %  sameDimensions(u1, u2)
 %  sameDimensions(u1, u2, u3, ...)
 %
-% See also: eq
+% See also: UNITVAL/EQ
 
 % TODO: implement for where p and/or q are arrays (help support times/mtimes
 

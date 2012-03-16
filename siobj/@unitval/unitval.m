@@ -15,7 +15,6 @@
 % name and symbol.
 %
 %% Conversion
-%
 % Will make a method for conversion that will do the division, assert the
 % result is unitless and set the name to that given. A similar method for
 % converting to a string with given units for printing or display. 
@@ -55,24 +54,24 @@ classdef unitval < double
         % the same, we could store the array in the value field, but then
         % MATLAB could still construct arrays of these?
         
-        length = 0; % Length (si = meter)
-        mass = 0; % Mass (si = kilogram)
-        time = 0; % Time (si = second)
-        current = 0; % Electric current (si = Ampere)
-        luminance = 0; % Luminance (si = Candela)
-        amount = 0; % Amount of a substance (si = Moles)
+        length = 0;      % Length (si = meter)
+        mass = 0;        % Mass (si = kilogram)
+        time = 0;        % Time (si = second)
+        current = 0;     % Electric current (si = Ampere)
+        luminance = 0;   % Luminance (si = Candela)
+        amount = 0;      % Amount of a substance (si = Moles)
         temperature = 0; % Temperature (si = Kelvin)
         angle_plane = 0; % Plane angle (si = radian)
         angle_solid = 0; % Solid angle (si = steradian)
-        info = 0; % Information (bit)
-        name = ''; % Unit name (if simple, given or auto-composed)
-        symbol = ''; % Unit symbol (for simple units)
+        info = 0;        % Information (bit)
+        name = '';       % Unit name (if simple, given or auto-composed)
+        symbol = '';     % Unit symbol (for simple units)
     
     end
 
     properties (Constant = true)
         
-        dimensions = {'length','mass','time','current','luminance','amount', ...
+        dimensions = {'length','mass','time','current','luminance','amount', ...  % List of property names that store unit dimensions
                       'temperature','angle_plane','angle_solid','info'};
     end
 
@@ -80,7 +79,7 @@ classdef unitval < double
         
         function obj = unitval (val, varargin)
 
-            % unitval Class constructor
+            % UNITVAL  Class constructor
             %
             %   u = unitval(num) creates a unitval object from the number a with no units dimensions
             %   u = unitval      creates a unitval object with no units and an empty value
@@ -147,7 +146,7 @@ classdef unitval < double
        
         function disp (obj)
             
-            % unitval/disp
+            % DISP  Display unitval object value with unit dimensions.
             
             if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
                 
@@ -165,7 +164,7 @@ classdef unitval < double
         
         function sref = subsref(obj, s)
             
-            % unitval/subsref Subscript reference
+            % SUBSREF  Subscript reference
         
             switch s(1).type
                 
@@ -183,7 +182,7 @@ classdef unitval < double
         
         function sref = subsasgn(obj, s, val)
             
-            % unitval/subsasgn Subscript assignment
+            % SUBSASGN  Subscript assignment
         
             if ~sameDimensions(obj, val)
                 error('Different unit dimensionality');
@@ -205,7 +204,7 @@ classdef unitval < double
         
         function newobj = horzcat(varargin)
 
-            % unitval/horzcat Horizontal concatenation
+            % HORZCAT  Horizontal concatenation
         
             % Check that all have same unit dimensionality
             if ~sameDimensions(varargin{:})
@@ -219,7 +218,7 @@ classdef unitval < double
       
         function newobj = vertcat(varargin)
             
-            % unitval/vertcat Vertical concatenation
+            % VERTCAT  Vertical concatenation
 
             % Check that all have same unit dimensionality
             if ~sameDimensions(varargin{:})
@@ -233,7 +232,7 @@ classdef unitval < double
       
         function u = isunitless(p)
 
-            % Test if a unitval object is a unitless quantity
+            % ISUNITLESS  Test if a unitval object is a unitless quantity
 
             dims = unitval.dimensions;
             u = true;
@@ -246,8 +245,8 @@ classdef unitval < double
         
         function v = in(obj, unit)
             
-            % Convert unitval to unitless value in units specified.
-            % If units not specified, it is converted based on the name.
+            % IN  Convert unitval to units specified as a double without units.
+            % If unit is not specified, then it is converted based on the name.
             
             if nargin < 2
                 
@@ -280,6 +279,27 @@ classdef unitval < double
             end
             
             v = double(v);
+            
+        end
+        
+        function e = eq (p, q)
+            
+            % EQ  Test if two unitval objects are equal.
+            % They must have the same unit dimensions, or all values are
+            % not equal, otherwise a logical array is returned with true
+            % where the numeric values are equal.
+            %
+            % See also: UNITVAL/SAMEDIMENSIONS
+
+            if sameDimensions(p, q)
+                
+                e = double(p) == double(q);
+                
+            else
+                
+                e = false(size(p));
+                
+            end
             
         end
         

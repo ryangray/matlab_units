@@ -1,6 +1,6 @@
-function r = mrdivide (p,q)
+% mrdivide  Implement p / q for unitvals.
 
-% unitval/mrdivide  Implement p / q for unitvals.
+function r = mrdivide (p,q)
 
 dims = unitval.dimensions;
 N = length(dims);

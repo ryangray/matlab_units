@@ -1,8 +1,9 @@
-function r = power (p,q)
-
-% unitval/power Implement p.^q for unitvals.
+% power Implement p.^q for unitvals.
 % Only support plain power values -- not unitval powers
+% Power can be a single value or the same size as the number.
 % UNTESTED
+
+function r = power (p,q)
 
 if isa(q,'unitval')
     
@@ -10,9 +11,9 @@ if isa(q,'unitval')
     
 end
 
-if numel(q) > 1
+if numel(p) ~= numel(q) || numel(q) > 1
     
-    error('Can only raise unitval to scalar power');
+    error('Can only raise unitval to scalar power or a matrix the same size as the unitval.');
     
 end
 

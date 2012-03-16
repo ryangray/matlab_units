@@ -1,9 +1,9 @@
-function r = rdivide (p,q)
-
-% unitval/rdivide  Implement p ./ q for unitvals.
+%% rdivide  Implement p ./ q for unitvals.
 % unitval ./ unitval = value fields divide, unit fields subtract.
 % unitval ./ double  = value field divided by double value, same units
 % double ./ unitval = same as above
+
+function r = rdivide (p,q)
 
 dims = unitval.dimensions;
 N = length(dims);

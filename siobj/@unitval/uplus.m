@@ -1,5 +1,5 @@
-function b = uplus (a)
+% uplus  Implement +a for unitvals.
 
-% unitval/uplus Implement +a for unitvals.
+function b = uplus (a)
 
 b = a;

@@ -1,9 +1,9 @@
-function r = times (p,q)
-
-% unitval/times  Implement p .* q for unitvals.
+%% times  Implement p .* q for unitvals.
 % unitval * unitval = value fields multiply, unit fields add.
 % unitval * double  = value field times double with same units
 % double * unitval = same as above
+
+function r = times (p,q)
 
 if isa(p,'unitval') && isa(q,'unitval')
 

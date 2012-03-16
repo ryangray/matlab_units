@@ -1,6 +1,6 @@
-function udim = dimensionString (u)
+% dimensionString  Returns string of dimensions
 
-% unitval/dimensionString Returns string of dimensions
+function udim = dimensionString (u)
 
 % Generate units dimensions string
 
