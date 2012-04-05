@@ -3,6 +3,6 @@
 % Converts number into meter by dividing value in internal units by it. 
 % See also: AMPERE
 
-function ampere = unit 
+function amps = unit 
 
-ampere = ampere; 
+amps = ampere; 
