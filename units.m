@@ -82,7 +82,7 @@ elseif ischar(varargin{1})
                 % the file after changing to new header convention of:
                 %    %% unit_name = value
                 
-                [pathstr,name,ext,versn] = fileparts(files(ii).name);
+                [pathstr,name] = fileparts(files(ii).name);
                 fprintf(fid,'%s%s%s\n','  <tocitem>', name,'</tocitem>');
 
             end
@@ -92,15 +92,15 @@ elseif ischar(varargin{1})
 
         case {'list','ls'}
             
-            [pathstr,name,ext,versn] = fileparts(which(mfilename));
+            pathstr = fileparts(which(mfilename));
 
             if nargout > 0
                 
-                varargout{1} = ls(fullfile(pathstr,['*.m' versn]));
+                varargout{1} = ls(fullfile(pathstr,'*.m'));
 
             else
                 
-                ls(fullfile(pathstr,['*.m' versn]));
+                ls(fullfile(pathstr,'*.m'));
 
             end
 

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
 <toc version="1.0">
-<tocitem target="units.html">Units Toolbox
+<tocitem target="units_product_page.html">Units Toolbox
   <tocitem>Cdeg</tocitem>
   <tocitem>Cdegree</tocitem>
   <tocitem>Fdeg</tocitem>
@@ -41,6 +41,10 @@
   <tocitem>deca</tocitem>
   <tocitem>deci</tocitem>
   <tocitem>deg</tocitem>
+  <tocitem>degC</tocitem>
+  <tocitem>degF</tocitem>
+  <tocitem>degK</tocitem>
+  <tocitem>degR</tocitem>
   <tocitem>deg_E</tocitem>
   <tocitem>deg_N</tocitem>
   <tocitem>deg_S</tocitem>
@@ -68,6 +72,7 @@
   <tocitem>furlong</tocitem>
   <tocitem>furlongs</tocitem>
   <tocitem>g0</tocitem>
+  <tocitem>galileo</tocitem>
   <tocitem>gallon</tocitem>
   <tocitem>gallon_imperial</tocitem>
   <tocitem>gallon_us</tocitem>
@@ -133,6 +138,7 @@
   <tocitem>mega</tocitem>
   <tocitem>megabyte</tocitem>
   <tocitem>megabytes</tocitem>
+  <tocitem>megapond</tocitem>
   <tocitem>meter</tocitem>
   <tocitem>meters</tocitem>
   <tocitem>mhz</tocitem>
@@ -211,10 +217,18 @@
   <tocitem>terabyte</tocitem>
   <tocitem>thermo_calorie</tocitem>
   <tocitem>thou</tocitem>
+  <tocitem>toDegC</tocitem>
+  <tocitem>toDegF</tocitem>
+  <tocitem>toDegK</tocitem>
+  <tocitem>toDegR</tocitem>
+  <tocitem>tonne</tocitem>
+  <tocitem>tonne_force</tocitem>
+  <tocitem>tonnes</tocitem>
   <tocitem>torr</tocitem>
   <tocitem>um</tocitem>
   <tocitem>unitless</tocitem>
   <tocitem>units</tocitem>
+  <tocitem>unitsSymbols</tocitem>
   <tocitem>urad</tocitem>
   <tocitem>urads</tocitem>
   <tocitem>usec</tocitem>
