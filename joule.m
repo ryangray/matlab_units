@@ -1,7 +1,7 @@
-% Unit joule 
-% Converts number to internal units by multplying by it 
-% Converts number into joule by dividing value in internal units by it. 
-% E (Joules) = m (kg) * c (m/s)^2
+%% joule (J), SI unit of radiant energy
+% joule = kg * (m/s)^2 = newton * meter
+% From: E = mc^2
+% See also: watt
 
 function joule = unit 
 

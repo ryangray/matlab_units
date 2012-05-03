@@ -1,6 +1,6 @@
-% Unit watt 
-% Converts number to internal units by multplying by it 
-% Converts number into watt by dividing value in internal units by it. 
+%% watt (W), SI unit of radiant flux
+% watt = joule / s
+% See also: joule
 
 function watt = unit 
 
