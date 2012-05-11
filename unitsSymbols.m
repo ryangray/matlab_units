@@ -19,7 +19,7 @@ if nargin < 2
 end
 latex = strcmpi(tex,'latex');
 if latex
-    tl = '\\mbox{';
+    tl = '\\mathrm{'; % \mbox and \text won't work with escaped characters like \mu, etc.
     tr = '}';
 else
     tl = '';
@@ -41,16 +41,17 @@ pstr = regexprep(pstr,'\<calories*\>', [tl 'cal' tr]);
 pstr = regexprep(pstr,'\<[cC]andelas*\>', [tl 'Cd' tr]);
 pstr = regexprep(pstr,'\<[hH]enry\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[hH]enries\>', [tl 'H' tr]);
+pstr = regexprep(pstr,'\<[fF]arads*\>', [tl 'F' tr]);
 if latex
     pstr = regexprep(pstr,'\<degs*\>', [tl '^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<degrees*\>', [tl '^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<Cdegs*\>', [tl 'C^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<Fdegs*\>', [tl 'F^{\\circ}' tr]);
 else
-    pstr = regexprep(pstr,'\<degs*\>', '\\circ');
-    pstr = regexprep(pstr,'\<degrees*\>', '\\circ');
-    pstr = regexprep(pstr,'\<Cdegs*\>', 'C\\circ');
-    pstr = regexprep(pstr,'\<Fdegs*\>', 'F\\circ');
+    pstr = regexprep(pstr,'\<degs*\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<degrees*\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<Cdegs*\>', 'C{\\circ}');
+    pstr = regexprep(pstr,'\<Fdegs*\>', 'F{\\circ}');
 end
 pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R' tr]);
 pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K' tr]);
@@ -67,7 +68,7 @@ pstr = regexprep(pstr,'\<inches\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<[hH]ertz\>', [tl 'Hz' tr]);
 pstr = regexprep(pstr,'\<miles*\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<nautical_miles*\>', [tl 'nmi' tr]);
-pstr = regexprep(pstr,'\<ohms*\>', [tl '\\Omega' tr]);
+pstr = regexprep(pstr,'\<ohms*\>', [tl '{\\Omega}' tr]);
 
 % Now replace prefixes
 
@@ -77,7 +78,7 @@ pstr = regexprep(pstr,'centi\*', [tl 'c' tr]);
 pstr = regexprep(pstr,'hecto\*', [tl 'h' tr]);
 pstr = regexprep(pstr,'milli\*', [tl 'm' tr]);
 pstr = regexprep(pstr,'kilo\*',  [tl 'k' tr]);
-pstr = regexprep(pstr,'micro\*', [tl '\\mu' tr]);
+pstr = regexprep(pstr,'micro\*', [tl '{\\mu}' tr]);
 pstr = regexprep(pstr,'mega\*',  [tl 'M' tr]);
 pstr = regexprep(pstr,'nano\*',  [tl 'n' tr]);
 pstr = regexprep(pstr,'giga\*',  [tl 'G' tr]);
@@ -93,5 +94,9 @@ pstr = regexprep(pstr,'yocto\*', [tl 'y' tr]);
 pstr = regexprep(pstr,'yetta\*', [tl 'Y' tr]);
 
 pstr = regexprep(pstr,'kibi\*', [tl 'ki' tr]);
+
+% Other special cases
+
+pstr = regexprep(pstr,'\<um\>', [tl '{\\mu}m' tr]);
 
 end
