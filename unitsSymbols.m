@@ -98,5 +98,15 @@ pstr = regexprep(pstr,'kibi\*', [tl 'ki' tr]);
 % Other special cases
 
 pstr = regexprep(pstr,'\<um\>', [tl '{\\mu}m' tr]);
+pstr = regexprep(pstr,'\<urad(s*)\>', [tl '{\\mu}rad$1' tr]);
+
+% Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
+
+if latex
+    pstr = regexprep(pstr,'\<radian\>', [tl 'radian' tr]);
+    pstr = regexprep(pstr,'\<radians\>', [tl 'radians' tr]);
+    pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
+    pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
+end
 
 end
