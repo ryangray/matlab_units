@@ -1,7 +1,8 @@
-% Unit psia = pounds force per square inch absolute (gauge + local atmospheric)
-% Converts number to internal units by multplying by it 
-% Converts number into mmhg by dividing value in internal units by it. 
-% See also: LBF, INCH, PASCAL, TORR
+%% psia (pounds force per square inch absolute [gauge + local atmospheric]) = lbf / inch^2
+%% Unit of pressure
+% We use "psia" rather than "psi" to not conflict with the MATLAB function.
+%
+% See also: pascal, kpa, pa, atm, mmhg, torr
 
 function psia = unit
 
