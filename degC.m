@@ -1,15 +1,16 @@
 %% A Celcius temperature or degree in base temperature units
 %% Usage
-%  dT = T * degC
-%  degC('absolutezero')
-%  T = degC(temperature_in_degC)
+%  dT = T * degC % scaling Cdegs to current (also Cdeg)
+%  degC('absolutezero') % returns -273.15
+%  T = degC(temperature_in_degC) % convert from degC to current
+%  T = degC(temperature, 'to') % convert from current to degC
 %
 % The delta temperature usage is the same as the unit Cdeg.
 % When asking for absolute zero, it is returned in degrees C as -273.15.
 %
 % See also: degF, degK, degR, toDegC
 
-function T = degC (T_C)
+function T = degC (T_C, varargin)
 
 T0_C = -273.15;
 
@@ -20,6 +21,10 @@ if nargin == 0
 elseif ischar(T_C) && strcmpi(T_C,'absolutezero')
     
     T = T0_C;
+    
+elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
+
+    T = toDegC(T_C); % In this case T_C is in current units
     
 else % degC value given
 

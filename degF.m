@@ -1,15 +1,16 @@
 %% A Fahrenheit temperature or degree in base temperature units
 %% Usage
-%  dT = T * degF
-%  degF('absolutezero')
-%  T = degF(temperature_in_degF)
+%  dT = T * degF % scaling Fdegs to current (also Fdeg)
+%  degF('absolutezero') % returns -459.67
+%  T = degF(temperature_in_degF) % convert from degF to current
+%  T = degF(temperature,'to') % convert from current to degF
 %
 % The delta temperature usage is the same as the unit Fdeg.
 % When asking for absolute zero, it is returned in degrees F as -459.67.
 %
 % See also: degR, degC, degK, toDegF
 
-function T = degF (T_F)
+function T = degF (T_F, varargin)
 
 T0_F = -459.67;
 
@@ -20,6 +21,10 @@ if nargin == 0
 elseif ischar(T_F) && strcmpi(T_F,'absolutezero')
     
     T = T0_F;
+    
+elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
+
+    T = toDegF(T_F); % In this case T_F is in current units
     
 else % degF value given
 

@@ -16,8 +16,26 @@
 %        units(units_expression) % evaluates the units expression string
 %                                  ignoring local variables that might mask
 %                                  units functions as well as allowing 'sec'
+%  units(units_expression, value)
+%
+% Same as value*units(units_expression) except if the units are exactly one
+% of: degC, degK, degF or degR (or a TeX expression eqquivalent '\circF',
+% etc), then it is equivalent to calling the unit function with the value
+% as an argument to correctly convert the temperature to the current units.
+% For example, units('degF', 32) is the same as degF(32). This form can be
+% useful when the units are not known.
+%
+%  units(units_expression, value, 'to')
+%
+% This works similarly, except it converts the value to the units given. It
+% is equivalent to value/units(units_expression), except for temperature,
+% where it is like adding the 'to' parameter to the units function, for
+% example: units('degC',0) is equivalent to: degC(0,'to'), converting the
+% temperature of 0 in current units to degC.
 
 function varargout = units (varargin)
+
+tempunits = {'degK','degR','degC','degF'};
 
 if isempty(varargin)
 
@@ -189,15 +207,35 @@ elseif ischar(varargin{1})
             % (since 'sec' would otherwise evaluate to the secant funtion),
             % or other special cases.
             
-            %ue = lower(varargin{1}); % In the future, we may not do this to have case-sensitive units.
-            ue = varargin{1};
-            
-            ue = units_aliases(ue);
+            ue = units_aliases(varargin{1});
+
             s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
             warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-            varargout{1} = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
+            uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
             warning(s);
+            
+            if nargin == 1 || isempty(uval)
+                
+                varargout{1} = uval;
+                    
+            elseif ismember(ue, tempunits)
 
+                % Handle temperature conversions for single units with
+                % value as second arg.
+                varargout{1} = feval(ue, varargin{2:end});
+
+            else
+                
+                val = varargin{2};
+                
+                if nargin > 2 && strcmpi(varargin{3},'to')
+            
+                    varargout{1} = val / uval;
+                else
+                    varargout{1} = val * uval;
+                end
+            end
+            
     end
 
 end
@@ -206,25 +244,24 @@ function ue = units_aliases(ue)
 
 ue = regexprep(ue,'\\mu','micro*'); % so you can use the TeX \mu in a units string for micro so it will print nice too. Do this substitution before others that operate on whole words.
 ue = regexprep(ue,'\\Omega\>','ohms');
-ue = regexprep(ue,'C\\circ\>','Cdeg');
-ue = regexprep(ue,'F\\circ\>','Fdeg');
-ue = regexprep(ue,'R\\circ\>','Rdeg');
-ue = regexprep(ue,'K\>','Kdeg');
+ue = regexprep(ue,'\\circ([CFRK])\>','deg$1');
+ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg');
+ue = regexprep(ue,'\<K\>','degK');
 
 % Alias uppercase things for now.
 % Should switch this to rename files to uppercase and alias lowercase names
 % to those.
 
-ue = regexprep(ue,'W\>','watts');
-ue = regexprep(ue,'Watts\>','watts');
-ue = regexprep(ue,'kJ\>','kj');
-ue = regexprep(ue,'J\>','joules');
-ue = regexprep(ue,'Joules\>','joules');
-ue = regexprep(ue,'Hz\>','hz');
+ue = regexprep(ue,'\<W\>','watts');
+ue = regexprep(ue,'\<Watts\>','watts');
+ue = regexprep(ue,'\<kJ\>','kj');
+ue = regexprep(ue,'\<J\>','joules');
+ue = regexprep(ue,'\<Joules\>','joules');
+ue = regexprep(ue,'\<Hz\>','hz');
 
 %ue = lower(ue);
 
-ue = regexprep(ue,'\\circ\>','deg');
+ue = regexprep(ue,'\<\\circ\>','deg');
 ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<m\>','meter');

@@ -1,15 +1,16 @@
 %% A Rankine temperature or degree in base temperature units
 %% Usage
-%  dT = T * degR
-%  degR('absolutezero')
-%  T = degR(temperature_in_degR)
+%  dT = T * degR % scaling Rdegs to current (also Rdeg)
+%  degR('absolutezero') % returns 0
+%  T = degR(temperature_in_degR) % convert from degR to current
+%  T = degR(temperature, 'to') % convert from current to degR
 %
 % The delta temperature usage is the same as the unit Rdeg.
 % When asking for absolute zero, it is returned in degrees R as 0.
 %
 % See also: degK, degC, degF, toDegR
 
-function T = degR (T_R)
+function T = degR (T_R, varargin)
 
 if nargin == 0
     
@@ -18,6 +19,10 @@ if nargin == 0
 elseif ischar(T_R) && strcmpi(T_R,'absolutezero')
     
     T = 0;
+    
+elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
+
+    T = toDegR(T_R); % In this case T_R is in current units
     
 else % degR value given
 
