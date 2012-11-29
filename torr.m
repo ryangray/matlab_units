@@ -1,7 +1,5 @@
-% Unit torr = mmhg
-% Converts number to internal units by multplying by it 
-% Converts number into mmhg by dividing value in internal units by it. 
-% See also: MMHG
+%% torr (Torr) = mmHg
+% See also: mmhg, pa
 
 function torr = unit 
 

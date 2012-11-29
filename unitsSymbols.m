@@ -107,6 +107,7 @@ if latex
     pstr = regexprep(pstr,'\<radians\>', [tl 'radians' tr]);
     pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
     pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
+    pstr = regexprep(pstr,'\<mole\>', [tl 'mole' tr]);
 end
 
 end

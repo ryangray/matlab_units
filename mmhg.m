@@ -1,7 +1,5 @@
-% Unit mmhg (millimeters of Mercury)
-% Converts number to internal units by multplying by it 
-% Converts number into mmhg by dividing value in internal units by it. 
-% See also: KPA, PA, ATM
+% Unit mmhg (millimeters of Mercury) = 101325/760 * pa
+% See also: kpa, pa, atm
 
 function mmhg = unit 
 
