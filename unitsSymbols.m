@@ -11,6 +11,8 @@
 % The tex option is either 'tex' or 'latex' and defaults to 'tex'. If
 % 'latex' is specified, then the result is wrapped in '\mbox{...}' to
 % appear upright when interpreted.
+%
+% See also: units
 
 function pstr = unitsSymbols (pstr, tex)
 

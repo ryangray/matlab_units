@@ -1,21 +1,19 @@
-% Evaluate units expression, show or switch units base, or show help.
-% Usage: units              % Prints the name of the units system in use
-%        units('base')      % Prints the base unit values in use
-%          or: units base
-%        units('list')      % Lists all the units m functions
-%          or: units list
-%        units('help') or 
-%            units('doc')   % Opens the help document for units
-%          or: units doc
-%        units('system')              % return path to units base system folder
-%        units('system', base_folder) % change units base system
-%        oldsys = units('system', base_folder) % change units base system
-%                                              % and return the previous one 
-%                                              (for later restoration)
-%        units install
-%        units(units_expression) % evaluates the units expression string
-%                                  ignoring local variables that might mask
-%                                  units functions as well as allowing 'sec'
+%% Evaluate units expression, show or switch units base, or show help.
+%% Usage
+%  units              % Prints the name of the units system in use
+%  units('base')      % Prints the base unit values in use
+%  units('list')      % Lists all the units m functions
+%  units('help') or units('doc')   % Opens the help document for units
+%  units('system')              % return path to units base system folder
+%  units('system', base_folder) % change units base system
+%  oldsys = units('system', base_folder) % change units base system and
+%                                        % return the previous one 
+%  units install      % Add units folder and SI base folder to the path
+%
+%  units(units_expression) % evaluates the units expression string ignoring
+%                            ignoring local variables and performing some
+%                            special translations like sec -> second.
+%
 %  units(units_expression, value)
 %
 % Same as value*units(units_expression) except if the units are exactly one
@@ -32,6 +30,8 @@
 % where it is like adding the 'to' parameter to the units function, for
 % example: units('degC',0) is equivalent to: degC(0,'to'), converting the
 % temperature of 0 in current units to degC.
+%
+% See also: unitsSymbols
 
 function varargout = units (varargin)
 
@@ -100,7 +100,7 @@ elseif ischar(varargin{1})
                 % the file after changing to new header convention of:
                 %    %% unit_name = value
                 
-                [pathstr,name] = fileparts(files(ii).name);
+                [~,name] = fileparts(files(ii).name);
                 fprintf(fid,'%s%s%s\n','  <tocitem>', name,'</tocitem>');
 
             end
@@ -242,31 +242,44 @@ end
 
 function ue = units_aliases(ue)
 
-ue = regexprep(ue,'\\mu','micro*'); % so you can use the TeX \mu in a units string for micro so it will print nice too. Do this substitution before others that operate on whole words.
-ue = regexprep(ue,'\\Omega\>','ohms');
-ue = regexprep(ue,'\\circ([CFRK])\>','deg$1');
-ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg');
-ue = regexprep(ue,'\<K\>','degK');
+% These translate various strings taken in a units context
 
-% Alias uppercase things for now.
-% Should switch this to rename files to uppercase and alias lowercase names
-% to those.
+% TeX aliases so you can use these in a units string and in a label.
+% Do these substitutions before others that operate on whole words.
 
-ue = regexprep(ue,'\<W\>','watts');
+ue = regexprep(ue,'\\mu','micro*'); % \mu
+ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
+ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
+ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
+ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
+ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
+
+% Case aliases
+% Will probably add alias functions with case now that MATLAB is sensitive
+% to it for M files.
+
 ue = regexprep(ue,'\<Watts\>','watts');
 ue = regexprep(ue,'\<kJ\>','kj');
-ue = regexprep(ue,'\<J\>','joules');
 ue = regexprep(ue,'\<Joules\>','joules');
 ue = regexprep(ue,'\<Hz\>','hz');
 
-%ue = lower(ue);
+% Single letters
 
-ue = regexprep(ue,'\<\\circ\>','deg');
+ue = regexprep(ue,'\<J\>','joules');
+ue = regexprep(ue,'\<K\>','degK');
+ue = regexprep(ue,'\<W\>','watts');
 ue = regexprep(ue,'\<s\>','second');
-ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<m\>','meter');
-ue = regexprep(ue,'\<w\>','watt');
-ue = regexprep(ue,'\<min\>','minute');
+
+% Existing function dodges
+
+ue = regexprep(ue,'\<sec\>','second');
+ue = regexprep(ue,'\<min\>','minute'); 
+ue = regexprep(ue,'\<psi\>','psia');
+ue = regexprep(ue,'\<pascal*\>','pa');
+
+% Special
+
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
 ue = regexprep(ue,'\<string\>','');
