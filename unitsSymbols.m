@@ -47,13 +47,24 @@ pstr = regexprep(pstr,'\<[fF]arads*\>', [tl 'F' tr]);
 if latex
     pstr = regexprep(pstr,'\<degs*\>', [tl '^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<degrees*\>', [tl '^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<Cdegs*\>', [tl 'C^{\\circ}' tr]);
     pstr = regexprep(pstr,'\<Fdegs*\>', [tl 'F^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<degK*\>', [tl '^{\\circ}K' tr]);
+    pstr = regexprep(pstr,'\<degC*\>', [tl '^{\\circ}C' tr]);
+    pstr = regexprep(pstr,'\<degR*\>', [tl '^{\\circ}R' tr]);
+    pstr = regexprep(pstr,'\<degF*\>', [tl '^{\\circ}F' tr]);
 else
     pstr = regexprep(pstr,'\<degs*\>', '{\\circ}');
     pstr = regexprep(pstr,'\<degrees*\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<Kdegs*\>', 'K{\\circ}');
     pstr = regexprep(pstr,'\<Cdegs*\>', 'C{\\circ}');
     pstr = regexprep(pstr,'\<Fdegs*\>', 'F{\\circ}');
+    pstr = regexprep(pstr,'\<degK*\>', 'K');
+    pstr = regexprep(pstr,'\<degC*\>', '{\\circ}C');
+    pstr = regexprep(pstr,'\<degR*\>', '{\\circ}R');
+    pstr = regexprep(pstr,'\<degF*\>', '{\\circ}F');
 end
 pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R' tr]);
 pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K' tr]);

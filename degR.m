@@ -1,7 +1,7 @@
 %% A Rankine temperature or degree in base temperature units
 %% Usage
 %  dT = T * degR % scaling Rdegs to current (also Rdeg)
-%  degR('absolutezero') % returns 0
+%  degR('absolutezero') or degR('0') % returns 0
 %  T = degR(temperature_in_degR) % convert from degR to current
 %  T = degR(temperature, 'to') % convert from current to degR
 %
@@ -16,9 +16,18 @@ if nargin == 0
     
     T = Rdegree;
     
-elseif ischar(T_R) && strcmpi(T_R,'absolutezero')
+elseif ischar(T_R)
     
-    T = 0;
+    switch lower(T_R)
+        
+        case {'0','absolutezero'}
+                
+            T = 0;
+            
+        otherwise
+            
+            error('Invalid option: %s', T_R);
+    end
     
 elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
 

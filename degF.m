@@ -1,7 +1,7 @@
 %% A Fahrenheit temperature or degree in base temperature units
 %% Usage
 %  dT = T * degF % scaling Fdegs to current (also Fdeg)
-%  degF('absolutezero') % returns -459.67
+%  degF('absolutezero') or degF('0') % returns -459.67
 %  T = degF(temperature_in_degF) % convert from degF to current
 %  T = degF(temperature,'to') % convert from current to degF
 %
@@ -18,9 +18,18 @@ if nargin == 0
     
     T = Fdegree;
     
-elseif ischar(T_F) && strcmpi(T_F,'absolutezero')
-    
-    T = T0_F;
+elseif ischar(T_F)
+
+    switch lower(T_F)
+        
+        case {'0','absolutezero'}
+                
+            T = T0_F;
+            
+        otherwise
+            
+            error('Invalid option: %s', T_F);
+    end
     
 elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
 

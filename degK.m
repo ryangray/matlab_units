@@ -1,7 +1,7 @@
 %% A Kelvin temperature or degree in base temperature units
 %% Usage
 %  dT = T * degK % scaling Kdegs to current (also Kdeg)
-%  degK('absolutezero') % returns 0
+%  degK('absolutezero') or degK('0') % returns 0
 %  T = degK(temperature_in_degK) % convert from degK to current
 %  T = degK(temperature, 'to') % convert from current to degK
 %
@@ -16,9 +16,18 @@ if nargin == 0
     
     T = Kdegree;
     
-elseif ischar(T_K) && strcmpi(T_K,'absolutezero')
-    
-    T = 0;
+elseif ischar(T_K)
+
+    switch lower(T_K)
+        
+        case {'0','absolutezero'}
+                
+            T = 0;
+            
+        otherwise
+            
+            error('Invalid option: %s', T_K);
+    end
     
 elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
 

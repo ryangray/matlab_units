@@ -1,7 +1,7 @@
 %% A Celcius temperature or degree in base temperature units
 %% Usage
 %  dT = T * degC % scaling Cdegs to current (also Cdeg)
-%  degC('absolutezero') % returns -273.15
+%  degC('absolutezero') or degC('0') % returns -273.15
 %  T = degC(temperature_in_degC) % convert from degC to current
 %  T = degC(temperature, 'to') % convert from current to degC
 %
@@ -18,9 +18,18 @@ if nargin == 0
     
     T = Cdegree;
 
-elseif ischar(T_C) && strcmpi(T_C,'absolutezero')
+elseif ischar(T_C)
     
-    T = T0_C;
+    switch lower(T_C)
+        
+        case {'0','absolutezero'}
+                
+            T = T0_C;
+            
+        otherwise
+            
+            error('Invalid option: %s', T_C);
+    end
     
 elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
 
