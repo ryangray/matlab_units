@@ -263,6 +263,7 @@ ue = regexprep(ue,'\<kJ\>','kj');
 ue = regexprep(ue,'\<Joules\>','joules');
 ue = regexprep(ue,'\<Hz\>','hz');
 ue = regexprep(ue,'\<L\>','liters');
+ue = regexprep(ue,'\<Pa\>','pa');
 
 % Single letters
 
@@ -277,7 +278,7 @@ ue = regexprep(ue,'\<m\>','meter');
 ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<min\>','minute'); 
 ue = regexprep(ue,'\<psi\>','psia');
-ue = regexprep(ue,'\<pascal*\>','pa');
+ue = regexprep(ue,'\<pascals*\>','pa');
 
 % Special
 
