@@ -123,6 +123,8 @@ if latex
     pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
     pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
     pstr = regexprep(pstr,'\<mole\>', [tl 'mole' tr]);
+    pstr = regexprep(pstr,'\<kj\>', [tl 'kJ' tr]);
+    pstr = regexprep(pstr,'\<kw\>', [tl 'kW' tr]);
 end
 
 end

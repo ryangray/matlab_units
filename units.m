@@ -264,6 +264,7 @@ ue = regexprep(ue,'\<Joules\>','joules');
 ue = regexprep(ue,'\<Hz\>','hz');
 ue = regexprep(ue,'\<L\>','liters');
 ue = regexprep(ue,'\<Pa\>','pa');
+ue = regexprep(ue,'\<kPa\>','kpa');
 
 % Single letters
 
@@ -286,3 +287,4 @@ ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
 ue = regexprep(ue,'\<string\>','');
 ue = regexprep(ue,'\<%\>','percent');
+ue = regexprep(ue,'\<in\>','inch');
