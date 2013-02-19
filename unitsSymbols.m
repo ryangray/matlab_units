@@ -7,27 +7,39 @@
 %% Usage
 %  unitsSymbols(units_expression_string)
 %  unitsSymbols(units_expression_string, tex)
+%  unitsSymbols(units_expression_string, tex, env)
 %
 % The tex option is either 'tex' or 'latex' and defaults to 'tex'. If
-% 'latex' is specified, then the result is wrapped in '\mbox{...}' to
-% appear upright when interpreted.
+% 'latex' is specified, then the result is wrapped in '\mathrm{...}' to
+% appear upright when interpreted and some transforms are done differently.
+% The env option (defaults to 'mathrm') lets you choose another wrapper or 
+% to specify '' for no wrapper for the 'latex' option.
 %
 % See also: units
 
-function pstr = unitsSymbols (pstr, tex)
+function pstr = unitsSymbols (pstr, tex, env)
 
 if nargin < 2
     tex = 'tex';
 end
+if nargin < 3
+    env = 'mathrm'; % \mbox and \text won't work with escaped characters like \mu, etc.
+end
 latex = strcmpi(tex,'latex');
 if latex
-    tl = '\\mathrm{'; % \mbox and \text won't work with escaped characters like \mu, etc.
-    tr = '}';
+    if ~isempty(env)
+        tl = ['\\' env '{'];
+        tr = '}';
+    else
+        tl = '';
+        tr = '';
+    end
 else
     tl = '';
     tr = '';
 end
 
+pstr = regexprep(pstr,'\<unitless\>', '');
 pstr = regexprep(pstr,'\<seconds*\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<sec\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<meters*\>', [tl 'm' tr]);
@@ -57,6 +69,8 @@ if latex
     pstr = regexprep(pstr,'\<degC*\>', [tl '^{\\circ}C' tr]);
     pstr = regexprep(pstr,'\<degR*\>', [tl '^{\\circ}R' tr]);
     pstr = regexprep(pstr,'\<degF*\>', [tl '^{\\circ}F' tr]);
+    pstr = regexprep(pstr,'\<percent\>', [tl '\\%' tr]);
+    pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]);
 else
     pstr = regexprep(pstr,'\<degs*\>', '{\\circ}');
     pstr = regexprep(pstr,'\<degrees*\>', '{\\circ}');
@@ -67,6 +81,7 @@ else
     pstr = regexprep(pstr,'\<degC*\>', '{\\circ}C');
     pstr = regexprep(pstr,'\<degR*\>', '{\\circ}R');
     pstr = regexprep(pstr,'\<degF*\>', '{\\circ}F');
+    pstr = regexprep(pstr,'\<percent\>', '%');
 end
 pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R' tr]);
 pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K' tr]);
