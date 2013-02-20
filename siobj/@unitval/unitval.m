@@ -115,7 +115,7 @@ classdef unitval < double
             
             % Set dimensions and name
 
-            if length(varargin) == 1 && isa(varargin{1},'unitval') %#ok<CPROP,PROP>
+            if length(varargin) == 1 && isa(varargin{1},'unitval') %#ok<CPROP>
                 
                 % Making a new unitval with same dimensions as an old one,
                 % but different value: 
@@ -123,7 +123,7 @@ classdef unitval < double
                 
                 old = varargin{1};
                 dims = unitval.dimensions;
-                for ii = 1:length(dims) %#ok<CPROP,PROP>
+                for ii = 1:length(dims) %#ok<CPROP>
 
                     obj.(dims{ii}) = old.(dims{ii});
 
@@ -134,7 +134,7 @@ classdef unitval < double
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
-                for ii = 1:2:length(varargin) %#ok<CPROP,PROP>
+                for ii = 1:2:length(varargin) %#ok<CPROP>
 
                     obj.(lower(varargin{ii})) = varargin{ii+1};
 
@@ -237,8 +237,11 @@ classdef unitval < double
             dims = unitval.dimensions;
             u = true;
 
-            for ii = 1:length(dims)
+            for ii = 1:length(dims) %#ok<CPROP>
                 u = u && (p.(dims{ii}) == 0);
+            end
+            if numel(p) > 1
+                u = u || all(double(p) == 0);
             end
         
         end
@@ -284,12 +287,12 @@ classdef unitval < double
         
         function e = eq (p, q)
             
-            % EQ  Test if two unitval objects are equal.
-            % They must have the same unit dimensions, or all values are
-            % not equal, otherwise a logical array is returned with true
-            % where the numeric values are equal.
+            % EQ  Test if two unitval objects are equal. They must have the
+            % same unit dimensions, in which case a logical array is
+            % returned with true where the numeric values are equal,
+            % otherwise all values are not equal.
             %
-            % See also: UNITVAL/SAMEDIMENSIONS
+            % See also: unitval/sameDimensions
 
             if sameDimensions(p, q)
                 
@@ -303,6 +306,19 @@ classdef unitval < double
             
         end
         
+        function r = sqrt(p)
+        
+            % SQRT Square root
+            
+            r = unitval(sqrt(double(p)), p);
+            dims = unitval.dimensions;
+            N = length(dims); %#ok<CPROP>
+            for jj = 1:N
+                r.(dims{jj}) = r.(dims{jj}) / 2;
+            end
+
+        end
+
     end
     
 end

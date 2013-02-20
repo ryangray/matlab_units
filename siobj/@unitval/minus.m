@@ -12,10 +12,32 @@ if isa(p,'unitval') && isa(q,'unitval')
     
 elseif isa(p,'unitval')
     
-    error('Right-hand side is not a units value');
+    if isa(q,'double') && q == 0
+        
+        r = p;
+        
+    elseif isunitless(p)
+        
+        r = unitval(double(p) - q, p);
+        
+    else
+        
+        error('Right-hand side has no units');
+    end
     
 elseif isa(q,'unitval')
     
-    error('Left-hand side is not a units value');
+    if isa(p,'double') && p == 0
+        
+        r = q;
+        
+    elseif isunitless(q)
+        
+        r = unitval(p - double(q), q);
+        
+    else
+        
+        error('Left-hand side has no units');
+    end
     
 end

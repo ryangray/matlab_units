@@ -7,13 +7,20 @@ function r = power (p,q)
 
 if isa(q,'unitval')
     
-    error('Raise to unitval power is not supported');
+    if isunitless(q)
+        
+        q = double(q);
+        
+    else
     
+        error('Raise to a (non-unitless) unitval power is not supported');
+    end
+        
 end
 
 if numel(p) ~= numel(q) || numel(q) > 1
     
-    error('Can only raise unitval to scalar power or a matrix the same size as the unitval.');
+    error('Can only raise a unitval to a scalar power or a matrix the same size as the unitval.');
     
 end
 

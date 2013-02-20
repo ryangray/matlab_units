@@ -20,7 +20,7 @@ elseif isa(p,'unitval')
     
     r = unitval(double(p) ./ q, p);
     
-else
+else % q is a unitval
     
     r = unitval(p ./ double(q));
     
@@ -28,4 +28,9 @@ else
         r.(dims{jj}) = -q.(dims{jj});
     end
     
+end
+
+if isunitless(r)
+    
+    r = double(r);
 end

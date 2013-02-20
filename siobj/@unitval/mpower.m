@@ -7,7 +7,14 @@ function r = mpower (p,q)
 
 if isa(q,'unitval')
     
-    error('Raise to unitval power is not supported');
+    if isunitless(q)
+        
+        q = double(q);
+        
+    else
+    
+        error('Raise to a (non-unitless) unitval power is not supported');
+    end
     
 end
 
