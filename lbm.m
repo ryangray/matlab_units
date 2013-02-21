@@ -1,4 +1,4 @@
-%% lbm (pound-mass) = lbf / g0
+%% lbm (pound-mass) = 0.45359237 * kg (exact)
 %% Unit of mass
 % The pound-mass is the mass that weighs 1 pound-force at 1g, and it
 % is numericlly the same amount as the pound-force. 1 lbf = 1 lbm * 1g
@@ -23,4 +23,4 @@
 
 function lbm = unit 
 
-lbm = lbf / g0; % m = f/a,  1 lbm = 1 lbf / 1g
+lbm = 0.45359237 * kg; % Exact

@@ -6,4 +6,3 @@
 function slug = unit 
 
 slug = lbf / (foot/second^2); % f = m*a, (1 lbf) = (1 slug) * (1 ft/sec^2)
-
