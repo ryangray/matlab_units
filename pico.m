@@ -5,4 +5,4 @@
 
 function pico = prefix 
 
-pico  = unit_PREFIX(1.e-12,'pico','p');
+pico  = unit_MAKE(1.e-12,'pico','p');

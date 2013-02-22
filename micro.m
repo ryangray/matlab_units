@@ -5,4 +5,4 @@
 
 function micro = prefix 
 
-micro = unit_PREFIX(1.e-6,'micro','u');
+micro = unit_MAKE(1.e-6,'micro','u');

@@ -4,4 +4,4 @@
 
 function unitless = unit 
 
-unitless = 1; 
+unitless = unit_MAKE(1,'unitless',''); 

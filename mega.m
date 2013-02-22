@@ -5,4 +5,4 @@
 
 function mega = prefix 
 
-mega = unit_PREFIX(1.e+6,'mega','M');
+mega = unit_MAKE(1.e+6,'mega','M');

@@ -5,4 +5,4 @@
 
 function deci = prefix 
 
-deci = unit_PREFIX(1.e-1,'deci','d');
+deci = unit_MAKE(1.e-1,'deci','d');

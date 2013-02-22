@@ -5,4 +5,4 @@
 
 function peta = prefix 
 
-peta = unit_PREFIX(1.e+15,'peta','P');
+peta = unit_MAKE(1.e+15,'peta','P');

@@ -5,4 +5,4 @@
 
 function zepto = prefix 
 
-zepto = unit_PREFIX(1.e-21,'zepto','z');
+zepto = unit_MAKE(1.e-21,'zepto','z');

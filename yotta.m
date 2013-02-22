@@ -5,4 +5,4 @@
 
 function yotta = prefix 
 
-yotta = unit_PREFIX(1.e+24,'yotta','Y');
+yotta = unit_MAKE(1.e+24,'yotta','Y');

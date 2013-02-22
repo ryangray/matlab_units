@@ -5,4 +5,4 @@
 
 function kilo = prefix 
 
-kilo = unit_PREFIX(1.e+3,'kilo','k');
+kilo = unit_MAKE(1.e+3,'kilo','k');

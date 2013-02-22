@@ -5,4 +5,4 @@
 
 function hecto = prefix 
 
-hecto = unit_PREFIX(100,'hecto','h');
+hecto = unit_MAKE(100,'hecto','h');

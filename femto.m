@@ -5,4 +5,4 @@
 
 function femto = prefix 
 
-femto = unit_PREFIX(1.e-15,'femto','f');
+femto = unit_MAKE(1.e-15,'femto','f');

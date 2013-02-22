@@ -5,4 +5,4 @@
 
 function newton = unit 
 
-newton = kg * meter / second^2;
+newton = unit_MAKE(kg * meter / second^2, 'Newton', 'N');
