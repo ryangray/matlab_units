@@ -5,4 +5,4 @@
 
 function T = deg0
 
-T = 0 ; % degK('absolutezero');
+T = 0 * Kdegree;

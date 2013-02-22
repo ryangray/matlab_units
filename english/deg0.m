@@ -2,4 +2,4 @@
 
 function T = deg0
 
-T = 0 ; % degR('absolutezero');
+T = 0 * Rdegree;
