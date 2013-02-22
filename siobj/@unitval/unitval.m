@@ -75,25 +75,100 @@ classdef unitval < double
                       'temperature','angle_plane','angle_solid','info'};
     end
 
+    methods (Static)
+    
+        function assert (a, b, onFail)
+        
+            %% Assert that two values have the same unit dimensions
+            % If a and b are unitval objects, they must have the same unit
+            % dimensions. If one is a unitval, then it must be unitless to
+            % succeed. If both are not unitvals, then it succeeds. If the
+            % assertion fails, an error is produced, unless the warn option
+            % is used.
+            
+            errorOnFail = (nargin < 3 || ~strcmpi(onFail,'warn'));
+                
+            if isa(a,'unitval') && isa(b,'unitval')
+                
+                if ~sameDimensions(a, b)
+                    
+                    msg = 'Values do not have the same units dimensions.';
+                    if errorOnFail
+                        error(msg);
+                    else
+                        warning(msg);
+                    end
+                    
+                end
+                    
+            elseif isa(a,'unitval')
+                
+                if ~isunitless(a)
+                    
+                    msg = 'Second value has no units';
+                    if errorOnFail
+                        error(msg);
+                    else
+                        warning(msg);
+                    end
+                    
+                end
+                
+            elseif isa(b,'unitval')
+                
+                if ~isunitless(b)
+                
+                    msg = 'First value has no units';
+                    if errorOnFail
+                        error(msg);
+                    else
+                        warning(msg);
+                    end
+                end
+                
+            end
+            
+        end
+        
+    end
+    
     methods
         
         function obj = unitval (val, varargin)
 
             % UNITVAL  Class constructor
             %
-            %   u = unitval(num) creates a unitval object from the number a with no units dimensions
-            %   u = unitval      creates a unitval object with no units and an empty value
+            % Create a unitval object from a double:
+            %
+            %   u = unitval(num)
+            %
+            % Create a unitval object with no units and an empty value:
+            %
+            %   u = unitval
+            %
+            % Create a unitval object from a double with the unit
+            % dimensions given:
+            %
             %   u = unitval(num, dimension, power, dimension, power, ...)
-            %                    creates a unitval object of the number
-            %                    with the unit dimensions given.
+            %
+            % Create a unitval object from a double but with the same dims
+            % as another unitval object:
+            %
+            %   u = unitval(num, unitval_object)
+            %
+            % If num is instead a unitval object, then its dimensions are
+            % compared to those of unitval_object, and an error is signaled
+            % if they are not the same.
+            %
+            % Set the unit's name and/or symbol:
+            %
             %   u = unitval(..., 'name', string, 'symbol', string)
-            %   u = unitval(num, uv) creates a unitval object with same
-            %                    dims as another unitval object |uv|, but a
-            %                    different numerical value.
+            %
             % Dimensions are:
             %
             % 'length','mass','time','current','luminance','amount',
-            % 'temperature','angle_plane','angle_solid','info'.
+            % 'temperature','angle_plane','angle_solid','info'. This can be
+            % obtained as a cell array from the property .dimensions.
             %
             % For example, 9.81 m/s^2, would be: 
             %  unitval(9.81,'length',1,'time',-2)
@@ -109,28 +184,43 @@ classdef unitval < double
             if isa(val, 'unitval') % copy object
 
                 obj = val;
-                return
 
             end
             
-            % Set dimensions and name
+            if ~isempty(varargin) && isa(varargin{1},'unitval') 
+                    
+                if isa(val,'unitval') % unitval(unitval_object_to_copy, unitval_object_template)
+                        
+                    if ~sameDimensions(val, varargin{1})
 
-            if length(varargin) == 1 && isa(varargin{1},'unitval') %#ok<CPROP>
-                
-                % Making a new unitval with same dimensions as an old one,
-                % but different value: 
-                %  new_unitval = unitval(new_val, old_unitval)
-                
-                old = varargin{1};
-                dims = unitval.dimensions;
-                for ii = 1:length(dims) %#ok<CPROP>
+                        error('Copy constructor template units do not match unitval being copied');
+                    end
+                        
+                else % unitval(double, unitval_object_template)
+            
+                    % Making a new unitval with same dimensions as an old
+                    % one, but different value.
 
-                    obj.(dims{ii}) = old.(dims{ii});
+                    old = varargin{1};
+                    dims = unitval.dimensions;
+                    for ii = 1:length(dims) %#ok<CPROP>
+
+                        obj.(dims{ii}) = old.(dims{ii});
+
+                    end
+
+                    obj.name = old.name;
+                    obj.symbol = old.symbol;
 
                 end
+                
+                % Set any other properties given as additional arguments
+                
+                for ii = 2:2:length(varargin) %#ok<CPROP>
 
-                obj.name = old.name;
-                obj.symbol = old.symbol;
+                    obj.(lower(varargin{ii})) = varargin{ii+1};
+
+                end
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
@@ -170,36 +260,54 @@ classdef unitval < double
                 
                 case '()' % Paren indexed
                     
-                    sf = double(obj);
-                    if ~isempty(s(1).subs)
-                        sf = subsref(sf,s(1:end));
-                    else
-                        error('Not a supported subscripted reference')
-                    end
-                    sref = unitval(sf, obj);
+                    sub = builtin('subsref', double(obj), s);
+                    sref = unitval(sub, obj);
+                    
+                case '.'
+                    
+                     sref = builtin('subsref', obj, s);
+                     
+                otherwise
+                    
+                    error('Not a supported subscripted reference')
             end
         end
         
-        function sref = subsasgn(obj, s, val)
+        function obj = subsasgn(obj, s, val)
             
             % SUBSASGN  Subscript assignment
         
-            if ~sameDimensions(obj, val)
-                error('Different unit dimensionality');
+            if isa(val,'unitval') && ~sameDimensions(obj, val)
+                
+                error('unitval:subsasgn','Different unit dimensionality on right hand side for subscripted assignment.');
+                
             end
             
             switch s(1).type
                 
                 case '()' % Paren indexed
                     
-                    sf = double(obj);
-                    if ~isempty(s(1).subs)
-                        sf = subsasgn(sf,s(1:end),double(val));
-                    else
-                        error('Not a supported subscripted reference')
-                    end
-                    sref = unitval(sf, obj);
+                    sub = builtin('subsasgn',double(obj), s, double(val));
+                    obj = unitval(sub, obj);
+                    
+                case '.'
+                    
+                     obj = builtin('subsasgn',obj, s, val);
+                     
+                case '{}'
+                    
+                    error('unitval:subsasgn', 'Not a supported subscripted assignment');
+                    
+                otherwise
+                    
+                    error('Not a supported subscripted reference')
             end
+        end
+        
+        function ind = subsindex(obj)
+            % Convert the object a to double format to be used
+            % as an index in an indexing expression
+           ind = double(obj);
         end
         
         function newobj = horzcat(varargin)
@@ -271,9 +379,20 @@ classdef unitval < double
                 
                 end
                 
-            else
+            elseif ischar(unit)
                 
                 v = obj / units(unit);
+                
+            elseif isa(unit,'unitval')
+                
+                v = obj / unit;
+                if ~isunitless(v)
+                    error('Attempt to convert to units with a different units dimensionality');
+                end
+                
+            else
+                
+                error('Units to convert to must be a units expression string or a unitval object');
                 
             end
             
@@ -285,24 +404,13 @@ classdef unitval < double
             
         end
         
-        function e = eq (p, q)
+        function r = not (p)
             
-            % EQ  Test if two unitval objects are equal. They must have the
-            % same unit dimensions, in which case a logical array is
-            % returned with true where the numeric values are equal,
-            % otherwise all values are not equal.
+            %% not  Implement ~p for unitvals.
             %
-            % See also: unitval/sameDimensions
+            % See also: unitval/and
 
-            if sameDimensions(p, q)
-                
-                e = double(p) == double(q);
-                
-            else
-                
-                e = false(size(p));
-                
-            end
+            r = ~double(p);
             
         end
         
@@ -319,6 +427,27 @@ classdef unitval < double
 
         end
 
+        function r = abs(p)
+            
+            r = unitval(abs(double(p)), p);
+        end
+        
+        % function r = eps(p)
+        %     
+        %     r = unitval(eps(double(p)), p);
+        % end
+        
+        function r = sum(p, varargin)
+            
+            r = unitval(sum(double(p), varargin{:}), p);
+        end
+       
+        function [r, ix] = sort(p, varargin)
+            
+            [s, ix] = sort(double(p), varargin{:});
+            r = unitval(s, p);
+        end
+        
     end
     
 end

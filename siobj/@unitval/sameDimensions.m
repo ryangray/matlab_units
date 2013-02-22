@@ -17,12 +17,18 @@ same = true;
 
 p = varargin{1};
 
+if ~isa(p,'unitval')
+    p = unitval(p);
+end
 iv = 2;
 Nv = length(varargin);
 
 while same && iv <= Nv
     
     q = varargin{iv};
+    if ~isa(q,'unitval')
+        q = unitval(q);
+    end
     ii = 1;
     while same && ii <= Nd
         same = same && (p.(dims{ii}) == q.(dims{ii}));

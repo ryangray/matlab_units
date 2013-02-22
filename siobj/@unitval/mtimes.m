@@ -34,7 +34,7 @@ elseif isa(p,'unitval')
     
     r = unitval(double(p) * q, p);
     
-else
+else % q is a unitval
     
     r = unitval(p * double(q), q);
     

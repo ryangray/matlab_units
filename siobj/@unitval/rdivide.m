@@ -30,7 +30,7 @@ else % q is a unitval
     
 end
 
-if isunitless(r)
-    
-    r = double(r);
-end
+% if isunitless(r)
+%     
+%     r = double(r);
+% end

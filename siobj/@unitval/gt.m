@@ -1,4 +1,8 @@
-% lt  Implement p > q for unitvals.
+%% gt  Implement p > q for unitvals.
+% Two unitvals must have the same unit dimensions. You can also compare a
+% unitval to a double zero or a unitless unitval to a double.
+%
+% See also: unitval/ge, unitval/lt
 
 function r = gt (p,q)
 
@@ -14,7 +18,7 @@ elseif isa(p,'unitval')
 
     if isa(q,'double') && ~any(q(:))
         
-        r = p > 0;
+        r = double(p) > 0;
         
     elseif isunitless(p)
         
@@ -29,7 +33,7 @@ elseif isa(q,'unitval')
 
     if isa(p,'double') && ~any(p(:))
         
-        r = 0 > q;
+        r = 0 > double(q);
         
     elseif isunitless(q)
         
