@@ -2,4 +2,4 @@
 
 function meter = unit_LENGTH
 
-meter = 100; % cm
+meter = unit_MAKE(100,'centimeter','cm','length');

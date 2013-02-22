@@ -1,10 +1,10 @@
-% Units kelvin in terms of base temerature 
+% Units kelvin in terms of base temperature 
 
 function kelvin = unit_TEMPERATURE (varargin)
 
 if nargin == 0
     
-    kelvin = 1; % Kelvin degree
+    kelvin = unit_MAKE(1,'Kelvin','K','temperature');
         
 elseif ischar(varargin{1}) 
     

@@ -2,4 +2,4 @@
 
 function kilogram = unit_MASS
 
-kilogram = 1; % kilogram
+kilogram = unit_MAKE(1,'kilogram','kg','mass');

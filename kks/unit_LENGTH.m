@@ -2,4 +2,4 @@
 
 function meter = unit_LENGTH
 
-meter = 0.001; % km
+meter = unit_MAKE(0.001,'kilometer','km','length');

@@ -2,4 +2,4 @@
 
 function radian = unit_ANGLE_PLANE
 
-radian = 1; % radian (m/m)
+radian = unit_MAKE(1,'radian','rad','angle_plane');

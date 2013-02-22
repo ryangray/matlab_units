@@ -2,4 +2,4 @@
 
 function second = unit_TIME
 
-second = 1; % second
+second = unit_MAKE(1,'second','s','time');

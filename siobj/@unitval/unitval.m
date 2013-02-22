@@ -15,9 +15,33 @@
 % name and symbol.
 %
 %% Conversion
-% Will make a method for conversion that will do the division, assert the
-% result is unitless and set the name to that given. A similar method for
-% converting to a string with given units for printing or display. 
+% There is the in() method for conversion that will do the division and assert
+% the result is unitless. However, calling this with dot notation would not
+% be compatible with non-object units, so if we use the functional form, we
+% can provide a non-object version in the standard units folder. This way,
+% you can have code like:
+%  plot(in(x,km), in(y,watts/cm^2))
+% instead of the existing:
+%  plot(x/km, y/(watts/cm^2))
+% It's not too bad but does beak old code since x/km would produce a
+% unitless unitval that plot would fail on. However, if we had our own plot
+% method, we could capture plot(x/km, varargin) and convert any unitval
+% objects to doubles and pass it onto plot(), but it would not capture
+% plot(ax, x/km, ...) though.
+%
+% One problem with in() is for non-object values: such a simple name might
+% get used as another function that doubles would invoke, so that's one
+% reason to go with a static class method, but that would mean writing
+% units code that works with both object and non-object bases would have to
+% call the static method and the unitval class always be on the path. This
+% isn't that unreasonable since it would only be code made to work with
+% both, so it would be written to be aware of the class - it would just
+% require it on the path even if non-object units were being used. This
+% could be easy enough if the @unitval folder lived inside the units folder
+% instead of inside the units/siobj folder. The units/si folder would
+% contain the non-object unit_MAKE function and putting the units/obj
+% folder on the path ahead of units/si would cause the object versions to be
+% used. The other bases can be switched separately. 
 %
 %% Unitless/dimensionless
 % We could have a valid form where the unitval is dimensionless, but has a
@@ -25,17 +49,39 @@
 % value would then be labeled 'unitless'.
 %
 %% Prefixes
-% Trying out a new base unit function 'unit_PREFIX' that the prefix
-% definitions will call. Non-object ones just return the value, but the
-% object base one will create a dimensionless unitval with the value given
-% and the names given. However, we might want to have an indicator of a
-% prefix as a flag for the name combining.
+% The prefix definitions call the base unit function 'unit_MAKE'. The
+% non-object version just returns the value, but the object one will create
+% a dimensionless unitval with the value given and the names given. The
+% multiply object methods try to combine these with the base units. This
+% works okay. Eventually, we can have most unit definitions calling
+% unit_MAKE to set their names that aren't just derived from a prefix on a
+% base unit. For example: 
+%  newton = unit_MAKE(kg*meter/second^2,'Newton','N');
+% For the non-object version, the first arg just gets assigned to the
+% output, but for the object version, the kg*meter/second^2 expression has
+% already generated a unitval object, and so the object version of
+% unit_MAKE re-assigns the name and symbol properties. So, then kilo*newton
+% produces a unitval with the name 'kiloNewton' and symbol 'kN'.
 %
-% TODO: implement more operator overloads: ldivide, mldivide, mpower, lt,
-% gt, le, gr, ne, eq, ctranspose, transpose, subsindex. Add a way to call
-% up standard compound unit objects, such as 'power' so you might assert a
-% unitval qualifies as such a quantity with
-% sameDimensions(uval,unitval('power')).
+%% Asserts
+% You can use MATLAB's assert to assert that unitval objects have certain
+% units:
+%  assert(sameUnits(a, b))
+% However, this isn't transparent to non-object units code since sameUnits
+% is a unitval method. Calling sameUnits with a double will not resolve to
+% the unitval method, so you could make a static method that also works
+% with doubles such that unitval.sameUnits(double, double) would work, but
+% then we would have to put the object class always on the path, which
+% might not be a bad idea because we will soon be able to switch the object
+% units on and off by toggling the path to units_MAKE alone. An alternative
+% is to put a sameUnits function in the units folder that gets overridden
+% by the object method when called on a unitval, but we would have to make
+% it aware of unitval objects anyway since it would get called if the first
+% arg was a double and the second arg was a unitval.
+
+% TODO: implement more operator overloads: ldivide, mldivide. Perhaps
+% extend the double() method to work on structs, recursing through them to
+% turn all unitval fields to doubles.
 
 classdef unitval < double
 
