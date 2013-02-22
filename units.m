@@ -66,7 +66,7 @@ elseif ischar(varargin{1})
             fprintf('You should save the new path for future use.\n');
             pathtool
             
-        case {'install'}
+        case 'install'
             
             base = fileparts(mfilename('fullpath'));
             addpath(base,'-END')
@@ -191,16 +191,34 @@ elseif ischar(varargin{1})
             
         case 'base'
             
-            bases = {'unit_AMOUNT','unit_ANGLE_PLANE','unit_ANGLE_SOLID','unit_CURRENT', ...
-                     'unit_INFORMATION','unit_LENGTH','unit_LUMINANCE','unit_MASS', ...
-                     'unit_TEMPERATURE','unit_TIME'};
+            if nargin == 1
+                
+                bases = {'MASS','LENGTH','TIME','TEMPERATURE', ...
+                         'AMOUNT','LUMINANCE', 'CURRENT', ...
+                         'ANGLE_PLANE','ANGLE_SOLID','INFORMATION'};
 
-            for i = 1:length(bases)
+                for i = 1:length(bases)
 
-                fprintf('%s = %f\n', bases{i}, str2num(bases{i})); %#ok<ST2NM>
+                    val = feval(['unit_' bases{i}]);
+                    info = feval(['unit_' bases{i} '_info']);
+                    fprintf('%-12s: %s (%s) = %g\n', bases{i}, info.name, info.symbol, double(val));
 
+                end
+
+            else
+                
+                switch lower(varargin{2})
+                    
+                    case 'obj'
+            
+                        error('Will switch to unitval object based units in future');
+                        
+                    case {'double','normal'}
+                        
+                        error('Will switch to non-object based units in future');
+                end
             end
-
+            
         otherwise
             
             % Eval a units expression that may contain 'sec' for seconds
