@@ -1,7 +1,5 @@
 % mpower  Implement p^q for unitvals.
-% Only support double power values -- not unitval powers
-% Only supports a single power value.
-% UNTESTED
+% Only support scalar power values. Can be double or a unitless unitval.
 
 function r = mpower (p,q)
 
