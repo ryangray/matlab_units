@@ -395,7 +395,7 @@ classdef unitval < double
                 u = u && (p.(dims{ii}) == 0);
             end
             if numel(p) > 1
-                u = u || all(double(p) == 0);
+                u = u || all(reshape(double(p),[],1) == 0);
             end
         
         end

@@ -304,5 +304,6 @@ ue = regexprep(ue,'\<pascals*\>','pa');
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
 ue = regexprep(ue,'\<string\>','');
+ue = regexprep(ue,'\<include\>','');
 ue = regexprep(ue,'\<%\>','percent');
 ue = regexprep(ue,'\<in\>','inch');

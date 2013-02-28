@@ -12,7 +12,7 @@ if isa(p,'unitval') && isa(q,'unitval')
     
 elseif isa(p,'unitval')
     
-    if isa(q,'double') && q == 0
+    if isa(q,'double') && all(q(:)) == 0
         
         r = p;
         
@@ -27,7 +27,7 @@ elseif isa(p,'unitval')
     
 elseif isa(q,'unitval')
     
-    if isa(p,'double') && p == 0
+    if isa(p,'double') && all(p(:)) == 0
         
         r = q;
         
