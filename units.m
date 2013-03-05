@@ -278,6 +278,7 @@ ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
 
 ue = regexprep(ue,'\<Watts\>','watts');
 ue = regexprep(ue,'\<kJ\>','kj');
+ue = regexprep(ue,'\<kW\>','kw');
 ue = regexprep(ue,'\<Joules\>','joules');
 ue = regexprep(ue,'\<Hz\>','hz');
 ue = regexprep(ue,'\<L\>','liters');
@@ -291,6 +292,7 @@ ue = regexprep(ue,'\<K\>','degK');
 ue = regexprep(ue,'\<W\>','watts');
 ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<m\>','meter');
+ue = regexprep(ue,'\<g\>','gram');
 
 % Existing function dodges
 
