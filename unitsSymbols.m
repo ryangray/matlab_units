@@ -69,8 +69,8 @@ if latex
     pstr = regexprep(pstr,'\<degC*\>', [tl '^{\\circ}C' tr]);
     pstr = regexprep(pstr,'\<degR*\>', [tl '^{\\circ}R' tr]);
     pstr = regexprep(pstr,'\<degF*\>', [tl '^{\\circ}F' tr]);
+    pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]); % Do this before replacing 'percent' with '%'
     pstr = regexprep(pstr,'\<percent\>', [tl '\\%' tr]);
-    pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]);
 else
     pstr = regexprep(pstr,'\<degs*\>', '{\\circ}');
     pstr = regexprep(pstr,'\<degrees*\>', '{\\circ}');
@@ -137,7 +137,7 @@ if latex
     pstr = regexprep(pstr,'\<radians\>', [tl 'radians' tr]);
     pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
     pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
-    pstr = regexprep(pstr,'\<mole\>', [tl 'mole' tr]);
+    pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
     pstr = regexprep(pstr,'\<kj\>', [tl 'kJ' tr]);
     pstr = regexprep(pstr,'\<kw\>', [tl 'kW' tr]);
 end
