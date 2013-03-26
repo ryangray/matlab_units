@@ -1,7 +1,5 @@
-% Unit calorie = thermochemical calorie
-% Converts number to internal units by multplying by it 
-% Converts number into calorie by dividing value in internal units by it. 
-% See also: THERMO_CALORIE, JOULE, TABLE_CALORIE
+%% Unit calorie = thermochemical calorie
+% See also: cal_th, joule, table_calorie
 
 function calorie = unit 
 
