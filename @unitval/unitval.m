@@ -367,7 +367,11 @@ classdef unitval < double
             % cellfun calls double on all object to get superclass part. 
             d1 = cellfun(@double, varargin, 'UniformOutput',false);
             data = horzcat(d1{:});
-            newobj = unitval(data, varargin{1}(1));
+            if isa(varargin{1},'double')
+                newobj = data;
+            else
+                newobj = unitval(data, varargin{1}(1));
+            end
         end
       
         function newobj = vertcat(varargin)
@@ -381,7 +385,11 @@ classdef unitval < double
             % cellfun calls double on all object to get superclass part. 
             d1 = cellfun(@double, varargin, 'UniformOutput',false);
             data = vertcat(d1{:});
-            newobj = unitval(data, varargin{1}(1));
+            if isa(varargin{1},'double')
+                newobj = data;
+            else
+                newobj = unitval(data, varargin{1}(1));
+            end
         end
       
         function u = isunitless(p)
