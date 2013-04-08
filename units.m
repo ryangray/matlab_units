@@ -221,9 +221,7 @@ elseif ischar(varargin{1})
             
         otherwise
             
-            % Eval a units expression that may contain 'sec' for seconds
-            % (since 'sec' would otherwise evaluate to the secant funtion),
-            % or other special cases.
+            % Eval a units expression, handling special cases or conversions
             
             if strcmpi(varargin{1},'string')
                 

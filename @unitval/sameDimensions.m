@@ -5,7 +5,7 @@
 %  sameDimensions(u1, u2)
 %  sameDimensions(u1, u2, u3, ...)
 %
-% See also: UNITVAL/EQ
+% See also: unitval/eq
 
 % TODO: implement for where p and/or q are arrays (help support times/mtimes
 
@@ -17,6 +17,10 @@ same = true;
 
 p = varargin{1};
 
+if ischar(p)
+    p = units(p);
+end
+
 if ~isa(p,'unitval')
     p = unitval(p);
 end
@@ -26,6 +30,9 @@ Nv = length(varargin);
 while same && iv <= Nv
     
     q = varargin{iv};
+    if ischar(q)
+        q = units(q);
+    end
     if ~isa(q,'unitval')
         q = unitval(q);
     end
