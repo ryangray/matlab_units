@@ -225,35 +225,55 @@ elseif ischar(varargin{1})
             % (since 'sec' would otherwise evaluate to the secant funtion),
             % or other special cases.
             
-            ue = units_aliases(varargin{1});
-
-            s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
-            warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-            uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
-            warning(s);
-            
-            if nargin == 1 || isempty(uval)
+            if strcmpi(varargin{1},'string')
                 
-                varargout{1} = uval;
-                    
-            elseif ismember(ue, tempunits)
+                if nargin == 1
 
-                % Handle temperature conversions for single units with
-                % value as second arg.
-                varargout{1} = feval(ue, varargin{2:end});
+                    varargout{1} = ''; % this will pass an isempty() test but also be a string
 
+                else
+
+                    val = varargin{2};
+
+                    if ischar(val) || iscellstr(val)
+                        
+                        varargout{1} = val;
+                    else
+                        varargout{1} = mat2str(val);
+
+                    end
+                end
+                
             else
                 
-                val = varargin{2};
-                
-                if nargin > 2 && strcmpi(varargin{3},'to')
-            
-                    varargout{1} = val / uval;
+                ue = units_aliases(varargin{1});
+                s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
+                warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
+                uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
+                warning(s);
+
+                if nargin == 1 || isempty(uval)
+
+                    varargout{1} = uval;
+
+                elseif ismember(ue, tempunits)
+
+                    % Handle temperature conversions for single units with
+                    % value as second arg.
+                    varargout{1} = feval(ue, varargin{2:end});
+
                 else
-                    varargout{1} = val * uval;
+
+                    val = varargin{2};
+
+                    if nargin > 2 && strcmpi(varargin{3},'to')
+
+                        varargout{1} = val / uval;
+                    else
+                        varargout{1} = val * uval;
+                    end
                 end
-            end
-            
+            end            
     end
 
 end
@@ -305,7 +325,6 @@ ue = regexprep(ue,'\<pascals*\>','pa');
 
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
-ue = regexprep(ue,'\<string\>','');
 ue = regexprep(ue,'\<include\>','');
 ue = regexprep(ue,'\<%\>','percent');
 ue = regexprep(ue,'\<in\>','inch');
