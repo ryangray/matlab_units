@@ -1,52 +1,28 @@
-%% Units class
+%% unitval class
 %
 % This isn't designed to be used directly, but through the units system as
 % a base unit module for the existing units system. This allows it to use
 % all the existing unit definitions and to be switched in and out. It
 % subclasses the MATLAB double class, so ordinary functions will operate on
-% the base double class and return doubles.
+% the base double class and return doubles in most cases.
 %
-%% Names:
-% Carrying name and symbol fields. We can define rules for when names are
-% set or removed and how they could combine. Ideally, prefixes would
-% combine as expected with simple units. However, we could limit such
-% things to the definition files. For example, in cm.m, you combine centi
-% and meter, which wipes out the name, but you then give the result a new
-% name and symbol.
+% The reason you can't use this class on its own easily is that although
+% you can make a unitval with the contructor, the utility really comes from
+% all the unit definition M files that combine the primitives. Otherwise,
+% you have to do all of that yourself if the base units are not unitval
+% objects.
 %
 %% Conversion
 % There is the in() method for conversion that will do the division and assert
-% the result is unitless. However, calling this with dot notation would not
-% be compatible with non-object units, so if we use the functional form, we
-% can provide a non-object version in the standard units folder. This way,
-% you can have code like:
-%  plot(in(x,km), in(y,watts/cm^2))
-% instead of the existing:
+% the result is unitless. However, since unitval objects are derived from
+% double, you can just use them in most places, so this works:
 %  plot(x/km, y/(watts/cm^2))
-% It's not too bad but does beak old code since x/km would produce a
-% unitless unitval that plot would fail on. However, if we had our own plot
-% method, we could capture plot(x/km, varargin) and convert any unitval
-% objects to doubles and pass it onto plot(), but it would not capture
-% plot(ax, x/km, ...) though.
-%
-% One problem with in() is for non-object values: such a simple name might
-% get used as another function that doubles would invoke, so that's one
-% reason to go with a static class method, but that would mean writing
-% units code that works with both object and non-object bases would have to
-% call the static method and the unitval class always be on the path. This
-% isn't that unreasonable since it would only be code made to work with
-% both, so it would be written to be aware of the class - it would just
-% require it on the path even if non-object units were being used. This
-% could be easy enough if the @unitval folder lived inside the units folder
-% instead of inside the units/siobj folder. The units/si folder would
-% contain the non-object unit_MAKE function and putting the units/obj
-% folder on the path ahead of units/si would cause the object versions to be
-% used. The other bases can be switched separately. 
 %
 %% Unitless/dimensionless
-% We could have a valid form where the unitval is dimensionless, but has a
-% name. This would support radians and steradians. With no name, such a
-% value would then be labeled 'unitless'.
+% Creating a unitval with no dimensions makes a unitless value:
+%  unitval(x)
+% Dividing a value by another with the same dimensions also creates one:
+%  x = 3*km; disp(x/km)
 %
 %% Prefixes
 % The prefix definitions call the base unit function 'unit_MAKE'. The
@@ -63,25 +39,19 @@
 % unit_MAKE re-assigns the name and symbol properties. So, then kilo*newton
 % produces a unitval with the name 'kiloNewton' and symbol 'kN'.
 %
-%% Asserts
+%% Comparing unit dimensionality
 % You can use MATLAB's assert to assert that unitval objects have certain
 % units:
 %  assert(sameUnits(a, b))
 % However, this isn't transparent to non-object units code since sameUnits
 % is a unitval method. Calling sameUnits with a double will not resolve to
-% the unitval method, so you could make a static method that also works
-% with doubles such that unitval.sameUnits(double, double) would work, but
-% then we would have to put the object class always on the path, which
-% might not be a bad idea because we will soon be able to switch the object
-% units on and off by toggling the path to units_MAKE alone. An alternative
-% is to put a sameUnits function in the units folder that gets overridden
-% by the object method when called on a unitval, but we would have to make
-% it aware of unitval objects anyway since it would get called if the first
-% arg was a double and the second arg was a unitval.
+% the unitval method. For this purpose, we have the unitsSameDimenstions
+% function in the units folder that you can use to work with double or
+% unitval units.
 
-% TODO: implement more operator overloads: ldivide, mldivide. Perhaps
-% extend the double() method to work on structs, recursing through them to
-% turn all unitval fields to doubles.
+% TODO: Can't extend the double() method to work on structs since they are
+% not unitval objects. Instead, make a static class method for recursing
+% through a struct to turn all unitval fields to doubles.
 
 classdef unitval < double
 
@@ -121,63 +91,6 @@ classdef unitval < double
                       'temperature','angle_plane','angle_solid','info'};
     end
 
-    methods (Static)
-    
-        function assert (a, b, onFail)
-        
-            %% Assert that two values have the same unit dimensions
-            % If a and b are unitval objects, they must have the same unit
-            % dimensions. If one is a unitval, then it must be unitless to
-            % succeed. If both are not unitvals, then it succeeds. If the
-            % assertion fails, an error is produced, unless the warn option
-            % is used.
-            
-            errorOnFail = (nargin < 3 || ~strcmpi(onFail,'warn'));
-                
-            if isa(a,'unitval') && isa(b,'unitval')
-                
-                if ~sameDimensions(a, b)
-                    
-                    msg = 'Values do not have the same units dimensions.';
-                    if errorOnFail
-                        error(msg);
-                    else
-                        warning(msg);
-                    end
-                    
-                end
-                    
-            elseif isa(a,'unitval')
-                
-                if ~isunitless(a)
-                    
-                    msg = 'Second value has no units';
-                    if errorOnFail
-                        error(msg);
-                    else
-                        warning(msg);
-                    end
-                    
-                end
-                
-            elseif isa(b,'unitval')
-                
-                if ~isunitless(b)
-                
-                    msg = 'First value has no units';
-                    if errorOnFail
-                        error(msg);
-                    else
-                        warning(msg);
-                    end
-                end
-                
-            end
-            
-        end
-        
-    end
-    
     methods
         
         function obj = unitval (val, varargin)
