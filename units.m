@@ -223,7 +223,7 @@ elseif ischar(varargin{1})
             
             % Eval a units expression, handling special cases or conversions
             
-            if strcmpi(varargin{1},'string')
+            if strcmpi(varargin{1},'string') || strcmpi(varargin{1},'function')
                 
                 if nargin == 1
 
@@ -236,6 +236,8 @@ elseif ischar(varargin{1})
                     if ischar(val) || iscellstr(val)
                         
                         varargout{1} = val;
+                    elseif isa(val,'function_handle')
+                        varargout{1} = func2str(val);
                     else
                         varargout{1} = mat2str(val);
 
@@ -324,5 +326,6 @@ ue = regexprep(ue,'\<pascals*\>','pa');
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int\>','unitless');
 ue = regexprep(ue,'\<include\>','');
+ue = regexprep(ue,'\<function\>','');
 ue = regexprep(ue,'\<%\>','percent');
 ue = regexprep(ue,'\<in\>','inch');

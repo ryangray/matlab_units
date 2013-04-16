@@ -415,6 +415,6 @@ classdef unitval < double
             r = unitval(s, p);
         end
         
-    end
+    end % methods
     
 end
