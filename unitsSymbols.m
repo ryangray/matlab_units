@@ -9,11 +9,12 @@
 %  unitsSymbols(units_expression_string, tex)
 %  unitsSymbols(units_expression_string, tex, env)
 %
-% The tex option is either 'tex' or 'latex' and defaults to 'tex'. If
-% 'latex' is specified, then the result is wrapped in '\mathrm{...}' to
+% The tex option is either 'none', 'tex' or 'latex' and defaults to 'tex'.
+% If 'latex' is specified, then the result is wrapped in '\mathrm{...}' to
 % appear upright when interpreted and some transforms are done differently.
-% The env option (defaults to 'mathrm') lets you choose another wrapper or 
-% to specify '' for no wrapper for the 'latex' option.
+% The env option (defaults to 'mathrm') lets you choose another wrapper or
+% to specify '' for no wrapper for the 'latex' option. Using 'none' is for
+% plain text output such as to a file..
 %
 % See also: units
 
@@ -26,6 +27,7 @@ if nargin < 3
     env = 'mathrm'; % \mbox and \text won't work with escaped characters like \mu, etc.
 end
 latex = strcmpi(tex,'latex');
+notex = strcmpi(tex,'none');
 if latex
     if ~isempty(env)
         tl = ['\\' env '{'];
@@ -38,67 +40,70 @@ else
     tl = '';
     tr = '';
 end
-
 pstr = regexprep(pstr,'\<unitless\>', '');
-pstr = regexprep(pstr,'\<seconds*\>', [tl 's' tr]);
+pstr = regexprep(pstr,'\<seconds?\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<sec\>', [tl 's' tr]);
-pstr = regexprep(pstr,'\<meters*\>', [tl 'm' tr]);
-pstr = regexprep(pstr,'\<[jJ]oules*\>', [tl 'J' tr]);
-pstr = regexprep(pstr,'\<[wW]atts*\>', [tl 'W' tr]);
-pstr = regexprep(pstr,'\<[nN]ewtons*\>', [tl 'N' tr]);
-pstr = regexprep(pstr,'\<[pP]ascals*\>', [tl 'Pa' tr]);
+pstr = regexprep(pstr,'\<meters?\>', [tl 'm' tr]);
+pstr = regexprep(pstr,'\<[jJ]oules?\>', [tl 'J' tr]);
+pstr = regexprep(pstr,'\<[wW]atts?\>', [tl 'W' tr]);
+pstr = regexprep(pstr,'\<[nN]ewtons?\>', [tl 'N' tr]);
+pstr = regexprep(pstr,'\<[pP]ascals?\>', [tl 'Pa' tr]);
 pstr = regexprep(pstr,'\<pa\>', [tl 'Pa' tr]);
-pstr = regexprep(pstr,'\<[aA]mps*\>', [tl 'A' tr]);
-pstr = regexprep(pstr,'\<[aA]mperes*\>', [tl 'A' tr]);
-pstr = regexprep(pstr,'\<bits*\>', [tl 'b' tr]);
-pstr = regexprep(pstr,'\<bytes*\>', [tl 'B' tr]);
-pstr = regexprep(pstr,'\<btus*\>', [tl 'BTU' tr]);
-pstr = regexprep(pstr,'\<calories*\>', [tl 'cal' tr]);
-pstr = regexprep(pstr,'\<[cC]andelas*\>', [tl 'Cd' tr]);
+pstr = regexprep(pstr,'\<[aA]mps?\>', [tl 'A' tr]);
+pstr = regexprep(pstr,'\<[aA]mperes?\>', [tl 'A' tr]);
+pstr = regexprep(pstr,'\<bits?\>', [tl 'b' tr]);
+pstr = regexprep(pstr,'\<bytes?\>', [tl 'B' tr]);
+pstr = regexprep(pstr,'\<btus?\>', [tl 'BTU' tr]);
+pstr = regexprep(pstr,'\<calories?\>', [tl 'cal' tr]);
+pstr = regexprep(pstr,'\<[cC]andelas?\>', [tl 'Cd' tr]);
 pstr = regexprep(pstr,'\<[hH]enry\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[hH]enries\>', [tl 'H' tr]);
-pstr = regexprep(pstr,'\<[fF]arads*\>', [tl 'F' tr]);
+pstr = regexprep(pstr,'\<[fF]arads?\>', [tl 'F' tr]);
 if latex
-    pstr = regexprep(pstr,'\<degs*\>', [tl '^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<degrees*\>', [tl '^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<Cdegs*\>', [tl 'C^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<Fdegs*\>', [tl 'F^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R^{\\circ}' tr]);
-    pstr = regexprep(pstr,'\<degK*\>', [tl '^{\\circ}K' tr]);
-    pstr = regexprep(pstr,'\<degC*\>', [tl '^{\\circ}C' tr]);
-    pstr = regexprep(pstr,'\<degR*\>', [tl '^{\\circ}R' tr]);
-    pstr = regexprep(pstr,'\<degF*\>', [tl '^{\\circ}F' tr]);
+    pstr = regexprep(pstr,'\<degs?\>', [tl '^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<degrees?\>', [tl '^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Cdegs?\>', [tl 'C^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Fdegs?\>', [tl 'F^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<Rdegs?\>', [tl 'R^{\\circ}' tr]);
+    pstr = regexprep(pstr,'\<degK\>', [tl 'K' tr]);
+    pstr = regexprep(pstr,'\<degC\>', [tl '^{\\circ}C' tr]);
+    pstr = regexprep(pstr,'\<degR\>', [tl '^{\\circ}R' tr]);
+    pstr = regexprep(pstr,'\<degF\>', [tl '^{\\circ}F' tr]);
     pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]); % Do this before replacing 'percent' with '%'
     pstr = regexprep(pstr,'\<percent\>', [tl '\\%' tr]);
-else
-    pstr = regexprep(pstr,'\<degs*\>', '{\\circ}');
-    pstr = regexprep(pstr,'\<degrees*\>', '{\\circ}');
-    pstr = regexprep(pstr,'\<Kdegs*\>', 'K{\\circ}');
-    pstr = regexprep(pstr,'\<Cdegs*\>', 'C{\\circ}');
-    pstr = regexprep(pstr,'\<Fdegs*\>', 'F{\\circ}');
-    pstr = regexprep(pstr,'\<degK*\>', 'K');
-    pstr = regexprep(pstr,'\<degC*\>', '{\\circ}C');
-    pstr = regexprep(pstr,'\<degR*\>', '{\\circ}R');
-    pstr = regexprep(pstr,'\<degF*\>', '{\\circ}F');
+elseif ~notex
+    pstr = regexprep(pstr,'\<degs?\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<degrees?\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<Kdegs?\>', 'K{\\circ}');
+    pstr = regexprep(pstr,'\<Cdegs?\>', 'C{\\circ}');
+    pstr = regexprep(pstr,'\<Fdegs?\>', 'F{\\circ}');
+    pstr = regexprep(pstr,'\<degK\>', 'K');
+    pstr = regexprep(pstr,'\<degC\>', '{\\circ}C');
+    pstr = regexprep(pstr,'\<degR\>', '{\\circ}R');
+    pstr = regexprep(pstr,'\<degF\>', '{\\circ}F');
     pstr = regexprep(pstr,'\<percent\>', '%');
+else
+    pstr = regexprep(pstr,'\<degK\>', 'K');
 end
-pstr = regexprep(pstr,'\<Rdegs*\>', [tl 'R' tr]);
-pstr = regexprep(pstr,'\<Kdegs*\>', [tl 'K' tr]);
-pstr = regexprep(pstr,'\<[cC]oulombs*\>', [tl 'C' tr]);
-pstr = regexprep(pstr,'\<[vV]olts*\>', [tl 'V' tr]);
+pstr = regexprep(pstr,'\<Rdegs?\>', [tl 'R' tr]);
+pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K' tr]);
+pstr = regexprep(pstr,'\<[cC]oulombs?\>', [tl 'C' tr]);
+pstr = regexprep(pstr,'\<[vV]olts?\>', [tl 'V' tr]);
 pstr = regexprep(pstr,'\<ev\>', [tl 'eV' tr]);
-pstr = regexprep(pstr,'\<[fF]arads*\>', [tl 'F' tr]);
+pstr = regexprep(pstr,'\<[fF]arads?\>', [tl 'F' tr]);
 pstr = regexprep(pstr,'\<feet\>', [tl 'ft' tr]);
 pstr = regexprep(pstr,'\<foot\>', [tl 'ft' tr]);
-pstr = regexprep(pstr,'\<grams*\>', [tl 'g' tr]);
-pstr = regexprep(pstr,'\<liters*\>', [tl 'L' tr]);
+pstr = regexprep(pstr,'\<grams?\>', [tl 'g' tr]);
+pstr = regexprep(pstr,'\<liters?\>', [tl 'L' tr]);
 pstr = regexprep(pstr,'\<inch\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<inches\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<[hH]ertz\>', [tl 'Hz' tr]);
-pstr = regexprep(pstr,'\<miles*\>', [tl 'mi' tr]);
-pstr = regexprep(pstr,'\<nautical_miles*\>', [tl 'nmi' tr]);
-pstr = regexprep(pstr,'\<ohms*\>', [tl '{\\Omega}' tr]);
+pstr = regexprep(pstr,'\<miles?\>', [tl 'mi' tr]);
+pstr = regexprep(pstr,'\<nautical_miles?\>', [tl 'nmi' tr]);
+if ~notex
+    pstr = regexprep(pstr,'\<ohms?\>', [tl '{\\Omega}' tr]);
+end
 
 % Now replace prefixes
 
@@ -108,7 +113,11 @@ pstr = regexprep(pstr,'centi\*', [tl 'c' tr]);
 pstr = regexprep(pstr,'hecto\*', [tl 'h' tr]);
 pstr = regexprep(pstr,'milli\*', [tl 'm' tr]);
 pstr = regexprep(pstr,'kilo\*',  [tl 'k' tr]);
-pstr = regexprep(pstr,'micro\*', [tl '{\\mu}' tr]);
+if notex
+    pstr = regexprep(pstr,'micro\*', 'u');
+else
+    pstr = regexprep(pstr,'micro\*', [tl '{\\mu}' tr]);
+end
 pstr = regexprep(pstr,'mega\*',  [tl 'M' tr]);
 pstr = regexprep(pstr,'nano\*',  [tl 'n' tr]);
 pstr = regexprep(pstr,'giga\*',  [tl 'G' tr]);
@@ -126,9 +135,10 @@ pstr = regexprep(pstr,'yetta\*', [tl 'Y' tr]);
 pstr = regexprep(pstr,'kibi\*', [tl 'ki' tr]);
 
 % Other special cases
-
-pstr = regexprep(pstr,'\<um\>', [tl '{\\mu}m' tr]);
-pstr = regexprep(pstr,'\<urad(s*)\>', [tl '{\\mu}rad$1' tr]);
+if ~notex
+    pstr = regexprep(pstr,'\<um\>', [tl '{\\mu}m' tr]);
+    pstr = regexprep(pstr,'\<urad(s?)\>', [tl '{\\mu}rad$1' tr]);
+end
 
 % Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
 
