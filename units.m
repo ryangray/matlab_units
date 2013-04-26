@@ -329,3 +329,4 @@ ue = regexprep(ue,'\<include\>','');
 ue = regexprep(ue,'\<function\>','');
 ue = regexprep(ue,'\<%\>','percent');
 ue = regexprep(ue,'\<in\>','inch');
+ue = regexprep(ue,'\<(.+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
