@@ -52,6 +52,8 @@
 % TODO: Can't extend the double() method to work on structs since they are
 % not unitval objects. Instead, make a static class method for recursing
 % through a struct to turn all unitval fields to doubles.
+%
+% reshape() is converting unitvals to double (affects repmat too)
 
 classdef unitval < double
 
@@ -236,7 +238,7 @@ classdef unitval < double
             
             % SUBSASGN  Subscript assignment
         
-            if isa(val,'unitval') && ~sameDimensions(obj, val)
+            if isa(val,'unitval') && ~isempty(obj) && ~sameDimensions(obj, val)
                 
                 error('unitval:subsasgn','Different unit dimensionality on right hand side for subscripted assignment.');
                 
@@ -247,7 +249,11 @@ classdef unitval < double
                 case '()' % Paren indexed
                     
                     sub = builtin('subsasgn',double(obj), s, double(val));
-                    obj = unitval(sub, obj);
+                    if isempty(obj)
+                        obj = unitval(sub, val);
+                    else
+                        obj = unitval(sub, obj);
+                    end
                     
                 case '.'
                     
@@ -280,10 +286,10 @@ classdef unitval < double
             % cellfun calls double on all object to get superclass part. 
             d1 = cellfun(@double, varargin, 'UniformOutput',false);
             data = horzcat(d1{:});
-            if isa(varargin{1},'double')
-                newobj = data;
-            else
+            if isa(varargin{1},'unitval')
                 newobj = unitval(data, varargin{1}(1));
+            else
+                newobj = data;
             end
         end
       
@@ -298,10 +304,10 @@ classdef unitval < double
             % cellfun calls double on all object to get superclass part. 
             d1 = cellfun(@double, varargin, 'UniformOutput',false);
             data = vertcat(d1{:});
-            if isa(varargin{1},'double')
-                newobj = data;
-            else
+            if isa(varargin{1},'unitval')
                 newobj = unitval(data, varargin{1}(1));
+            else
+                newobj = data;
             end
         end
       
