@@ -100,6 +100,7 @@ pstr = regexprep(pstr,'\<inch\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<inches\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<[hH]ertz\>', [tl 'Hz' tr]);
 pstr = regexprep(pstr,'\<miles?\>', [tl 'mi' tr]);
+pstr = regexprep(pstr,'\<statute_miles?\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<nautical_miles?\>', [tl 'nmi' tr]);
 if ~notex
     pstr = regexprep(pstr,'\<ohms?\>', [tl '{\\Omega}' tr]);
