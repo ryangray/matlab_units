@@ -59,9 +59,9 @@ pstr = regexprep(pstr,'\<[cC]andelas?\>', [tl 'Cd' tr]);
 pstr = regexprep(pstr,'\<[hH]enry\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[hH]enries\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[fF]arads?\>', [tl 'F' tr]);
-pstr = regexprep(pstr,'\<degs?\>', '{\\circ}');
-pstr = regexprep(pstr,'\<degrees?\>', '{\\circ}');
 if latex
+    pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
+    pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
     pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K' tr '^{\\circ}']); % If env is mathrm, then \circ inside can cause problems
     pstr = regexprep(pstr,'\<Cdegs?\>', [tl 'C' tr '^{\\circ}']);
     pstr = regexprep(pstr,'\<Fdegs?\>', [tl 'F' tr '^{\\circ}']);
@@ -73,6 +73,8 @@ if latex
     pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]); % Do this before replacing 'percent' with '%'
     pstr = regexprep(pstr,'\<percent\>', [tl '\\%' tr]);
 elseif ~notex
+    pstr = regexprep(pstr,'\<degs?\>', '{\\circ}');
+    pstr = regexprep(pstr,'\<degrees?\>', '{\\circ}');
     pstr = regexprep(pstr,'\<Kdegs?\>', 'K{\\circ}');
     pstr = regexprep(pstr,'\<Cdegs?\>', 'C{\\circ}');
     pstr = regexprep(pstr,'\<Fdegs?\>', 'F{\\circ}');
