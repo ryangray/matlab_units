@@ -199,18 +199,21 @@ classdef unitval < double
             
             % DISP  Display unitval object value with unit dimensions.
             
-            if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
+            if ~isempty(double(obj))
                 
-                disp(obj.in(obj.symbol));
-                disp(['(' obj.symbol ')']);
-                
-            else
-                
-                disp(double(obj))
-                disp(obj.dimensionString)
-                
+                if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
+
+                    disp(obj.in(obj.symbol));
+                    disp(['(' obj.symbol ')']);
+
+                else
+
+                    disp(double(obj))
+                    disp(obj.dimensionString)
+
+                end
+
             end
-            
         end
         
         function sref = subsref(obj, s)
@@ -321,10 +324,9 @@ classdef unitval < double
             for ii = 1:length(dims) %#ok<CPROP>
                 u = u && (p.(dims{ii}) == 0);
             end
-            if numel(p) > 1
-                u = u || all(reshape(double(p),[],1) == 0);
-            end
-        
+            
+            u = u || all(reshape(double(p),[],1) == 0);
+                
         end
         
         function v = in(obj, unit)
@@ -336,15 +338,13 @@ classdef unitval < double
                 
                 if ~isempty(obj.symbol)
                 
-                    u = units(obj.symbol);
+                    v = units(obj.symbol, obj, 'to');
                     
-                    if isempty(u)
+                    if isempty(v)
                         
                         error('Unknown unit name: %s', obj.symbol);
                         
                     end
-                    
-                    v = obj / u;
                     
                 else
                     
@@ -354,7 +354,7 @@ classdef unitval < double
                 
             elseif ischar(unit)
                 
-                v = obj / units(unit);
+                v = units(unit, obj, 'to');
                 
             elseif isa(unit,'unitval')
                 
@@ -370,7 +370,11 @@ classdef unitval < double
             end
             
             if ~isunitless(v)
-                error('Attempt to convert a unitval to a unit of different dimensionality')
+                if isa(meter, 'unitval')
+                    error('Attempt to convert a unitval to a unit of different dimensionality')
+                else
+                    error('Units base type is not using the unitval class')
+                end
             end
             
             v = double(v);

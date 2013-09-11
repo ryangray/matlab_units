@@ -4,6 +4,8 @@
 % the intent that you can use it in a text label. These are also supported
 % by the units.m function for evaluating to a units value.
 %
+% Units of 'string', 'int', and 'unitless' are returned as an empty string.
+%
 %% Usage
 %  unitsSymbols(units_expression_string)
 %  unitsSymbols(units_expression_string, tex)
@@ -41,6 +43,8 @@ else
     tr = '';
 end
 pstr = regexprep(pstr,'\<unitless\>', '');
+pstr = regexprep(pstr,'\<int\>', '');
+pstr = regexprep(pstr,'\<string\>', '');
 pstr = regexprep(pstr,'\<seconds?\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<sec\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<meters?\>', [tl 'm' tr]);
