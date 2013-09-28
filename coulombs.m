@@ -1,7 +1,7 @@
-% Unit meter 
+% Unit coulombs (C)
 % Converts number to internal units by multplying by it 
 % Converts number into meter by dividing value in internal units by it. 
 
-function m = unit 
+function coulombs = unit 
 
-m = meter; 
+coulombs = coulomb; 

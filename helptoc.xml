@@ -1,14 +1,20 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
 <toc version="1.0">
 <tocitem target="units_product_page.html">Units Toolbox
+  <tocitem>BTU</tocitem>
   <tocitem>Cdeg</tocitem>
   <tocitem>Cdegree</tocitem>
   <tocitem>Fdeg</tocitem>
   <tocitem>Fdegree</tocitem>
+  <tocitem>Hz</tocitem>
   <tocitem>Kdeg</tocitem>
   <tocitem>Kdegree</tocitem>
+  <tocitem>MW</tocitem>
+  <tocitem>Pa</tocitem>
   <tocitem>Rdeg</tocitem>
   <tocitem>Rdegree</tocitem>
+  <tocitem>TB</tocitem>
+  <tocitem>Wb</tocitem>
   <tocitem>acre</tocitem>
   <tocitem>acres</tocitem>
   <tocitem>amp</tocitem>
@@ -25,15 +31,17 @@
   <tocitem>au</tocitem>
   <tocitem>bit</tocitem>
   <tocitem>bits</tocitem>
-  <tocitem>btu</tocitem>
   <tocitem>byte</tocitem>
   <tocitem>bytes</tocitem>
+  <tocitem>cal_IT</tocitem>
+  <tocitem>cal_th</tocitem>
   <tocitem>calorie</tocitem>
   <tocitem>candela</tocitem>
   <tocitem>candelas</tocitem>
   <tocitem>centi</tocitem>
   <tocitem>cm</tocitem>
   <tocitem>coulomb</tocitem>
+  <tocitem>coulombs</tocitem>
   <tocitem>cup</tocitem>
   <tocitem>cups</tocitem>
   <tocitem>day</tocitem>
@@ -54,11 +62,11 @@
   <tocitem>dms</tocitem>
   <tocitem>dyne</tocitem>
   <tocitem>dynes</tocitem>
+  <tocitem>eV</tocitem>
   <tocitem>electron</tocitem>
   <tocitem>electrons</tocitem>
   <tocitem>erg</tocitem>
   <tocitem>ergs</tocitem>
-  <tocitem>ev</tocitem>
   <tocitem>exa</tocitem>
   <tocitem>exbi</tocitem>
   <tocitem>farad</tocitem>
@@ -72,6 +80,7 @@
   <tocitem>furlong</tocitem>
   <tocitem>furlongs</tocitem>
   <tocitem>g0</tocitem>
+  <tocitem>g_c</tocitem>
   <tocitem>galileo</tocitem>
   <tocitem>gallon</tocitem>
   <tocitem>gallon_imperial</tocitem>
@@ -87,24 +96,29 @@
   <tocitem>gram</tocitem>
   <tocitem>grams</tocitem>
   <tocitem>hecto</tocitem>
+  <tocitem>henries</tocitem>
+  <tocitem>henry</tocitem>
   <tocitem>hertz</tocitem>
   <tocitem>hms</tocitem>
   <tocitem>hour</tocitem>
   <tocitem>hours</tocitem>
-  <tocitem>hz</tocitem>
   <tocitem>inch</tocitem>
   <tocitem>inches</tocitem>
   <tocitem>inhg</tocitem>
   <tocitem>joule</tocitem>
   <tocitem>joules</tocitem>
-  <tocitem>kb</tocitem>
+  <tocitem>kB</tocitem>
+  <tocitem>kHz</tocitem>
+  <tocitem>kJ</tocitem>
+  <tocitem>kPa</tocitem>
+  <tocitem>kW</tocitem>
+  <tocitem>kWh</tocitem>
   <tocitem>kcal</tocitem>
-  <tocitem>kev</tocitem>
+  <tocitem>keV</tocitem>
   <tocitem>kft</tocitem>
   <tocitem>kg</tocitem>
   <tocitem>kgf</tocitem>
   <tocitem>kgm</tocitem>
-  <tocitem>khz</tocitem>
   <tocitem>kibi</tocitem>
   <tocitem>kibibyte</tocitem>
   <tocitem>kibibytes</tocitem>
@@ -112,17 +126,11 @@
   <tocitem>kilobyte</tocitem>
   <tocitem>kilobytes</tocitem>
   <tocitem>kilogram</tocitem>
-  <tocitem>kj</tocitem>
   <tocitem>km</tocitem>
   <tocitem>knots</tocitem>
-  <tocitem>kpa</tocitem>
   <tocitem>kts</tocitem>
-  <tocitem>kw</tocitem>
-  <tocitem>kwh</tocitem>
-  <tocitem>lb</tocitem>
   <tocitem>lbf</tocitem>
   <tocitem>lbm</tocitem>
-  <tocitem>lbs</tocitem>
   <tocitem>lightday</tocitem>
   <tocitem>lighthour</tocitem>
   <tocitem>lightminute</tocitem>
@@ -130,8 +138,10 @@
   <tocitem>lightyear</tocitem>
   <tocitem>liter</tocitem>
   <tocitem>liters</tocitem>
-  <tocitem>m</tocitem>
-  <tocitem>mb</tocitem>
+  <tocitem>lumen</tocitem>
+  <tocitem>lux</tocitem>
+  <tocitem>mB</tocitem>
+  <tocitem>mHz</tocitem>
   <tocitem>mebi</tocitem>
   <tocitem>mebibyte</tocitem>
   <tocitem>mebibytes</tocitem>
@@ -141,7 +151,6 @@
   <tocitem>megapond</tocitem>
   <tocitem>meter</tocitem>
   <tocitem>meters</tocitem>
-  <tocitem>mhz</tocitem>
   <tocitem>micro</tocitem>
   <tocitem>mil</tocitem>
   <tocitem>mile</tocitem>
@@ -158,7 +167,6 @@
   <tocitem>moles</tocitem>
   <tocitem>mrads</tocitem>
   <tocitem>msec</tocitem>
-  <tocitem>mw</tocitem>
   <tocitem>nano</tocitem>
   <tocitem>nautical_mile</tocitem>
   <tocitem>nautical_miles</tocitem>
@@ -167,6 +175,7 @@
   <tocitem>nibble</tocitem>
   <tocitem>nibbles</tocitem>
   <tocitem>nm</tocitem>
+  <tocitem>nmi</tocitem>
   <tocitem>nmile</tocitem>
   <tocitem>nmiles</tocitem>
   <tocitem>nrad</tocitem>
@@ -178,8 +187,8 @@
   <tocitem>ohms</tocitem>
   <tocitem>ounce</tocitem>
   <tocitem>ounces</tocitem>
-  <tocitem>pa</tocitem>
   <tocitem>parsec</tocitem>
+  <tocitem>pascals</tocitem>
   <tocitem>pebi</tocitem>
   <tocitem>percent</tocitem>
   <tocitem>peta</tocitem>
@@ -189,17 +198,14 @@
   <tocitem>pixel</tocitem>
   <tocitem>pixels</tocitem>
   <tocitem>pm</tocitem>
-  <tocitem>pound</tocitem>
+  <tocitem>pound_mole</tocitem>
   <tocitem>poundal</tocitem>
-  <tocitem>pounds</tocitem>
-  <tocitem>psi</tocitem>
   <tocitem>psia</tocitem>
   <tocitem>quart</tocitem>
   <tocitem>quarts</tocitem>
   <tocitem>rad</tocitem>
   <tocitem>radian</tocitem>
   <tocitem>radians</tocitem>
-  <tocitem>s</tocitem>
   <tocitem>sday</tocitem>
   <tocitem>second</tocitem>
   <tocitem>seconds</tocitem>
@@ -208,14 +214,14 @@
   <tocitem>slugs</tocitem>
   <tocitem>statute_mile</tocitem>
   <tocitem>steradian</tocitem>
-  <tocitem>table_calorie</tocitem>
-  <tocitem>tb</tocitem>
+  <tocitem>stone</tocitem>
+  <tocitem>syear</tocitem>
   <tocitem>tebi</tocitem>
   <tocitem>tebibyte</tocitem>
   <tocitem>tebibytes</tocitem>
   <tocitem>tera</tocitem>
   <tocitem>terabyte</tocitem>
-  <tocitem>thermo_calorie</tocitem>
+  <tocitem>tesla</tocitem>
   <tocitem>thou</tocitem>
   <tocitem>toDegC</tocitem>
   <tocitem>toDegF</tocitem>
@@ -226,8 +232,12 @@
   <tocitem>tonnes</tocitem>
   <tocitem>torr</tocitem>
   <tocitem>um</tocitem>
+  <tocitem>unit2str</tocitem>
+  <tocitem>unitLabel</tocitem>
   <tocitem>unitless</tocitem>
   <tocitem>units</tocitem>
+  <tocitem>unitsPlot</tocitem>
+  <tocitem>unitsSameDimensions</tocitem>
   <tocitem>unitsSymbols</tocitem>
   <tocitem>urad</tocitem>
   <tocitem>urads</tocitem>
@@ -236,6 +246,8 @@
   <tocitem>watt</tocitem>
   <tocitem>watts</tocitem>
   <tocitem>waves</tocitem>
+  <tocitem>weber</tocitem>
+  <tocitem>webers</tocitem>
   <tocitem>yard</tocitem>
   <tocitem>yards</tocitem>
   <tocitem>year</tocitem>

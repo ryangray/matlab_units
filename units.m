@@ -293,33 +293,32 @@ ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
 ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
 
 % Case aliases
-% Will probably add alias functions with case now that MATLAB is sensitive
-% to it for M files.
-
-ue = regexprep(ue,'\<Watts\>','watts');
-ue = regexprep(ue,'\<kJ\>','kj');
-ue = regexprep(ue,'\<kW\>','kw');
-ue = regexprep(ue,'\<Joules\>','joules');
-ue = regexprep(ue,'\<Hz\>','hz');
-ue = regexprep(ue,'\<L\>','liters');
-ue = regexprep(ue,'\<Pa\>','pa');
-ue = regexprep(ue,'\<kPa\>','kpa');
 
 % Single letters
+% We don't have single letter functions
 
-ue = regexprep(ue,'\<J\>','joules');
-ue = regexprep(ue,'\<K\>','degK');
-ue = regexprep(ue,'\<W\>','watts');
-ue = regexprep(ue,'\<s\>','second');
-ue = regexprep(ue,'\<m\>','meter');
+ue = regexprep(ue,'\<A\>','ampere');
+ue = regexprep(ue,'\<C\>','coulomb');
+ue = regexprep(ue,'\<F\>','farad');
 ue = regexprep(ue,'\<g\>','gram');
+ue = regexprep(ue,'\<H\>','henry');
+ue = regexprep(ue,'\<J\>','joule');
+ue = regexprep(ue,'\<K\>','degK');
+ue = regexprep(ue,'\<[lL]\>','liter');
+ue = regexprep(ue,'\<m\>','meter');
+ue = regexprep(ue,'\<N\>','newton');
+ue = regexprep(ue,'\<s\>','second');
+ue = regexprep(ue,'\<T\>','tesla');
+ue = regexprep(ue,'\<V\>','volt');
+ue = regexprep(ue,'\<W\>','watt');
 
 % Existing function dodges
 
+ue = regexprep(ue,'\<cd\>','candela');
 ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<min\>','minute'); 
 ue = regexprep(ue,'\<psi\>','psia');
-ue = regexprep(ue,'\<pascals*\>','pa');
+ue = regexprep(ue,'\<pascal\>','pascals');
 
 % Special
 
