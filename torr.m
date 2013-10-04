@@ -1,6 +1,6 @@
 %% torr (Torr) = mmHg
-% See also: mmhg, pa
+% See also: mmHg, Pa
 
 function torr = unit 
 
-torr = mmhg; % 10th CGPM, 1954
+torr = mmHg; % 10th CGPM, 1954

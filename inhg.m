@@ -1,8 +1,8 @@
-% Unit inhg = inches of mercury
+% Unit inHg = inches of mercury
 % Converts number to internal units by multplying by it 
 % Converts number into mmhg by dividing value in internal units by it. 
-% See also: MMHG
+% See also: mmHg
 
-function inhg = unit 
+function inHg = unit 
 
-inhg = inch/mm * mmhg; % 
+inHg = inch/mm * mmHg; % 
