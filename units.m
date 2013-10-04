@@ -276,6 +276,10 @@ elseif ischar(varargin{1})
             end            
     end
 
+else
+    
+    error('Bad type for first argument: %s', class(varargin{1}));
+    
 end
 
 function ue = units_aliases(ue)

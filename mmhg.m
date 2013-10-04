@@ -1,6 +1,6 @@
-% Unit mmhg (millimeters of Mercury) = 101325/760 * pa
-% See also: kpa, pa, atm
+% Unit mmHg (millimeters of Mercury) = 101325/760 * Pa
+% See also: kPa, Pa, atm
 
-function mmhg = unit 
+function mmHg = unit 
 
-mmhg =  101325/760 * pa; % 10th CGPM, 1954
+mmHg =  101325/760 * Pa; % 10th CGPM, 1954

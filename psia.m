@@ -2,7 +2,7 @@
 %% Unit of pressure
 % We use "psia" rather than "psi" to not conflict with the MATLAB function.
 %
-% See also: pascal, kpa, pa, atm, mmhg, torr
+% See also: pascal, kPa, Pa, atm, mmHg, torr
 
 function psia = unit
 

@@ -1,10 +1,10 @@
-%% pa (Pascal) = N/m^2
+%% Pa (Pascal) = N/m^2
 %
-% Note: There is no pascal.m in the units library because of the 
-% MATLAB matrix function pascal.
+% Note: There is no pascal.m in the units library because of the MATLAB
+% matrix function pascal.
 %
-% See also: kpa, torr, psia
+% See also: kPa, torr, psia
 
-function pa = unit 
+function Pa = unit 
 
-pa = newton / meter^2;
+Pa = newton / meter^2;
