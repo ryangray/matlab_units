@@ -1,8 +1,8 @@
 % prefix yobi = 2^80 (YOtta BInary)
 % Converts number to internal units by multplying by it 
 % Converts number into this unit by dividing value in internal units by it. 
-% See also: KIBI, MEBI, GIBI, TEBI, PEBI, EXBI, ZEBI
+% See also: yotta, kibi, mebi, gibi, tebi, pebi, exbi, zebi
 
 function yobi = prefix 
 
-yobi = 2^80;
+yobi = unit_MAKE(2^80,'yobi','Yi');

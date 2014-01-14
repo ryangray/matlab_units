@@ -1,8 +1,8 @@
-% Unit gb = gibibyte
+% Unit GB = gibibyte
 % Converts number to internal units by multplying by it 
 % Converts number into it by dividing value in internal units by it. 
-% See also: GIBIBYTE
+% See also: gibibyte
 
-function gb = unit 
+function GB = unit 
 
-gb = gibibyte; 
+GB = gibibyte; 
