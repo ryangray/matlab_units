@@ -31,7 +31,7 @@
 % example: units('degC',0) is equivalent to: degC(0,'to'), converting the
 % temperature of 0 in current units to degC.
 %
-% See also: unitsSymbols
+% See also: unitsSymbols, unitsPlot, unit2str
 
 function varargout = units (varargin)
 
