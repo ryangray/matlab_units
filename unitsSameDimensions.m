@@ -4,8 +4,23 @@
 % function lets you make a transparent check whether using unitval units or
 % regular double units since when not using unitval objects, you can't call
 % the sameDimensions method.
+%
+% Usage
+%  same = unitsSameDimensions(u1, u2)
+%  same = unitsSameDimensions(u1, u2, u3, ...)
+%  unitsSameDimensions(...);
+%
+% Values can be given as strings, which are interpreted via units() to
+% convert them to values.
+%
+% Without a return value used, then it is an assertion that will print a
+% warning if the units do not match. For example:
+%
+%  unitsSameDimensions(speed,'m/s')
+%
+% See also: unitval/sameDimensions
 
-function r = unitsSameDimensions (u1, varargin)
+function same = unitsSameDimensions (u1, varargin)
 
 if ischar(u1)
     
@@ -22,4 +37,10 @@ if ~isa(u1, 'unitval')
     
 end
 
-r = sameDimensions(u1, varargin{:});
+same = sameDimensions(u1, varargin{:});
+
+if nargout == 0 && ~same
+    
+    warning('Unit dimensions do not agree');
+    
+end

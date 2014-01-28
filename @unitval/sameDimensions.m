@@ -1,13 +1,18 @@
-%% sameDimensions  Returns true if all unitval objects have the same physical dimensions.
-% Does not compare the values.
+%% sameDimensions  Check if unitval objects have the same physical dimensions.
+% Does not compare the values. Non-unitval values are considered unitless.
 %
 % Usage
-%  sameDimensions(u1, u2)
-%  sameDimensions(u1, u2, u3, ...)
+%  same = sameDimensions(u1, u2)
+%  same = sameDimensions(u1, u2, u3, ...)
+%  sameDimensions(...);
 %
-% See also: unitval/eq
+% Without a return value used, then it is an assertion that will print a
+% warning if the units do not match.
+%
+% See also: unitval/eq, unitsSameDimensions
 
-% TODO: implement for where p and/or q are arrays (help support times/mtimes
+% TODO: implement for where p and/or q are arrays (to help support
+% times/mtimes).
 
 function same = sameDimensions (varargin)
 
@@ -42,4 +47,10 @@ while same && iv <= Nv
         ii = ii + 1;
     end
     iv = iv + 1;
+end
+
+if nargout == 0 && ~same
+    
+    warning('Unit dimensions do not agree');
+    
 end

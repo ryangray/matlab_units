@@ -4,22 +4,28 @@
 %
 % See also: unitval/max
 
-function r = min (p, q, dim)
+function [r, varargout] = min (p, q, dim)
 
 if nargin == 1
     
-    r = unitval(min(double(p)), p);
+    [mp, ir] = min(double(p));
+    r = unitval(mp, p);
         
 elseif isempty(q)
 
-    r = unitval(min(double(p), [], dim), p);
+    [mp, ir] = min(double(p), [], dim);
+    r = unitval(mp, p);
 
 else % min(p,q)
+    
+    if nargout > 1
+        [r,ir] = min(double(p), double(q)); % will generare an error
+    end
     
     if isa(p,'unitval') && isa(q,'unitval')
 
         if sameDimensions(p,q)
-            r =unitval(min(double(p), double(q)), p);
+            r = unitval(min(double(p), double(q)), p);
         else
             error('Values do not have the same units dimensions.');
         end
@@ -56,4 +62,9 @@ else % min(p,q)
 
     end
 
+end
+
+if nargout > 1
+    
+    varargout = {ir};
 end
