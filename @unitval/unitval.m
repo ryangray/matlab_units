@@ -121,6 +121,15 @@ classdef unitval < double
             % compared to those of unitval_object, and an error is signaled
             % if they are not the same.
             %
+            % Create a unitval object with units taken from the given string:
+            %
+            %   u = unitval(num, unitstring)
+            %
+            % The string must contain a valid units expression. This 
+            % requires that the unitval units be in current use so that the 
+            % units expression creates a unitval object. The result is then 
+            % just equivalent to: num * units(unitstring)
+            %
             % Set the unit's name and/or symbol:
             %
             %   u = unitval(..., 'name', string, 'symbol', string)
@@ -148,7 +157,7 @@ classdef unitval < double
 
             end
             
-            if ~isempty(varargin) && isa(varargin{1},'unitval') 
+            if length(varargin) == 1 && isa(varargin{1},'unitval') 
                     
                 if isa(val,'unitval') % unitval(unitval_object_to_copy, unitval_object_template)
                         
@@ -182,6 +191,10 @@ classdef unitval < double
                     obj.(lower(varargin{ii})) = varargin{ii+1};
 
                 end
+                
+            elseif length(varargin) == 1 && ischar(varargin{1}) % unitval(value, unitstring)
+                
+                obj = feval('units', varargin{1}, obj);
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
