@@ -397,6 +397,7 @@ ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<min\>','minute'); 
 ue = regexprep(ue,'\<psi\>','psia');
 ue = regexprep(ue,'\<pascal\>','pascals');
+ue = regexprep(ue,'\<bar\>','bars');
 
 % Special
 
