@@ -62,6 +62,7 @@ pstr = regexprep(pstr,'\<[cC]andelas?\>', [tl 'cd' tr]);
 pstr = regexprep(pstr,'\<[hH]enry\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[hH]enries\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<[fF]arads?\>', [tl 'F' tr]);
+pstr = regexprep(pstr,'\<c0\>', [tl 'c' tr]);
 if latex
     pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
     pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');

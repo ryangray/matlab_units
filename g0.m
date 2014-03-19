@@ -1,9 +1,9 @@
-% Const g0
-% Earth gravitational acceleration standard value
+%% Earth surface gravitational acceleration standard value
 % Ellipsoidal Earth at 45 degrees latitude
-% = 9.80665 m/s/s or 32.174 ft/s/s
-% Usage: g0
+%% g0 = 9.80665 m/s^2
+%% Source: W. J. Larson and J. R. Wertz, "Space Mission Analysis and Design, 2nd ed." Kluwer(1992).
+%% Uncertainty = exact
 
-function g0 = constant
+function g = g0
 
-g0 = 9.80665 * meter / second / second;
+g = 9.80665 * meter / second^2;

@@ -389,6 +389,7 @@ ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<T\>','tesla');
 ue = regexprep(ue,'\<V\>','volt');
 ue = regexprep(ue,'\<W\>','watt');
+ue = regexprep(ue,'\<c\>','c0');
 
 % Existing function dodges
 
