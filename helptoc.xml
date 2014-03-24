@@ -6,9 +6,12 @@
   <tocitem>Cdegree</tocitem>
   <tocitem>Fdeg</tocitem>
   <tocitem>Fdegree</tocitem>
+  <tocitem>GB</tocitem>
   <tocitem>Hz</tocitem>
   <tocitem>Kdeg</tocitem>
   <tocitem>Kdegree</tocitem>
+  <tocitem>MB</tocitem>
+  <tocitem>MHz</tocitem>
   <tocitem>MW</tocitem>
   <tocitem>Pa</tocitem>
   <tocitem>Rdeg</tocitem>
@@ -29,10 +32,12 @@
   <tocitem>atm</tocitem>
   <tocitem>atto</tocitem>
   <tocitem>au</tocitem>
+  <tocitem>bars</tocitem>
   <tocitem>bit</tocitem>
   <tocitem>bits</tocitem>
   <tocitem>byte</tocitem>
   <tocitem>bytes</tocitem>
+  <tocitem>c0</tocitem>
   <tocitem>cal_IT</tocitem>
   <tocitem>cal_th</tocitem>
   <tocitem>calorie</tocitem>
@@ -49,6 +54,7 @@
   <tocitem>deca</tocitem>
   <tocitem>deci</tocitem>
   <tocitem>deg</tocitem>
+  <tocitem>deg0</tocitem>
   <tocitem>degC</tocitem>
   <tocitem>degF</tocitem>
   <tocitem>degK</tocitem>
@@ -86,7 +92,6 @@
   <tocitem>gallon_imperial</tocitem>
   <tocitem>gallon_us</tocitem>
   <tocitem>gallons</tocitem>
-  <tocitem>gb</tocitem>
   <tocitem>gibi</tocitem>
   <tocitem>gibibyte</tocitem>
   <tocitem>gibibytes</tocitem>
@@ -102,9 +107,9 @@
   <tocitem>hms</tocitem>
   <tocitem>hour</tocitem>
   <tocitem>hours</tocitem>
+  <tocitem>inHg</tocitem>
   <tocitem>inch</tocitem>
   <tocitem>inches</tocitem>
-  <tocitem>inhg</tocitem>
   <tocitem>joule</tocitem>
   <tocitem>joules</tocitem>
   <tocitem>kB</tocitem>
@@ -140,8 +145,8 @@
   <tocitem>liters</tocitem>
   <tocitem>lumen</tocitem>
   <tocitem>lux</tocitem>
-  <tocitem>mB</tocitem>
-  <tocitem>mHz</tocitem>
+  <tocitem>mbar</tocitem>
+  <tocitem>mbars</tocitem>
   <tocitem>mebi</tocitem>
   <tocitem>mebibyte</tocitem>
   <tocitem>mebibytes</tocitem>
@@ -161,7 +166,7 @@
   <tocitem>minutes</tocitem>
   <tocitem>ml</tocitem>
   <tocitem>mm</tocitem>
-  <tocitem>mmhg</tocitem>
+  <tocitem>mmHg</tocitem>
   <tocitem>mol</tocitem>
   <tocitem>mole</tocitem>
   <tocitem>moles</tocitem>
@@ -239,6 +244,7 @@
   <tocitem>unitsPlot</tocitem>
   <tocitem>unitsSameDimensions</tocitem>
   <tocitem>unitsSymbols</tocitem>
+  <tocitem>units_demo</tocitem>
   <tocitem>urad</tocitem>
   <tocitem>urads</tocitem>
   <tocitem>usec</tocitem>
