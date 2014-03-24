@@ -2,7 +2,7 @@
 
 function varargout = unit_SYSTEM
 
-name = 'English (foot,slug,second)';
+name = 'English (foot,lbm,second)';
 
 name = [name ' [' class(unit_TIME) ']'];
 

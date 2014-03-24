@@ -2,4 +2,4 @@
 
 function kilogram = unit_MASS
 
-kilogram = unit_MAKE(0.3048 / (0.45359237 * 9.80665), 'slug','slug','mass');
+kilogram = unit_MAKE(1 / 0.45359237, 'pound_mass','lbm','mass');

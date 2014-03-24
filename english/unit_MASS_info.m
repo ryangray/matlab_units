@@ -2,5 +2,5 @@
 
 function info = unit_MASS_info
 
-info.name = 'slug';
-info.symbol = 'slug';
+info.name = 'pound_mass';
+info.symbol = 'lbm';
