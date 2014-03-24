@@ -54,7 +54,10 @@ if isempty(varargin)
         % Get out to reliably detect current units system
         cwd = pwd;
         cd('..');
-        warning('Current directory is the units directory. You shouldn''t use units from here.');
+        oldsys = fileparts(which('unit_SYSTEM'));
+        if ~strcmp(oldsys,si)
+            warning('Current directory is the units directory. You shouldn''t use units from here.');
+        end
     end
     
     if exist('unit_SYSTEM.m','file')
@@ -154,9 +157,12 @@ elseif ischar(varargin{1})
                 % Get out to reliably detect current units system
                 cwd = pwd;
                 cd('..');
-                warning('Current directory is the units directory. You shouldn''t use units from here.');
             end
             oldsys = fileparts(which('unit_SYSTEM'));
+            if ~strcmp(oldsys,si)
+                warning('Current directory is the units directory. You shouldn''t use units from here.');
+            end
+
             if inUnitsDir
                 % Restore previous pwd
                 cd(cwd);
