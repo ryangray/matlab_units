@@ -342,58 +342,6 @@ classdef unitval < double
                 
         end
         
-        function v = in(obj, unit)
-            
-            % IN  Convert unitval to units specified as a double without units.
-            % If unit is not specified, then it is converted based on the name.
-            
-            if nargin < 2
-                
-                if ~isempty(obj.symbol)
-                
-                    v = units(obj.symbol, obj, 'to');
-                    
-                    if isempty(v)
-                        
-                        error('Unknown unit name: %s', obj.symbol);
-                        
-                    end
-                    
-                else
-                    
-                    error('Unit to convert to not given and unitval has no name.');
-                
-                end
-                
-            elseif ischar(unit)
-                
-                v = units(unit, obj, 'to');
-                
-            elseif isa(unit,'unitval')
-                
-                v = obj / unit;
-                if ~isunitless(v)
-                    error('Attempt to convert to units with a different units dimensionality');
-                end
-                
-            else
-                
-                error('Units to convert to must be a units expression string or a unitval object');
-                
-            end
-            
-            if ~isunitless(v)
-                if isa(meter, 'unitval')
-                    error('Attempt to convert a unitval to a unit of different dimensionality')
-                else
-                    error('Units base type is not using the unitval class')
-                end
-            end
-            
-            v = double(v);
-            
-        end
-        
         function r = not (p)
             
             %% not  Implement ~p for unitvals.

@@ -359,118 +359,40 @@ elseif ischar(varargin{1})
             
         otherwise
             
-            % Eval a units expression, handling special cases or conversions
-            
-            if strcmpi(varargin{1},'string') || strcmpi(varargin{1},'function')
+            % Old-style unit eval or conversion
+
+            switch nargin
                 
-                if nargin == 1
+                case 1
+                    
+                    varargout{1} = unit(varargin{1});
+                    
+                case 2
 
-                    varargout{1} = ''; % this will pass an isempty() test but also be a string
+                    varargout{1} = unit(varargin{2}, varargin{1});
 
-                else
-
-                    val = varargin{2};
-
-                    if ischar(val) || iscellstr(val)
+                case 3
+                    
+                    if ischar(varargin{3}) && strcmpi(varargin{3},'to')
+                
+                        varargout{1} = convert(varargin{2}, varargin{1});
                         
-                        varargout{1} = val;
-                    elseif isa(val,'function_handle')
-                        varargout{1} = func2str(val);
                     else
-                        varargout{1} = mat2str(val);
-
+                        
+                        error('Invalid value for 3rd parameter.');
+                        
                     end
-                end
-                
-            else
-                
-                ue = units_aliases(varargin{1});
-                s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
-                warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-                uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
-                warning(s);
+                    
+                otherwise
+                    
+                    error('Invalid usage.');
+                    
+            end
 
-                if nargin == 1 || isempty(uval)
-
-                    varargout{1} = uval;
-
-                elseif ismember(ue, tempunits)
-
-                    % Handle temperature conversions for single units with
-                    % value as second arg.
-                    varargout{1} = feval(ue, varargin{2:end});
-
-                else
-
-                    val = varargin{2};
-
-                    if nargin > 2 && strcmpi(varargin{3},'to')
-
-                        varargout{1} = val / uval;
-                    else
-                        varargout{1} = val * uval;
-                    end
-                end
-            end            
-    end
+    end % switch
 
 else
     
-    error('Bad type for first argument: %s', class(varargin{1}));
+    varargout{1} = unit(varargin{1}, varargin{2});
     
 end
-
-function ue = units_aliases(ue)
-
-% These translate various strings taken in a units context
-
-% TeX aliases so you can use these in a units string and in a label.
-% Do these substitutions before others that operate on whole words.
-
-ue = regexprep(ue,'\\mu','micro*'); % \mu
-ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
-ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
-ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
-ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
-ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
-
-% Case aliases
-
-% Single letters
-% We don't have single letter functions
-
-ue = regexprep(ue,'\<A\>','ampere');
-ue = regexprep(ue,'\<C\>','coulomb');
-ue = regexprep(ue,'\<F\>','farad');
-ue = regexprep(ue,'\<g\>','gram');
-ue = regexprep(ue,'\<H\>','henry');
-ue = regexprep(ue,'\<J\>','joule');
-ue = regexprep(ue,'\<K\>','degK');
-ue = regexprep(ue,'\<[lL]\>','liter');
-ue = regexprep(ue,'\<m\>','meter');
-ue = regexprep(ue,'\<N\>','newton');
-ue = regexprep(ue,'\<s\>','second');
-ue = regexprep(ue,'\<T\>','tesla');
-ue = regexprep(ue,'\<V\>','volt');
-ue = regexprep(ue,'\<W\>','watt');
-ue = regexprep(ue,'\<c\>','c0');
-
-% Existing function dodges
-
-ue = regexprep(ue,'\<cd\>','candela');
-ue = regexprep(ue,'\<sec\>','second');
-ue = regexprep(ue,'\<min\>','minute'); 
-ue = regexprep(ue,'\<psi\>','psia');
-ue = regexprep(ue,'\<pascal\>','pascals');
-ue = regexprep(ue,'\<bar\>','bars');
-ue = regexprep(ue,'\<knot\>','knots');
-
-% Special
-
-ue = regexprep(ue,'\<logical\>','unitless');
-ue = regexprep(ue,'\<int\>','unitless');
-ue = regexprep(ue,'\<include\>','');
-ue = regexprep(ue,'\<function\>','');
-ue = regexprep(ue,'\<%\>','percent');
-ue = regexprep(ue,'\<in\>','inch');
-ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
