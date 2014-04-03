@@ -75,12 +75,10 @@ classdef unitval < double
         length = 0;      % Length (si = meter)
         mass = 0;        % Mass (si = kilogram)
         time = 0;        % Time (si = second)
-        current = 0;     % Electric current (si = Ampere)
-        luminance = 0;   % Luminance (si = Candela)
-        amount = 0;      % Amount of a substance (si = Moles)
-        temperature = 0; % Temperature (si = Kelvin)
-        angle_plane = 0; % Plane angle (si = radian)
-        angle_solid = 0; % Solid angle (si = steradian)
+        current = 0;     % Electric current (si = ampere)
+        luminance = 0;   % Luminance (si = candela)
+        amount = 0;      % Amount of a substance (si = moles)
+        temperature = 0; % Temperature (si = kelvin)
         info = 0;        % Information (bit)
         name = '';       % Unit name (if simple, given or auto-composed)
         symbol = '';     % Unit symbol (for simple units)
@@ -90,7 +88,7 @@ classdef unitval < double
     properties (Constant = true)
         
         dimensions = {'length','mass','time','current','luminance','amount', ...  % List of property names that store unit dimensions
-                      'temperature','angle_plane','angle_solid','info'};
+                      'temperature','info'};
     end
 
     methods
@@ -137,8 +135,8 @@ classdef unitval < double
             % Dimensions are:
             %
             % 'length','mass','time','current','luminance','amount',
-            % 'temperature','angle_plane','angle_solid','info'. This can be
-            % obtained as a cell array from the property .dimensions.
+            % 'temperature','info'. This can be obtained as a cell array
+            % from the property .dimensions.
             %
             % For example, 9.81 m/s^2, would be: 
             %  unitval(9.81,'length',1,'time',-2)

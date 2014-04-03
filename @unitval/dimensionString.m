@@ -62,22 +62,6 @@ elseif u.temperature ~= 0
     udim = [udim ' ' sym '^' num2str(u.temperature)];
 end
 
-d = unit_ANGLE_PLANE_info;
-sym = d.symbol;
-if u.angle_plane == 1
-    udim = [udim ' ' sym];
-elseif u.angle_plane ~= 0
-    udim = [udim ' ' sym '^' num2str(u.angle_plane)];
-end
-
-d = unit_ANGLE_SOLID_info;
-sym = d.symbol;
-if u.angle_solid == 1
-    udim = [udim ' ' sym];
-elseif u.angle_solid ~= 0
-    udim = [udim ' ' sym '^' num2str(u.angle_solid)];
-end
-
 d = unit_INFORMATION_info;
 sym = d.symbol;
 if u.info == 1
