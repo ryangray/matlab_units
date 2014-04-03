@@ -1,6 +1,6 @@
-% Unit nm 
-% Converts number to internal units by multplying by it 
-% Converts number into nm by dividing value in internal units by it. 
+%% Unit nm (nanometer)
+%
+% See also: meter, um
 
 function nm = unit 
 

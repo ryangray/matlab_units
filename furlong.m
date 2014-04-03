@@ -1,7 +1,9 @@
-% Unit furlong
-% Converts number to internal units by multplying by it 
-% Converts number into mile by dividing value in internal units by it. 
-% See also: STATUTE_MILE, FEET
+%% Unit furlong
+%
+% Base unit of length in the FFF system.
+% <http://en.wikipedia.org/wiki/FFF_system FFF System - Wikipedia>
+%
+% See also: statute_mile, feet, fortnight
 
 function furlong = unit 
 

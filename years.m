@@ -1,6 +1,6 @@
-% Unit years 
-% Converts number to internal units by multplying by it 
-% Converts number into years by dividing value in internal units by it. 
+%% Unit years (calendar years) = 365.25 * days
+%
+% See also: year
 
 function years = unit 
 

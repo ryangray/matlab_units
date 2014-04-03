@@ -1,7 +1,6 @@
-% Unit nybbles 
-% Converts number to internal units by multplying by it 
-% Converts number into nibbles by dividing value in internal units by it. 
-% See also: NIBBLE
+%% Unit nybbles 
+%
+% See also: nibble
 
 function nybbles = unit 
 

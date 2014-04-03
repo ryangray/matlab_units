@@ -1,7 +1,6 @@
-% Unit bit 
-% Converts number to internal units by multplying by it 
-% Converts number into bit by dividing value in internal units by it. 
-% See also: BYTE, NIBBLE
+%% Unit bit (b) Base unit of information
+%
+% See also: byte, nibble
 
 function bit = unit 
 

@@ -1,10 +1,10 @@
-% Unit days (solar day)
-% Converts number to internal units by multplying by it 
-% Converts number into days by dividing value in internal units by it. 
+%% Unit days (solar day)
+%
 % Also, days(month) will give the number of days in the month.
 % Month is by an integer 1..12. To get the right number of days for
 % February, you need to also provide the year: days(month,year)
-% See also: DAY
+%
+% See also: day
 
 function x = days(varargin)
 

@@ -14,15 +14,15 @@
 % * description - A short description of the unit
 % * folder - Optional folder to place the M file in (default is units lib)
 %
-% For example, unitCreate('hPa','hecto*Pa','Hectopascals (100 Pa)') will
+% For example, unitCreate('hPa','hecto * Pa','hectopascals (100 Pa)') will
 % create a function M file named hPa.m with the code:
 %
-%  %% Unit hPa : Hectopascals (100 Pa)
+%  %% Unit hPa : hectopascals (100 Pa)
 %  % 
 %  
 %  function hPa = unit
 %
-%  hPa = hecto*Pa;
+%  hPa = hecto * Pa;
 %
 % If you give the description as blank or leave it off, the definition will
 % be used in its place.

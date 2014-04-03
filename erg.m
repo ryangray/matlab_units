@@ -1,8 +1,9 @@
-% Unit erg
-% Converts number to internal units by multplying by it 
-% Converts number into erg by dividing value in internal units by it. 
-% See also: CM, GRAM, SECOND
+%% Unit erg (energy) = dyne * cm = g * cm^2/s^2
+%
+% The CGS unit of energy.
+%
+% See also: dyne, cm, gram, second
 
 function erg = unit
 
-erg = cm^2 * gram / second^2;
+erg = dyne * cm;

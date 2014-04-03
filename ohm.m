@@ -1,7 +1,6 @@
-% Unit ohm
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
-% See also: VOLT, AMPERE
+%% Unit ohm = volt / amp
+%
+% See also: volt, ampere
 
 function ohm = unit
 

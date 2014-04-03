@@ -1,6 +1,6 @@
-% Unit coulombs (C)
-% Converts number to internal units by multplying by it 
-% Converts number into meter by dividing value in internal units by it. 
+%% Unit coulombs (C)
+%
+% See also: coulomb
 
 function coulombs = unit 
 

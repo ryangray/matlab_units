@@ -1,15 +1,21 @@
-% Time hms
-% Usage: hms(time)
-% Prints a time in hours, minutes, seconds as:
-%     hh:mm:ss.sss
+%% Time in hms
+% Convert a time in seconds to HMS format.
+%% Usage
+%
+%  hms(time)
+%
+% Prints a time in hours, minutes, seconds as: hh:mm:ss.sss 
+%
 % If larger than one day, it is modded with 24*hours
 %
-% Usage: string = hms(time)
-% Returns a string of the time it would print as above
+%  string = hms(time)
 %
-% Usage: [h,m,s] = hms(time)
-% Returns the time given broken into hours, minutes and seconds
-% in the return variables.
+% Returns a string of the time it would print as above.
+%
+%  [h,m,s] = hms(time)
+%
+% Returns the time given broken into hours, minutes and seconds in the
+% return variables.
 
 function varargout = hms(time)
 

@@ -1,6 +1,9 @@
-% Unit unitless 
-% Converts number to internal units by multplying by it 
-% Converts number into unitless by dividing value in internal units by it. 
+%% Unit unitless
+%
+% Explicity declare a unitless value. If using the unitval class units,
+% this is useful to allow values to become unit objects.
+%
+% See also: radian
 
 function unitless = unit 
 

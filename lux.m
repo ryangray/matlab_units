@@ -1,4 +1,4 @@
-% Unit lux (lx)
+%% Unit lux (lx)
 % See also: lumen
 
 function lux = unit 

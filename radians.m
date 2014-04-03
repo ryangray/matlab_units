@@ -1,7 +1,6 @@
-% Unit radians 
-% Converts number to internal units by multplying by it 
-% Converts number into radians by dividing value in internal units by it. 
-% See also: RADIAN
+%% Unit radians 
+%
+% See also: radian
 
 function radians = unit 
 

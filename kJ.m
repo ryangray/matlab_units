@@ -1,8 +1,7 @@
-% Unit kj (kilo joules)
-% Converts number to internal units by multplying by it 
-% Converts number into watts by dividing value in internal units by it. 
+%% Unit kJ (kilo joules)
+%
+% See also: joule
 
 function kj = unit 
 
-kj = kilo*joule;
-
+kj = kilo * joule;

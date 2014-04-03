@@ -1,8 +1,7 @@
-% Unit lightday
-% Converts number to internal units by multplying by it 
-% Converts number into deg by dividing value in internal units by it. 
-% See also: DAY, LIGHTSPEED
+%% Unit lightday
+%
+% See also: day, c0
 
 function lightday = unit 
 
-lightday = lightSpeed * day;
+lightday = c0 * day;

@@ -1,6 +1,5 @@
-%% lbf (pounds-force) =  lbm * g0
-%% Unit of force
-%% Reference: NIST
+%% Unit lbf (pound force) =  lbm * g0
+%
 % See also: lbm, slug, lbf, kgf, kgm
 
 function lbf = unit 

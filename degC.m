@@ -1,4 +1,4 @@
-%% A Celcius temperature or degree in base temperature units
+%% Unit A Celcius temperature or degree in base temperature units
 %% Usage
 %  dT = T * degC % scaling Cdegs to current (also Cdeg)
 %  degC('absolutezero') or degC('0') % returns double(-273.15)

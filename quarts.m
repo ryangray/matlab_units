@@ -1,6 +1,6 @@
-% Unit quarts
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
+%% Unit quarts (qt)
+%
+% See also: quart
 
 function quarts = unit()
 

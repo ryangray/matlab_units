@@ -1,7 +1,6 @@
-% Unit degree 
-% Converts number to internal units by multplying by it 
-% Converts number into degree by dividing value in internal units by it. 
-% See also: DEG
+%% Unit degree (deg)
+%
+% See also: deg
 
 function degree = unit 
 

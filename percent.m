@@ -1,6 +1,6 @@
-% Unit percent 
-% Converts number to internal units by multplying by it 
-% Converts number into percent by dividing value in internal units by it. 
+%% Unit percent (%)
+% This is just the constant 1/100. The unit function does support '%' and
+% can handle things such as: unit('53%')
 
 function percent = unit 
 

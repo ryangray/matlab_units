@@ -1,6 +1,6 @@
-% Unit moles (mole)
-% Converts number to internal units by multplying by it 
-% Converts number into moles by dividing value in internal units by it. 
+%% Unit moles (mol)
+%
+% See also: mole
 
 function moles = unit 
 

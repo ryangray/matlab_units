@@ -1,7 +1,6 @@
-% Unit Volt
-% Converts number to internal units by multplying by it 
-% Converts number into volt by dividing value in internal units by it. 
-% See also: WATT, AMPERE
+%% Unit volt (V)
+%
+% See also: watt, ampere
 
 function volt = unit 
 

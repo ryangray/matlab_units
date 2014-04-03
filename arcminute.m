@@ -1,5 +1,5 @@
-%% arcminute = deg/60
-%% Unit of angle
+%% Unit arcminute (angle) = deg/60
+%
 % See also: deg, arcsecond
 
 function arcminute = unit 

@@ -1,4 +1,4 @@
-%% A Fahrenheit temperature or degree in base temperature units
+%% Unit A Fahrenheit temperature or degree in base temperature units
 %% Usage
 %  dT = T * degF % scaling Fdegs to current (also Fdeg)
 %  degF('absolutezero') or degF('0') % returns double(-459.67)

@@ -1,7 +1,6 @@
-% Unit slug
-% Converts number to internal units by multplying by it 
-% Converts number into slug by dividing value in internal units by it. 
-% See also: LBM, KG, LBF.
+%% Unit slug (mass) = lbf/(ft/s^2)
+%
+% See also: lbm, kg, lbf
 
 function slug = unit 
 

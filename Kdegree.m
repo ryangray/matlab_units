@@ -1,7 +1,9 @@
-% Unit Kdegree 
-% Converts number to internal units by multplying by it 
-% Converts number into Kdegree by dividing value in internal units by it. 
-% See also: CDEGREE, RDEGREE, FDEGREE
+%% Unit Kdegree (Kelvin degree)
+%
+% The size of a Kelvin degree is the same as Celcius degree. Use degK for a
+% temperature in Kelvin.
+%
+% See also: degK, Cdegree, Rdegree, Fdegree
 
 function Kdegree = unit 
 

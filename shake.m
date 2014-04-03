@@ -1,6 +1,6 @@
-% Unit shake
-% Converts number to internal units by multplying by it 
-% Converts number into shake by dividing value in internal units by it. 
+%% Unit shake = 1e-8 sec
+%
+% See also: second
 
 function shake = unit 
 

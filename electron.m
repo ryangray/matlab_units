@@ -1,6 +1,5 @@
-% Unit electron (unitless alias)
-% Converts number to internal units by multplying by it 
-% Converts number into eV by dividing value in internal units by it. 
+%% Unit electron (unitless)
+% A number of electrons
 
 function electron = unit
 

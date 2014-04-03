@@ -1,7 +1,9 @@
-% Unit Rdegree 
-% Converts number to internal units by multplying by it 
-% Converts number into Kdegree by dividing value in internal units by it. 
-% See also: cdegree, kdegree, fdegree
+%% Unit Rdegree (Rankine degree)
+%
+% The size of a Rankine degree is the same as Fahrenheit degree. Use degR
+% for a temperature in Rankine.
+%
+% See also: degR, Cdegree, Kdegree, Fdegree
 
 function Rdegree = unit 
 

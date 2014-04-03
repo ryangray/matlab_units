@@ -1,7 +1,6 @@
-% Unit gigabytes 
-% Converts number to internal units by multplying by it 
-% Converts number into gigabytes by dividing value in internal units by it. 
-% See also: GIGABYTE
+%% Unit gigabytes (GB)
+%
+% See also: gigabyte, GB
 
 function gigabytes = unit 
 

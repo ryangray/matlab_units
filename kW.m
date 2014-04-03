@@ -1,7 +1,7 @@
-% Unit kw (kilowatts)
-% Converts number to internal units by multplying by it 
-% Converts number into watts by dividing value in internal units by it. 
+%% Unit kw (kilowatts)
+%
+% See also: watt
 
 function kw = unit 
 
-kw = kilo*watt;
+kw = kilo * watt;

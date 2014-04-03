@@ -1,7 +1,7 @@
-% Unit msec
-% Converts number to internal units by multplying by it 
-% Converts number into seconds by dividing value in internal units by it. 
+%% Unit msec (milliseconds)
+%
+% See also: usec
 
 function msec = unit 
 
-msec = milli*second; 
+msec = milli * second; 

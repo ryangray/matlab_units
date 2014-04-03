@@ -1,8 +1,7 @@
-% Unit lightyear
-% Converts number to internal units by multplying by it 
-% Converts number into deg by dividing value in internal units by it. 
-% See also: YEAR, LIGHTSPEED
+%% Unit lightyear
+%
+% See also: lighthour, lightminute, year, c0
 
 function lightyear = unit 
 
-lightyear = lightSpeed * year;
+lightyear = c0 * year;

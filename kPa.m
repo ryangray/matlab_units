@@ -1,4 +1,5 @@
-%% kPa (kilo Pascals)
+%% Unit kPa (kilo Pascals)
+%
 % See also: Pa
 
 function kPa = unit 

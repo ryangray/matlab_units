@@ -1,8 +1,8 @@
-% Unit kg 
-% Converts number to internal units by multplying by it 
-% Converts number into kg by dividing value in internal units by it. 
-% The familiar conversion of kg = lb * 2.2 is actually kgf = lbf * 2.2
-% See also: LBM, SLUG, LBF, KGF, KGM
+%% Unit kg (kilogram), SI unit of mass
+%
+% Note: the familiar conversion of kg = lb * 2.2 is actually kgf = lbf * 2.2
+%
+% See also: lbm, slug, lbf, kgf, kgm
 
 function kg = unit 
 

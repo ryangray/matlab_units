@@ -1,7 +1,7 @@
-% Unit usec
-% Converts number to internal units by multplying by it 
-% Converts number into seconds by dividing value in internal units by it. 
+%% Unit usec (micro second)
+%
+% See also: msec
 
 function usec = unit 
 
-usec = micro*second; 
+usec = micro * second;

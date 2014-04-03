@@ -1,7 +1,6 @@
-% Unit bits 
-% Converts number to internal units by multplying by it 
-% Converts number into bits by dividing value in internal units by it. 
-% See also: BIT
+%% Unit bits (b)
+%
+% See also: bit
 
 function bits = unit 
 

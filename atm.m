@@ -1,6 +1,5 @@
-% Unit atm (atmosphere)
-% Converts number to internal units by multplying by it 
-% Converts number into atm by dividing value in internal units by it. 
+%% Unit atm (atmosphere) 1 standard atmosphere = 101325 Pa
+%
 % See also: kPa, Pa
 
 function atm = unit 

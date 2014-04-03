@@ -1,5 +1,5 @@
-%% torr (Torr) = mmHg
-% See also: mmHg, Pa
+%% Unit torr (Torr) = mmHg
+% See also: mmHg, Pa, bar
 
 function torr = unit 
 

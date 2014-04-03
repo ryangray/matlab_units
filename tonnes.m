@@ -1,6 +1,5 @@
-% Unit tonne (metric ton, t)
-% Converts number to internal units by multplying by it 
-% Converts number to it by dividing value in internal units by it. 
+%% Unit tonne (metric ton, t)
+%
 % See also: kg, tonne_force
 
 function tonnes = unit 

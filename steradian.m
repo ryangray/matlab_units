@@ -1,7 +1,9 @@
-% Unit Steradian (solid angle)
-% Converts number to internal units by multplying by it 
-% Converts number into steradian by dividing value in internal units by it. 
-% See also: RADIAN
+%% Unit steradian (sr, solid angle)
+%
+% Solid angle is not strictly a unit dimension, but this library carries it
+% in the object version for now.
+%
+% See also: radian
 
 function steradian = unit
 

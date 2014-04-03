@@ -1,6 +1,6 @@
-% Unit seconds 
-% Converts number to internal units by multplying by it 
-% Converts number into seconds by dividing value in internal units by it. 
+%% Unit seconds (s)
+%
+% See also: second
 
 function seconds = unit 
 

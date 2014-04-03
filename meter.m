@@ -1,6 +1,8 @@
-% Unit meter 
-% Converts number to internal units by multplying by it 
-% Converts number into meter by dividing value in internal units by it. 
+%% Unit meter (m) SI base unit of length
+%
+% Note: unit('m') is supported.
+%
+% See also: meters
 
 function meter = unit 
 

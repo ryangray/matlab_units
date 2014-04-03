@@ -1,5 +1,5 @@
-%% arcminutes = arcminute (alias)
-%% Unit of angle
+%% Unit arcminutes (angle)
+%
 % See also: arcminute
 
 function arcminutes = unit 

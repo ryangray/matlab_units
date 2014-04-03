@@ -1,4 +1,4 @@
-%% Unit hPa : Hectopascals (100 Pa) = hecto*Pa
+%% Unit hPa (hectopascals) 100 Pa
 %
 
 function hPa = unit 

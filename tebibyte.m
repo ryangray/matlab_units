@@ -1,7 +1,6 @@
-% Unit tebibyte 2^40 (TEra BInary byte- terabyte is 10^12 bytes)
-% Converts number to internal units by multplying by it 
-% Converts number into this unit by dividing value in internal units by it. 
-% See also: TB, tebi, byte
+%% Unit tebibyte (TEra BInary byte) 2^40 bytes
+%
+% See also: TiB, terabyte, tebi, byte
 
 function tebibyte = unit 
 

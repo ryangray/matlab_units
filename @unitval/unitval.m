@@ -1,4 +1,4 @@
-%% unitval class
+%% unitval A units class to support the units library
 %
 % This isn't designed to be used directly, but through the units system as
 % a base unit module for the existing units system. This allows it to use

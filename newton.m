@@ -1,7 +1,6 @@
-% Unit newton 
-% Converts number to internal units by multplying by it 
-% Converts number into Newton by dividing value in internal units by it. 
-% See also: KG, METER, SECOND
+%% Unit newton (N)
+%
+% See also: kg, meter, second
 
 function newton = unit 
 

@@ -1,6 +1,6 @@
-% Unit newtons 
-% Converts number to internal units by multplying by it 
-% Converts number into Newtons by dividing value in internal units by it. 
+%% Unit newtons (N)
+%
+% See also: newton
 
 function newtons = unit 
 

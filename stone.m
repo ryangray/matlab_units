@@ -1,5 +1,4 @@
-%% stone (mass) = 14 lbm
-%% Unit of mass
+%% Unit stone (mass) = 14 lbm
 
 function stone = unit 
 

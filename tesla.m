@@ -1,4 +1,4 @@
-%% tesla (T), SI derived unit of magnetic flux density
+%% Unit tesla (T), SI derived unit of magnetic flux density
 % tesla = weber / m^2
 % See also: weber
 

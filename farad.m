@@ -1,7 +1,8 @@
-% Unit farad
-% Converts number to internal units by multplying by it 
-% Converts number into meter by dividing value in internal units by it. 
-% See also: COULOMB, VOLT, JOULE
+%% Unit farad (F) = coulomb / volt
+%
+% Note: unit('F') is supported.
+%
+% See also: coulomb, volt
 
 function farad = unit 
 

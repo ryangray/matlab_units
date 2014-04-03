@@ -1,4 +1,4 @@
-%% Pa (Pascal) = N/m^2
+%% Unit Pa (Pascal) = N/m^2
 %
 % Note: There is no pascal.m in the units library because of the MATLAB
 % matrix function pascal.

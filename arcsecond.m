@@ -1,5 +1,5 @@
-%% arcsecond = deg/3600
-%% Unit of angle
+%% Unit arcsecond (angle) = deg/3600
+%
 % See also: deg, arcminute
 
 function arcsecond = unit 

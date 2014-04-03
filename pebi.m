@@ -1,6 +1,5 @@
-% prefix pebi = 2^50 (PEta BInary)
-% Converts number to internal units by multplying by it 
-% Converts number into this unit by dividing value in internal units by it. 
+%% prefix pebi = 2^50 (PEta BInary)
+%
 % See also: peta, kibi, mebi, gibi, tebi, exbi, zebi, yobi
 
 function pebi = prefix 

@@ -1,7 +1,6 @@
-% Unit poundal
-% Converts number to internal units by multplying by it 
-% Converts number into lbm by dividing value in internal units by it. 
-% See also: SLUG, LBM, LBF, FOOT, SECOND
+%% Unit poundal = lbm * ft/s^2
+%
+% See also: slug, lbm, lbf, foot, second
 
 function poundal = unit 
 

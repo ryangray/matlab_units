@@ -1,7 +1,5 @@
-% Unit pixel
-% Converts number to internal units by multplying by it 
-% Converts number into it by dividing value in internal units by it. 
+%% Unit pixel (unitless)
 
 function pixel = unit 
 
-pixel = 1; 
+pixel = unitless; 

@@ -1,4 +1,5 @@
-%% A Rankine temperature or degree in base temperature units
+%% Unit A Rankine temperature or degree in base temperature units
+% Absolute temperature unit in the english and customary systems.
 %% Usage
 %  dT = T * degR % scaling Rdegs to current (also Rdeg)
 %  degR('absolutezero') or degR('0') % returns double(0)

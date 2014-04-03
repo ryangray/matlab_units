@@ -1,7 +1,6 @@
-% Unit inches 
-% Converts number to internal units by multplying by it 
-% Converts number into inches by dividing value in internal units by it. 
-% See also: INCH
+%% Unit inches (in)
+%
+% See also: inch
 
 function inches = unit 
 

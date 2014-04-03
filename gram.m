@@ -1,7 +1,8 @@
-% Unit gram 
-% Converts number to internal units by multplying by it 
-% Converts number into gram by dividing value in internal units by it. 
-% See also: KILOGRAM
+%% Unit gram (g)
+%
+% The unit function supports 'g' which is NOT g0
+%
+% See also: kilogram
 
 function gram = unit 
 

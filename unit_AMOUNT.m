@@ -1,4 +1,6 @@
-% Units mole in terms of amount of a substance the base units
+%% Units mole in terms of amount of a substance the base units
+%
+% This is the base amount definition for SI.
 
 function mole = unit_AMOUNT
 

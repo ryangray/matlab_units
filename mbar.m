@@ -1,4 +1,4 @@
-%% mbar (millibar) = 100 Pa
+%% Unit mbar (millibar) = 100 Pa
 %
 % Note: There is no bar.m in the units library because of the MATLAB
 % plot function. There is not mb.m since there is already MB.m

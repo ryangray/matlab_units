@@ -1,7 +1,7 @@
-% Unit yards
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
+%% Unit yards (yd)
+%
+% See also: yard
 
-function x = unit()
+function yards = unit
 
-x = yard;
+yards = yard;

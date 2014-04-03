@@ -1,5 +1,5 @@
-%% Arcseconds = arcsecond (alias)
-%% Unit of angle
+%% Unit arcseconds (angle)
+%
 % See also: arcsecond
 
 function arcseconds = unit 

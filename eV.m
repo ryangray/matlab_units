@@ -1,10 +1,10 @@
-% Unit ev (electron Volt)
-% Converts number to internal units by multplying by it 
-% Converts number into eV by dividing value in internal units by it. 
+%% Unit eV (electron Volt)
+%
 % Source: CODATA 2006 via NIST
 % Uncertainty = 0.000 000 040 x 10-19 J
-% See also: kev, joule, constElectronVolt
+%
+% See also: kev, joule
 
-function ev = unit
+function eV = unit
 
-ev = 1.602176487e-19 * joule;
+eV = 1.602176487e-19 * joule;

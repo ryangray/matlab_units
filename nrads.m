@@ -1,6 +1,6 @@
-% Unit nrads 
-% Converts number to internal units by multplying by it 
-% Converts number into nrads by dividing value in internal units by it. 
+%% Unit nrads (nanoradians)
+%
+% See also: urads, radian
 
 function nrads = unit 
 

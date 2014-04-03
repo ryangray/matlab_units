@@ -1,4 +1,4 @@
-%% Convert a value from base units to specified unit
+%% Convert Converts a value from base units to specified unit
 %
 % If the units base class is unitval object, then the result is a double
 % rather than a unitless unitval object which is convenient for plotting or

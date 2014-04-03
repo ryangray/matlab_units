@@ -1,4 +1,4 @@
-%% A Kelvin temperature or degree in base temperature units
+%% Unit A Kelvin temperature or degree in base temperature units
 %% Usage
 %  dT = T * degK % scaling Kdegs to current (also Kdeg)
 %  degK('absolutezero') or degK('0') % returns double(0)

@@ -1,7 +1,6 @@
-% Unit furlongs
-% Converts number to internal units by multplying by it 
-% Converts number into mile by dividing value in internal units by it. 
-% See also: FURLONG
+%% Unit furlongs
+%
+% See also: furlong
 
 function furlongs = unit 
 

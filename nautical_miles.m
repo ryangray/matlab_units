@@ -1,7 +1,6 @@
-% Unit nautical_miles
-% Converts number to internal units by multplying by it 
-% Converts number into nmiles by dividing value in internal units by it. 
-% See also: NMILE, NMILES, NAUTICAL_MILE
+%% Unit nautical_miles (nmi)
+%
+% See also: nautical_mile
 
 function nautical_miles = unit 
 

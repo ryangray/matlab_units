@@ -1,4 +1,4 @@
-%% weber (Wb), SI unit of magnetic flux
+%% Unit webers (Wb), SI unit of magnetic flux
 % weber = volt * second
 % See also: weber, volt, tesla
 

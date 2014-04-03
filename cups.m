@@ -1,7 +1,6 @@
-% Unit cups
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
-% See also: CUP
+%% Unit cups
+%
+% See also: cup
 
 function cups = unit
 

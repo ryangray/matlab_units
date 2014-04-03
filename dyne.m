@@ -1,8 +1,9 @@
-% Unit dyne
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
-% See also: CM, GRAM, SECOND
+%% Unit dyne (dyn) = cm*g/s^2
+%
+% The CGS unit of force.
+%
+% See also: newton, cm, gram, second
 
 function dyne = unit
 
-dyne = cm * gram / second^2;
+dyne = gram * cm / second^2;

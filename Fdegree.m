@@ -1,7 +1,9 @@
-% Unit Fdegree 
-% Converts number to internal units by multplying by it 
-% Converts number into Fdegree by dividing value in internal units by it. 
-% See also: CDEGREE, RDEGREE, KDEGREE
+%% Unit Fdegree (Fahrenheit degree)
+%
+% The size of a Fahrenheit degree is the same as a Rankine degree. Use degF
+% for a temperature in Fahrenheit.
+%
+% See also: degF, Cdegree, Rdegree, Kdegree
 
 function Fdegree = unit 
 

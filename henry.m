@@ -3,7 +3,9 @@
 % where the resulting electromotive force is one volt, the inductance of
 % the circuit is one henry.
 %
-% See also: H, volt, second, ampere
+% Note: unit('H') is supported.
+%
+% See also: henries, volt, second, ampere
 
 function henry = unit 
 

@@ -1,7 +1,6 @@
-% Unit kilobyte 
-% Converts number to internal units by multplying by it 
-% Converts number into kilobyte by dividing value in internal units by it. 
-% See also: KILO, BYTE, KIBIBYTE
+%% Unit kilobyte (kB)
+%
+% See also: kilo, byte, kibibyte
 
 function kilobyte = unit 
 

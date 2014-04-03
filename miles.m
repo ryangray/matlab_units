@@ -1,6 +1,6 @@
-% Unit miles 
-% Converts number to internal units by multplying by it 
-% Converts number into miles by dividing value in internal units by it. 
+%% Unit miles (mi)
+%
+% See also: mile
 
 function miles = unit 
 

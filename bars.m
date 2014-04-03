@@ -1,4 +1,4 @@
-%% bar = 100000 Pa
+%% Unit bar = 100 kPa
 %
 % Note: There is no bar.m in the units library because of the MATLAB
 % plot function. There is not mb.m since there is already MB.m

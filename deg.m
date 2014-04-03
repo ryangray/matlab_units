@@ -1,7 +1,9 @@
-% Unit deg 
-% Converts number to internal units by multplying by it 
-% Converts number into deg by dividing value in internal units by it. 
-% See also: RADIAN
+%% Unit deg (degree, plane angle)
+%
+% Angle is not strictly a unit dimension, but this library carries it in
+% the object version for now.
+%
+% See also: radian, degree
 
 function deg = unit 
 

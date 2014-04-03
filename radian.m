@@ -1,7 +1,9 @@
-% Unit radian 
-% Converts number to internal units by multplying by it 
-% Converts number into radian by dividing value in internal units by it. 
-% See also: DEG, STERADIAN
+%% Unit radian (plane angle)
+%
+% Angle is not strictly a unit dimension, but this library carries it in
+% the object version for now.
+%
+% See also: deg, steradian
 
 function radian = unit 
 

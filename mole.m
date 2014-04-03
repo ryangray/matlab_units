@@ -1,6 +1,6 @@
-% Unit mole (mole)
-% Converts number to internal units by multplying by it 
-% Converts number into mole by dividing value in internal units by it. 
+%% Unit mole (mol), SI amount of a substance
+%
+% See also: mol, moles
 
 function mole = unit 
 

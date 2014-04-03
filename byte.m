@@ -1,6 +1,5 @@
-% Unit byte 
-% Converts number to internal units by multplying by it 
-% Converts number into byte by dividing value in internal units by it. 
+%% Unit byte (B) 8 bits
+%
 % See also: bit, nibble, kibibyte, mebibyte, gibibyte, tebibyte, pebibyte, exbibyte, zebibyte, yobibyte
 
 function byte = unit 

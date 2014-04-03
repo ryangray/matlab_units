@@ -1,4 +1,4 @@
-%% mbars (millibars) = mbar
+%% Unit mbars (millibars) = mbar
 %
 % See also: mbar
 

@@ -1,6 +1,6 @@
-% Unit ounce
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
+%% Unit ounce (oz)
+%
+% See also: oz, ounces
 
 function ounce = unit
 

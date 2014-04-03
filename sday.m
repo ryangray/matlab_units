@@ -1,6 +1,4 @@
-% Unit sday (sidereal day)
-% Converts number to internal units by multplying by it 
-% Converts number into day by dividing value in internal units by it. 
+%% Unit sday (sidereal day, time)
 
 function sday = unit 
 

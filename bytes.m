@@ -1,6 +1,9 @@
-% Unit bytes 
-% Converts number to internal units by multplying by it 
-% Converts number into bytes by dividing value in internal units by it. 
+%% Unit bytes (B)
+%
+% This function can also be used to obtain a string for displaying a value
+% sensibly given its magnitude, e.g., if the value is >= 1MB and < 1GB, the
+% value is displayed in MB.
+%
 % See also: byte
 
 function bytes = unit (b)
@@ -11,38 +14,38 @@ if nargin == 0
     
 else
     
-    if mod(b,8*bits) ~= 0
+    if b < byte
         
         s = b/bit;
         u = 'bits';
         
-    elseif b < kb
+    elseif b < kibibyte
         
         s = b/byte;
         u = 'bytes';
         
-    elseif b < mb
+    elseif b < mebibyte
         
-        s = b / kb;
-        u = 'kB';
+        s = b / kibibyte;
+        u = 'kiB';
         
-    elseif b < gb
+    elseif b < gibibyte
         
-        s = b / mb;
-        u = 'MB';
+        s = b / mebibyte;
+        u = 'MiB';
         
-    elseif b < tb
+    elseif b < tebibyte
         
-        s = b / gb;
-        u = 'GB';
+        s = b / gibibyte;
+        u = 'GiB';
 
     else
         
-        s = b / tb;
-        u = 'TB';
+        s = b / tebibyte;
+        u = 'TiB';
         
     end
     
-    bytes = sprintf('%g %s', s, u);
+    bytes = sprintf('%g %s', double(s), u);
 
 end

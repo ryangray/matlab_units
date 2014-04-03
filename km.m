@@ -1,6 +1,6 @@
-% Unit km 
-% Converts number to internal units by multplying by it 
-% Converts number into km by dividing value in internal units by it. 
+%% Unit km (kilometer)
+%
+% See also: kilometer, meter
 
 function km = unit 
 

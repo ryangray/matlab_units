@@ -1,7 +1,6 @@
-% Unit cup
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
-% See also: OUNCE
+%% Unit cup = 8 oz
+%
+% See also: ounce
 
 function cup = unit
 

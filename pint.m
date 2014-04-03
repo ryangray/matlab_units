@@ -1,6 +1,6 @@
-% Unit pint
-% Converts number to internal units by multplying by it 
-% Converts number into foot by dividing value in internal units by it. 
+%% Unit pint = 1/2 quart = 2 cups
+%
+% See also: quart, cup
 
 function pint = unit
 

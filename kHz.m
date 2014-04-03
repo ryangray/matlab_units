@@ -1,7 +1,7 @@
-% Unit khz 
-% Converts number to internal units by multplying by it 
-% Converts number into khz by dividing value in internal units by it. 
+%% Unit kHz 
+%
+% See also: hertz
 
-function khz = unit 
+function kHz = unit 
 
-khz = kilo * hertz; 
+kHz = kilo * hertz; 

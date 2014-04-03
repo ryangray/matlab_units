@@ -1,4 +1,4 @@
-%% kgf (kilogram-force) = kgm * g0
+%% Unit kgf (kilogram-force) = kgm * g0
 % This unit is not actually part of the SI unit set.
 % The familiar conversion of kg = lb * 2.2 is actually kgm = lbm * 2.2
 %

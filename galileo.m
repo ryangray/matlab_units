@@ -1,6 +1,5 @@
-% Unit galileo (Gal, acceleration)
-% Converts number to internal units by multplying by it 
-% Converts number into kgf by dividing value in internal units by it. 
+%% Unit galileo (Gal, acceleration)
+%
 % The cga system unit of acceleration: 1 cm per second per second.
 % Not to be confused with the gallon (gal, lowercase), so there is not 
 % a gal.m unit in this library.

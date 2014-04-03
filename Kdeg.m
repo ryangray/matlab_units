@@ -1,7 +1,8 @@
-% Unit Kdeg 
-% Converts number to internal units by multplying by it 
-% Converts number into Kdeg by dividing value in internal units by it. 
-% See also: CDEGREE, RDEGREE, KDEGREE, FDEGREE
+%% Unit Kdeg 
+%
+% The size of a Kelvin degree, degK is for a temperature in Kelvin.
+%
+% See also: Cdegree, Rdegree, Kdegree, Fdegree
 
 function Kdeg = unit 
 

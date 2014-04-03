@@ -1,7 +1,9 @@
-% Unit Cdegree 
-% Converts number to internal units by multplying by it 
-% Converts number into Cdegree by dividing value in internal units by it. 
-% See also: RDEGREE, KDEGREE, FDEGREE
+%% Unit Cdegree (Celcius degree)
+%
+% The size of a Celcius degree is the same as Kelvin degree. Use degC for a
+% temperature in Celcius.
+%
+% See also: degC, Rdegree, Kdegree, Fdegree
 
 function Cdegree = unit 
 

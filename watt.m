@@ -1,4 +1,4 @@
-%% watt (W), SI unit of radiant flux
+%% Unit watt (W), SI unit of radiant flux
 % watt = joule / s
 % See also: joule
 

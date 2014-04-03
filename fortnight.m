@@ -1,7 +1,12 @@
-% Unit fortnight
-% Converts number to internal units by multplying by it 
-% Converts number into mile by dividing value in internal units by it. 
-% See also: DAYS
+%% Unit fortnight (14 days)
+%
+% Base unit of time in the FFF system.
+% <http://en.wikipedia.org/wiki/FFF_system FFF System - Wikipedia>
+%
+% Famously, a microfortnight was used as a unit of time in some parts of
+% the VMS operating system.
+%
+% See also: days, furlong, firkin
 
 function fortnight = unit 
 

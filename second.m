@@ -1,6 +1,8 @@
-% Unit second 
-% Converts number to internal units by multplying by it 
-% Converts number into second by dividing value in internal units by it. 
+%% Unit second (s) SI unit of time
+%
+% Note: unit('s') and unit('sec') are supported.
+%
+% See also: usec, nsec
 
 function second = unit 
 

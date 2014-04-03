@@ -1,8 +1,7 @@
-% Unit tebibyte = 1024 gibibytes
-% Converts number to internal units by multplying by it 
-% Converts number into this unit by dividing value in internal units by it. 
-% See also: tebibyte, terabyte
+%% Unit TB (terabyte) 1024 gigabytes
+%
+% See also: TiB, tebibyte, terabyte
 
-function tb = unit 
+function TB = unit 
 
-tb = tebibyte; 
+TB = terabyte; 

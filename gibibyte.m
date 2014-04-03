@@ -1,7 +1,8 @@
-% Unit gibibyte = 2^30 (GIga BInary byte - gigabytes is 10^9 bytes)
-% Converts number to internal units by multplying by it 
-% Converts number into it by dividing value in internal units by it. 
-% See also: GB, byte, gibi, gigabyte
+%% Unit gibibyte (GiB) = 2^30 bytes
+%
+% Gibi binary byte, where gibi is 1024*mebi. Gigabytes is 10^9 bytes.
+%
+% See also: GiB, byte, gibi, gigabyte
 
 function gibibyte = unit 
 
