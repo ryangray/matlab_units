@@ -214,7 +214,7 @@ classdef unitval < double
                 
                 if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
 
-                    disp(obj.in(obj.symbol));
+                    disp(convert(obj,obj.symbol));
                     disp(['(' obj.symbol ')']);
 
                 else
