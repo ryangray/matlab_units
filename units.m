@@ -34,6 +34,15 @@
 % example: units('degC',0) is equivalent to: degC(0,'to'), converting the
 % temperature of 0 in current units to degC.
 %
+%  units(units_expression, value, 'tostring')
+%
+% This is the same as 'to', but also makes a string of the converted value
+% with the units appended.
+%
+%  units(units_expression, value, 'from')
+%
+% This is the same as units(units_expression, value).
+%
 % units('system', sysname) can also accept a path name of a valid units
 % base folder. This would probably be one previously gotten from 
 %
@@ -42,8 +51,6 @@
 % See also: unitsSymbols, unitsPlot, unit2str, unitval, unitsSameDimensions
 
 function varargout = units (varargin)
-
-tempunits = {'degK','degR','degC','degF'};
 
 if isempty(varargin)
 
@@ -373,9 +380,26 @@ elseif ischar(varargin{1})
 
                 case 3
                     
-                    if ischar(varargin{3}) && strcmpi(varargin{3},'to')
-                
-                        varargout{1} = convert(varargin{2}, varargin{1});
+                    if ischar(varargin{3})
+
+                        switch lower(varargin{3})
+                            
+                            case 'to'
+
+                                varargout{1} = convert(varargin{2}, varargin{1});
+                        
+                            case 'tostring'
+                                
+                                varargout{1} = [num2str(convert(varargin{2}, varargin{1})) ' ' unitsSymbols(varargin{1})];
+                                
+                            case 'from'
+                                
+                                varargout{1} = unit(varargin{2}, varargin{1});
+                                
+                            otherwise
+                                
+                                error('Unknown conversion option: %s', varargin{3});
+                        end
                         
                     else
                         

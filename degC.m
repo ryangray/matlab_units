@@ -61,7 +61,7 @@ elseif ischar(T_C)
             error('Invalid option: %s', T_C);
     end
     
-elseif ~isempty(varargin) && strcmpi(varargin{1},'to')
+elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
 
     T = toDegC(T_C); % In this case T_C is in current units
     
