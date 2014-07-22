@@ -11,7 +11,7 @@
 %  unitsSymbols(units_expression_string, tex)
 %  unitsSymbols(units_expression_string, tex, env)
 %
-% The tex option is either 'none', 'tex' or 'latex' and defaults to 'tex'.
+% The tex option can be: 'none' (or empty), 'tex' (default) or 'latex'.
 % If 'latex' is specified, then the result is wrapped in '\mathrm{...}' to
 % appear upright when interpreted and some transforms are done differently.
 % The env option (defaults to 'mathrm') lets you choose another wrapper or
@@ -29,7 +29,7 @@ if nargin < 3
     env = 'mathrm'; % \mbox and \text won't work with escaped characters like \mu, etc.
 end
 latex = strcmpi(tex,'latex');
-notex = strcmpi(tex,'none');
+notex = isempty(tex) || strcmpi(tex,'none');
 if latex
     if ~isempty(env)
         tl = ['\\' env '{'];
@@ -104,6 +104,8 @@ pstr = regexprep(pstr,'\<[hH]ertz\>', [tl 'Hz' tr]);
 pstr = regexprep(pstr,'\<miles?\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<statute_miles?\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<nautical_miles?\>', [tl 'nmi' tr]);
+pstr = regexprep(pstr,'\<radians?\>', [tl 'rad' tr]);
+pstr = regexprep(pstr,'\<steradians?\>', [tl 'sr' tr]);
 if ~notex
     pstr = regexprep(pstr,'\<ohms?\>', [tl '{\\Omega}' tr]);
 end
@@ -146,13 +148,11 @@ end
 % Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
 
 if latex
-    pstr = regexprep(pstr,'\<radian\>', [tl 'radian' tr]);
-    pstr = regexprep(pstr,'\<radians\>', [tl 'radians' tr]);
     pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
     pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
     pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
-    pstr = regexprep(pstr,'\<kj\>', [tl 'kJ' tr]);
-    pstr = regexprep(pstr,'\<kw\>', [tl 'kW' tr]);
+    pstr = regexprep(pstr,'\<kJ\>', [tl 'kJ' tr]);
+    pstr = regexprep(pstr,'\<kW\>', [tl 'kW' tr]);
 end
 
 end

@@ -155,7 +155,7 @@ classdef unitval < double
 
             end
             
-            if length(varargin) == 1 && isa(varargin{1},'unitval') 
+            if numel(varargin) == 1 && isa(varargin{1},'unitval') 
                     
                 if isa(val,'unitval') % unitval(unitval_object_to_copy, unitval_object_template)
                         
@@ -190,7 +190,7 @@ classdef unitval < double
 
                 end
                 
-            elseif length(varargin) == 1 && ischar(varargin{1}) % unitval(value, unitstring)
+            elseif numel(varargin) == 1 && ischar(varargin{1}) % unitval(value, unitstring)
                 
                 obj = feval('units', varargin{1}, obj);
                 

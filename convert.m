@@ -37,7 +37,7 @@
 % 
 % This does require that you use unit strings to do the conversion. This is
 % useful for when you don't know what they actualy are, like when they come
-% from use input. If you know the units, you can use division. You would
+% from user input. If you know the units, you can use division. You would
 % just need to possibly cast the result to double for when using unitval
 % units, and you can use the temperature functions directly to convert.
 %
@@ -75,11 +75,16 @@ elseif ischar(unitstr)
 
     else
 
-        s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
-        warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
         uv = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
-        warning(s);
-        cval = uval / uv;
+        if isempty(uv)
+            if strcmp(ue, unitstr)
+                error('Invalid units expression: %s', ue);
+            else
+                error('Invalid units expression: %s (given as: %s)', ue, unitstr);
+            end
+        else
+            cval = uval / uv;
+        end
         
     end
     
