@@ -141,8 +141,8 @@ pstr = regexprep(pstr,'kibi\*', [tl 'ki' tr]);
 
 % Other special cases
 if ~notex
-    pstr = regexprep(pstr,'\<um\>', [tl '{\\mu}m' tr]);
-    pstr = regexprep(pstr,'\<urad(s?)\>', [tl '{\\mu}rad$1' tr]);
+    pstr = regexprep(pstr,'\<um\>', ['{\\mu}' tl 'm' tr]);
+    pstr = regexprep(pstr,'\<urad(s?)\>', ['{\\mu}' tl 'rad$1' tr]);
 end
 
 % Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
