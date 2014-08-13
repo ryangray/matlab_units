@@ -42,26 +42,29 @@ else
     tl = '';
     tr = '';
 end
+
+pre = '([yzafpnumcdhkMGTPEZY]|da)';
+
 pstr = regexprep(pstr,'\<unitless\>', '');
 pstr = regexprep(pstr,'\<int\>', '');
 pstr = regexprep(pstr,'\<string\>', '');
 pstr = regexprep(pstr,'\<seconds?\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<sec\>', [tl 's' tr]);
 pstr = regexprep(pstr,'\<meters?\>', [tl 'm' tr]);
-pstr = regexprep(pstr,'\<[jJ]oules?\>', [tl 'J' tr]);
-pstr = regexprep(pstr,'\<[wW]atts?\>', [tl 'W' tr]);
-pstr = regexprep(pstr,'\<[nN]ewtons?\>', [tl 'N' tr]);
-pstr = regexprep(pstr,'\<[pP]ascals?\>', [tl 'Pa' tr]);
-pstr = regexprep(pstr,'\<[aA]mps?\>', [tl 'A' tr]);
-pstr = regexprep(pstr,'\<[aA]mperes?\>', [tl 'A' tr]);
+pstr = regexprep(pstr,'\<joules?\>', [tl 'J' tr]);
+pstr = regexprep(pstr,'\<watts?\>', [tl 'W' tr]);
+pstr = regexprep(pstr,'\<newtons?\>', [tl 'N' tr]);
+pstr = regexprep(pstr,'\<pascals?\>', [tl 'Pa' tr]);
+pstr = regexprep(pstr,'\<amps?\>', [tl 'A' tr]);
+pstr = regexprep(pstr,'\<amperes?\>', [tl 'A' tr]);
 pstr = regexprep(pstr,'\<bits?\>', [tl 'b' tr]);
 pstr = regexprep(pstr,'\<bytes?\>', [tl 'B' tr]);
 pstr = regexprep(pstr,'\<btus?\>', [tl 'BTU' tr]);
 pstr = regexprep(pstr,'\<calories?\>', [tl 'cal' tr]);
-pstr = regexprep(pstr,'\<[cC]andelas?\>', [tl 'cd' tr]);
-pstr = regexprep(pstr,'\<[hH]enry\>', [tl 'H' tr]);
-pstr = regexprep(pstr,'\<[hH]enries\>', [tl 'H' tr]);
-pstr = regexprep(pstr,'\<[fF]arads?\>', [tl 'F' tr]);
+pstr = regexprep(pstr,'\<candelas?\>', [tl 'cd' tr]);
+pstr = regexprep(pstr,'\<henry\>', [tl 'H' tr]);
+pstr = regexprep(pstr,'\<henries\>', [tl 'H' tr]);
+pstr = regexprep(pstr,'\<farads?\>', [tl 'F' tr]);
 pstr = regexprep(pstr,'\<c0\>', [tl 'c' tr]);
 if latex
     pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
@@ -92,28 +95,28 @@ else
 end
 pstr = regexprep(pstr,'\<Rdegs?\>', [tl 'R' tr]);
 pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K' tr]);
-pstr = regexprep(pstr,'\<[cC]oulombs?\>', [tl 'C' tr]);
-pstr = regexprep(pstr,'\<[vV]olts?\>', [tl 'V' tr]);
+pstr = regexprep(pstr,'\<coulombs?\>', [tl 'C' tr]);
+pstr = regexprep(pstr,'\<volts?\>', [tl 'V' tr]);
 pstr = regexprep(pstr,'\<feet\>', [tl 'ft' tr]);
 pstr = regexprep(pstr,'\<foot\>', [tl 'ft' tr]);
 pstr = regexprep(pstr,'\<grams?\>', [tl 'g' tr]);
 pstr = regexprep(pstr,'\<liters?\>', [tl 'L' tr]);
 pstr = regexprep(pstr,'\<inch\>', [tl 'in' tr]);
 pstr = regexprep(pstr,'\<inches\>', [tl 'in' tr]);
-pstr = regexprep(pstr,'\<[hH]ertz\>', [tl 'Hz' tr]);
+pstr = regexprep(pstr,'\<hertz\>', [tl 'Hz' tr]);
 pstr = regexprep(pstr,'\<miles?\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<statute_miles?\>', [tl 'mi' tr]);
 pstr = regexprep(pstr,'\<nautical_miles?\>', [tl 'nmi' tr]);
 pstr = regexprep(pstr,'\<radians?\>', [tl 'rad' tr]);
 pstr = regexprep(pstr,'\<steradians?\>', [tl 'sr' tr]);
 if ~notex
-    pstr = regexprep(pstr,'\<ohms?\>', [tl '{\\Omega}' tr]);
+    pstr = regexprep(pstr,'\<ohms?\>', '{\\Omega}'); % not inside tl/tr
 end
 
 % Now replace prefixes
 
 pstr = regexprep(pstr,'deci\*',  [tl 'd' tr]);
-pstr = regexprep(pstr,'deca\*',  [tl 'D' tr]);
+pstr = regexprep(pstr,'deca\*',  [tl 'da' tr]);
 pstr = regexprep(pstr,'centi\*', [tl 'c' tr]);
 pstr = regexprep(pstr,'hecto\*', [tl 'h' tr]);
 pstr = regexprep(pstr,'milli\*', [tl 'm' tr]);
@@ -121,7 +124,7 @@ pstr = regexprep(pstr,'kilo\*',  [tl 'k' tr]);
 if notex
     pstr = regexprep(pstr,'micro\*', 'u');
 else
-    pstr = regexprep(pstr,'micro\*', [tl '{\\mu}' tr]);
+    pstr = regexprep(pstr,'micro\*', '{\\mu}'); % Not inside tl/tr
 end
 pstr = regexprep(pstr,'mega\*',  [tl 'M' tr]);
 pstr = regexprep(pstr,'nano\*',  [tl 'n' tr]);
@@ -131,18 +134,45 @@ pstr = regexprep(pstr,'tera\*',  [tl 'T' tr]);
 pstr = regexprep(pstr,'femto\*', [tl 'f' tr]);
 pstr = regexprep(pstr,'peta\*',  [tl 'P' tr]);
 pstr = regexprep(pstr,'atto\*',  [tl 'a' tr]);
-pstr = regexprep(pstr,'exa\*',   [tl 'e' tr]);
+pstr = regexprep(pstr,'exa\*',   [tl 'E' tr]);
 pstr = regexprep(pstr,'zepto\*', [tl 'z' tr]);
 pstr = regexprep(pstr,'zetta\*', [tl 'Z' tr]);
 pstr = regexprep(pstr,'yocto\*', [tl 'y' tr]);
-pstr = regexprep(pstr,'yetta\*', [tl 'Y' tr]);
+pstr = regexprep(pstr,'yotta\*', [tl 'Y' tr]);
 
 pstr = regexprep(pstr,'kibi\*', [tl 'ki' tr]);
 
 % Other special cases
+
+pstr = regexprep(pstr,['\<' pre 'sec\>'], [tl '$1s' tr]);
+pstr = regexprep(pstr,['\<' pre 'rads\>'], [tl '$1rad' tr]);
+
 if ~notex
-    pstr = regexprep(pstr,'\<um\>', ['{\\mu}' tl 'm' tr]);
-    pstr = regexprep(pstr,'\<urad(s?)\>', ['{\\mu}' tl 'rad$1' tr]);
+    
+    % Turn 'u' prefix into {\mu} on a valid unit
+    
+    rex = ['\<u(.+)\>'];
+    [istart, iend, itok] = regexp(pstr, rex, 'once');
+    i0 = 0;
+
+    while ~isempty(istart)
+
+        istart = istart + i0;
+        iend = iend + i0;
+        itok = itok + i0;
+
+        ustr = pstr(itok(1,1):itok(1,2));
+        if ~isempty(units(ustr))
+            % Got a valid unit
+            pstr = [pstr(1:istart-1) '{\mu}' tl ustr tr pstr(iend+1:end)];
+            i0 = istart + 5;
+        else
+            i0 = iend + 1;
+        end
+        [istart, iend, itok] = regexp(pstr(i0+1:end), rex, 'once');
+
+    end
+
 end
 
 % Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
