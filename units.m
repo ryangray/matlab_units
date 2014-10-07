@@ -330,7 +330,7 @@ elseif ischar(varargin{1})
                         rmpath(oldsys);
                         addpath(si,'-END');
                         
-                    case {'object','unitval'}
+                    case {'obj','object','unitval'}
                         
                         if ~exist('unitval','class')
                             error('unitval class not found');

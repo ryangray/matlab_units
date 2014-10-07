@@ -78,7 +78,11 @@ if ischar(unitstr)
                 warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
                 uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
                 warning(s);
-                uval = val * uval;
+                if isa(uval,'double')
+                    uval = val * uval;
+                else
+                    uval = [];
+                end
 
             end
     end
