@@ -83,6 +83,10 @@ ue = regexprep(ue,'\<c\>','c0');
 
 ue = regexprep(ue,'\<cd\>','candela');
 ue = regexprep(ue,'\<sec\>','second');
+ue = regexprep(ue,'\<seconds\>','second'); % New conflict with timefun/seconds
+ue = regexprep(ue,'\<minutes\>','minute'); % New conflict with timefun/minutes
+ue = regexprep(ue,'\<days\>','day'); % New conflict with timefun/days
+ue = regexprep(ue,'\<years\>','year'); % New conflict with timefun/years
 ue = regexprep(ue,'\<min\>','minute'); 
 ue = regexprep(ue,'\<psi\>','psia');
 ue = regexprep(ue,'\<pascal\>','pascals');
