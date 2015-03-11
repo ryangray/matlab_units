@@ -30,17 +30,13 @@ if nargin < 3
 end
 latex = strcmpi(tex,'latex');
 notex = isempty(tex) || strcmpi(tex,'none');
-if latex
-    if ~isempty(env)
-        tl = ['\\' env '{'];
-        tr = '}';
-    else
-        tl = '';
-        tr = '';
-    end
-else
-    tl = '';
-    tr = '';
+tl = '';
+tr = '';
+TL = '';
+if latex && ~isempty(env)
+    TL = ['\' env '{'];
+    tl = ['\\' env '{'];
+    tr = '}';
 end
 
 pre = '([yzafpnumcdhkMGTPEZY]|da)';
@@ -164,7 +160,7 @@ if ~notex
         ustr = pstr(itok(1,1):itok(1,2));
         if ~isempty(units(ustr))
             % Got a valid unit
-            pstr = [pstr(1:istart-1) '{\mu}' tl ustr tr pstr(iend+1:end)];
+            pstr = [pstr(1:istart-1) '{\mu}' TL ustr tr pstr(iend+1:end)];
             i0 = istart + 5;
         else
             i0 = iend + 1;

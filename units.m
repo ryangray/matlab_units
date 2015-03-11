@@ -161,14 +161,12 @@ elseif ischar(varargin{1})
 
             inUnitsDir = strcmp(pwd, si);
             if inUnitsDir
+                warning('Current directory is the units directory. You shouldn''t use units from here.');
                 % Get out to reliably detect current units system
                 cwd = pwd;
                 cd('..');
             end
             oldsys = fileparts(which('unit_SYSTEM'));
-            if ~strcmp(oldsys,si)
-                warning('Current directory is the units directory. You shouldn''t use units from here.');
-            end
 
             if inUnitsDir
                 % Restore previous pwd
