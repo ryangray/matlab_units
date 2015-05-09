@@ -1,6 +1,7 @@
 %% Evaluate units expression, show or switch units base, or show help.
 %
 %% Usage
+%
 %  units              % Prints the name of the units system in use
 %  units list         % Lists all the units m functions
 %  units help         % Opens the help document for units
@@ -24,7 +25,7 @@
 % etc), then it is equivalent to calling the unit function with the value
 % as an argument to correctly convert the temperature to the current units.
 % For example, units('degF', 32) is the same as degF(32). This form can be
-% useful when the units are not known.
+% useful when the units are not known. 
 %
 %  units(units_expression, value, 'to')
 %
@@ -32,7 +33,13 @@
 % is equivalent to value/units(units_expression), except for temperature,
 % where it is like adding the 'to' parameter to the units function, for
 % example: units('degC',0) is equivalent to: degC(0,'to'), converting the
-% temperature of 0 in current units to degC.
+% temperature of 0 in current units to degC. However, this is an old usage,
+% and a clearer (and slightly quicker) equivalent is the convert()
+% function:
+%
+%  convert(value, units_expression)
+%
+% See the convert() function for more information.
 %
 %  units(units_expression, value, 'tostring')
 %
@@ -48,7 +55,7 @@
 %
 %  sysname = units('system');
 %
-% See also: unitsSymbols, unitsPlot, unit2str, unitval, unitsSameDimensions
+% See also: convert, unitsSymbols, unitsPlot, unit2str, unitval, unitsSameDimensions
 
 function varargout = units (varargin)
 

@@ -21,9 +21,10 @@
 %
 %  convert(x, km)
 %
-% The difference is that it can't do temperature conversion involving a
-% shift. So, you are limited to degree size conversions and degK to degR or
-% degR to degK conversions.
+% The difference is that when using a units_value rather than a units
+% string, it can't do temperature conversion involving a shift. So, you are
+% limited to degree size conversions and degK to degR or degR to degK
+% conversions.
 %
 % There is no difference in using convert() with [double] classed units
 % versus dividing by the unit value, except that temperature conversions
