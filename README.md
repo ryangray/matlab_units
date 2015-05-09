@@ -3,6 +3,7 @@ matlab_units
 
 A units library for MATLAB with multiple bases and double or unit object data types.
 
+
 Introduction
 ------------
 
@@ -178,6 +179,7 @@ variable in this case:
 Just be careful (as with any MATLAB variable) to not re-use that variable for 
 other purposes as you might with `pi`, for example.
 
+
 Adding your own units
 ---------------------
 
@@ -215,6 +217,7 @@ This system defines a few constants with the functions g0() and c0(). These
 produce standard Earth gravity and the speed of light in a vacuum, respectively. 
 These are used in a few places, so they are available to use for consistency 
 and be in the correct units.
+
 
 English units and 'g'
 ---------------------
