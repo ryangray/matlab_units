@@ -1,6 +1,6 @@
 %% Unit Cdeg (Celcius degree)
 %
-% See also: Cdegree, Rdegree, Kdegree, Fdegree
+% See also: Cdegree, Rdeg, Kdeg, Fdeg
 
 function Cdeg = unit 
 

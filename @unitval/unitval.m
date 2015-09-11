@@ -53,7 +53,10 @@
 % not unitval objects. Instead, make a static class method for recursing
 % through a struct to turn all unitval fields to doubles.
 %
-% reshape() is converting unitvals to double (affects repmat too)
+% reshape() is converting unitvals to double. In R2015a (possibly earlier)
+% it is converting it to unitless but does not seem to be calling the
+% constructor. This seems to be making its own copy and only copying the
+% data from the double superclass.
 
 classdef unitval < double
 

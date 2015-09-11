@@ -1,7 +1,10 @@
 %% Unit mmHg (millimeters of Mercury) = 101325/760 * Pa
 %
-% See also: kPa, Pa, atm
+% Ref: BS 350: Part 1: 1974 - Conversion factors and tables. British
+% Standards Institution. 1974. p. 49.
+%
+% See also: torr, kPa, Pa, atm
 
 function mmHg = unit 
 
-mmHg =  101325/760 * Pa; % 10th CGPM, 1954
+mmHg =  133.322387415 * Pa;

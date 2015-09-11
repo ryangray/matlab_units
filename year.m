@@ -1,7 +1,7 @@
-%% Unit year (calendar year) = 365.25 * days
+%% Unit year (calendar year) = 365.2425 * days
 %
-% See also: lightyear
+% See also: calendar_year, tropical_year
 
 function year = unit 
 
-year = 365.25 * day; 
+year = calendar_year; 

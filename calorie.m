@@ -3,4 +3,4 @@
 
 function calorie = unit 
 
-calorie =  thermo_calorie;
+calorie =  cal_th;

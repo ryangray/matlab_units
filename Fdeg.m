@@ -1,6 +1,6 @@
 %% Unit Fdeg (Fahrenheit degree)
 %
-% See also Fdegree
+% See also: Cdeg, Kdeg, Rdeg, Fdegree
 
 function Fdeg = unit 
 

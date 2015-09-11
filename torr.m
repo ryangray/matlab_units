@@ -1,6 +1,6 @@
-%% Unit torr (Torr) = mmHg
-% See also: mmHg, Pa, bar
+%% Unit torr (Torr) = 1/760 th of a standard atmosphere
+% See also: mmHg, Pa, bar, atm
 
 function torr = unit 
 
-torr = mmHg; % 10th CGPM, 1954
+torr = atm / 760;

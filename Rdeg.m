@@ -1,6 +1,6 @@
 %% Unit Rdeg (Rankine degree)
 %
-% See also: Cdegree, Rdegree, Kdegree, Fdegree
+% See also: Cdeg, Rdegree, Kdeg, Fdeg
 
 function Rdeg = unit 
 

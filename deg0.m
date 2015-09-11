@@ -10,4 +10,4 @@
 
 function T = deg0
 
-T = 0 * Kdegree;
+T = unit_TEMPERATURE('0');
