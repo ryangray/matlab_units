@@ -1,8 +1,6 @@
 %% Unit Kdeg 
 %
-% The size of a Kelvin degree, degK is for a temperature in Kelvin.
-%
-% See also: Cdeg, Rdeg, Kdegree, Fdeg
+% See also: Kdegree
 
 function Kdeg = unit 
 

@@ -1,12 +1,20 @@
 %% Unit A Celcius temperature or degree in base temperature units
+%
+% Note that only base temperature units of Kelvin or Rankine are supported
+% as they are absolute scales. Values can be in F or C, but they will
+% either be delta temperatures (Fdeg or Cdeg) or an absolute temperature
+% being displayed in degF or degC.
+%
 %% Usage
-%  dT = T * degC % scaling Cdegs to current (also Cdeg)
+%
+%  dT = T * degC % a temperature change (should use Cdeg for better clarity)
 %  degC('absolutezero') or degC('0') % returns double(-273.15)
 %  T = degC(temperature_in_degC) % convert from degC to current
 %  T = degC(temperature, 'to') % convert from current to degC
+%  fprintf('Temperature change is: %f C°\n', convert(dt,'Cdeg'); % Note unit is not degC
 %
 % The delta temperature usage is the same as the unit Cdeg.
-% When asking for absolute zero, it is returned in degrees C as -273.15.
+% When asking for absolute zero, it is returned in degrees C as -273.15 (double).
 %
 % It is important to think about the unit dimensions, especially when using
 % the object units as a base:
@@ -27,18 +35,16 @@
 %
 % * degC(T, 'to')
 %
-% This is equivalent to calling toDegC(T) and converts the temperature
-% value T that is in current units to the equivalent value in deg C as a
-% magnitude with no units dimension. For a base of SI,
-% degC(273.15*degK,'to') gives 0 regardless of the base units.
+% This converts the temperature value T that is in current units to the
+% equivalent value in deg C as a magnitude with no units dimension. For
+% example, degC(degK(273.15),'to') gives 0 (unitless).
 %
 % * degC('absolutezero') or degC('0')
 %
 % This gives the absolute zero point in deg C, which always returns -273.15
-% regardless of the base units. For absolute zero in the current units, use
-% deg0.
+% (double) regardless of the base units or units class.
 %
-% See also: degF, degK, degR, toDegC
+% See also: degF, degK, degR
 
 function T = degC (T_C, varargin)
 
@@ -63,13 +69,10 @@ elseif ischar(T_C)
     
 elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
 
-    T = toDegC(T_C); % In this case T_C is in current units
+    T = T_C / Cdegree + T0_C; % In this case T_C is in current units
     
-else % degC value given
+else % degC value given as a temperature (not a delta temperature)
 
-    % We use double(T_C) in case it is a unitval object whose magnitude we
-    % are declaring to be a value in deg C.
-    
-    T = (double(T_C) - T0_C) * Kdegree + deg0;
+    T = unit_MAKE((double(T_C) - T0_C) * Kdegree, 'celcius', '°C');
 
 end

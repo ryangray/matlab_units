@@ -1,10 +1,11 @@
 %% Unit Rdegree (Rankine degree)
 %
-% The size of a Rankine degree is the same as Fahrenheit degree. Use degR
-% for a temperature in Rankine.
+% The size of a Rankine degree is the same as Fahrenheit degree. This is
+% a change in temperature rather than a temperature which uses the same
+% size degrees. Use degR for specifying a temperature in Rankine.
 %
-% See also: degR, Cdegree, Kdegree, Fdegree
+% See also: Rdeg, Cdegree, Kdegree, Fdegree, degR
 
 function Rdegree = unit 
 
-Rdegree = Fdegree; 
+Rdegree = unit_MAKE(Fdegree, 'Rankine degree', 'R°');

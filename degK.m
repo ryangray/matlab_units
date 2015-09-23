@@ -1,12 +1,20 @@
 %% Unit A Kelvin temperature or degree in base temperature units
+%
+% Note that only base temperature units of Kelvin or Rankine are supported
+% as they are absolute scales. Values can be in F or C, but they will
+% either be delta temperatures (Fdeg or Cdeg) or an absolute temperature
+% being displayed in degF or degC.
+%
 %% Usage
-%  dT = T * degK % scaling Kdegs to current (also Kdeg)
+%
+%  dT = T * degK % a temperature change (should use Kdeg for better clarity)
 %  degK('absolutezero') or degK('0') % returns double(0)
 %  T = degK(temperature_in_degK) % convert from degK to current
 %  T = degK(temperature, 'to') % convert from current to degK
+%  fprintf('Temperature change is: %f K\n', convert(dt,'Kdeg'); % Note unit is not degK
 %
 % The delta temperature usage is the same as the unit Kdeg.
-% When asking for absolute zero, it is returned in degrees K as 0.
+% When asking for absolute zero, it is returned in degrees K as 0 (double).
 %
 % It is important to think about the unit dimensions, especially when using
 % the object units as a base:
@@ -27,18 +35,16 @@
 %
 % * degK(T, 'to')
 %
-% This is equivalent to calling toDegK(T) and converts the temperature
-% value T that is in current units to the equivalent value in deg K as a
-% magnitude with no units dimension. For a base of SI,
-% degK(491.67*degR,'to') gives 273.15 regardless of the base units.
+% This converts the temperature value T that is in current units to the
+% equivalent value in deg K as a magnitude with no units dimension. For
+% example, degK(degR(491.67),'to') gives 273.15 (unitless).
 %
 % * degK('absolutezero') or degK('0')
 %
 % This gives the absolute zero point in deg K, which always returns 0
-% regardless of the base units. For absolute zero in the current units, use
-% deg0.
+% (double) regardless of the base units or units class.
 %
-% See also: degR, degC, degF, toDegK
+% See also: degR, degC, degF
 
 function T = degK (T_K, varargin)
 
@@ -61,13 +67,10 @@ elseif ischar(T_K)
     
 elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
 
-    T = toDegK(T_K); % In this case T_K is in current units
+    T = T_K / Kdegree; % In this case T_K is in current units
     
-else % degK value given
+else % degK value given as a temperature (not a delta temperature)
 
-    % We use double(T_K) in case it is a unitval object whose magnitude we
-    % are declaring to be a value in deg K.
-    
-    T = double(T_K) * Kdegree + deg0;
+    T = double(T_K) * Kdegree;
 
 end

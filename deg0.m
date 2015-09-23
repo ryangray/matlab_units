@@ -1,13 +1,11 @@
 %% Absolute Zero temperature in base temperature units
 %
-% This function will be overridden in base systems that use a different
-% base temperature. for example, in a degC base, this would be
-% -273.15*Kdegree.
-%
-% A useful expression is T_absolute = T - deg0, which converts temperature
-% T that is in current temperature units to an absolute temperature. If
-% current units are degK, or degR, then deg0 equals zero.
+% Obsolete: was used for returning the absolute zero temperature value in
+% the current base, but since C or F will not be supported, this is no
+% longer needed, so you should remove it from your expressions.
 
 function T = deg0
 
-T = unit_TEMPERATURE('0');
+T = 0 * unit_TEMPERATURE;
+
+warning('deg0 is obsolete; you should remove it from your expressions. It is always zero now since C or F bases are not supported.');
