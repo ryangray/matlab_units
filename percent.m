@@ -4,4 +4,4 @@
 
 function percent = unit 
 
-percent = unit_MAKE(1.e-2, 'percent', '%'); 
+percent = 1.e-2;

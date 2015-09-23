@@ -53,7 +53,7 @@ function ue = unit_ALIASES(ue)
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
-ue = regexprep(ue,'°','\\circ'); % ° -> \circ for the following
+ue = regexprep(ue, char(176), 'deg'); % ° -> deg
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
 ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
 ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
@@ -111,5 +111,3 @@ ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
 ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
 ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
-ue = regexprep(ue,['\<' char(176) '\>'],'deg'); % degree symbol
-
