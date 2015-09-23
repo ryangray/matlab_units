@@ -4,4 +4,4 @@
 
 function ampere = unit 
 
-ampere = unit_CURRENT; 
+ampere = unit_MAKE(unit_CURRENT,'ampere','A');

@@ -4,4 +4,4 @@
 
 function bit = unit 
 
-bit = unit_INFORMATION; 
+bit = unit_MAKE(unit_INFORMATION, 'bit', 'b');

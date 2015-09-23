@@ -8,4 +8,4 @@
 
 function steradian = unit
 
-steradian = unit_ANGLE_SOLID;
+steradian = unit_MAKE(unit_ANGLE_SOLID, 'steradian', 'sr');

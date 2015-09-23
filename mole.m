@@ -4,4 +4,4 @@
 
 function mole = unit 
 
-mole = unit_AMOUNT;
+mole = unit_MAKE(unit_AMOUNT, 'mole', 'mol');

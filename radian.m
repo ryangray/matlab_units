@@ -15,4 +15,4 @@
 
 function radian = unit 
 
-radian = unit_ANGLE_PLANE;
+radian = unit_MAKE(unit_ANGLE_PLANE, 'radian', 'rad');

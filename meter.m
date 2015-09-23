@@ -6,4 +6,4 @@
 
 function meter = unit 
 
-meter = unit_LENGTH; 
+meter = unit_MAKE(unit_LENGTH, 'meter', 'm');

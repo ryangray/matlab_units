@@ -6,4 +6,4 @@
 
 function second = unit 
 
-second = unit_TIME; 
+second = unit_MAKE(unit_TIME, 'second', 's');

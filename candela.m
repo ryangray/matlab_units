@@ -4,4 +4,4 @@
 
 function candela = unit 
 
-candela = unit_LUMINANCE; 
+candela = unit_MAKE(unit_LUMINANCE, 'candela', 'cd');
