@@ -1,7 +1,7 @@
 %% Unit lightyear
 %
-% See also: lighthour, lightminute, julian_year, c0
+% See also: lightday, lighthour, lightminute, julian_year, c0
 
 function lightyear = unit 
 
-lightyear = c0 * julian_year;
+lightyear = unit_MAKE(c0 * julian_year, 'lightyear', 'lightyear');

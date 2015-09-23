@@ -5,4 +5,4 @@
 
 function julian_year = unit 
 
-julian_year = 365.25 * day;
+julian_year = unit_MAKE(365.25 * day, 'julian_year', 'yr_jul');

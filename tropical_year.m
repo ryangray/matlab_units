@@ -11,4 +11,4 @@
 
 function tropical_year = unit 
 
-tropical_year = 365.242190402 * day;
+tropical_year = unit_MAKE(365.242190402 * day, 'tropical_year', 'yr_trop');

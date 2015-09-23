@@ -4,4 +4,4 @@
 
 function calendar_year = unit 
 
-calendar_year = 365.2425 * day; 
+calendar_year = unit_MAKE(365.2425 * day, 'calendar_year', 'yr_cal'); 
