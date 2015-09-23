@@ -8,4 +8,4 @@
 
 function kgf = unit
 
-kgf = kg * g0; % f = m*a
+kgf = unit_MAKE(kg * g0, 'kilogram_force', 'kgf'); % f = m*a

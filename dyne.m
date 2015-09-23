@@ -6,4 +6,4 @@
 
 function dyne = unit
 
-dyne = gram * cm / second^2;
+dyne = unit_MAKE(gram * cm / second^2, 'dyne', 'dyn');

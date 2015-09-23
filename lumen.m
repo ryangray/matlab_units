@@ -3,4 +3,4 @@
 
 function lumen = unit 
 
-lumen = candela * steradian;
+lumen = unit_MAKE(candela * steradian, 'lumen', 'lumen');

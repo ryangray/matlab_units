@@ -10,4 +10,4 @@
 
 function liter = unit 
 
-liter = 1e-3 * meter^3; % exact definition
+liter = unit_MAKE(1e-3 * meter^3, 'liter', 'L'); % exact definition

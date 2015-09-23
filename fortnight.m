@@ -10,4 +10,4 @@
 
 function fortnight = unit 
 
-fortnight = 14 * days;
+fortnight = unit_MAKE(14 * day, 'fortnight');

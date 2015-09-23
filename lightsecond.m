@@ -1,7 +1,7 @@
 %% Unit lightsecond (distance)
 %
-% See also: second, c0
+% See also: lightyear, second, c0
 
 function lightsecond = unit 
 
-lightsecond = c0 * second;
+lightsecond = unit_MAKE(c0 * second, 'lightsecond', 'lightsecond');

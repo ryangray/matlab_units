@@ -4,4 +4,4 @@
 
 function tesla = unit 
 
-tesla = weber / meter^2;
+tesla = unit_MAKE(weber / meter^2, 'tesla', 'T');

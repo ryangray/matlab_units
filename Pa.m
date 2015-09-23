@@ -7,4 +7,4 @@
 
 function Pa = unit 
 
-Pa = newton / meter^2;
+Pa = unit_MAKE(newton / meter^2, 'pascal', 'Pa');

@@ -7,4 +7,4 @@
 
 function tonne = unit 
 
-tonne = 1000 * kg;
+tonne = unit_MAKE(1000 * kg, 'tonne', 't');

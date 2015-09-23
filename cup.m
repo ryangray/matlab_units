@@ -4,4 +4,4 @@
 
 function cup = unit
 
-cup = 8 * ounce;
+cup = unit_MAKE(8 * ounce, 'cup', 'cup');

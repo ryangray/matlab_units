@@ -7,4 +7,4 @@
 
 function furlong = unit 
 
-furlong = 660 * feet; 
+furlong = unit_MAKE(660 * feet, 'furlong', 'furlong');

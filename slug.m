@@ -4,4 +4,4 @@
 
 function slug = unit 
 
-slug = lbf / (foot/second^2); % m = f/a, (1 lbf) = (1 slug) * (1 ft/sec^2)
+slug = unit_MAKE(lbf / (foot/second^2), 'slug', 'slug'); % m = f/a, (1 lbf) = (1 slug) * (1 ft/sec^2)

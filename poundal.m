@@ -1,7 +1,7 @@
-%% Unit poundal = lbm * ft/s^2
+%% Unit poundal (pdl) = lbm * ft/s^2
 %
-% See also: slug, lbm, lbf, foot, second
+% See also: newton, lbm, lbf, foot, second
 
 function poundal = unit 
 
-poundal = lbm * foot / second^2;
+poundal = unit_MAKE(lbm * foot / second^2, 'poundal', 'poundal');

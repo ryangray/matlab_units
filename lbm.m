@@ -23,4 +23,4 @@
 
 function lbm = unit 
 
-lbm = 0.45359237 * kg; % Exact
+lbm = unit_MAKE(0.45359237 * kg, 'pound_mass', 'lbm'); % Exact

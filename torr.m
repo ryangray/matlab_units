@@ -3,4 +3,4 @@
 
 function torr = unit 
 
-torr = atm / 760;
+torr = unit_MAKE(atm / 760, 'torr', 'torr');

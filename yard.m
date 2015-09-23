@@ -4,4 +4,4 @@
 
 function yard = unit()
 
-yard = 3 * feet;
+yard = unit_MAKE(3 * feet, 'yard', 'yd');

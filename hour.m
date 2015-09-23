@@ -4,4 +4,4 @@
 
 function hour = unit 
 
-hour = 60.0 * minute;
+hour = unit_MAKE(60.0 * minute, 'hour', 'hr');

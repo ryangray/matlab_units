@@ -4,4 +4,4 @@
 
 function cal_IT = unit 
 
-cal_IT =  4.1868 * joule;
+cal_IT = unit_MAKE(4.1868 * joule, 'International calorie', 'cal_IT');

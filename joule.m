@@ -8,4 +8,4 @@
 
 function joule = unit 
 
-joule = newton * meter; % = kg*(m/s)^2
+joule = unit_MAKE(newton * meter, 'joule', 'J'); % = kg*(m/s)^2

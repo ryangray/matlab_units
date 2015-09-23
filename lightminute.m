@@ -4,4 +4,4 @@
 
 function lightminute = unit 
 
-lightminute = c0 * minute;
+lightminute = unit_MAKE(c0 * minute, 'lightminute', 'lightminute');

@@ -7,4 +7,4 @@
 
 function mbar = unit 
 
-mbar = 100 * Pa; % = 1 hPa
+mbar = unit_MAKE(100 * Pa, 'millibar', 'mbar'); % = 1 hPa

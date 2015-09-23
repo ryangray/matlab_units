@@ -2,4 +2,4 @@
 
 function pixel = unit 
 
-pixel = unitless; 
+pixel = unit_MAKE(unitless, 'pixel'); 

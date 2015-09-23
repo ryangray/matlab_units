@@ -7,4 +7,4 @@
 
 function knots = unit 
 
-knots = nmiles / hour;
+knots = unit_MAKE(nmiles / hour, 'knot', 'kts');

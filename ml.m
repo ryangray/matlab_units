@@ -4,4 +4,4 @@
 
 function ml = unit
 
-ml = milli * liter;
+ml = unit_MAKE(milli * liter, 'milliliter', 'ml');

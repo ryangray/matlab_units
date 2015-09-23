@@ -4,4 +4,4 @@
 
 function ohm = unit
 
-ohm = volt / ampere;
+ohm = unit_MAKE(volt / ampere, 'ohm', char(937));

@@ -4,4 +4,4 @@
 
 function pint = unit
 
-pint = quart / 2;
+pint = unit_MAKE(quart / 2, 'pint');

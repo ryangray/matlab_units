@@ -4,4 +4,4 @@
 
 function hertz = unit 
 
-hertz = 1 / second; 
+hertz = unit_MAKE(1 / second, 'hertz', 'Hz'); 

@@ -1,7 +1,7 @@
 %% Unit yard (yd)
 %
-% See also: foot
+% See also: yard
 
-function yard = unit()
+function yd = unit()
 
-yard = 3 * feet;
+yd = yard;

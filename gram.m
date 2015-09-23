@@ -6,4 +6,4 @@
 
 function gram = unit 
 
-gram = grams;
+gram = unit_MAKE(milli * kg, 'gram', 'g');

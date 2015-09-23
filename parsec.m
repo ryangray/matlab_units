@@ -1,4 +1,4 @@
-%% Unit parsec (pc) = 1 au / tan(arcsecond)
+%% Unit parsec (psc) = 1 au / tan(arcsecond)
 %
 % Astronomical unit of distance
 %
@@ -6,4 +6,4 @@
 
 function parsec = unit 
 
-parsec = au / tan(arcsecond);
+parsec = unit_MAKE(au / tan(arcsecond), 'parsec', 'parsec');

@@ -4,4 +4,4 @@
 
 function acre = unit
 
-acre = 4840 * yard^2;
+acre = unit_MAKE(4840 * yard^2, 'acre', 'acre');

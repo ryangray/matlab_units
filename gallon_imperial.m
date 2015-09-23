@@ -4,4 +4,4 @@
 
 function gallon_imperial = unit 
 
-gallon_imperial = 4.54609 * liters; % Weights and Measures Act of 1985
+gallon_imperial = unit_MAKE(4.54609 * liters, 'imperial_gallon'); % Weights and Measures Act of 1985

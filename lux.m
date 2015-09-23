@@ -3,4 +3,4 @@
 
 function lux = unit 
 
-lux = lumen / meter^2;
+lux = unit_MAKE(lumen / meter^2, 'lux', 'lux');

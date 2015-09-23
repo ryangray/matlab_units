@@ -6,4 +6,4 @@
 
 function farad = unit 
 
-farad = coulomb / volt;
+farad = unit_MAKE(coulomb / volt, 'farad', 'F');

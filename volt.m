@@ -4,4 +4,4 @@
 
 function volt = unit 
 
-volt = watt / ampere;
+volt = unit_MAKE(watt / ampere, 'volt', 'V');

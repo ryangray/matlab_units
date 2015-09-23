@@ -7,4 +7,4 @@
 
 function firkin = unit 
 
-firkin = 90 * lbm;
+firkin = unit_MAKE(90 * lbm, 'firkin', 'firkin');

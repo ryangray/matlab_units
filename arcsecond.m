@@ -4,4 +4,4 @@
 
 function arcsecond = unit 
 
-arcsecond = deg / 3600;
+arcsecond = unit_MAKE(deg / 3600, 'arcsecond');

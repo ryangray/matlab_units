@@ -6,4 +6,4 @@
 
 function psia = unit
 
-psia = lbf / inch^2;
+psia = unit_MAKE(lbf / inch^2, 'psi','psi');

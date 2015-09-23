@@ -4,4 +4,4 @@
 
 function grams = unit 
 
-grams = milli * kg; 
+grams = gram;

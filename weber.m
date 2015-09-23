@@ -1,7 +1,7 @@
 %% Unit weber (Wb), SI unit of magnetic flux
 % weber = volt * second
-% See also: volt, tesla
+% See also: Wb, volt, tesla
 
 function weber = unit 
 
-weber = volt * second; % = tesla/m^2 = joule/amp
+weber = unit_MAKE(volt * second, 'weber', 'Wb'); % = tesla/m^2 = joule/amp

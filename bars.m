@@ -7,4 +7,4 @@
 
 function bar = unit 
 
-bar = 100000 * Pa;
+bar = unit_MAKE(100000 * Pa, 'bar', 'bar');

@@ -2,4 +2,4 @@
 
 function waves = unit
 
-waves = unitless;
+waves = unit_MAKE(unitless, 'waves');

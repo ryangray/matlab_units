@@ -3,4 +3,4 @@
 
 function electron = unit
 
-electron = unitless;
+electron = unit_MAKE(unitless,'electron');

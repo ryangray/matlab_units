@@ -7,4 +7,4 @@
 
 function mmHg = unit 
 
-mmHg =  133.322387415 * Pa;
+mmHg = unit_MAKE(133.322387415 * Pa, 'millimeters_mercury', 'mmHg');

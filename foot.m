@@ -6,4 +6,4 @@
 
 function foot = unit
 
-foot = 0.3048 * meter; % Clark's tables (exact value from 1 yard = 0.9144 m)
+foot = unit_MAKE(0.3048 * meter, 'foot', 'ft'); % Clark's tables (exact value from 1 yard = 0.9144 m)

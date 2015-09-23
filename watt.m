@@ -4,4 +4,4 @@
 
 function watt = unit 
 
-watt = joule / second; 
+watt = unit_MAKE(joule / second, 'watt', 'W'); 

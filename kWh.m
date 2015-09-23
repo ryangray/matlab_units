@@ -4,4 +4,4 @@
 
 function kWh = unit
 
-kWh =  kilo * watt * hour;
+kWh = unit_MAKE(kilo * watt * hour, 'kilowatt_hour', 'kWh');

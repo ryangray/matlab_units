@@ -5,4 +5,4 @@
 
 function coulomb = unit 
 
-coulomb = ampere * second; 
+coulomb = unit_MAKE(ampere * second, 'coulomb', 'C'); 

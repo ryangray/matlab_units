@@ -7,4 +7,4 @@
 
 function eV = unit
 
-eV = 1.602176487e-19 * joule;
+eV = unit_MAKE(1.602176487e-19 * joule, 'electron_volt', 'eV');

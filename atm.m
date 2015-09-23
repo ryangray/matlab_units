@@ -4,4 +4,4 @@
 
 function atm = unit 
 
-atm = 1.01325E+05 * Pa;
+atm = unit_MAKE(1.01325E+05 * Pa, 'atmosphere', 'atm');

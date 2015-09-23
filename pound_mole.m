@@ -6,4 +6,4 @@
 
 function pound_mole = unit 
 
-pound_mole =  453.59237 * mole;
+pound_mole = unit_MAKE(453.59237 * mole, 'pound_mole', 'pound_mole');

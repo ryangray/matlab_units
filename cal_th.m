@@ -4,4 +4,4 @@
 
 function cal_th = unit 
 
-cal_th =  4.184 * joule;
+cal_th = unit_MAKE(4.184 * joule, 'thermo calorie', 'cal_th');

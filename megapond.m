@@ -4,4 +4,4 @@
 
 function megapond = unit 
 
-megapond = 1000 * kgf;
+megapond = unit_MAKE(1000 * kgf, 'megapond');

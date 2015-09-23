@@ -4,4 +4,4 @@
 
 function tonne_force = unit 
 
-tonne_force = 1000 * kgf;
+tonne_force = unit_MAKE(1000 * kgf, 'tonne_force');

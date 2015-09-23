@@ -4,4 +4,4 @@
 
 function inHg = unit 
 
-inHg = inch/mm * mmHg; % 
+inHg = unit_MAKE(inch/mm * mmHg, 'inches of mercury', 'inHg'); % 

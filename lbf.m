@@ -4,4 +4,4 @@
 
 function lbf = unit 
 
-lbf = lbm * g0;
+lbf = unit_MAKE(lbm * g0, 'pound_force', 'lbf');

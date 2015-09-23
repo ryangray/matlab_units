@@ -9,4 +9,4 @@
 
 function henry = unit 
 
-henry = volt * second / ampere;
+henry = unit_MAKE(volt * second / ampere, 'henry', 'H');

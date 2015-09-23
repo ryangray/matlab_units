@@ -4,4 +4,4 @@
 
 function fathom = unit
 
-fathom = 2 * yard;
+fathom = unit_MAKE(2 * yard, 'fathom', '');

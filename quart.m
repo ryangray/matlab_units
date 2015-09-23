@@ -4,4 +4,4 @@
 
 function quart = unit()
 
-quart = liter / 1.056688; % NIST
+quart = unit_MAKE(liter / 1.056688, 'quart'); % NIST

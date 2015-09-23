@@ -1,7 +1,7 @@
-%% Unit day (solar day)
+%% Unit day (mean solar day)
 %
-% See also: sday, hour
+% See also: sidereal_day, hour
 
 function day = unit 
 
-day = 24.0 * hour; 
+day = unit_MAKE(24.0 * hour, 'mean_solar_day', 'day'); 

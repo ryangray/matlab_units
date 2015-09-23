@@ -4,4 +4,4 @@
 
 function deg = unit 
 
-deg = pi / 180 * radian; 
+deg = unit_MAKE(pi / 180 * radian, 'degree', char(176));

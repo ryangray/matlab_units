@@ -4,4 +4,4 @@
 
 function angstrom = unit
 
-angstrom = 1e-10 * meter;
+angstrom = unit_MAKE(1e-10 * meter, 'angstrom', 'Å');

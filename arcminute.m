@@ -4,4 +4,4 @@
 
 function arcminute = unit 
 
-arcminute = deg / 60;
+arcminute = unit_MAKE(deg / 60, 'arcminute');

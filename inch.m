@@ -6,4 +6,4 @@
 
 function inch = unit 
 
-inch = foot / 12.0; 
+inch = unit_MAKE(foot / 12.0, 'inch', 'in'); 

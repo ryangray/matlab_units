@@ -4,4 +4,4 @@
 
 function mil = unit 
 
-mil = milli * inch;
+mil = unit_MAKE(milli * inch, 'mil', 'mil');

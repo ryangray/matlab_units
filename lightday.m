@@ -1,7 +1,7 @@
 %% Unit lightday
 %
-% See also: day, c0
+% See also: lightyear, day, c0
 
 function lightday = unit 
 
-lightday = c0 * day;
+lightday = unit_MAKE(c0 * day, 'lightday', 'lightday');

@@ -4,4 +4,4 @@
 
 function minute = unit 
 
-minute = 60.0 * second; 
+minute = unit_MAKE(60.0 * second, 'minute', 'min'); 
