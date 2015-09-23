@@ -4,4 +4,4 @@
 
 function exbi = prefix 
 
-exbi = unit_MAKE(2^60,'exbi','Ei');
+exbi = unit_MAKE(2^60, 'exbi', ' Ei');

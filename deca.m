@@ -4,4 +4,4 @@
 
 function deca = prefix 
 
-deca = unit_MAKE(10,'deca','D');
+deca = unit_MAKE(10, 'deca', ' D');

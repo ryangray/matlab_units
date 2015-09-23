@@ -4,4 +4,4 @@
 
 function centi = prefix 
 
-centi = unit_MAKE(1.e-2,'centi','c');
+centi = unit_MAKE(1.e-2, 'centi', ' c');

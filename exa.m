@@ -4,4 +4,4 @@
 
 function exa = prefix 
 
-exa = unit_MAKE(1.e+18,'exa','E');
+exa = unit_MAKE(1.e+18, 'exa', ' E');

@@ -4,4 +4,4 @@
 
 function gibi = prefix 
 
-gibi = unit_MAKE(2^30,'gibi','Gi');
+gibi = unit_MAKE(2^30, 'gibi', ' Gi');

@@ -4,4 +4,4 @@
 
 function yocto = prefix 
 
-yocto = unit_MAKE(1.e-24,'yocto','y');
+yocto = unit_MAKE(1.e-24, 'yocto', ' y');

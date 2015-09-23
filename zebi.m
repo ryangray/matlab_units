@@ -4,4 +4,4 @@
 
 function zebi = prefix
 
-zebi = unit_MAKE(2^70,'zebi','Zi');
+zebi = unit_MAKE(2^70, 'zebi', ' Zi');

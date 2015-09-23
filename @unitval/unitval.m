@@ -174,7 +174,7 @@ classdef unitval < double
 
                     old = varargin{1};
                     dims = unitval.dimensions;
-                    for ii = 1:length(dims) %#ok<CPROP>
+                    for ii = 1:length(dims) 
 
                         obj.(dims{ii}) = old.(dims{ii});
 
@@ -187,7 +187,7 @@ classdef unitval < double
                 
                 % Set any other properties given as additional arguments
                 
-                for ii = 2:2:length(varargin) %#ok<CPROP>
+                for ii = 2:2:length(varargin) 
 
                     obj.(lower(varargin{ii})) = varargin{ii+1};
 
@@ -199,7 +199,7 @@ classdef unitval < double
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
-                for ii = 1:2:length(varargin) %#ok<CPROP>
+                for ii = 1:2:length(varargin) 
 
                     obj.(lower(varargin{ii})) = varargin{ii+1};
 
@@ -215,10 +215,18 @@ classdef unitval < double
             
             if ~isempty(double(obj))
                 
-                if ~isempty(obj.symbol) && ~isempty(units(obj.symbol))
+                if ~isempty(obj.symbol) && obj.symbol(1) ~= ' '
+ 
+                    if unitExists(obj.symbol)
 
-                    disp(convert(obj,obj.symbol));
-                    disp(['(' obj.symbol ')']);
+                        disp(convert(obj,obj.symbol));
+                        disp(['(' obj.symbol ')']);
+
+                    else
+                        warning('Display units "%s" (.symbol property) is an unrecognized unit', obj.symbol);
+                        disp(double(obj))
+                        disp(obj.dimensionString)
+                    end
 
                 else
 

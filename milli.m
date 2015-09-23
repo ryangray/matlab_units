@@ -4,4 +4,4 @@
 
 function milli = prefix 
 
-milli = unit_MAKE(1.e-3,'milli','m');
+milli = unit_MAKE(1.e-3, 'milli', ' m');

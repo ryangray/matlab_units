@@ -4,4 +4,4 @@
 
 function giga = prefix 
 
-giga = unit_MAKE(1.e+9,'giga','G');
+giga = unit_MAKE(1.e+9, 'giga', ' G');

@@ -4,4 +4,4 @@
 
 function nano = prefix 
 
-nano = unit_MAKE(1.e-9,'nano','n');
+nano = unit_MAKE(1.e-9, 'nano', ' n');

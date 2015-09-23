@@ -4,4 +4,4 @@
 
 function kibi = prefix 
 
-kibi = unit_MAKE(2^10,'kibi','ki');
+kibi = unit_MAKE(2^10, 'kibi', ' ki');

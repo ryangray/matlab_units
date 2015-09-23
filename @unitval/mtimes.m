@@ -21,13 +21,23 @@ if isa(p,'unitval') && isa(q,'unitval')
         r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
     end
     
-    if isunitless(p) && ~isempty(p.name)
+    if isunitless(p) && ~isempty(p.symbol) && p.symbol(1) == ' '
         
         % Prefix
     
         r.name = [p.name q.name];
-        r.symbol = [p.symbol q.symbol];
-        
+        r.symbol = [strtrim(p.symbol) q.symbol];
+        if ~unitExists(r.symbol) % Not working with ms, us, etc.
+            r.symbol = q.symbol;
+        end
+
+    else
+        if ~isempty(p.name) && ~isempty(q.name)
+            r.name = [p.name '*' q.name];
+        end
+        if ~isempty(p.symbol) && ~isempty(q.symbol)
+            r.symbol = [p.symbol '*' q.symbol];
+        end
     end
     
 elseif isa(p,'unitval')

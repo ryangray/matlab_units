@@ -4,4 +4,4 @@
 
 function mebi = prefix 
 
-mebi = unit_MAKE(2^20,'mebi','Mi');
+mebi = unit_MAKE(2^20, 'mebi', ' Mi');

@@ -4,4 +4,4 @@
 
 function tera = prefix 
 
-tera = unit_MAKE(1.e+12,'tera','T');
+tera = unit_MAKE(1.e+12, 'tera', ' T');

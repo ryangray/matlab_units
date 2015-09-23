@@ -4,4 +4,4 @@
 
 function yobi = prefix 
 
-yobi = unit_MAKE(2^80,'yobi','Yi');
+yobi = unit_MAKE(2^80, 'yobi', ' Yi');
