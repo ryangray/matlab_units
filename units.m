@@ -245,7 +245,7 @@ elseif ischar(varargin{1})
                                 if ~exist(usePath,'dir')
                                     error('Units system folder %s does not exist.', usePath);
                                 else
-                                    error('Units system folder %s does not apear to be valid.', usePath);
+                                    error('Units system folder %s does not apear to be valid (missing unit_SYSTEM.m).', usePath);
                                 end
 
                             end

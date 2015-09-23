@@ -4,4 +4,4 @@
 
 function seimen = unit 
 
-seimen = amp / volt;
+seimen = unit_MAKE(amp / volt, 'seimen', 'S');

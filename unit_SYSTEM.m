@@ -2,9 +2,7 @@
 
 function varargout = unit_SYSTEM
 
-name = 'SI (meter,kg,second)';
-
-name = [name ' [' class(unit_TIME) ']'];
+name = ['SI (meter,kg,second) [' class(unit_TIME) ']'];
 
 if nargout == 0
     

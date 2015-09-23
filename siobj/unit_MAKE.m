@@ -4,7 +4,11 @@
 
 function unit = unit_MAKE (val, name, symbol, dim)
 
-if nargin < 4
+if nargin < 3
+
+    unit = unitval(val, 'name',name);
+
+elseif nargin < 4
     
     unit = unitval(val, 'name',name, 'symbol',symbol);
     

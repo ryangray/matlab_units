@@ -10,4 +10,4 @@
 
 function candela = unit_LUMINANCE
 
-candela = unit_MAKE(1,'candela','Cd','luminance');
+candela = unit_MAKE(1,'candela','cd','luminance');

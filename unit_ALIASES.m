@@ -53,6 +53,7 @@ function ue = unit_ALIASES(ue)
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
+ue = regexprep(ue,'°','\\circ'); % ° -> \circ for the following
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
 ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
 ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
@@ -63,6 +64,8 @@ ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
 % We don't have single letter functions
 
 ue = regexprep(ue,'\<A\>','ampere');
+ue = regexprep(ue,'\<b\>','bit');
+ue = regexprep(ue,'\<B\>','byte');
 ue = regexprep(ue,'\<C\>','coulomb');
 ue = regexprep(ue,'\<F\>','farad');
 ue = regexprep(ue,'\<gram\>','grams'); % To avoid a conflict with gram.m in controls toolbox,
@@ -73,8 +76,10 @@ ue = regexprep(ue,'\<K\>','degK');
 ue = regexprep(ue,'\<[lL]\>','liter');
 ue = regexprep(ue,'\<m\>','meter');
 ue = regexprep(ue,'\<N\>','newton');
+ue = regexprep(ue,'\<S\>','seimen');
 ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<T\>','tesla');
+ue = regexprep(ue,'\<t\>','tonne');
 ue = regexprep(ue,'\<V\>','volt');
 ue = regexprep(ue,'\<W\>','watt');
 ue = regexprep(ue,'\<c\>','c0');
@@ -104,3 +109,7 @@ ue = regexprep(ue,'(.)%$','$1*percent');
 ue = regexprep(ue,'^%$','percent');
 ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
+ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
+ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
+ue = regexprep(ue,['\<' char(176) '\>'],'deg'); % degree symbol
+

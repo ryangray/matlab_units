@@ -2,5 +2,5 @@
 
 function info = unit_TEMPERATURE_info
 
-info.name = 'Rankine';
-info.symbol = 'R';
+info.name = 'rankine';
+info.symbol = '°R';

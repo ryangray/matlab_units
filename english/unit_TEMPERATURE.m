@@ -4,7 +4,7 @@ function kelvin = unit_TEMPERATURE (varargin)
 
 if nargin == 0
     
-    kelvin = unit_MAKE(9/5,'Rankine','R','temperature');
+    kelvin = unit_MAKE(9/5,'rankine','°R','temperature');
         
 elseif ischar(varargin{1}) 
     
@@ -12,7 +12,7 @@ elseif ischar(varargin{1})
         
         case 'name'
     
-            kelvin = 'Rankine';
+            kelvin = 'rankine';
     
         case {'0','absolutezero','zero'}
     
