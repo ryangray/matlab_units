@@ -21,11 +21,12 @@
 %  units(units_expression, value)
 %
 % Same as value*units(units_expression) except if the units are exactly one
-% of: degC, degK, degF or degR (or a TeX expression eqquivalent '\circF',
-% etc), then it is equivalent to calling the unit function with the value
-% as an argument to correctly convert the temperature to the current units.
-% For example, units('degF', 32) is the same as degF(32). This form can be
-% useful when the units are not known. 
+% of: degC, degK, degF or degR (or an allowed equivalent like '\circF',
+% '°F', etc.) versus Cdeg, Kdeg, Fdeg or Rdeg, then it is equivalent to
+% calling the unit function with the value as an argument to correctly
+% convert the temperature to the current units. For example, units('degF',
+% 32) is the same as degF(32). This form can be useful when the units are
+% not known.
 %
 %  units(units_expression, value, 'to')
 %

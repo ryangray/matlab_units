@@ -111,6 +111,13 @@ use in code as well as correctly converting temperature values.
 Temperature Units
 -----------------
 
+Base temperature units are Kelvin, but a base definition can be made for any 
+absolute scale such as Rankine in the `english` base. In the past, bases for 
+Celcius and Fahrenheit were supported, but it was really confusing and 
+complicated, so those were dropped, and only absolute scales with absolute zero 
+is equal to 0 are supported as base temperatures. This obsoletes the deg0.m 
+function, but it is still included for now, producing a warning.
+
 There are the functions: `degF`, `degC`, `degK`, and `degR`. Used normally, these 
 will return the scale factor to convert their degrees to the base degrees but not 
 the shift. This is fine for quantities of temperature difference:
@@ -139,20 +146,17 @@ This is equivalent to calling the extended form of the degF() function as:
 Which converts a temperature (in base units) to degF. The other deg* functions work 
 in the same way.
 
-There is also a deg0() function that returns the absolute zero temperature for the 
-current base units and is used by the other functions to correctly make the shifts 
-needed when converting. For the default base with degK, this is 0 K. You can get 
-this value for any of the temperature scales by calling their unit with the string 
-'0' or 'absolutezero'. So, `degC('0')` gives `-273.15`. This will be a double 
-value even when using the unitval class. This is because, in general, converting a 
-quantity with units to another creates a unitless value that when combined with the 
-units gives a unit value. This is only of practical concern when using the unitval 
-class for the units (`units class unitval`) versus the double class 
-(`units class double`).
+You can get the absolute zero value for any of the temperature scales by calling 
+their unit with the string '0' or 'absolutezero'. So, `degC('0')` gives `-273.15`. 
+This will be a double value even when using the unitval class. This is because, in 
+general, converting a quantity with units to another creates a unitless value that 
+when combined with the units gives a unit value. This is only of practical concern 
+when using the unitval class for the units (`units class unitval`) versus the 
+double class (`units class double`).
 
 Note that convert() and unit() apply the shift for conversion only when the unit 
 is a string and a simple temperature. It does not do any conversion when a 
-temperature is mixed with other units.
+temperature is mixed with other units as those are "per degree" units.
 
 
 Unit names
@@ -234,3 +238,20 @@ proportionality constant to ones that do: $F = 1/g_c * m * a$.
 I will probably offer multiple english system bases in the future to address 
 this where one would give consistency for the English Engineering system (lbm) 
 and one for the gravitational FPS system (slug).
+
+Unitless aliases
+----------------
+
+There are several units that are just defined as aliases for `unitless`, such 
+as "electrons" and "waves". These are for convenience but are by no means a 
+complete set. You may use many others, like "cars" for example. You can 
+certainly define these for yourself as needed.
+
+This works fine for double class units, but in a dimension sense, cycles or any 
+of the others, like electrons, are actually a dimension. The object units could 
+be extended to have an "other" dimension category that is a cell array, and 
+unit_MAKE could assign things into it, like "cycles", which the operators would 
+check to tally along with the standard unit dimensions. This could be a nice 
+place to park radians and steradians as these "other" dimensions would be 
+considered unitless or at least not part of the normal physical ones. They 
+typically only have powers of +1, -1 or 0 rather than 2 or odd values.
