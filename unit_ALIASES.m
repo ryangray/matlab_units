@@ -76,6 +76,7 @@ ue = regexprep(ue,'\<K\>','degK');
 ue = regexprep(ue,'\<[lL]\>','liter');
 ue = regexprep(ue,'\<m\>','meter');
 ue = regexprep(ue,'\<N\>','newton');
+ue = regexprep(ue,'\<P\>','poise');
 ue = regexprep(ue,'\<S\>','seimen');
 ue = regexprep(ue,'\<s\>','second');
 ue = regexprep(ue,'\<T\>','tesla');
