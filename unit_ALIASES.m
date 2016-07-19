@@ -47,11 +47,15 @@ function ue = unit_ALIASES(ue)
 
 % These translate various strings taken in a units context
 
+ue = strtrim(ue);
+ue = regexprep(ue,'([\w\d])( +|\-)([\w\d])','$1*$3'); % multiply
+
 % TeX aliases so you can use these in a units string and in a label.
 % Do these substitutions before others that operate on whole words.
 
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
+ue = strrep(ue,char(937),'ohms'); % ?
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
 ue = regexprep(ue, char(176), 'deg'); % ° -> deg
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
@@ -98,6 +102,8 @@ ue = regexprep(ue,'\<psi\>','psia');
 ue = regexprep(ue,'\<pascal\>','pascals');
 ue = regexprep(ue,'\<bar\>','bars');
 ue = regexprep(ue,'\<knot\>','knots');
+ue = regexprep(ue,'\<lb\>','lbf'); % Grumble
+
 
 % Special
 
