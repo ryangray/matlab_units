@@ -108,7 +108,7 @@ ue = regexprep(ue,'\<lb\>','lbf'); % Grumble
 % Special
 
 ue = regexprep(ue,'\<logical\>','unitless');
-ue = regexprep(ue,'\<int\>','unitless');
+ue = regexprep(ue,'\<int(eger)?\>','unitless');
 ue = regexprep(ue,'\<string\>','');
 ue = regexprep(ue,'\<include\>','');
 ue = regexprep(ue,'\<function\>','');
@@ -118,3 +118,6 @@ ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
 ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
 ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
+
+% legacy
+ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');
