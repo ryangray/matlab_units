@@ -95,6 +95,7 @@ ue = regexprep(ue,'\<cd\>','candela');
 ue = regexprep(ue,'\<sec\>','second');
 ue = regexprep(ue,'\<seconds\>','second'); % New conflict with timefun/seconds
 ue = regexprep(ue,'\<minutes\>','minute'); % New conflict with timefun/minutes
+ue = regexprep(ue,'\<hours\>','hour'); % New conflict with timefun/hours
 ue = regexprep(ue,'\<days\>','day'); % New conflict with timefun/days
 ue = regexprep(ue,'\<years\>','year'); % New conflict with timefun/years
 ue = regexprep(ue,'\<min\>','minute'); 
@@ -109,6 +110,7 @@ ue = regexprep(ue,'\<lb\>','lbf'); % Grumble
 
 ue = regexprep(ue,'\<logical\>','unitless');
 ue = regexprep(ue,'\<int(eger)?\>','unitless');
+ue = regexprep(ue,'\<factor\>','unitless');
 ue = regexprep(ue,'\<string\>','');
 ue = regexprep(ue,'\<include\>','');
 ue = regexprep(ue,'\<function\>','');
