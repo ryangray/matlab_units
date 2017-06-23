@@ -89,6 +89,22 @@ ue = regexprep(ue,'\<V\>','volt');
 ue = regexprep(ue,'\<W\>','watt');
 ue = regexprep(ue,'\<c\>','c0');
 
+% Handle single-letter prefix with single letter unit
+% Have some of these like kg, cm, etc., but this makes all combos valid.
+% Other prefixed units are not handled. Could look for prefixes then try the
+% suffix word as a valid unit.
+pre1 = ['pnumcdhkMGT'];
+pre2 = {'pico','nano','micro','milli','centi','deci','hecto','kilo','mega','giga','tera'};
+base1 = 'AbCFgHJKLlmNPSsTtVW';
+base2 = {'ampere','bit','coulomb','farad','grams','henry','joule','degK','liter','liter','meter','newton','poise','seimen','second','tesla','tonne','volt','watt'};
+
+[istart, iend, tok] = regexp(ue,'\<(p|n|u|m|c|d|h|k|M|G|T)(A|b|C|F|g|H|J|K|L|l|m|N|P|S|s|T|t|V|W)\>','start','end','tokens');
+for ii = length(tok):-1:1
+    i1 = strfind(pre1, tok{ii}{1});
+    i2 = strfind(base1, tok{ii}{2});
+    ue = [ue(1:istart(ii)-1) '(' pre2{i1} '*' base2{i2} ')' ue(iend(ii)+1:end)];
+end
+
 % Existing function dodges
 
 ue = regexprep(ue,'\<cd\>','candela');
@@ -122,4 +138,4 @@ ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
 ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
 
 % legacy
-ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');
+% ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');

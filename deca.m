@@ -1,4 +1,4 @@
-%% prefix deca 10^1
+%% prefix deca 10^1 (da)
 %
 % See also: yocto, zepto, atto, femto, pico, nano, micro, milli, centi, deci, deca, hecto, kilo, mega, giga, tera, peta, exa, zetta, yotta, kibi
 
