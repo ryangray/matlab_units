@@ -13,6 +13,18 @@
 %  uval = unit(val, unit_string)
 %  uval = unit(unit_string)
 %
+% This is intended to replace calling units.m as:
+%  units(unit_string)
+%  units(unit_string, val)
+% to leave units.m to be used for its functions other than converting, like
+% changing the base or class, or installing.
+% 
+%% Examples
+%
+%  d = unit(32,'km'); % same as 32*km
+%  T = unit(32,'degF'); % same as degF(32)
+%  a = unit(32,'ft/s^2');
+%
 % See also: convert, units
 
 function uval = unit (val, unitstr)
