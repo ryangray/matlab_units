@@ -138,4 +138,4 @@ ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
 ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
 
 % legacy
-% ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');
+ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');
