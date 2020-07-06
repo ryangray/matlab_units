@@ -55,12 +55,19 @@ ue = regexprep(ue,'([\w\d])( +|\-)([\w\d])','$1*$3'); % multiply
 
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
-ue = strrep(ue,char(937),'ohms'); % ?
+%ue = strrep(ue,char(937),'ohms'); % Octave doesn't like 16-bit char
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
-ue = regexprep(ue, char(176), 'deg'); % ° -> deg
+ue = regexprep(ue, char(176), 'deg'); % degree character -> deg
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
 ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
 ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
+
+% Degree for Octave since it uses \circ as TeX does and \deg for the degree symbol, whereas MATLAB uses \circ for the degree symbol.
+ue = regexprep(ue,'\{\\deg\}','\\deg'); % {\deg} -> \deg for the following
+ue = regexprep(ue, char(176), 'deg'); % degree character -> deg
+ue = regexprep(ue,'\\deg([CFRK])\>','deg$1'); % \degC, \degF, etc.
+ue = regexprep(ue,'\<([CFRK])\\deg\>','$1deg'); % C\deg, etc.
+ue = regexprep(ue,'\<\\deg\>','deg'); % \deg
 
 % Case aliases
 
@@ -135,7 +142,8 @@ ue = regexprep(ue,'^%$','percent');
 ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
 ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
-ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
+%ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
+% Octave is not liking the high code char
 
 % legacy
 ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');
