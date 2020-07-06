@@ -6,6 +6,7 @@
 %
 % See also: Rdeg, Cdegree, Kdegree, Fdegree, degR
 
-function Rdegree = unit 
+function R = Rdegree
 
-Rdegree = unit_MAKE(Fdegree, 'Rankine degree', 'R°');
+R = unit_MAKE(Fdegree, 'Rankine degree', 'RÂ°');
+

@@ -2,6 +2,6 @@
 %
 % See also: arcsecond
 
-function arcseconds = unit 
+function arcsec = arcseconds
 
-arcseconds = arcsecond;
+arcsec = arcsecond;

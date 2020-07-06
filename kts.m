@@ -2,6 +2,6 @@
 %
 % See also: knots
 
-function kts = unit 
+function k = kts
 
-kts = knots;
+k = knots;

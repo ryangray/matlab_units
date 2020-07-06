@@ -6,6 +6,6 @@
 %
 % See also: Fdeg, Cdegree, Rdegree, Kdegree, degF
 
-function Fdegree = unit 
+function F = Fdegree
 
-Fdegree = unit_MAKE(5 / 9 * Cdegree, 'Fahrenheit degree', 'F°');
+F = unit_MAKE(5 / 9 * Cdegree, 'Fahrenheit degree', 'F°');

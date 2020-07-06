@@ -1,5 +1,5 @@
 %% Unit pixel (unitless)
 
-function pixel = unit 
+function px = pixel
 
-pixel = unit_MAKE(unitless, 'pixel'); 
+px = unit_MAKE(unitless, 'pixel','px');

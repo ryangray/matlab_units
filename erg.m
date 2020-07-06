@@ -4,6 +4,6 @@
 %
 % See also: joule, dyne, cm
 
-function erg = unit
+function e = erg
 
-erg = unit_MAKE(1.0e-7 * joules, 'erg', 'erg');
+e = unit_MAKE(1.0e-7 * joules, 'erg', 'erg');

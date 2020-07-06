@@ -4,6 +4,6 @@
 %
 % See also: usec, nsec
 
-function second = unit 
+function sec = second
 
-second = unit_MAKE(unit_TIME, 'second', 's');
+sec = unit_MAKE(unit_TIME, 'second', 's');

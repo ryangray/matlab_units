@@ -6,6 +6,6 @@
 %
 % See also: Cdeg, Rdegree, Kdegree, Fdegree, degC
 
-function Cdegree = unit 
+function C = Cdegree
 
-Cdegree = unit_MAKE(Kdegree, 'Celcius degree', 'C°'); 
+C = unit_MAKE(Kdegree, 'Celcius degree', 'C°'); 

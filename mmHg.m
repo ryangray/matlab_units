@@ -5,6 +5,6 @@
 %
 % See also: torr, kPa, Pa, atm
 
-function mmHg = unit 
+function m = mmHg
 
-mmHg = unit_MAKE(133.322387415 * Pa, 'millimeters_mercury', 'mmHg');
+m = unit_MAKE(133.322387415 * Pa, 'millimeters_mercury', 'mmHg');

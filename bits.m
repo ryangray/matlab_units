@@ -2,6 +2,6 @@
 %
 % See also: bit
 
-function bits = unit 
+function b = bits
 
-bits = bit; 
+b = bit; 

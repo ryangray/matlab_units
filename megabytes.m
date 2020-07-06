@@ -2,6 +2,6 @@
 %
 % See also: megabyte
 
-function megabytes = unit 
+function MB = megabytes
 
-megabytes = megabyte; 
+MB = megabyte;

@@ -2,6 +2,6 @@
 %
 % See also: tonne-force
 
-function megapond = unit 
+function Mp = megapond
 
-megapond = unit_MAKE(1000 * kgf, 'megapond');
+Mp = unit_MAKE(1000 * kgf, 'megapond', 'Mp');

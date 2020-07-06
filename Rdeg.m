@@ -2,6 +2,6 @@
 %
 % See also: Rdegree
 
-function Rdeg = unit 
+function R = Rdeg
 
-Rdeg = Rdegree; 
+R = Rdegree; 

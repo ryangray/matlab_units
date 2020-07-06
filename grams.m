@@ -2,6 +2,6 @@
 %
 % See also: gram
 
-function grams = unit 
+function g = grams
 
-grams = gram;
+g = gram;

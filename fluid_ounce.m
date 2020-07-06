@@ -2,6 +2,6 @@
 %
 % See also: oz, ounces
 
-function ounce = unit
+function oz = flud_ounce
 
-ounce = unit_MAKE(pint / 16, 'fluid_ounce', 'fl_oz');
+oz = unit_MAKE(pint / 16, 'fluid_ounce', 'fl_oz');

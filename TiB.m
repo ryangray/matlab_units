@@ -2,6 +2,6 @@
 %
 % See also: TB, tebibyte, terabyte
 
-function TiB = unit 
+function T = TiB
 
-TiB = tebibyte; 
+T = tebibyte; 

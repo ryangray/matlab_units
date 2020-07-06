@@ -2,6 +2,6 @@
 %
 % See also: hertz
 
-function Hz = unit 
+function h = Hz
 
-Hz = hertz; 
+h = hertz; 

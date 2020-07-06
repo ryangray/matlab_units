@@ -1,5 +1,5 @@
 %% Unit urad (microradians)
 
-function urad = unit 
+function ur = urad
 
-urad = micro * radian; 
+ur = micro * radian;

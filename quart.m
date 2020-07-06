@@ -2,6 +2,6 @@
 %
 % See also: pint, liter
 
-function quart = unit()
+function qt = quart
 
-quart = unit_MAKE(liter / 1.056688, 'quart'); % NIST
+qt = unit_MAKE(liter / 1.056688, 'quart','qt'); % NIST

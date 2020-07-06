@@ -2,6 +2,6 @@
 %
 % See also: TiB, terabyte, tebi, byte
 
-function tebibyte = unit 
+function TiB = tebibyte
 
-tebibyte = tebi * byte; % 1024 * gibibyte; 
+TiB = tebi * byte; % 1024 * gibibyte;

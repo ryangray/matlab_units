@@ -1,6 +1,6 @@
 %% Unit electron (unitless)
 % A number of electrons
 
-function electron = unit
+function e = electron
 
-electron = unit_MAKE(unitless,'electron');
+e = unit_MAKE(unitless,'electron');

@@ -2,6 +2,6 @@
 %
 % See also: minute
 
-function hour = unit 
+function h = hour
 
-hour = unit_MAKE(60.0 * minute, 'hour', 'hr');
+h = unit_MAKE(60.0 * minute, 'hour', 'h');

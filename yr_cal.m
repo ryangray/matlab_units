@@ -2,6 +2,6 @@
 %
 % See also: calendar_year
 
-function yr_cal = unit 
+function yrc = yr_cal 
 
-yr_cal = calendar_year;
+yrc = calendar_year;

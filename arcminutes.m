@@ -2,6 +2,6 @@
 %
 % See also: arcminute
 
-function arcminutes = unit 
+function arcmin = arcminutes
 
-arcminutes = arcminute;
+arcmin = arcminute;

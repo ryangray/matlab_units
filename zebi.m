@@ -1,7 +1,7 @@
-%% prefix zebi = 2^70 (ZEtta BInary)
+%% prefix zebi (Zi) = 2^70 (ZEtta BInary)
 %
 % See also: zetta, kibi, mebi, gibi, tebi, pebi, exbi, yobi
 
-function zebi = prefix
+function Zi = zebi
 
-zebi = unit_MAKE(2^70, 'zebi', ' Zi');
+Zi = unit_MAKE(2^70, 'zebi', ' Zi');

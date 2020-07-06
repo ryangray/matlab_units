@@ -1,11 +1,7 @@
-%% Unit candela (cd) SI base unit of luminous intensity
-%
-% Luminous power per unit solid angle emitted by a point light source in a
-% particular direction ($I_v$). There isn't a units function 'cd', but the
-% unit function does support it, e.g., you can use unit('cd').
-%
-% See also: nits, lumen, lux
+%% Unit candela (cd) SI unit of luminance
+% There isn't a units function 'cd' because of the existing cd command. 
+% However, the unit_ALIASES function does support it, so you can use unit('cd').
 
-function candela = unit 
+function cd = candela
 
-candela = unit_MAKE(unit_LUMINANCE, 'candela', 'cd');
+cd = unit_MAKE(unit_LUMINANCE, 'candela', 'cd');

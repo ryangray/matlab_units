@@ -2,6 +2,6 @@
 %
 % See also: mega, hertz
 
-function MHz = unit 
+function M = MHz
 
-MHz = mega * hertz; 
+M = mega * hertz; 

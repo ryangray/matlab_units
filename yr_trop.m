@@ -2,6 +2,6 @@
 % 
 % See also: tropical_year
 
-function yr_trop = unit 
+function yrt = yr_trop
 
-yr_trop = tropical_year;
+yrt = tropical_year;

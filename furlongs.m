@@ -2,6 +2,6 @@
 %
 % See also: furlong
 
-function furlongs = unit 
+function fur = furlongs
 
-furlongs = furlong; 
+fur = furlong;

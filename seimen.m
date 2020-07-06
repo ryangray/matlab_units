@@ -2,6 +2,6 @@
 %
 % See also: seimens, ampere, volt
 
-function seimen = unit 
+function S = seimen
 
-seimen = unit_MAKE(amp / volt, 'seimen', 'S');
+S = unit_MAKE(amp / volt, 'seimen', 'S');

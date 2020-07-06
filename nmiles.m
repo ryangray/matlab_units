@@ -2,6 +2,6 @@
 %
 % See also: nautical_mile
 
-function nmiles = unit 
+function nmi = nmiles
 
-nmiles = nautical_mile;
+nmi = nautical_mile;

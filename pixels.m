@@ -2,6 +2,6 @@
 %
 % See also: pixel
 
-function pixels = unit 
+function px = pixels
 
-pixels = pixel; 
+px = pixel;

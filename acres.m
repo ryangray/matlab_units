@@ -2,7 +2,7 @@
 %
 % See also: acre
 
-function acres = unit
+function ac = acres
 
-acres = acre;
+ac = acre;
 

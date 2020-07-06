@@ -2,6 +2,6 @@
 %
 % See also: Cdegree
 
-function Cdeg = unit 
+function C = Cdeg
 
-Cdeg = Cdegree; 
+C = Cdegree; 

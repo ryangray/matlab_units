@@ -2,6 +2,6 @@
 %
 % See also: radian
 
-function radians = unit 
+function r = radians
 
-radians = radian; 
+r = radian;

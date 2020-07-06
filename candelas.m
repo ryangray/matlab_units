@@ -2,6 +2,6 @@
 %
 % See also: candela
 
-function candelas = unit 
+function cd = candelas
 
-candelas = candela; 
+cd = candela; 

@@ -2,7 +2,7 @@
 %
 % See also: sidereal_year
 
-function yr_sd = unit
+function yrs = yr_sd
 
-yr_sd = sidereal_year;
+yrs = sidereal_year;
 

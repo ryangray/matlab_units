@@ -2,6 +2,6 @@
 %
 % See also: feet
 
-function statute_mile = unit 
+function mi = statute_mile
 
-statute_mile = unit_MAKE(5280 * feet, 'statute_mile', 'mi');
+mi = unit_MAKE(5280 * feet, 'statute_mile', 'mi');

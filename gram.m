@@ -1,9 +1,9 @@
 %% Unit gram (g)
 %
-% The unit function supports 'g' which is NOT g0
+% The unit_ALIASES supports 'g' which is gram and NOT g0 or gee
 %
-% See also: kilogram
+% See also: kilogram, g0
 
-function gram = unit 
+function g = gram
 
-gram = unit_MAKE(milli * kg, 'gram', 'g');
+g = unit_MAKE(milli * kg, 'gram', 'g');

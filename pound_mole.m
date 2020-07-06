@@ -4,6 +4,6 @@
 %
 % See also: mole, pound
 
-function pound_mole = unit 
+function p = pound_mole
 
-pound_mole = unit_MAKE(453.59237 * mole, 'pound_mole', 'pound_mole');
+p = unit_MAKE(453.59237 * mole, 'pound_mole', 'pound_mole');

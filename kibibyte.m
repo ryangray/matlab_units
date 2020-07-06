@@ -2,6 +2,6 @@
 %
 % See also: kiB, kB, kibi, byte, kilobyte
 
-function kibibyte = unit 
+function ki = kibibyte
 
-kibibyte = kibi * byte; % 1024 * byte; 
+ki = kibi * byte; % 1024 * byte;

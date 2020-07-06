@@ -2,6 +2,6 @@
 %
 % See also: meter
 
-function meters = unit 
+function m = meters
 
-meters = meter; 
+m = meter;

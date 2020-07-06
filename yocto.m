@@ -1,7 +1,7 @@
-%% prefix yocto 10^-24
+%% prefix yocto (y) 10^-24
 %
 % See also: yocto, zepto, atto, femto, pico, nano, micro, milli, centi, deci, deca, hecto, kilo, mega, giga, tera, peta, exa, zetta, yotta, kibi
 
-function yocto = prefix 
+function y = yocto
 
-yocto = unit_MAKE(1.e-24, 'yocto', ' y');
+y = unit_MAKE(1.e-24, 'yocto', ' y');

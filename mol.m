@@ -2,6 +2,6 @@
 %
 % See also: mole
 
-function mol = unit 
+function m = mol
 
-mol = mole;
+m = mole;

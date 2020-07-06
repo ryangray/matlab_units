@@ -3,6 +3,6 @@
 % unit_ALIASES aliases this as 'P'.
 % See also: cP, Pa
 
-function poise = unit 
+function P = poise
 
-poise = unit_MAKE(0.1*kg/m/s, 'poise', 'P');
+P = unit_MAKE(0.1*kg/m/s, 'poise', 'P');

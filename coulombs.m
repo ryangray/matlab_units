@@ -2,6 +2,6 @@
 %
 % See also: coulomb
 
-function coulombs = unit 
+function C = coulombs
 
-coulombs = coulomb; 
+C = coulomb; 

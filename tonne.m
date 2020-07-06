@@ -5,6 +5,6 @@
 %
 % See also: kg, tonne_force
 
-function tonne = unit 
+function t = tonne
 
-tonne = unit_MAKE(1000 * kg, 'tonne', 't');
+t = unit_MAKE(1000 * kg, 'tonne', 't');

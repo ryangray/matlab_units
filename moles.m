@@ -2,6 +2,6 @@
 %
 % See also: mole
 
-function moles = unit 
+function m = moles
 
-moles = mole; % SI base unit
+m = mole; % SI base unit

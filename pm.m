@@ -2,6 +2,6 @@
 %
 % See also: um, meter
 
-function pm = unit 
+function p = pm
 
-pm = pico * meter; 
+p = pico * meter;

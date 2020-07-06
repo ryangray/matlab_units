@@ -1,7 +1,7 @@
-%% Unit cup = 8 oz
+%% Unit cup (US customary cup) = 8 US customary ounces
 %
 % See also: ounce
 
-function cup = unit
+function cp = cup
 
-cup = unit_MAKE(8 * ounce, 'cup', 'cup');
+cp = unit_MAKE(8 * ounce, 'cup', 'cup');

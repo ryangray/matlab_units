@@ -2,6 +2,6 @@
 %
 % See also: mil
 
-function mils = unit 
+function m = mils
 
-mils = mil;
+m = mil;

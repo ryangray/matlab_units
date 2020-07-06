@@ -2,6 +2,6 @@
 %
 % See also: radians, urads
 
-function nrad = unit 
+function n = nrad
 
-nrad = nano * radian; 
+n = nano * radian;

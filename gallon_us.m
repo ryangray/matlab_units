@@ -7,6 +7,6 @@
 %
 % See also: quart, gallon, gallon_imperial
 
-function gallon_us = unit 
+function gal = gallon_us
 
-gallon_us = unit_MAKE(4 * quart, 'US_gallon');
+gal = unit_MAKE(4 * quart, 'US_gallon', 'US_gal');

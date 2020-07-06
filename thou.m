@@ -2,6 +2,6 @@
 %
 % See also: mil
 
-function thou = unit 
+function th = thou
 
-thou = mil;
+th = mil;

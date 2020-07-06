@@ -2,6 +2,6 @@
 %
 % See also: msec, second
 
-function nsec = unit 
+function ns = nsec
 
-nsec = nano * second; 
+ns = nano * second;

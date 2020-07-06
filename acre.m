@@ -1,7 +1,7 @@
-%% Unit acre
+%% Unit acre (4840 * yard^2)
 %
 % See also: yard
 
-function acre = unit
+function ac = acre
 
-acre = unit_MAKE(4840 * yard^2, 'acre', 'acre');
+ac = unit_MAKE(4840 * yard^2, 'acre', 'ac');

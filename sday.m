@@ -2,6 +2,6 @@
 %
 % See also: day, sidereal_year
 
-function sday = unit
+function sd = sday
 
-sday = sidereal_day;
+sd = sidereal_day;

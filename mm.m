@@ -2,6 +2,6 @@
 %
 % See also: meter
 
-function mm = unit 
+function millimeter = mm
 
-mm = milli * meter; 
+millimeter = milli * meter;

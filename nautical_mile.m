@@ -2,6 +2,6 @@
 %
 % See also: nmile, nmi
 
-function nautical_mile = unit 
+function nmi = nautical_mile
 
-nautical_mile = unit_MAKE(1852 * meter, 'nautical_mile', 'nmi'); % International Nautical Mile, NIST
+nmi = unit_MAKE(1852 * meter, 'nautical_mile', 'nmi'); % International Nautical Mile, NIST

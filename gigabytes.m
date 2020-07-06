@@ -2,6 +2,6 @@
 %
 % See also: gigabyte, GB
 
-function gigabytes = unit 
+function GB = gigabytes
 
-gigabytes = gigabyte; 
+GB = gigabyte;

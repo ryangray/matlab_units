@@ -1,6 +1,6 @@
 %% Unit kcal (kilo*cal_th)
 % See also: cal_th
 
-function kcal = unit 
+function kc = kcal
 
-kcal = kilo * cal_th;
+kc = kilo * cal_th;

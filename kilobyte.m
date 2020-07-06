@@ -1,7 +1,7 @@
 %% Unit kilobyte (kB)
 %
-% See also: kilo, byte, kibibyte
+% See also: kB, kilo, byte, kibibyte
 
-function kilobyte = unit 
+function kB = kilobyte
 
-kilobyte = kilo * byte; 
+kB = kilo * byte;

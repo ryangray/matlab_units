@@ -1,6 +1,6 @@
 %% Unit torr (Torr) = 1/760 th of a standard atmosphere
 % See also: mmHg, Pa, bar, atm
 
-function torr = unit 
+function t = torr
 
-torr = unit_MAKE(atm / 760, 'torr', 'torr');
+t = unit_MAKE(atm / 760, 'torr', 'torr');

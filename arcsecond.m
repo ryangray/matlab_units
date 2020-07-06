@@ -2,6 +2,6 @@
 %
 % See also: deg, arcminute
 
-function arcsecond = unit 
+function arcsec = arcsecond
 
-arcsecond = unit_MAKE(deg / 3600, 'arcsecond');
+arcsec = unit_MAKE(deg / 3600, 'arcsecond', 'arcsec');

@@ -21,6 +21,6 @@
 % here we use a different definition so we don't use a hard constant so
 % things remain consistent.
 
-function lbm = unit 
+function p = lbm
 
-lbm = unit_MAKE(0.45359237 * kg, 'pound_mass', 'lbm'); % Exact
+p = unit_MAKE(0.45359237 * kg, 'pound_mass', 'lbm'); % Exact

@@ -2,6 +2,6 @@
 %
 % See also: statute_mile
 
-function mi = unit 
+function mile = mi
 
-mi = statute_mile;
+mile = statute_mile;

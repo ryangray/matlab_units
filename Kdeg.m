@@ -2,6 +2,6 @@
 %
 % See also: Kdegree
 
-function Kdeg = unit 
+function K = Kdeg
 
-Kdeg = Kdegree; 
+K = Kdegree; 

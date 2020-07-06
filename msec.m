@@ -2,6 +2,6 @@
 %
 % See also: usec
 
-function msec = unit 
+function ms = msec
 
-msec = milli * second; 
+ms = milli * second;

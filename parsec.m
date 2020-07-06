@@ -4,6 +4,6 @@
 %
 % See also: au, arcsecond
 
-function parsec = unit 
+function pc = parsec
 
-parsec = unit_MAKE(au / tan(arcsecond), 'parsec', 'parsec');
+pc = unit_MAKE(au / tan(arcsecond), 'parsec', 'pc');

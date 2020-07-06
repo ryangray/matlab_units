@@ -2,6 +2,6 @@
 %
 % See also: mebibyte, MB
 
-function MiB = unit 
+function Mi = MiB
 
-MiB = mebibyte; 
+Mi = mebibyte; 

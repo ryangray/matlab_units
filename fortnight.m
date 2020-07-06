@@ -8,6 +8,6 @@
 %
 % See also: days, furlong, firkin
 
-function fortnight = unit 
+function ftn = fortnight
 
-fortnight = unit_MAKE(14 * day, 'fortnight');
+ftn = unit_MAKE(14 * day, 'fortnight', 'ftn');

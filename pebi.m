@@ -2,6 +2,6 @@
 %
 % See also: peta, kibi, mebi, gibi, tebi, exbi, zebi, yobi
 
-function pebi = prefix 
+function prefix = pebi
 
-pebi = unit_MAKE(2^50, 'pebi', ' Pi');
+prefix = unit_MAKE(2^50, 'pebi', ' Pi');

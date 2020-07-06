@@ -2,6 +2,6 @@
 %
 % See also: newton
 
-function newtons = unit 
+function N = newtons
 
-newtons = newton; 
+N = newton;

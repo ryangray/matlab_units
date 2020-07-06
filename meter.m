@@ -4,6 +4,6 @@
 %
 % See also: meters
 
-function meter = unit 
+function m = meter
 
-meter = unit_MAKE(unit_LENGTH, 'meter', 'm');
+m = unit_MAKE(unit_LENGTH, 'meter', 'm');

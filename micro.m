@@ -2,6 +2,6 @@
 %
 % See also: yocto, zepto, atto, femto, pico, nano, micro, milli, centi, deci, deca, hecto, kilo, mega, giga, tera, peta, exa, zetta, yotta, kibi
 
-function micro = prefix 
+function u = micro
 
-micro = unit_MAKE(1.e-6, 'micro', ' u');
+u = unit_MAKE(1.e-6, 'micro', ' u');

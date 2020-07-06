@@ -8,6 +8,6 @@
 %
 % See also: ml, meter
 
-function liter = unit 
+function L = liter
 
-liter = unit_MAKE(1e-3 * meter^3, 'liter', 'L'); % exact definition
+L = unit_MAKE(1e-3 * meter^3, 'liter', 'L'); % exact definition

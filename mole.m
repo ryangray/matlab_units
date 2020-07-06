@@ -2,6 +2,6 @@
 %
 % See also: mol, moles
 
-function mole = unit 
+function m = mole
 
-mole = unit_MAKE(unit_AMOUNT, 'mole', 'mol');
+m = unit_MAKE(unit_AMOUNT, 'mole', 'mol');

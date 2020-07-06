@@ -2,6 +2,6 @@
 %
 % See also: inch, milli, thou
 
-function mil = unit 
+function m = mil
 
-mil = unit_MAKE(milli * inch, 'mil', 'mil');
+m = unit_MAKE(milli * inch, 'mil', 'mil');

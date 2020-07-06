@@ -2,6 +2,6 @@
 %
 % See also: calendar_year, tropical_year
 
-function year = unit 
+function yr = year
 
-year = calendar_year; 
+yr = calendar_year; 

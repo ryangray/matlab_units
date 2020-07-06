@@ -5,6 +5,6 @@
 %
 % See also: kPa, torr, psia
 
-function Pa = unit 
+function pascal = Pa
 
-Pa = unit_MAKE(newton / meter^2, 'pascal', 'Pa');
+pascal = unit_MAKE(newton / meter^2, 'pascal', 'Pa');

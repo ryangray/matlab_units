@@ -6,6 +6,6 @@
 %
 % See also: deg_N, deg_E, deg_W, deg
 
-function deg_S = unit 
+function d = deg_S
 
-deg_S = -deg;
+d = -deg;

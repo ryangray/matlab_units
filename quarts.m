@@ -2,6 +2,6 @@
 %
 % See also: quart
 
-function quarts = unit()
+function qt = quarts
 
-quarts = quart;
+qt = quart;

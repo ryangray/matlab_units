@@ -2,6 +2,6 @@
 %
 % See also: henry
 
-function henries = unit 
+function H = henries
 
-henries = henry;
+H = henry;

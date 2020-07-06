@@ -2,6 +2,6 @@
 %
 % See also: erg
 
-function ergs = unit
+function e = ergs
 
-ergs = erg;
+e = erg;

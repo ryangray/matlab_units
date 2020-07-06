@@ -2,6 +2,6 @@
 %
 % See also: meter, um
 
-function nm = unit 
+function n = nm
 
-nm = nano * meter; 
+n = nano * meter;

@@ -2,6 +2,6 @@
 %
 % See also: year
 
-function years = unit 
+function yr = years
 
-years = year; 
+yr = year; 

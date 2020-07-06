@@ -2,6 +2,6 @@
 %
 % See also: mebibyte
 
-function mebibytes = unit 
+function M = mebibytes
 
-mebibytes = mebibyte; 
+M = mebibyte;

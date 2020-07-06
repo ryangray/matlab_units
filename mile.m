@@ -2,6 +2,6 @@
 %
 % See also: statute_mile, feet
 
-function mile = unit 
+function m = mile
 
-mile = statute_mile; 
+m = statute_mile;

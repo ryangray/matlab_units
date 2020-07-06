@@ -2,6 +2,6 @@
 %
 % See also: kPa, Pa
 
-function atm = unit 
+function a = atm
 
-atm = unit_MAKE(1.01325E+05 * Pa, 'atmosphere', 'atm');
+a = unit_MAKE(1.01325E+05 * Pa, 'atmosphere', 'atm');

@@ -1,7 +1,7 @@
-%% Unit gallon (gal)
+%% Unit gallon (US gal)
 %
 % See also: gallon_us
 
-function gallon = unit 
+function gal = gallon
 
-gallon = gallon_us; 
+gal = gallon_us;

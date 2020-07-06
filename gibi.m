@@ -2,6 +2,6 @@
 %
 % See also: giga, kibi, mebi, tebi, pebi, exbi, zebi, yobi
 
-function gibi = prefix 
+function Gi = gibi
 
-gibi = unit_MAKE(2^30, 'gibi', ' Gi');
+Gi = unit_MAKE(2^30, 'gibi', ' Gi');

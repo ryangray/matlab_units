@@ -3,6 +3,6 @@
 %
 % See also: ampere, second
 
-function coulomb = unit 
+function C = coulomb
 
-coulomb = unit_MAKE(ampere * second, 'coulomb', 'C'); 
+C = unit_MAKE(ampere * second, 'coulomb', 'C'); 

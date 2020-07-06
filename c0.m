@@ -3,6 +3,8 @@
 %% Source: Internation Bureau of Weights and Measures (BIPM)
 % Definition from 1 meter = distance light travels in 1/299792458 seconds.
 %% Uncertainty = exact
+%
+% See also: lightyear
 
 function c = c0
 

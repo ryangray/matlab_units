@@ -1,6 +1,6 @@
 %% Unit calorie = thermochemical calorie
 % See also: cal_th, joule, table_calorie
 
-function calorie = unit 
+function cal = calorie
 
-calorie = cal_th;
+cal = cal_th;

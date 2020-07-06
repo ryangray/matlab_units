@@ -2,6 +2,6 @@
 %
 % See also: cup
 
-function cups = unit
+function cp = cups
 
-cups = cup;
+cp = cup;

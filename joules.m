@@ -2,6 +2,6 @@
 %
 % See also: joule
 
-function joules = unit 
+function J = joules
 
-joules = joule; 
+J = joule;

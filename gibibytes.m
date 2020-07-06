@@ -2,6 +2,6 @@
 %
 % See also: gibibyte
 
-function gibibytes = unit 
+function gib = gibibytes
 
-gibibytes = gibibyte; 
+gib = gibibyte;

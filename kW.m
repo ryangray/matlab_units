@@ -1,7 +1,7 @@
-%% Unit kw (kilowatts)
+%% Unit kW (kilowatts)
 %
-% See also: watt
+% See also: watt, kWh
 
-function kw = unit 
+function k = kW
 
-kw = kilo * watt;
+k = kilo * watt;

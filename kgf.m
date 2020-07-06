@@ -6,6 +6,6 @@
 %
 % References: <http://en.wikipedia.org/wiki/Kilogram-force Wikipedia : Kilogram-force>
 
-function kgf = unit
+function k = kgf
 
-kgf = unit_MAKE(kg * g0, 'kilogram_force', 'kgf'); % f = m*a
+k = unit_MAKE(kg * g0, 'kilogram_force', 'kgf'); % f = m*a

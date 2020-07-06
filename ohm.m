@@ -2,6 +2,6 @@
 %
 % See also: volt, ampere
 
-function ohm = unit
+function o = ohm
 
-ohm = unit_MAKE(volt / ampere, 'ohm', char(937));
+o = unit_MAKE(volt / ampere, 'ohm', [char(3) char(169)]); % &#937;

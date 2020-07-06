@@ -3,6 +3,6 @@
 %
 % See also: julian_year
 
-function yr_jul = unit 
+function yrj = yr_jul 
 
-yr_jul = julian_year;
+yrj = julian_year;

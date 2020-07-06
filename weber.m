@@ -2,6 +2,6 @@
 % weber = volt * second
 % See also: Wb, volt, tesla
 
-function weber = unit 
+function Wb = weber
 
-weber = unit_MAKE(volt * second, 'weber', 'Wb'); % = tesla/m^2 = joule/amp
+Wb = unit_MAKE(volt * second, 'weber', 'Wb'); % = tesla/m^2 = joule/amp

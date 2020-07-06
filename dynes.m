@@ -2,6 +2,6 @@
 %
 % See also: dyne
 
-function dynes = unit
+function d = dynes
 
-dynes = dyne;
+d = dyne;

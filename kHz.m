@@ -2,6 +2,6 @@
 %
 % See also: hertz
 
-function kHz = unit 
+function h = kHz
 
-kHz = kilo * hertz; 
+h = kilo * hertz;

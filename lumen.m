@@ -8,6 +8,6 @@
 %
 % See also: lux, candela, steradian
 
-function lumen = unit 
+function lm = lumen
 
-lumen = unit_MAKE(candela * steradian, 'lumen', 'lumen');
+lm = unit_MAKE(candela * steradian, 'lumen', 'lm');

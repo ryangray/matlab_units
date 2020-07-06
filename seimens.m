@@ -2,6 +2,6 @@
 %
 % See also: seimen
 
-function seimens = unit 
+function S = seimens
 
-seimens = seimen;
+S = seimen;

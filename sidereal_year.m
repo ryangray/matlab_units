@@ -5,7 +5,7 @@
 %
 % See also: sidereal_day
 
-function sidereal_year = unit
+function sy = sidereal_year
 
-sidereal_year = unit_MAKE(365.256363004 * day, 'sidereal_year', 'yr_sd');
+sy = unit_MAKE(365.256363004 * day, 'sidereal_year', 'yr_sd');
 

@@ -2,6 +2,6 @@
 %
 % See also: year, solar_year
 
-function calendar_year = unit 
+function yr = calendar_year
 
-calendar_year = unit_MAKE(365.2425 * day, 'calendar_year', 'yr_cal'); 
+yr = unit_MAKE(365.2425 * day, 'calendar_year', 'yr_cal'); 

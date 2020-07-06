@@ -4,6 +4,6 @@
 %
 % See also: lbm, slug, lbf, kgf, kgm
 
-function kg = unit 
+function k = kg
 
-kg = unit_MASS; 
+k = unit_MASS;

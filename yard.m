@@ -2,6 +2,6 @@
 %
 % See also: foot
 
-function yard = unit()
+function yd = yard
 
-yard = unit_MAKE(3 * feet, 'yard', 'yd');
+yd = unit_MAKE(3 * feet, 'yard', 'yd');

@@ -1,7 +1,7 @@
-%% Unit lightminute
+%% Unit light-minute
 %
 % See also: lighthour, minute, c0
 
-function lightminute = unit 
+function lm = lightminute
 
-lightminute = unit_MAKE(c0 * minute, 'lightminute', 'lightminute');
+lm = unit_MAKE(c0 * minute, 'lightminute', 'lightminute');

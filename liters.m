@@ -2,6 +2,6 @@
 %
 % See also: liter
 
-function liters = unit 
+function L = liters
 
-liters = liter; 
+L = liter;

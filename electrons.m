@@ -2,6 +2,6 @@
 %
 % See also: electron
 
-function electrons = unit
+function e = electrons
 
-electrons = electron;
+e = electron;

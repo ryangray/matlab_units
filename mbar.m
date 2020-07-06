@@ -5,6 +5,6 @@
 %
 % See also: kPa, torr, psia
 
-function mbar = unit 
+function m = mbar
 
-mbar = unit_MAKE(100 * Pa, 'millibar', 'mbar'); % = 1 hPa
+m = unit_MAKE(100 * Pa, 'millibar', 'mbar'); % = 1 hPa

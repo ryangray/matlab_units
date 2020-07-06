@@ -4,6 +4,6 @@
 %
 % See also: pascal, kPa, Pa, atm, mmHg, torr
 
-function psia = unit
+function p = psia
 
-psia = unit_MAKE(lbf / inch^2, 'psi','psi');
+p = unit_MAKE(lbf / inch^2, 'psi','psi');

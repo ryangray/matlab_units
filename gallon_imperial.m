@@ -2,6 +2,6 @@
 %
 % See also: gallon_us, gallon
 
-function gallon_imperial = unit 
+function gal = gallon_imperial
 
-gallon_imperial = unit_MAKE(4.54609 * liters, 'imperial_gallon'); % Weights and Measures Act of 1985
+gal = unit_MAKE(4.54609 * liters, 'imperial_gallon','imp_gal'); % Weights and Measures Act of 1985

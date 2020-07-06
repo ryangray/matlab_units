@@ -2,6 +2,6 @@
 %
 % See also: eV
 
-function keV = unit
+function k = keV
 
-keV =  kilo * eV;
+k =  kilo * eV;

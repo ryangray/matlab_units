@@ -1,4 +1,4 @@
-%% Prep a unit string to append with parens around the unit using unitsSmbols
+%% Prep a unit string to append with parens around the unit using unitsSymbols
 %
 % If the unit is a unitless equivalent, then this returns an empty string.
 %

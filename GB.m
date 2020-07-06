@@ -1,7 +1,7 @@
-%% Unit GB (gigabyte)
+%% Unit GB (gigabyte) = 10^9 bytes
 %
 % See also: gibibyte, GiB
 
-function GB = unit 
+function g = GB
 
-GB = gigabyte; 
+g = gigabyte; 

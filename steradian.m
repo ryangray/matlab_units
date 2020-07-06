@@ -6,6 +6,6 @@
 %
 % See also: radian
 
-function steradian = unit
+function sr = steradian
 
-steradian = unit_MAKE(unit_ANGLE_SOLID, 'steradian', 'sr');
+sr = unit_MAKE(unit_ANGLE_SOLID, 'steradian', 'sr');

@@ -2,6 +2,6 @@
 %
 % See also: foot
 
-function kft = unit 
+function k = kft
 
-kft = kilo * foot; 
+k = kilo * foot;

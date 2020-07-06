@@ -1,10 +1,10 @@
 %% Unit bar = 100 kPa
 %
 % Note: There is no bar.m in the units library because of the MATLAB
-% plot function. There is not mb.m since there is already MB.m
+% plot function.
 %
-% See also: kPa, torr, psia
+% See also: mbar, kPa, torr, psia
 
-function bar = unit 
+function b = bars
 
-bar = unit_MAKE(100000 * Pa, 'bar', 'bar');
+b = unit_MAKE(100000 * Pa, 'bar', 'bar');

@@ -4,6 +4,6 @@
 %
 % See also: GiB, byte, gibi, gigabyte
 
-function gibibyte = unit 
+function GiB = gibibyte
 
-gibibyte = gibi * byte; % 1024 * mebibyte; 
+GiB = gibi * byte; % 1024 * mebibyte;

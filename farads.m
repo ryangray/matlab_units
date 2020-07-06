@@ -2,6 +2,6 @@
 %
 % See also: farad
 
-function farads = unit 
+function F = farads
 
-farads = farad;
+F = farad;

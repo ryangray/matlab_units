@@ -1,5 +1,5 @@
 %% Unit stone (st) = 14 lbm
 
-function stone = unit 
+function st = stone
 
-stone = unit_MAKE(14 * lbm, 'stone');
+st = unit_MAKE(14 * lbm, 'stone');

@@ -2,6 +2,6 @@
 %
 % See also: deg
 
-function degree = unit 
+function d = degree
 
-degree = deg; 
+d = deg;

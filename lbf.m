@@ -2,6 +2,6 @@
 %
 % See also: lbm, slug, lbf, kgf, kgm
 
-function lbf = unit 
+function p = lbf
 
-lbf = unit_MAKE(lbm * g0, 'pound_force', 'lbf');
+p = unit_MAKE(lbm * g0, 'pound_force', 'lbf');

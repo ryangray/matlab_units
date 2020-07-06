@@ -2,6 +2,6 @@
 %
 % See also: MB, mega, byte, mebibyte
 
-function megabyte = unit 
+function MB = megabyte
 
-megabyte = mega * byte; % 1000 * kilobyte
+MB = mega * byte; % 1000 * kilobyte

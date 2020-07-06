@@ -2,6 +2,6 @@
 %
 % See also: byte, nibble
 
-function bit = unit 
+function b = bit
 
-bit = unit_MAKE(unit_INFORMATION, 'bit', 'b');
+b = unit_MAKE(unit_INFORMATION, 'bit', 'b');

@@ -1,7 +1,7 @@
-%% prefix yobi = 2^80 (YOtta BInary)
+%% prefix yobi (Yi) = 2^80 (YOtta BInary)
 %
 % See also: yotta, kibi, mebi, gibi, tebi, pebi, exbi, zebi
 
-function yobi = prefix 
+function prefix = yobi
 
-yobi = unit_MAKE(2^80, 'yobi', ' Yi');
+prefix = unit_MAKE(2^80, 'yobi', ' Yi');

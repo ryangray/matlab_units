@@ -2,6 +2,6 @@
 %
 % See also: lbm
 
-function pound_mass = unit 
+function p = pound_mass
 
-pound_mass = lbm;
+p = lbm;

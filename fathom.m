@@ -2,6 +2,6 @@
 %
 % See also: yard
 
-function fathom = unit
+function ftm = fathom
 
-fathom = unit_MAKE(2 * yard, 'fathom', '');
+ftm = unit_MAKE(2 * yard, 'fathom', 'ftm');

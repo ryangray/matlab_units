@@ -7,6 +7,6 @@
 %
 % See also: henries, volt, second, ampere
 
-function henry = unit 
+function H = henry
 
-henry = unit_MAKE(volt * second / ampere, 'henry', 'H');
+H = unit_MAKE(volt * second / ampere, 'henry', 'H');

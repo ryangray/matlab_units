@@ -90,8 +90,8 @@ end
 
 fprintf(fid, '%%%% Unit %s : %s\n', name, desc);
 fprintf(fid, '%%\n\n');
-fprintf(fid, 'function %s = unit \n', name);
-fprintf(fid, '\n%s = %s;\n', name, definition);
+fprintf(fid, 'function unit = %s\n', name);
+fprintf(fid, '\nunit = %s;\n', definition);
 
 fclose(fid);
 

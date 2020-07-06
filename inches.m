@@ -2,6 +2,6 @@
 %
 % See also: inch
 
-function inches = unit 
+function in = inches
 
-inches = inch; 
+in = inch;

@@ -6,6 +6,6 @@
 %
 % See also: steradian
 
-function sr = unit
+function s = sr
 
-sr = steradian;
+s = steradian;

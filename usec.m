@@ -2,6 +2,6 @@
 %
 % See also: msec
 
-function usec = unit 
+function u = usec
 
-usec = micro * second;
+u = micro * second;

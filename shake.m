@@ -2,6 +2,6 @@
 %
 % See also: second
 
-function shake = unit 
+function s = shake
 
-shake = 1.0E-08 * second; 
+s = 1.0E-08 * second;

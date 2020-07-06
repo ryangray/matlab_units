@@ -2,6 +2,6 @@
 %
 % See also: deg, arcsecond
 
-function arcminute = unit 
+function amin = arcminute
 
-arcminute = unit_MAKE(deg / 60, 'arcminute');
+amin = unit_MAKE(deg / 60, 'arcminute', 'arcmin');

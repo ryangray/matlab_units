@@ -2,6 +2,6 @@
 % watt = joule / s
 % See also: joule
 
-function watt = unit 
+function W = watt
 
-watt = unit_MAKE(joule / second, 'watt', 'W'); 
+W = unit_MAKE(joule / second, 'watt', 'W');

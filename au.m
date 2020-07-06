@@ -2,6 +2,6 @@
 %
 % See also: meters
 
-function au = unit 
+function a = au
 
-au = unit_MAKE(149597870700 * meter, 'astronomical_unit', 'au'); % Exact: IAU 2012, via Wikipedia
+a = unit_MAKE(149597870700 * meter, 'astronomical_unit', 'au'); % Exact: IAU 2012, via Wikipedia

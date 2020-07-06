@@ -6,11 +6,11 @@
 %
 % See also: byte
 
-function bytes = unit (b)
+function by = bytes (b)
 
 if nargin == 0
     
-    bytes = byte;
+    by = byte;
     
 else
     
@@ -46,6 +46,6 @@ else
         
     end
     
-    bytes = sprintf('%g %s', double(s), u);
+    by = sprintf('%g %s', double(s), u);
 
 end

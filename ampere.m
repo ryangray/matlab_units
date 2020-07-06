@@ -2,6 +2,6 @@
 %
 % See also: coulomb, second
 
-function ampere = unit 
+function A = ampere
 
-ampere = unit_MAKE(unit_CURRENT,'ampere','A');
+A = unit_MAKE(unit_CURRENT,'ampere','A');

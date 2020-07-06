@@ -2,6 +2,6 @@
 %
 % See also: newton, lbm, lbf, foot, second
 
-function poundal = unit 
+function pdl = poundal
 
-poundal = unit_MAKE(lbm * foot / second^2, 'poundal', 'poundal');
+pdl = unit_MAKE(lbm * foot / second^2, 'poundal', 'pdl');

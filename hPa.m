@@ -1,6 +1,6 @@
 %% Unit hPa (hectopascals) 100 Pa
 %
 
-function hPa = unit 
+function h = hPa
 
-hPa = hecto * Pa;
+h = hecto * Pa;

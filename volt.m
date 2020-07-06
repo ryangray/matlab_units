@@ -2,6 +2,6 @@
 %
 % See also: watt, ampere
 
-function volt = unit 
+function V = volt
 
-volt = unit_MAKE(watt / ampere, 'volt', 'V');
+V = unit_MAKE(watt / ampere, 'volt', 'V');

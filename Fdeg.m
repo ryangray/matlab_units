@@ -2,6 +2,6 @@
 %
 % See also: Fdegree
 
-function Fdeg = unit 
+function F = Fdeg
 
-Fdeg = Fdegree; 
+F = Fdegree; 

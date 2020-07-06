@@ -2,6 +2,6 @@
 %
 % See also: quart, cup
 
-function pint = unit
+function pt = pint
 
-pint = unit_MAKE(quart / 2, 'pint');
+pt = unit_MAKE(quart / 2, 'pint','pt');

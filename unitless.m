@@ -5,6 +5,6 @@
 %
 % See also: radian
 
-function unitless = unit 
+function unit = unitless
 
-unitless = unit_MAKE(1,'unitless',''); 
+unit = unit_MAKE(1,'unitless','');

@@ -2,6 +2,6 @@
 %
 % See also: tebibyte
 
-function tebibytes = unit 
+function TiB = tebibytes
 
-tebibytes = tebibyte; 
+TiB = tebibyte;

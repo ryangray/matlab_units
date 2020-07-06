@@ -2,6 +2,6 @@
 %
 % See also: gallon
 
-function gallons = unit 
+function gal = gallons
 
-gallons = gallon; 
+gal = gallon;

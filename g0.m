@@ -3,6 +3,8 @@
 %% g0 = 9.80665 m/s^2
 %% Source: W. J. Larson and J. R. Wertz, "Space Mission Analysis and Design, 2nd ed." Kluwer(1992).
 %% Uncertainty = exact
+%
+% See also: gee
 
 function g = g0
 

@@ -2,6 +2,6 @@
 %
 % See also: radian, degree
 
-function deg = unit 
+function d = deg
 
-deg = unit_MAKE(pi / 180 * radian, 'degree', char(176));
+d = unit_MAKE(pi / 180 * radian, 'degree', '°'); % char(176) doesn't work in Octave

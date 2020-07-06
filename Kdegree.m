@@ -6,6 +6,6 @@
 %
 % See also: Kdeg, Cdegree, Rdegree, Fdegree, degK
 
-function Kdegree = unit 
+function K = Kdegree
 
-Kdegree = unit_MAKE(unit_TEMPERATURE, 'kelvin', 'K');
+K = unit_MAKE(unit_TEMPERATURE, 'kelvin', 'K');

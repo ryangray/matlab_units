@@ -2,6 +2,6 @@
 %
 % See also: MiB, MB, mebi, byte, megabyte
 
-function mebibyte = unit 
+function M = mebibyte
 
-mebibyte = mebi * byte; % 1024 * kibibyte; 
+M = mebi * byte; % 1024 * kibibyte;

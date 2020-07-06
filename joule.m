@@ -6,6 +6,6 @@
 %
 % See also: watt
 
-function joule = unit 
+function J = joule
 
-joule = unit_MAKE(newton * meter, 'joule', 'J'); % = kg*(m/s)^2
+J = unit_MAKE(newton * meter, 'joule', 'J'); % = kg*(m/s)^2

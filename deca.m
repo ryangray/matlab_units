@@ -1,7 +1,7 @@
-%% prefix deca 10^1 (da)
+%% prefix deca 10^1
 %
 % See also: yocto, zepto, atto, femto, pico, nano, micro, milli, centi, deci, deca, hecto, kilo, mega, giga, tera, peta, exa, zetta, yotta, kibi
 
-function deca = prefix 
+function D = deca
 
-deca = unit_MAKE(10, 'deca', ' D');
+D = unit_MAKE(10, 'deca', ' D');

@@ -2,6 +2,6 @@
 %
 % See also: second
 
-function seconds = unit 
+function s = seconds
 
-seconds = second; 
+s = second;

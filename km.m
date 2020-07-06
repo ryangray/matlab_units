@@ -2,6 +2,6 @@
 %
 % See also: kilometer, meter
 
-function km = unit 
+function k = km
 
-km = kilo * meter; 
+k = kilo * meter;

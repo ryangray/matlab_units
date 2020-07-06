@@ -2,6 +2,6 @@
 %
 % See also: ounce
 
-function ounces = unit
+function ounces = oz
 
 ounces = ounce;

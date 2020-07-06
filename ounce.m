@@ -4,6 +4,6 @@
 %
 % See also: fluid_ounce, ounces
 
-function ounce = unit
+function oz = ounce
 
-ounce = unit_MAKE(28.349523125 * gram, 'international_avoirdupois_ounce', 'oz');
+oz = unit_MAKE(28.349523125 * gram, 'international_avoirdupois_ounce', 'oz');

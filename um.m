@@ -1,5 +1,5 @@
 %% Unit um (micron, micrometer)
 
-function um = unit 
+function micrometer = um
 
-um = micro * meter; 
+micrometer = micro * meter;

@@ -2,6 +2,6 @@
 %
 % See also: kg, tonne_force
 
-function tonnes = unit 
+function t = tonnes
 
-tonnes = tonne;
+t = tonne;

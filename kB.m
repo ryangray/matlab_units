@@ -2,6 +2,6 @@
 %
 % See also: kibibyte, kilobyte
 
-function kB = unit 
+function kbyte = kB
 
-kB = kilobyte; 
+kbyte = kilobyte;

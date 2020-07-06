@@ -4,6 +4,6 @@
 %
 % See also: newton, cm, gram, second
 
-function dyne = unit
+function d = dyne
 
-dyne = unit_MAKE(gram * cm / second^2, 'dyne', 'dyn');
+d = unit_MAKE(gram * cm / second^2, 'dyne', 'dyn');

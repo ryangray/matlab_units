@@ -2,6 +2,6 @@
 %
 % See also: nibble
 
-function nybbles = unit 
+function ny = nybbles
 
-nybbles = nibble; 
+ny = nibble;

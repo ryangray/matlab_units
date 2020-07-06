@@ -2,6 +2,6 @@
 %
 % See also: ohm
 
-function ohms = unit
+function o = ohms
 
-ohms = ohm;
+o = ohm;

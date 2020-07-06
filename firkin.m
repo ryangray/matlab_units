@@ -5,6 +5,6 @@
 %
 % See also: days, furlong, fortnight
 
-function firkin = unit 
+function fir = firkin
 
-firkin = unit_MAKE(90 * lbm, 'firkin', 'firkin');
+fir = unit_MAKE(90 * lbm, 'firkin', 'fir');

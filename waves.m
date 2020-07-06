@@ -1,5 +1,5 @@
 %% Unit waves (unitless alias)
 
-function waves = unit
+function wv = waves
 
-waves = unit_MAKE(unitless, 'waves');
+wv = unit_MAKE(unitless, 'waves');

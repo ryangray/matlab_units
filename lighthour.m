@@ -1,7 +1,7 @@
-%% Unit lighthour (distance)
+%% Unit light-hour (distance)
 %
 % See also: lightyear, hour, c0
 
-function lighthour = unit 
+function lh = lighthour
 
-lighthour = unit_MAKE(c0 * hour, 'lighthour', 'lighthour');
+lh = unit_MAKE(c0 * hour, 'lighthour', 'lighthour');

@@ -2,6 +2,6 @@
 %
 % See also: watt, hour
 
-function kWh = unit
+function k = kWh
 
-kWh = unit_MAKE(kilo * watt * hour, 'kilowatt_hour', 'kWh');
+k = unit_MAKE(kilo * watt * hour, 'kilowatt_hour', 'kWh');

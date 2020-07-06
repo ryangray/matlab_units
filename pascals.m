@@ -5,6 +5,6 @@
 %
 % See also: Pa, kPa, torr, psia
 
-function pascals = unit 
+function pa = pascals
 
-pascals = Pa;
+pa = Pa;

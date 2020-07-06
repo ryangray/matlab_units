@@ -2,6 +2,6 @@
 %
 % See also: hertz
 
-function cycles = unit 
+function cy = cycles
 
-cycles = unit_MAKE(unitless, 'cycles', 'cycles'); 
+cy = unit_MAKE(unitless, 'cycles', 'cycles'); 

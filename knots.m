@@ -5,6 +5,6 @@
 %
 % See also: knots, kts
 
-function knots = unit 
+function k = knots
 
-knots = unit_MAKE(nmiles / hour, 'knot', 'kts');
+k = unit_MAKE(nmiles / hour, 'knot', 'kts');

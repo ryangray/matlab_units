@@ -2,6 +2,6 @@
 %
 % See also: kg
 
-function kilogram = unit 
+function k = kilogram
 
-kilogram = kg; 
+k = kg;

@@ -2,6 +2,6 @@
 %
 % See also: yard
 
-function yd = unit()
+function y = yd
 
-yd = yard;
+y = yard;

@@ -2,6 +2,6 @@
 %
 % See also: byte, bit
 
-function nibble = unit 
+function n = nibble
 
-nibble = 4 * bit; 
+n = 4 * bit;

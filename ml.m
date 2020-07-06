@@ -2,6 +2,6 @@
 %
 % See also: liter
 
-function ml = unit
+function m = ml
 
-ml = unit_MAKE(milli * liter, 'milliliter', 'ml');
+m = unit_MAKE(milli * liter, 'milliliter', 'ml');

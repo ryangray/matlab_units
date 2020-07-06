@@ -7,6 +7,6 @@
 %
 % See also: lumen, candela
 
-function lux = unit 
+function lx = lux
 
-lux = unit_MAKE(lumen / meter^2, 'lux', 'lux');
+lx = unit_MAKE(lumen / meter^2, 'lux', 'lx');

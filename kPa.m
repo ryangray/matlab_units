@@ -2,6 +2,6 @@
 %
 % See also: Pa
 
-function kPa = unit 
+function kp = kPa
 
-kPa = kilo * Pa;
+kp = kilo * Pa;

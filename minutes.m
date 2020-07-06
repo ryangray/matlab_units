@@ -2,6 +2,6 @@
 %
 % See also: minute
 
-function minutes = unit 
+function m = minutes
 
-minutes = minute; 
+m = minute;

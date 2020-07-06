@@ -2,6 +2,6 @@
 %
 % See also: mmHg
 
-function inHg = unit 
+function iHg = inHg
 
-inHg = unit_MAKE(inch/mm * mmHg, 'inches of mercury', 'inHg'); % 
+iHg = unit_MAKE(inch/mm * mmHg, 'inches of mercury', 'inHg');

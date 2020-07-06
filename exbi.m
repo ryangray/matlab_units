@@ -2,6 +2,6 @@
 %
 % See also: exa, kibi, mebi, gibi, tebi, pebi, zebi, yobi
 
-function exbi = prefix 
+function Ei = exbi
 
-exbi = unit_MAKE(2^60, 'exbi', ' Ei');
+Ei = unit_MAKE(2^60, 'exbi', ' Ei');

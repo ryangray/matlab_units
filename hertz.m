@@ -1,7 +1,7 @@
 %% Unit hertz (Hz)
 %
-% See also: second
+% See also: second, Hz
 
-function hertz = unit 
+function Hz = hertz
 
-hertz = unit_MAKE(1 / second, 'hertz', 'Hz'); 
+Hz = unit_MAKE(1 / second, 'hertz', 'Hz');

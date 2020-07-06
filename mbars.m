@@ -2,6 +2,6 @@
 %
 % See also: mbar
 
-function mbars = unit 
+function m = mbars
 
-mbars = mbar;
+m = mbar;

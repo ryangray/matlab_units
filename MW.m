@@ -2,6 +2,6 @@
 %
 % See also: watt
 
-function mw = unit 
+function M = MW 
 
-mw = mega * watt;
+M = mega * watt;

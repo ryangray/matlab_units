@@ -2,6 +2,6 @@
 %
 % See also: deg, degree
 
-function degrees = unit 
+function d = degrees
 
-degrees = deg; 
+d = deg;

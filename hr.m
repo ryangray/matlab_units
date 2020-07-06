@@ -2,6 +2,6 @@
 %
 % See also: hour
 
-function hr = unit 
+function h = hr
 
-hr = hour;
+h = hour;

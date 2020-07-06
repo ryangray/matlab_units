@@ -2,6 +2,6 @@
 %
 % See also: mile
 
-function miles = unit 
+function m = miles
 
-miles = mile; 
+m = mile;

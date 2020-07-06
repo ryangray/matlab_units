@@ -2,6 +2,6 @@
 %
 % See also: yocto, zepto, atto, femto, pico, nano, micro, milli, centi, deci, deca, hecto, kilo, mega, giga, tera, peta, exa, zetta, yotta, kibi
 
-function centi = prefix 
+function c = centi
 
-centi = unit_MAKE(1.e-2, 'centi', ' c');
+c = unit_MAKE(1.e-2, 'centi', ' c');

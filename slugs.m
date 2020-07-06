@@ -2,6 +2,6 @@
 %
 % See also: slug
 
-function slugs = unit 
+function s = slugs
 
-slugs = slug;
+s = slug;

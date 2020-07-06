@@ -2,6 +2,6 @@
 %
 % See also: joule
 
-function kj = unit 
+function kj = kJ
 
 kj = kilo * joule;

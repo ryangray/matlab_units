@@ -2,6 +2,6 @@
 %
 % See also: foot
 
-function feet = unit 
+function ft = feet
 
-feet = foot;
+ft = foot;

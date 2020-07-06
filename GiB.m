@@ -1,7 +1,7 @@
-%% Unit GiB (gibibyte)
+%% Unit GiB (gibibyte) = 2^30 bytes = 1024^3 bytes
 %
 % See also: gibibyte
 
-function GiB = unit 
+function g = GiB
 
-GiB = gibibyte; 
+g = gibibyte; 

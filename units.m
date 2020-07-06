@@ -337,8 +337,13 @@ elseif ischar(varargin{1})
                         addpath(si,'-END');
                         
                     case {'obj','object','unitval'}
-                        
-                        if ~exist('unitval','class')
+
+                        if exist('OCTAVE_VERSION','builtin')
+                            
+                            error('Object units not available in Octave as it does not yet support subclassing double.');
+                            
+                        elseif ~exist('unitval','class')
+                            
                             error('unitval class not found');
                         else
                             fobj = fullfile(si,'siobj');

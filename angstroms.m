@@ -2,6 +2,6 @@
 %
 % See also: angstrom
 
-function angstroms = unit
+function A = angstroms
 
-angstroms = angstrom;
+A = angstrom;

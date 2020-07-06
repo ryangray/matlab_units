@@ -2,6 +2,6 @@
 %
 % See also: meter
 
-function angstrom = unit
+function A = angstrom
 
-angstrom = unit_MAKE(1e-10 * meter, 'angstrom', 'Å');
+A = unit_MAKE(1e-10 * meter, 'angstrom', 'Å'); % \303\205

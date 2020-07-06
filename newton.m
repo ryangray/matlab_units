@@ -2,6 +2,6 @@
 %
 % See also: kg, meter, second
 
-function newton = unit 
+function N = newton
 
-newton = unit_MAKE(kg * meter / second^2, 'Newton', 'N');
+N = unit_MAKE(kg * meter / second^2, 'Newton', 'N');

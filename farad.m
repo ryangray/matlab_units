@@ -4,6 +4,6 @@
 %
 % See also: coulomb, volt
 
-function farad = unit 
+function F = farad
 
-farad = unit_MAKE(coulomb / volt, 'farad', 'F');
+F = unit_MAKE(coulomb / volt, 'farad', 'F');

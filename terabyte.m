@@ -2,6 +2,6 @@
 %
 % See also: tera, byte, tebibyte
 
-function terabyte = unit 
+function TB = terabyte
 
-terabyte = tera * byte; % 1000 * gigabyte
+TB = tera * byte; % 1000 * gigabyte

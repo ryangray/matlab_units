@@ -2,6 +2,6 @@
 %
 % See also: meter
 
-function cm = unit 
+function centimeter = cm
 
-cm = centi * meter; 
+centimeter = centi * meter; 

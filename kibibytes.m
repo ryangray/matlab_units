@@ -4,6 +4,6 @@
 %
 % See also: kibibyte, kilobyte
 
-function kibibytes = unit 
+function ki = kibibytes
 
-kibibytes = kibibyte; 
+ki = kibibyte;

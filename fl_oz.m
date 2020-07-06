@@ -2,6 +2,6 @@
 %
 % See also: fluid_ounce, ounce
 
-function fl_oz = unit
+function oz = fl_oz
 
-fl_oz = fluid_ounce;
+oz = fluid_ounce;

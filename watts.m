@@ -2,6 +2,6 @@
 %
 % See also: watt
 
-function watts = unit 
+function W = watts
 
-watts = watt; 
+W = watt;

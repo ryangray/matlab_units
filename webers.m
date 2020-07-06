@@ -2,6 +2,6 @@
 % weber = volt * second
 % See also: weber, volt, tesla
 
-function webers = unit 
+function Wb = webers
 
-webers = weber;
+Wb = weber;

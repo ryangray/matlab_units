@@ -13,6 +13,6 @@
 %
 % See also: deg, steradian
 
-function radian = unit 
+function r = radian 
 
-radian = unit_MAKE(unit_ANGLE_PLANE, 'radian', 'rad');
+r = unit_MAKE(unit_ANGLE_PLANE, 'radian', 'rad');

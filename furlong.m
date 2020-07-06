@@ -3,8 +3,8 @@
 % Base unit of length in the FFF system.
 % <http://en.wikipedia.org/wiki/FFF_system FFF System - Wikipedia>
 %
-% See also: statute_mile, feet, fortnight
+% See also: statute_mile, feet, fortnight, firkin
 
-function furlong = unit 
+function fur = furlong
 
-furlong = unit_MAKE(660 * feet, 'furlong', 'furlong');
+fur = unit_MAKE(660 * feet, 'furlong', 'fur');

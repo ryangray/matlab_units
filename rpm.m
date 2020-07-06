@@ -2,6 +2,6 @@
 %
 % See also: hertz
 
-function rpm = unit 
+function r = rpm
 
-rpm = unit_MAKE(Hz / 60, 'rpm', 'rpm'); 
+r = unit_MAKE(Hz / 60, 'rpm', 'rpm');

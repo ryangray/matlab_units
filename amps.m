@@ -2,6 +2,6 @@
 %
 % See also: ampere
 
-function amps = unit 
+function A = amps
 
-amps = ampere; 
+A = ampere;

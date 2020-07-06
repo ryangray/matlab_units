@@ -4,6 +4,6 @@
 %
 % See also: foot, inches
 
-function inch = unit 
+function in = inch
 
-inch = unit_MAKE(foot / 12.0, 'inch', 'in'); 
+in = unit_MAKE(foot / 12.0, 'inch', 'in');

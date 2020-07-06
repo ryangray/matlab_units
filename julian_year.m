@@ -3,6 +3,6 @@
 %
 % See also: calendar_year, tropical_year
 
-function julian_year = unit 
+function jy = julian_year
 
-julian_year = unit_MAKE(365.25 * day, 'julian_year', 'yr_jul');
+jy = unit_MAKE(365.25 * day, 'julian_year', 'yr_jul');

@@ -4,6 +4,6 @@
 %
 % See also: radian
 
-function rad = unit 
+function r = rad
 
-rad = radian; 
+r = radian; 

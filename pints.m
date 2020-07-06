@@ -2,6 +2,6 @@
 %
 % See also: pint
 
-function pints = unit
+function pt = pints
 
-pints = pint;
+pt = pint;

@@ -3,6 +3,6 @@
 %
 % See also: poise
 
-function cP = unit 
+function centipoise = cP
 
-cP = centi*poise;
+centipoise = centi*poise;
