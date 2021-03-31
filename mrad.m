@@ -1,7 +1,7 @@
-%% Unit mrads (milliradians)
+%% Unit mrad (milliradian)
 %
-% See also: radians, urads
+% See also: radian, urad
 
-function m = mrads
+function m = mrad
 
 m = milli * radian;

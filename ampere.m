@@ -1,6 +1,6 @@
 %% Unit ampere (A), SI unit of electric current
 %
-% See also: coulomb, second
+% See also: coulomb, second, amp, amps
 
 function A = ampere
 

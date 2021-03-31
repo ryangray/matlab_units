@@ -2,6 +2,6 @@
 %
 % See also: volt
 
-function volts = unit 
+function V = volts
 
-volts = volt;
+V = volt;

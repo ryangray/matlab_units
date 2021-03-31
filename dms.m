@@ -1,4 +1,4 @@
-%% Convert angle to or from dms form
+%% Convert angle in dms form to decimal radians or radian angle to dms form
 % Usage: a = dms(dd.mmss)                     % Convert from DMS with m & s encoded in the decimal to radians.
 %        a = dms(degrees, minutes)            % Convert from degrees & minutes (0 seconds) to radians.
 %        a = dms(degrees, minutes, seconds)   % Convert from degrees, minutes and seconds to radians.
@@ -28,14 +28,14 @@ if nargout >= 3
     mn = 60 * (dg - angle);
     sc = 60 * (mn - floor(mn));
     mn = floor(mn);
-    angle = sgn * angle;
+    angle = sgn .* angle;
     
     if nargout > 3
         % Add d.mmss output
-        D = sgn * (angle + mn / 100 + sc / 10000);
-        varargout = {sgn * mn, sgn * sc, D};
+        D = sgn .* (angle + mn / 100 + sc / 10000);
+        varargout = {sgn .* mn, sgn .* sc, D};
     else
-        varargout = {sgn * mn, sgn * sc};
+        varargout = {sgn .* mn, sgn .* sc};
     end
     
 else

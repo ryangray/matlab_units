@@ -76,17 +76,20 @@ elseif ischar(unitstr)
 
     else
 
-        uv = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
-        if isempty(uv)
-            if strcmp(ue, unitstr)
-                error('Invalid units expression: %s', ue);
-            else
-                error('Invalid units expression: %s (given as: %s)', ue, unitstr);
-            end
+        if isempty(ue)
+            cval = uval;
         else
-            cval = uval / uv;
+            uv = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
+            if isempty(uv)
+                if strcmp(ue, unitstr)
+                    error('Invalid units expression: %s', ue);
+                else
+                    error('Invalid units expression: %s (given as: %s)', ue, unitstr);
+                end
+            else
+                cval = uval / uv;
+            end
         end
-        
     end
     
 else
