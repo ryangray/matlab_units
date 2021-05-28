@@ -13,7 +13,7 @@
 %  degR('absolutezero') or degR('0') % returns double(0)
 %  T = degR(temperature_in_degR) % convert from degR to current
 %  T = degR(temperature, 'to') % convert from current to degR
-%  fprintf('Temperature change is: %f R°\n', convert(dt,'RRdeg'); % Note unit is not degR
+%  fprintf('Temperature change is: %f R\n', convert(dt,'Rdeg'); % Note unit is not degR
 %
 % The delta temperature usage is the same as the unit Rdeg.
 % When asking for absolute zero, it is returned in degrees R as 0 (double).

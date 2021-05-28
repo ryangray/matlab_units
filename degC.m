@@ -11,7 +11,7 @@
 %  degC('absolutezero') or degC('0') % returns double(-273.15)
 %  T = degC(temperature_in_degC) % convert from degC to current
 %  T = degC(temperature, 'to') % convert from current to degC
-%  fprintf('Temperature change is: %f C°\n', convert(dt,'Cdeg'); % Note unit is not degC
+%  fprintf('Temperature change is: %f C deg\n', convert(dt,'Cdeg'); % Note unit is not degC
 %
 % The delta temperature usage is the same as the unit Cdeg.
 % When asking for absolute zero, it is returned in degrees C as -273.15 (double).
@@ -73,6 +73,6 @@ elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
     
 else % degC value given as a temperature (not a delta temperature)
 
-    T = unit_MAKE((double(T_C) - T0_C) * Kdegree, 'celcius', '°C');
+    T = unit_MAKE((double(T_C) - T0_C) * Kdegree, 'celcius', 'Â°C');
 
 end

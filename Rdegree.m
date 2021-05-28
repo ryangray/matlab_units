@@ -8,5 +8,5 @@
 
 function R = Rdegree
 
-R = unit_MAKE(Fdegree, 'Rankine degree', 'R°');
+R = unit_MAKE(Fdegree, 'Rankine degree', 'R');
 

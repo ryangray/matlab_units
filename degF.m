@@ -11,7 +11,7 @@
 %  degF('absolutezero') or degF('0') % returns double(-459.67)
 %  T = degF(temperature_in_degF) % convert from degF to current
 %  T = degF(temperature, 'to') % convert from current to degF
-%  fprintf('Temperature change is: %f F°\n', convert(dt,'Fdeg'); % Note unit is not degF
+%  fprintf('Temperature change is: %f F deg\n', convert(dt,'Fdeg')); % Note unit is not degF
 
 % The delta temperature usage is the same as the unit Fdeg.
 % When asking for absolute zero, it is returned in degrees F as -459.67 (double).
@@ -73,6 +73,6 @@ elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
     
 else % degF value given as a temperature (not a delta temperature)
 
-    T = unit_MAKE((double(T_F) - T0_F) * Rdegree, 'fahrenheight', '°F');
+    T = unit_MAKE((double(T_F) - T0_F) * Rdegree, 'fahrenheight', 'Â°F');
 
 end

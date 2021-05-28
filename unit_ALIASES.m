@@ -34,7 +34,7 @@
 % * 'psi' -> 'psia'
 % * 'pascal' -> 'pascals'
 % * 'bar' -> 'bars'
-% * 'know' -> 'knots'
+% * 'knot' -> 'knots'
 % * 'logical', 'int' -> 'unitless'
 % * 'string', 'include', 'function' -> ''
 % * '%' -> 'percent'
@@ -44,6 +44,8 @@
 % See also: unit, convert
 
 function ue = unit_ALIASES(ue)
+
+isOct = (exist ('OCTAVE_VERSION', 'builtin') > 0); % Check if under Octave
 
 % These translate various strings taken in a units context
 
@@ -57,14 +59,16 @@ ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
 %ue = strrep(ue,char(937),'ohms'); % Octave doesn't like 16-bit char
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
-ue = regexprep(ue, char(176), 'deg'); % degree character -> deg
+ue = regexprep(ue, char([194 176]), 'deg'); % degree character -> deg in UTF-8
+if ~isOct
+    ue = regexprep(ue, char(176), 'deg'); % degree character -> deg in MATLAB
+end
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
 ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
 ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
 
 % Degree for Octave since it uses \circ as TeX does and \deg for the degree symbol, whereas MATLAB uses \circ for the degree symbol.
 ue = regexprep(ue,'\{\\deg\}','\\deg'); % {\deg} -> \deg for the following
-ue = regexprep(ue, char(176), 'deg'); % degree character -> deg
 ue = regexprep(ue,'\\deg([CFRK])\>','deg$1'); % \degC, \degF, etc.
 ue = regexprep(ue,'\<([CFRK])\\deg\>','$1deg'); % C\deg, etc.
 ue = regexprep(ue,'\<\\deg\>','deg'); % \deg
@@ -141,8 +145,12 @@ ue = regexprep(ue,'(.)%$','$1*percent');
 ue = regexprep(ue,'^%$','percent');
 ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
-ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A
-%ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol
+if ~isOct
+    ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol in MATLAB
+    ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A in MATLAB
+end
+ue = regexprep(ue,['\<' char([206 169]) '\>'],'ohm'); % Capital Omega symbol in UTF-8
+ue = regexprep(ue,['\<' char([195 133]) '\>'],'angstrom'); % Circle-topped capital A in UTF-8
 % Octave is not liking the high code char
 
 % legacy

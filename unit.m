@@ -29,6 +29,12 @@
 
 function uval = unit (val, unitstr)
 
+persistent unitsdir
+
+if isempty(unitsdir)
+    unitsdir = fileparts(which(mfilename));
+end
+
 tempunits = {'degK','degR','degC','degF'};
 
 if nargin == 1
@@ -86,12 +92,16 @@ if ischar(unitstr)
 
             else
 
-                s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
-                warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
-                uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
-                warning(s);
-                if isa(uval,'double')
-                    uval = val * uval;
+                if exist(ue,'file') && strcmpi(unitsdir, fileparts(which(ue)))
+                    s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
+                    warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
+                    uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
+                    warning(s);
+                    if isa(uval,'double')
+                        uval = val * uval;
+                    else
+                        uval = [];
+                    end
                 else
                     uval = [];
                 end
