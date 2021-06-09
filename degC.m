@@ -73,6 +73,6 @@ elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
     
 else % degC value given as a temperature (not a delta temperature)
 
-    T = unit_MAKE((double(T_C) - T0_C) * Kdegree, 'celcius', '°C');
+    T = unit_MAKE((double(T_C) - T0_C) * Kdegree, 'celcius', 'C');
 
 end

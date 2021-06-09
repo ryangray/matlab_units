@@ -57,7 +57,6 @@ ue = regexprep(ue,'([\w\d])( +|\-)([\w\d])','$1*$3'); % multiply
 
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
-%ue = strrep(ue,char(937),'ohms'); % Octave doesn't like 16-bit char
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
 ue = regexprep(ue, char([194 176]), 'deg'); % degree character -> deg in UTF-8
 if ~isOct
@@ -151,7 +150,6 @@ if ~isOct
 end
 ue = regexprep(ue,['\<' char([206 169]) '\>'],'ohm'); % Capital Omega symbol in UTF-8
 ue = regexprep(ue,['\<' char([195 133]) '\>'],'angstrom'); % Circle-topped capital A in UTF-8
-% Octave is not liking the high code char
 
 % legacy
 ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');

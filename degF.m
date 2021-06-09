@@ -73,6 +73,6 @@ elseif ~isempty(varargin) && strncmpi(varargin{1},'to',2)
     
 else % degF value given as a temperature (not a delta temperature)
 
-    T = unit_MAKE((double(T_F) - T0_F) * Rdegree, 'fahrenheight', '°F');
+    T = unit_MAKE((double(T_F) - T0_F) * Rdegree, 'fahrenheight', 'F');
 
 end
