@@ -22,7 +22,7 @@
 %
 % Same as value*units(units_expression) except if the units are exactly one
 % of: degC, degK, degF or degR (or an allowed equivalent like '\circF',
-% '°F', etc.) versus Cdeg, Kdeg, Fdeg or Rdeg, then it is equivalent to
+% 'F\circ', etc.) versus Cdeg, Kdeg, Fdeg or Rdeg, then it is equivalent to
 % calling the unit function with the value as an argument to correctly
 % convert the temperature to the current units. For example, units('degF',
 % 32) is the same as degF(32). This form can be useful when the units are
@@ -108,14 +108,20 @@ elseif ischar(varargin{1})
         case 'install'
             
             si = fileparts(mfilename('fullpath'));
-            addpath(si,'-END')
-            fprintf('The pathtool should open with the units folder added at the end.\n');
+            addpath(si,'-end')
+            if exist('pathtool.m','file')
+                fprintf('The pathtool should open with the units folder added at the end.\n');
+            else
+                fprintf('The path has been updated with the units folder added at the end.\n');
+            end
             fprintf('You should save the new path for future use.\n');
             fprintf('You can use "units base xxxx" to change the units system base if you like.\n');
             fprintf('You can use "units base list" to see a list of valid ones.\n');
             fprintf('Type: "units help" for the overview documentation.\n');
             fprintf('Some unit functions have other info in their function help text. Try "help lbm".\n');
-            pathtool
+            if exist('pathtool.m','file')
+                pathtool
+            end
             
             % Generate helptoc.xml
 
