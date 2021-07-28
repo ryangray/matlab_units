@@ -258,13 +258,13 @@ elseif ischar(varargin{1})
                             end
 
                             rmpath(oldsys);       % Remove the old one
-                            addpath(usePath, '-END'); % Add the new one
-                            addpath(si,'-END');       % Add the core si base after that.
+                            addpath(usePath, '-end'); % Add the new one
+                            addpath(si,'-end');       % Add the core si base after that.
 
                         else
 
                             rmpath(oldsys);       % Remove the old one
-                            addpath(si,'-END');       % Add the core si base.
+                            addpath(si,'-end');       % Add the core si base.
                         end
 
                         if nargin > 2
@@ -340,7 +340,7 @@ elseif ischar(varargin{1})
                     case 'double'
 
                         rmpath(oldsys);
-                        addpath(si,'-END');
+                        addpath(si,'-end');
                         
                     case {'obj','object','unitval'}
 
@@ -359,8 +359,8 @@ elseif ischar(varargin{1})
                             end
                         end
                         rmpath(oldsys);
-                        addpath(fobj, '-END');
-                        addpath(si,'-END');
+                        addpath(fobj, '-end');
+                        addpath(si,'-end');
                         
                     otherwise
                         

@@ -92,7 +92,11 @@ if ischar(unitstr)
 
             else
 
-                if exist(ue,'file') && strcmpi(unitsdir, fileparts(which(ue)))
+                if exist(ue,'file') && ~strcmpi(unitsdir, fileparts(which(ue)))
+                    
+                    uval = [];
+
+                else
                     s = warning('off','MATLAB:dispatcher:InexactMatch'); % Older warning message ID
                     warning('off','MATLAB:dispatcher:InexactCaseMatch'); % Newer warning message ID
                     uval = str2num(ue); %#ok<ST2NM> % Need str2num (rather than str2double) to evaluate units functions, but lighter than eval.
@@ -102,8 +106,6 @@ if ischar(unitstr)
                     else
                         uval = [];
                     end
-                else
-                    uval = [];
                 end
 
             end

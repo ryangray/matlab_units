@@ -7,22 +7,26 @@
   <tocitem>Fdeg</tocitem>
   <tocitem>Fdegree</tocitem>
   <tocitem>GB</tocitem>
+  <tocitem>GiB</tocitem>
   <tocitem>Hz</tocitem>
   <tocitem>Kdeg</tocitem>
   <tocitem>Kdegree</tocitem>
   <tocitem>MB</tocitem>
   <tocitem>MHz</tocitem>
   <tocitem>MW</tocitem>
+  <tocitem>MiB</tocitem>
   <tocitem>Pa</tocitem>
   <tocitem>Rdeg</tocitem>
   <tocitem>Rdegree</tocitem>
   <tocitem>TB</tocitem>
+  <tocitem>TiB</tocitem>
   <tocitem>Wb</tocitem>
   <tocitem>acre</tocitem>
   <tocitem>acres</tocitem>
   <tocitem>amp</tocitem>
   <tocitem>ampere</tocitem>
   <tocitem>amps</tocitem>
+  <tocitem>amu</tocitem>
   <tocitem>angstrom</tocitem>
   <tocitem>angstroms</tocitem>
   <tocitem>arcminute</tocitem>
@@ -33,22 +37,28 @@
   <tocitem>atto</tocitem>
   <tocitem>au</tocitem>
   <tocitem>bars</tocitem>
+  <tocitem>bel</tocitem>
   <tocitem>bit</tocitem>
   <tocitem>bits</tocitem>
   <tocitem>byte</tocitem>
   <tocitem>bytes</tocitem>
   <tocitem>c0</tocitem>
+  <tocitem>cP</tocitem>
   <tocitem>cal_IT</tocitem>
   <tocitem>cal_th</tocitem>
+  <tocitem>calendar_year</tocitem>
   <tocitem>calorie</tocitem>
   <tocitem>candela</tocitem>
   <tocitem>candelas</tocitem>
   <tocitem>centi</tocitem>
   <tocitem>cm</tocitem>
+  <tocitem>convert</tocitem>
   <tocitem>coulomb</tocitem>
   <tocitem>coulombs</tocitem>
   <tocitem>cup</tocitem>
   <tocitem>cups</tocitem>
+  <tocitem>cycles</tocitem>
+  <tocitem>dB</tocitem>
   <tocitem>day</tocitem>
   <tocitem>days</tocitem>
   <tocitem>deca</tocitem>
@@ -66,6 +76,7 @@
   <tocitem>degree</tocitem>
   <tocitem>degrees</tocitem>
   <tocitem>dms</tocitem>
+  <tocitem>dyn</tocitem>
   <tocitem>dyne</tocitem>
   <tocitem>dynes</tocitem>
   <tocitem>eV</tocitem>
@@ -80,18 +91,21 @@
   <tocitem>fathom</tocitem>
   <tocitem>feet</tocitem>
   <tocitem>femto</tocitem>
+  <tocitem>firkin</tocitem>
+  <tocitem>fl_oz</tocitem>
+  <tocitem>fluid_ounce</tocitem>
   <tocitem>foot</tocitem>
   <tocitem>fortnight</tocitem>
   <tocitem>ft</tocitem>
   <tocitem>furlong</tocitem>
   <tocitem>furlongs</tocitem>
   <tocitem>g0</tocitem>
-  <tocitem>g_c</tocitem>
   <tocitem>galileo</tocitem>
   <tocitem>gallon</tocitem>
   <tocitem>gallon_imperial</tocitem>
   <tocitem>gallon_us</tocitem>
   <tocitem>gallons</tocitem>
+  <tocitem>gee</tocitem>
   <tocitem>gibi</tocitem>
   <tocitem>gibibyte</tocitem>
   <tocitem>gibibytes</tocitem>
@@ -100,6 +114,8 @@
   <tocitem>gigabytes</tocitem>
   <tocitem>gram</tocitem>
   <tocitem>grams</tocitem>
+  <tocitem>hPa</tocitem>
+  <tocitem>hand</tocitem>
   <tocitem>hecto</tocitem>
   <tocitem>henries</tocitem>
   <tocitem>henry</tocitem>
@@ -107,11 +123,13 @@
   <tocitem>hms</tocitem>
   <tocitem>hour</tocitem>
   <tocitem>hours</tocitem>
+  <tocitem>hr</tocitem>
   <tocitem>inHg</tocitem>
   <tocitem>inch</tocitem>
   <tocitem>inches</tocitem>
   <tocitem>joule</tocitem>
   <tocitem>joules</tocitem>
+  <tocitem>julian_year</tocitem>
   <tocitem>kB</tocitem>
   <tocitem>kHz</tocitem>
   <tocitem>kJ</tocitem>
@@ -124,6 +142,7 @@
   <tocitem>kg</tocitem>
   <tocitem>kgf</tocitem>
   <tocitem>kgm</tocitem>
+  <tocitem>kiB</tocitem>
   <tocitem>kibi</tocitem>
   <tocitem>kibibyte</tocitem>
   <tocitem>kibibytes</tocitem>
@@ -145,6 +164,7 @@
   <tocitem>liters</tocitem>
   <tocitem>lumen</tocitem>
   <tocitem>lux</tocitem>
+  <tocitem>mAh</tocitem>
   <tocitem>mbar</tocitem>
   <tocitem>mbars</tocitem>
   <tocitem>mebi</tocitem>
@@ -156,6 +176,7 @@
   <tocitem>megapond</tocitem>
   <tocitem>meter</tocitem>
   <tocitem>meters</tocitem>
+  <tocitem>mi</tocitem>
   <tocitem>micro</tocitem>
   <tocitem>mil</tocitem>
   <tocitem>mile</tocitem>
@@ -170,7 +191,7 @@
   <tocitem>mol</tocitem>
   <tocitem>mole</tocitem>
   <tocitem>moles</tocitem>
-  <tocitem>mrads</tocitem>
+  <tocitem>mrad</tocitem>
   <tocitem>msec</tocitem>
   <tocitem>nano</tocitem>
   <tocitem>nautical_mile</tocitem>
@@ -184,7 +205,6 @@
   <tocitem>nmile</tocitem>
   <tocitem>nmiles</tocitem>
   <tocitem>nrad</tocitem>
-  <tocitem>nrads</tocitem>
   <tocitem>nsec</tocitem>
   <tocitem>nybble</tocitem>
   <tocitem>nybbles</tocitem>
@@ -192,6 +212,7 @@
   <tocitem>ohms</tocitem>
   <tocitem>ounce</tocitem>
   <tocitem>ounces</tocitem>
+  <tocitem>oz</tocitem>
   <tocitem>parsec</tocitem>
   <tocitem>pascals</tocitem>
   <tocitem>pebi</tocitem>
@@ -203,6 +224,8 @@
   <tocitem>pixel</tocitem>
   <tocitem>pixels</tocitem>
   <tocitem>pm</tocitem>
+  <tocitem>poise</tocitem>
+  <tocitem>pound_mass</tocitem>
   <tocitem>pound_mole</tocitem>
   <tocitem>poundal</tocitem>
   <tocitem>psia</tocitem>
@@ -211,16 +234,21 @@
   <tocitem>rad</tocitem>
   <tocitem>radian</tocitem>
   <tocitem>radians</tocitem>
+  <tocitem>rpm</tocitem>
   <tocitem>sday</tocitem>
   <tocitem>second</tocitem>
   <tocitem>seconds</tocitem>
+  <tocitem>seimen</tocitem>
+  <tocitem>seimens</tocitem>
   <tocitem>shake</tocitem>
+  <tocitem>sidereal_day</tocitem>
+  <tocitem>sidereal_year</tocitem>
   <tocitem>slug</tocitem>
   <tocitem>slugs</tocitem>
+  <tocitem>sr</tocitem>
   <tocitem>statute_mile</tocitem>
   <tocitem>steradian</tocitem>
   <tocitem>stone</tocitem>
-  <tocitem>syear</tocitem>
   <tocitem>tebi</tocitem>
   <tocitem>tebibyte</tocitem>
   <tocitem>tebibytes</tocitem>
@@ -228,27 +256,27 @@
   <tocitem>terabyte</tocitem>
   <tocitem>tesla</tocitem>
   <tocitem>thou</tocitem>
-  <tocitem>toDegC</tocitem>
-  <tocitem>toDegF</tocitem>
-  <tocitem>toDegK</tocitem>
-  <tocitem>toDegR</tocitem>
   <tocitem>tonne</tocitem>
   <tocitem>tonne_force</tocitem>
   <tocitem>tonnes</tocitem>
   <tocitem>torr</tocitem>
+  <tocitem>tropical_year</tocitem>
   <tocitem>um</tocitem>
+  <tocitem>unit</tocitem>
   <tocitem>unit2str</tocitem>
+  <tocitem>unitCreate</tocitem>
+  <tocitem>unitExists</tocitem>
   <tocitem>unitLabel</tocitem>
   <tocitem>unitless</tocitem>
   <tocitem>units</tocitem>
+  <tocitem>unitsDisplay</tocitem>
   <tocitem>unitsPlot</tocitem>
   <tocitem>unitsSameDimensions</tocitem>
   <tocitem>unitsSymbols</tocitem>
-  <tocitem>units_demo</tocitem>
   <tocitem>urad</tocitem>
-  <tocitem>urads</tocitem>
   <tocitem>usec</tocitem>
   <tocitem>volt</tocitem>
+  <tocitem>volts</tocitem>
   <tocitem>watt</tocitem>
   <tocitem>watts</tocitem>
   <tocitem>waves</tocitem>
@@ -256,11 +284,16 @@
   <tocitem>webers</tocitem>
   <tocitem>yard</tocitem>
   <tocitem>yards</tocitem>
+  <tocitem>yd</tocitem>
   <tocitem>year</tocitem>
   <tocitem>years</tocitem>
   <tocitem>yobi</tocitem>
   <tocitem>yocto</tocitem>
   <tocitem>yotta</tocitem>
+  <tocitem>yr_cal</tocitem>
+  <tocitem>yr_jul</tocitem>
+  <tocitem>yr_sd</tocitem>
+  <tocitem>yr_trop</tocitem>
   <tocitem>zebi</tocitem>
   <tocitem>zepto</tocitem>
   <tocitem>zetta</tocitem>
