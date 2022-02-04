@@ -13,6 +13,7 @@
 %  units class double % Set the units data class to double (non-object).
 %  units class object % Set the units data class to unitval (object units).
 %  units install      % Add units folder to the path (run from units folder)
+%  units helptoc      % Generate/update the helptoc.xml file for MATLAB help system
 %
 %  units(units_expression) % evaluates the units expression string ignoring
 %                            ignoring local variables and performing some
@@ -123,9 +124,11 @@ elseif ischar(varargin{1})
                 pathtool
             end
             
+        case 'helptoc'
+            
             % Generate helptoc.xml
 
-            docPath = si;
+            docPath = fileparts(mfilename('fullpath'));
             tocfile = fullfile(docPath, 'helptoc.xml');
             fprintf('Generating %s ...', tocfile);
 
@@ -134,8 +137,8 @@ elseif ischar(varargin{1})
             fprintf(fid,'%s\n','<toc version="1.0">');
             fprintf(fid,'%s\n','<tocitem target="units_product_page.html">Units Toolbox');
 
-            files1 = dir(fullfile(si,'*.m'));
-            files2 = dir(fullfile(si,'unit_*.m'));
+            files1 = dir(fullfile(docPath,'*.m'));
+            files2 = dir(fullfile(docPath,'unit_*.m'));
             files = setdiff({files1.name}, {files2.name});
 
             for ii = 1:length(files)
