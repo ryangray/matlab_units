@@ -18,6 +18,10 @@
 % to specify '' for no wrapper for the 'latex' option. Using 'none' is for
 % plain text output such as to a file..
 %
+% Note: this is designed for a string is in a units context, meaning that other
+% text that matches a units will be treated as a unit, so you should try to
+% separate other text first.
+%
 % See also: units
 
 function pstr = unitsSymbols (pstr, tex, env)
@@ -41,6 +45,21 @@ end
 
 pre = '([yzafpnumcdhkMGTPEZY]|da)';
 
+if latex && ~isempty(tl) % latex format with wrapper
+    
+    % Wrap things that are already symbols if there is a wrapper
+    % First group are those that require a scale prefix.
+    bases = {'m','g','s','J','W','N','A','cal','cd','F','Pa','Hz'};
+    for ii = 1:length(bases)
+        pstr = regexprep(pstr,['\<' pre '{1}' bases{ii} '\>'], [tl '$1' bases{ii} tr]);
+    end
+    % Those that have no scale prefix
+    bases = {'m','g','s','J','W','N','A','cal','cd','F','Pa','Hz','mol','BTU'};
+    for ii = 1:length(bases)
+        pstr = regexprep(pstr,['\<' bases{ii} '\>'], [tl bases{ii} tr]);
+    end
+end
+    
 pstr = regexprep(pstr,'\<unitless\>', '');
 pstr = regexprep(pstr,'\<int\>', '');
 pstr = regexprep(pstr,'\<string\>', '');
@@ -62,6 +81,8 @@ pstr = regexprep(pstr,'\<henry\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<henries\>', [tl 'H' tr]);
 pstr = regexprep(pstr,'\<farads?\>', [tl 'F' tr]);
 pstr = regexprep(pstr,'\<c0\>', [tl 'c' tr]);
+pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
+
 if latex
     pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
     pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
@@ -169,16 +190,6 @@ if ~notex
 
     end
 
-end
-
-% Replacements only for LaTeX (in order to wrap recognized units in \mathrm{})
-
-if latex
-    pstr = regexprep(pstr,'\<cm\>', [tl 'cm' tr]);
-    pstr = regexprep(pstr,'\<km\>', [tl 'km' tr]);
-    pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
-    pstr = regexprep(pstr,'\<kJ\>', [tl 'kJ' tr]);
-    pstr = regexprep(pstr,'\<kW\>', [tl 'kW' tr]);
 end
 
 end
