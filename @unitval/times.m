@@ -1,7 +1,7 @@
 %% times  Implement p .* q for unitvals.
-% unitval * unitval = value fields multiply, unit fields add.
-% unitval * double  = value field times double with same units
-% double * unitval = same as above
+% unitval .* unitval = value fields multiply, unit fields add.
+% unitval .* double  = value field times double with same units
+% double  .* unitval = same as above
 
 function r = times (p,q)
 
@@ -10,18 +10,28 @@ if isa(p,'unitval') && isa(q,'unitval')
     dims = unitval.dimensions;
     N = length(dims);
 
-    r = unitval(double(p) .* double(q));
-    
-    for jj = 1:N
-        r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
-    end
-    
-    if isunitless(p) && ~isempty(p.name)
+    if isunitless(p)
         
-        % Prefix
+        r = unitval(double(p) .* double(q), q); % Make like q
+
+        if ~isempty(p.name)
+        
+            % Use p.name as prefix
+            r.name = [p.name q.name];
+            r.symbol = [p.symbol q.symbol];            
+        end
     
-        r.name = [p.name q.name];
-        r.symbol = [p.symbol q.symbol];
+    elseif isunitless(q)
+    
+        r = unitval(double(p) .* double(q), p); % Make like p  
+
+    else % Both have unit dimensions
+      
+        r = unitval(double(p) .* double(q)); % Make unitless
+        % Merge unit dimensions
+        for jj = 1:N
+            r.(dims{jj}) = p.(dims{jj}) + q.(dims{jj});
+        end
         
     end
     

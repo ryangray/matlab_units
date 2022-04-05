@@ -193,9 +193,22 @@ classdef unitval < double
 
                 end
                 
-            elseif numel(varargin) == 1 && ischar(varargin{1}) % unitval(value, unitstring)
+            elseif numel(varargin) == 1
                 
-                obj = feval('units', varargin{1}, obj);
+                if ischar(varargin{1}) % unitval(value, unitstring)
+                
+                    uval = feval('units', varargin{1}, obj);
+                    if isa(uval,'unitval')
+                        obj = val * uval;
+                    else
+                        error('Object units not in use. Cannot constructg with a units expression string.');
+                    end
+                    
+                else
+                    % Probably called as unitval(val, double). Object units
+                    % probably not in use.
+                    error('For unitval(a,b), second arg must be a units expression string or a unitval object.');
+                end
                 
             else % Normal constructor: new_unitval = unitval(val, dims, ...)
                 
@@ -219,18 +232,18 @@ classdef unitval < double
  
                     if unitExists(obj.symbol)
 
-                        disp(convert(obj,obj.symbol));
+                        display(convert(obj,obj.symbol));
                         disp(['(' obj.symbol ')']);
 
                     else
                         warning('Display units "%s" (.symbol property) is an unrecognized unit', obj.symbol);
-                        disp(double(obj))
+                        display(double(obj))
                         disp(obj.dimensionString)
                     end
 
                 else
 
-                    disp(double(obj))
+                    display(double(obj))
                     disp(obj.dimensionString)
 
                 end

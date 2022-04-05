@@ -20,26 +20,25 @@ dims = unitval.dimensions;
 Nd = length(dims);
 same = true;
 
+isuv = cellfun(@(x)isa(x,'unitval'), varargin);
+isem = cellfun(@isempty, varargin);
+args = varargin(isuv|~isem);
 p = varargin{1};
-
 if ischar(p)
     p = units(p);
-end
-
-if ~isa(p,'unitval')
-    p = unitval(p);
+elseif ~isa(p,'unitval')
+    p = unitval(p); % unitless
 end
 iv = 2;
 Nv = length(varargin);
 
 while same && iv <= Nv
     
-    q = varargin{iv};
+    q = args{iv};
     if ischar(q)
         q = units(q);
-    end
-    if ~isa(q,'unitval')
-        q = unitval(q);
+    elseif ~isa(q,'unitval')
+        q = unitval(q); % unitless
     end
     ii = 1;
     while same && ii <= Nd
