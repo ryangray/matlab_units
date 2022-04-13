@@ -27,6 +27,7 @@
 % * '\mu' -> 'micro*', so '\mum' -> 'micro*meter'
 % * '\Omega' -> 'ohm'
 % * '{\circ}' -> 'deg' and '\circK' -> 'degK', etc.
+% * '{\cdot}' -> '*'
 % * 'c' -> 'c0' (speed of light in c0.m)
 % * 'cd' -> 'candela'
 % * 's', 'sec' -> 'second'
@@ -50,7 +51,9 @@ isOct = (exist ('OCTAVE_VERSION', 'builtin') > 0); % Check if under Octave
 % These translate various strings taken in a units context
 
 ue = strtrim(ue);
-ue = regexprep(ue,'([\w\d])( +|\-)([\w\d])','$1*$3'); % multiply
+ue = regexprep(ue, '\{\\cdot\}', '*'); % {\cdot} -> *
+ue = regexprep(ue, '\\cdot',     '*'); %  \cdot  -> *
+ue = regexprep(ue, '([\w\d])( +|\-)([\w\d])','$1*$3'); % implicit multiply
 
 % TeX aliases so you can use these in a units string and in a label.
 % Do these substitutions before others that operate on whole words.

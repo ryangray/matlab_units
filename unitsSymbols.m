@@ -49,12 +49,12 @@ if latex && ~isempty(tl) % latex format with wrapper
     
     % Wrap things that are already symbols if there is a wrapper
     % First group are those that require a scale prefix.
-    bases = {'m','g','s','J','W','N','A','cal','cd','F','Pa','Hz'};
+    bases = {'m','g','s','J','W','N','A','cal','cd','F','V','Pa','Hz'};
     for ii = 1:length(bases)
         pstr = regexprep(pstr,['\<' pre '{1}' bases{ii} '\>'], [tl '$1' bases{ii} tr]);
     end
     % Those that have no scale prefix
-    bases = {'m','g','s','J','W','N','A','cal','cd','F','Pa','Hz','mol','BTU'};
+    bases = {'m','g','s','J','W','N','A','cal','cd','F','V','Pa','Hz','mol','BTU'};
     for ii = 1:length(bases)
         pstr = regexprep(pstr,['\<' bases{ii} '\>'], [tl bases{ii} tr]);
     end
@@ -165,6 +165,8 @@ pstr = regexprep(pstr,['\<' pre 'sec\>'], [tl '$1s' tr]);
 pstr = regexprep(pstr,['\<' pre 'rads\>'], [tl '$1rad' tr]);
 
 if ~notex
+    
+    pstr = regexprep(pstr, '\*', '{\\cdot}');
     
     % Turn 'u' prefix into {\mu} on a valid unit
     
