@@ -53,17 +53,37 @@ isOct = (exist ('OCTAVE_VERSION', 'builtin') > 0); % Check if under Octave
 ue = strtrim(ue);
 ue = regexprep(ue, '\{\\cdot\}', '*'); % {\cdot} -> *
 ue = regexprep(ue, '\\cdot',     '*'); %  \cdot  -> *
-ue = regexprep(ue, '([\w\d])( +|\-)([\w\d])','$1*$3'); % implicit multiply
+ue = regexprep(ue, '([^ ])( +|\-)([^ \d])','$1*$3'); % implicit multiply
 
-% TeX aliases so you can use these in a units string and in a label.
+% Convert symbol characterts to unit M-file words.
 % Do these substitutions before others that operate on whole words.
 
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for the following
-ue = regexprep(ue, char([194 176]), 'deg'); % degree character -> deg in UTF-8
-if ~isOct
-    ue = regexprep(ue, char(176), 'deg'); % degree character -> deg in MATLAB
+ue = regexprep(ue, char([194 176]), '*deg'); % degree character -> deg in UTF-8
+ue = regexprep(ue, char([194 178]), '^2'); % Superscript 2 character UTF8
+ue = regexprep(ue, char([206 169]), 'ohm'); % Capital Omega symbol in UTF-8
+ue = regexprep(ue, char([195 133]), 'angstrom'); % Circle-topped capital A in UTF-8
+if ~isOct % MATLAB
+    % UTF16 codes > 255 that Octave doesn't do or invalid UTF8 strings
+    % Do the single codes < 256 after first checking for the UTF8 two-codes
+    % where the second byte is the same code (i.e., check 194,176 before 176)
+    ue = regexprep(ue, char(176), '*deg'); % degree character
+    ue = regexprep(ue, ['\<([a-zA-Z_]+)' char(178) '\>'], '$1^2'); % Superscript 2 character 
+    ue = regexprep(ue, ['\<' char(956) '([a-zA-Z]+)\>'], '(micro*$1)'); % mu character
+    ue = regexprep(ue, ['\<' char([194 181]) '([a-zA-Z]+)\>'], '(micro*$1)'); % mu character UTF8
+    ue = regexprep(ue, char(937), 'ohm'); % Capital Omega symbol in MATLAB
+    ue = regexprep(ue, char(197), 'angstrom'); % Circle-topped capital A in MATLAB
+else % Octave-specific
+    % Octave is not honoring \< when followed by a char(194) UTF8 character.
+    % Will have to watch if this is a bug that gets fixed eventually.
+    ue = regexprep(ue, ['(^|\<)' char([194 181]) '([a-zA-Z]+)\>'], '(micro*$1)'); % mu character UTF8
+    % Also, Octave doesn't count a regex option (|) as a capture token like
+    % MATLAB does, so the same regex would work in MATLAB, but the replacement 
+    % token would need to be $2.
+    % Furthermore, there seem to be differences in what characters are
+    % considered for \w, so trying to avoid using that.
 end
 ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
 ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
@@ -147,12 +167,6 @@ ue = regexprep(ue,'(.)%$','$1*percent');
 ue = regexprep(ue,'^%$','percent');
 ue = regexprep(ue,'\<in\>','inch');
 ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
-if ~isOct
-    ue = regexprep(ue,['\<' char(937) '\>'],'ohm'); % Capital Omega symbol in MATLAB
-    ue = regexprep(ue,['\<' char(197) '\>'],'angstrom'); % Circle-topped capital A in MATLAB
-end
-ue = regexprep(ue,['\<' char([206 169]) '\>'],'ohm'); % Capital Omega symbol in UTF-8
-ue = regexprep(ue,['\<' char([195 133]) '\>'],'angstrom'); % Circle-topped capital A in UTF-8
 
 % legacy
 ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');

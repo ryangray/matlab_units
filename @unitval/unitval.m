@@ -226,29 +226,26 @@ classdef unitval < double
             
             % DISP  Display unitval object value with unit dimensions.
             
-            if ~isempty(double(obj))
-                
-                if ~isempty(obj.symbol) && obj.symbol(1) ~= ' '
- 
-                    if unitExists(obj.symbol)
+            if ~isempty(obj.symbol) && obj.symbol(1) ~= ' '
 
-                        display(convert(obj,obj.symbol));
-                        disp(['(' obj.symbol ')']);
+                if unitExists(obj.symbol)
 
-                    else
-                        warning('Display units "%s" (.symbol property) is an unrecognized unit', obj.symbol);
-                        display(double(obj))
-                        disp(obj.dimensionString)
-                    end
+                    display(convert(obj,obj.symbol));
+                    disp(['(' obj.symbol ')']);
 
                 else
-
+                    warning('Display units "%s" (.symbol property) is an unrecognized unit', obj.symbol);
                     display(double(obj))
                     disp(obj.dimensionString)
-
                 end
 
+            else
+
+                display(double(obj))
+                disp(obj.dimensionString)
+
             end
+
         end
         
         function sref = subsref(obj, s)

@@ -1,8 +1,7 @@
 %% Turn a units expression in to a pretty symbol version
 %
-% The output can contain TeX formatting, such as "\mu" for "micro", with
-% the intent that you can use it in a text label. These are also supported
-% by the units.m function for evaluating to a units value.
+% The output can contain TeX formatting, such as "\mu" for "micro", if the tex 
+% option is 'none' with the intent that you can use it in a text label.
 %
 % Units of 'string', 'int', and 'unitless' are returned as an empty string.
 %
@@ -83,9 +82,9 @@ pstr = regexprep(pstr,'\<farads?\>', [tl 'F' tr]);
 pstr = regexprep(pstr,'\<c0\>', [tl 'c' tr]);
 pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
 
+pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
+pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
 if latex
-    pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
-    pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
     pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K' tr '^{\\circ}']); % If env is mathrm, then \circ inside can cause problems
     pstr = regexprep(pstr,'\<Cdegs?\>', [tl 'C' tr '^{\\circ}']);
     pstr = regexprep(pstr,'\<Fdegs?\>', [tl 'F' tr '^{\\circ}']);
@@ -97,15 +96,13 @@ if latex
     pstr = regexprep(pstr,'\<%\>', [tl '\\%' tr]); % Do this before replacing 'percent' with '%'
     pstr = regexprep(pstr,'\<percent\>', [tl '\\%' tr]);
 elseif ~notex
-    pstr = regexprep(pstr,'\<degs?\>', '{\\circ}');
-    pstr = regexprep(pstr,'\<degrees?\>', '{\\circ}');
-    pstr = regexprep(pstr,'\<Kdegs?\>', 'K{\\circ}');
-    pstr = regexprep(pstr,'\<Cdegs?\>', 'C{\\circ}');
-    pstr = regexprep(pstr,'\<Fdegs?\>', 'F{\\circ}');
+    pstr = regexprep(pstr,'\<Kdegs?\>', 'K^{\\circ}');
+    pstr = regexprep(pstr,'\<Cdegs?\>', 'C^{\\circ}');
+    pstr = regexprep(pstr,'\<Fdegs?\>', 'F^{\\circ}');
     pstr = regexprep(pstr,'\<degK\>', 'K');
-    pstr = regexprep(pstr,'\<degC\>', '{\\circ}C');
-    pstr = regexprep(pstr,'\<degR\>', '{\\circ}R');
-    pstr = regexprep(pstr,'\<degF\>', '{\\circ}F');
+    pstr = regexprep(pstr,'\<degC\>', '^{\\circ}C');
+    pstr = regexprep(pstr,'\<degR\>', '^{\\circ}R');
+    pstr = regexprep(pstr,'\<degF\>', '^{\\circ}F');
     pstr = regexprep(pstr,'\<percent\>', '%');
 else
     pstr = regexprep(pstr,'\<degK\>', 'K');
@@ -192,6 +189,10 @@ if ~notex
 
     end
 
+    % For tex/latex, change parens to curly braces after ^ so that the whole 
+    % exponent appears as superscript. Hopefully no nested parens in the exponent.
+    pstr = regexprep(pstr, '\^\(([^)]+)\)', '^{$1}');
+    
 end
 
 end

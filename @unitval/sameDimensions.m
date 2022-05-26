@@ -23,14 +23,14 @@ same = true;
 isuv = cellfun(@(x)isa(x,'unitval'), varargin);
 isem = cellfun(@isempty, varargin);
 args = varargin(isuv|~isem);
-p = varargin{1};
+p = args{1};
 if ischar(p)
     p = units(p);
 elseif ~isa(p,'unitval')
     p = unitval(p); % unitless
 end
 iv = 2;
-Nv = length(varargin);
+Nv = length(args);
 
 while same && iv <= Nv
     
