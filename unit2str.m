@@ -9,14 +9,16 @@
 %  str = unit2str(val, unitstr, format, tex)
 %
 % The number is converted to the units specified with unitstr and then to a
-% string with num2str(). If format is specified, then it is passed to
-% num2str(). If tex is given, it is passed as the tex option to unitsSymbols.
+% string with num2str(). If a format string is specified, then it is passed to
+% num2str(). If format is a function handle, then it is called instead of 
+% num2str, passing the converted val to it. If tex is given, it is passed as the
+% tex option to unitsSymbols.
 %
 % If val is an array, a 1xN array will produce a single string of values
 % with one unit at the end, and an Nx1 array will produce a cell array of
 % strings with N rows and the unit repeated at the end of each row.
 %
-% You can give the units string with the units surrounded by parend or
+% You can give the units string with the units surrounded by parens or
 % brackets if you want them to appear after the value that way:
 %
 %  unit2str(x, '(km)')
@@ -52,8 +54,10 @@ elseif nargin < 3 || isempty(format)
     
     nstr = num2str(val);
     
+elseif isa(format, 'function_handle')
+
+    nstr = format(val);
 else
-    
     nstr = num2str(val, format);
     
 end
