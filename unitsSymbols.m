@@ -1,7 +1,8 @@
 %% Turn a units expression in to a pretty symbol version
 %
-% The output can contain TeX formatting, such as "\mu" for "micro", if the tex 
-% option is 'none' with the intent that you can use it in a text label.
+% By default, the output can contain TeX formatting, such as "\mu" for "micro", 
+% with the intent that you can use it in a text label with the default 'tex'
+% interpreter.
 %
 % Units of 'string', 'int', and 'unitless' are returned as an empty string.
 %
@@ -17,9 +18,9 @@
 % to specify '' for no wrapper for the 'latex' option. Using 'none' is for
 % plain text output such as to a file..
 %
-% Note: this is designed for a string is in a units context, meaning that other
-% text that matches a units will be treated as a unit, so you should try to
-% separate other text first.
+% Note: this is designed for a string that is in a units context, meaning that 
+% other text that matches a unit name will be treated as a unit. You should try 
+% to use this on just a unit string or unit string with a number.
 %
 % See also: units
 
@@ -167,7 +168,7 @@ if ~notex
     
     % Turn 'u' prefix into {\mu} on a valid unit
     
-    rex = ['\<u(.+)\>'];
+    rex = '\<u([a-zA-Z]+)\>';
     [istart, iend, itok] = regexp(pstr, rex, 'once');
     i0 = 0;
 
@@ -180,7 +181,7 @@ if ~notex
         ustr = pstr(itok(1,1):itok(1,2));
         if ~isempty(units(ustr))
             % Got a valid unit
-            pstr = [pstr(1:istart-1) '{\mu}' TL ustr tr pstr(iend+1:end)];
+            pstr = [pstr(1:istart-1) '{\mu}' ustr pstr(iend+1:end)];
             i0 = istart + 5;
         else
             i0 = iend + 1;
