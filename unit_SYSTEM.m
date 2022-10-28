@@ -10,6 +10,6 @@ if nargout == 0
     
 else
     
-    varargout = name;
+    varargout = {name};
     
 end
