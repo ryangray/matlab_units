@@ -51,9 +51,14 @@ isOct = (exist ('OCTAVE_VERSION', 'builtin') > 0); % Check if under Octave
 % These translate various strings taken in a units context
 
 ue = strtrim(ue);
+if isempty(ue)
+    ue = 'unitless';
+    return
+end
 ue = regexprep(ue, '\{\\cdot\}', '*'); % {\cdot} -> *
 ue = regexprep(ue, '\\cdot',     '*'); %  \cdot  -> *
 ue = regexprep(ue, '([^ ])( +|\-)([^ \d])','$1*$3'); % implicit multiply
+ue = regexprep(ue, '\<([a-zA-Z_]+)([23])\>', '$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
 
 % Convert symbol characterts to unit M-file words.
 % Do these substitutions before others that operate on whole words.
@@ -166,7 +171,6 @@ ue = regexprep(ue,'\<function\>','');
 ue = regexprep(ue,'(.)%$','$1*percent');
 ue = regexprep(ue,'^%$','percent');
 ue = regexprep(ue,'\<in\>','inch');
-ue = regexprep(ue,'\<([a-zA-Z_]+)([23])\>','$1^$2'); % e.g., cm2 -> cm^2 or m3 -> m^3
 
 % legacy
 ue = regexprep(ue,'\<(u|n|m)rads\>','$1rad');

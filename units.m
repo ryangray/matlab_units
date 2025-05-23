@@ -109,7 +109,7 @@ elseif ischar(varargin{1})
         case 'install'
             
             si = fileparts(mfilename('fullpath'));
-            addpath(si,'-end')
+            addpath(si,'-begin') % Add to the beginning to override some other MATLAB funcitons
             if exist('pathtool.m','file')
                 fprintf('The pathtool should open with the units folder added at the end.\n');
             else

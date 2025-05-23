@@ -62,7 +62,7 @@ else
         mn = floor(ms * 100);
         sc = (ms * 100 - mn) * 100;
 
-        angle = sgn * (floor(d) + mn / 60 + sc / 3600) * deg;
+        angle = sgn .* (floor(d) + mn / 60 + sc / 3600) * deg;
 
     end
 
