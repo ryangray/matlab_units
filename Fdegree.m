@@ -8,4 +8,4 @@
 
 function F = Fdegree
 
-F = unit_MAKE(5 / 9 * Cdegree, 'Fahrenheit degree', 'F°');
+F = unit_MAKE(5 / 9 * Cdegree, 'Fahrenheit degree', 'FÂ°');

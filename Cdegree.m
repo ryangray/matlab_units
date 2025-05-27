@@ -8,4 +8,4 @@
 
 function C = Cdegree
 
-C = unit_MAKE(Kdegree, 'Celcius degree', 'C°'); 
+C = unit_MAKE(Kdegree, 'Celcius degree', 'CÂ°');
