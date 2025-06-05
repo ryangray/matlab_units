@@ -66,6 +66,15 @@ ue = regexprep(ue, '\<([a-zA-Z_]+)([23])\>', '$1^$2'); % e.g., cm2 -> cm^2 or m3
 ue = regexprep(ue,'\\mu','micro*'); % \mu
 ue = regexprep(ue,'\\Omega\>','ohms'); % \Omega
 ue = regexprep(ue,'\{\\circ\}','\\circ'); % {\circ} -> \circ for following rules
+% Degrees
+ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
+ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
+ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
+% Degrees for Octave since it uses \circ as TeX does and \deg for the degree symbol, whereas MATLAB uses \circ for the degree symbol.
+ue = regexprep(ue,'\{\\deg\}','\\deg'); % {\deg} -> \deg for the following
+ue = regexprep(ue,'\\deg([CFRK])\>','deg$1'); % \degC, \degF, etc.
+ue = regexprep(ue,'\<([CFRK])\\deg\>','$1deg'); % C\deg, etc.
+ue = regexprep(ue,'\<\\deg\>','deg'); % \deg
 
 % Convert symbol characters to unit M-file words. I've encountered these in unit
 % labels in text files and Excel files, so it's handy to handle them here.
@@ -100,16 +109,6 @@ if ~isOct % MATLAB
     ue = strrep(ue, char(8491), 'angstrom'); % Angstrom symbol (0x03A9)
     ue = strrep(ue, char(956),  'micro*');   % Greek letter mu (0x03BC)
 end
-
-% Degrees
-ue = regexprep(ue,'\\circ([CFRK])\>','deg$1'); % \circC, \circF, etc.
-ue = regexprep(ue,'\<([CFRK])\\circ\>','$1deg'); % C\circ, etc.
-ue = regexprep(ue,'\<\\circ\>','deg'); % \circ
-% Degrees for Octave since it uses \circ as TeX does and \deg for the degree symbol, whereas MATLAB uses \circ for the degree symbol.
-ue = regexprep(ue,'\{\\deg\}','\\deg'); % {\deg} -> \deg for the following
-ue = regexprep(ue,'\\deg([CFRK])\>','deg$1'); % \degC, \degF, etc.
-ue = regexprep(ue,'\<([CFRK])\\deg\>','$1deg'); % C\deg, etc.
-ue = regexprep(ue,'\<\\deg\>','deg'); % \deg
 
 % Specials
 ue = regexprep(ue, '\<e-\>', 'electron');
