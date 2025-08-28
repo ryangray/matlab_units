@@ -11,7 +11,7 @@
 % (not including zero values), but this is not checked.
 
 % Future extensions could be to accept string forms of DMS like:
-%   dd.mmss or dd°mm'ss"
+%   dd.mmss or ddÂ°mm'ss"
 
 function [angle, varargout] = dms (d, varargin)
 
