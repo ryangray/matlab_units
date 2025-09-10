@@ -260,14 +260,14 @@ elseif ischar(varargin{1})
 
                             end
 
-                            rmpath(oldsys);       % Remove the old one
-                            addpath(usePath, '-end'); % Add the new one
-                            addpath(si,'-end');       % Add the core si base after that.
+                            rmpath(oldsys);             % Remove the old base
+                            addpath(si,'-begin');       % Add/move the core si base to top
+                            addpath(usePath, '-begin'); % Add the new base above that
 
                         else
 
-                            rmpath(oldsys);       % Remove the old one
-                            addpath(si,'-end');       % Add the core si base.
+                            rmpath(oldsys);         % Remove the old base
+                            addpath(si,'-begin');   % Add/move the core si base to top
                         end
 
                         if nargin > 2
