@@ -83,8 +83,13 @@ pstr = regexprep(pstr,'\<farads?\>', [tl 'F' tr]);
 pstr = regexprep(pstr,'\<c0\>', [tl 'c' tr]);
 pstr = regexprep(pstr,'\<mole\>', [tl 'mol' tr]);
 
-pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
-pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
+if notex
+    pstr = regexprep(pstr,'\<degs\>', 'deg');
+    pstr = regexprep(pstr,'\<degrees?\>', 'deg');
+else
+    pstr = regexprep(pstr,'\<degs?\>', '^{\\circ}');
+    pstr = regexprep(pstr,'\<degrees?\>', '^{\\circ}');
+end
 if latex
     pstr = regexprep(pstr,'\<Kdegs?\>', [tl 'K' tr '^{\\circ}']); % If env is mathrm, then \circ inside can cause problems
     pstr = regexprep(pstr,'\<Cdegs?\>', [tl 'C' tr '^{\\circ}']);

@@ -103,6 +103,9 @@ if isa(cval, 'unitval')
     if ~isunitless(cval)
     
         warning('Attempt to convert a unitval to a unit of different dimensionality');
+        if strcmp(pwd, fileparts(which(filename)))
+            warning('It appears that the current directory is the units folder, which can cause this problem.');
+        end
     end
     
     cval = double(cval);
