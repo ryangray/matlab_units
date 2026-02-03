@@ -109,7 +109,7 @@ elseif ischar(varargin{1})
         case 'install'
             
             si = fileparts(mfilename('fullpath'));
-            addpath(si,'-begin') % Add to the beginning to override some other MATLAB funcitons
+            addpath(si,'-begin'); % Add to the beginning to override some other MATLAB funcitons
             if exist('pathtool.m','file')
                 fprintf('The pathtool should open with the units folder added at the end.\n');
             else
@@ -343,7 +343,7 @@ elseif ischar(varargin{1})
                     case 'double'
 
                         rmpath(oldsys);
-                        addpath(si,'-end');
+                        addpath(si,'-begin');
                         
                     case {'obj','object','unitval'}
 
@@ -362,8 +362,8 @@ elseif ischar(varargin{1})
                             end
                         end
                         rmpath(oldsys);
-                        addpath(fobj, '-end');
-                        addpath(si,'-end');
+                        addpath(si,'-begin');
+                        addpath(fobj, '-begin');
                         
                     otherwise
                         
