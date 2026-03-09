@@ -32,34 +32,38 @@
 
 function str = unit2str (value, unitstr, format, tex)
 
-val = units(unitstr, value, 'to'); % convert value
+if ~isnumeric(value)
 
-if nargin < 4
-    sym = unitsSymbols(unitstr);
-else
-    sym = unitsSymbols(unitstr, tex);
-end
-if ismember(sym, {'{\circ}', '^{\circ}'})
-    ustr = sym; % No space between
-else
-    ustr = [' ' sym];
-end
-
-if ischar(value)
-    
     nstr = value;
     ustr = '';
-    
-elseif nargin < 3 || isempty(format)
-    
-    nstr = num2str(val);
-    
-elseif isa(format, 'function_handle')
 
-    nstr = format(val);
 else
-    nstr = num2str(val, format);
+
+    val = units(unitstr, value, 'to'); % convert value
+
+    if nargin < 4
+        sym = unitsSymbols(unitstr);
+    else
+        sym = unitsSymbols(unitstr, tex);
+    end
+    if ismember(sym, {'{\circ}', '^{\circ}'})
+        ustr = sym; % No space between
+    else
+        ustr = [' ' sym];
+    end
     
+    if nargin < 3 || isempty(format)
+        
+        nstr = num2str(val);
+        
+    elseif isa(format, 'function_handle')
+    
+        nstr = format(val);
+    else
+        nstr = num2str(val, format);
+        
+    end
+
 end
 
 if size(nstr,1) > 1
